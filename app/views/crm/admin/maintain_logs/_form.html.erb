@@ -1,0 +1,6 @@
+<%= form_with model: [:admin, @maintain, @maintain_log] do |f| %>
+  <%= render 'shared/error_messages', target: @maintain_log %>
+  <%= f.collection_select :maintain_tag_id, @maintain_tags, :id, :name %>
+  <%= f.text_area :note %>
+  <%= f.submit %>
+<% end %>

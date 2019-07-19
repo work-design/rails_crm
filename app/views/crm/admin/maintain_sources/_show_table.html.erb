@@ -1,0 +1,20 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_crm_admin_maintain_source_path(@maintain_source), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= MaintainSource.human_attribute_name(:name) %></td>
+      <td><%= @maintain_source.name %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= MaintainSource.human_attribute_name(:maintains_count) %></td>
+      <td><%= @maintain_source.maintains_count %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,4 @@
+$('#modal').replaceWith('<%= j(render 'edit_transfer') %>');
+$('#modal').modal({autofocus: false}).modal('show');
+$('#card_template_id').dropdown();
+remote_js_load(<%= raw remote_js_load %>)

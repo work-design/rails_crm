@@ -1,0 +1,13 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    <%= t('.new') %>
+  </div>
+
+  <div class="content">
+    <%= form_with url: detect_admin_maintains_url do |f| %>
+      <%= f.text_field :identity, label: '家长联系方式' %>
+      <%= f.submit '下一步' %>
+    <% end %>
+  </div>
+</div>

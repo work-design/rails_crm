@@ -1,0 +1,8 @@
+<%= form_with model: [:admin, @maintain_tag] do |f| %>
+  <%= render 'shared/error_messages', target: @maintain_tag %>
+  <%= f.text_field :name %>
+  <%= f.text_field :sequence %>
+  <%= f.color_field :color %>
+  <%= f.select :logged_type, options_for_select(MaintainTag.options_i18n(:logged_type), @maintain_tag.logged_type), include_blank: true %>
+  <%= f.submit %>
+<% end %>

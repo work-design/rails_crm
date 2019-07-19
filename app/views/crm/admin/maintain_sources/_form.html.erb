@@ -1,0 +1,5 @@
+<%= form_with model: [:admin, @maintain_source] do |f| %>
+  <%= render 'shared/error_messages', target: @maintain_source %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,34 @@
+<tr title="<%= maintain.created_at %>">
+  <td>
+    <p><%= maintain.client.real_name %></p>
+    <p class="ui grey text"><%= maintain.client.nick_name %></p>
+  </td>
+  <td>
+    <span><%= maintain.client.age %></span>
+    <span class="ui icon label">
+      <i class="fas <%= active_assert(maintain.client.male?, expected: 'fa-male', unexpected: 'fa-female') %>"></i>
+      <%= maintain.client.gender_i18n %>
+    </span>
+  </td>
+  <td>
+    <p><%= maintain.tutelar.real_name %></p>
+    <p class="ui green text"><%= maintain.tutelar.identity %></p>
+  </td>
+  <td><%= maintain.tutelage.relation_i18n %></td>
+  <td>
+    <p><%= maintain.maintain_source&.name %></p>
+    <p>
+      <span><%= maintain.pipeline&.name %></span>
+      <% if maintain.pipeline_member %>
+      <span style="color: <%= maintain.pipeline_member.color %>">(<%= maintain.pipeline_member.name %>)</span>
+      <% end %>
+    </p>
+  </td>
+  <td><%= maintain.note %></td>
+  <td>
+    <% maintain.tags.each do |tag| %>
+      <span class="ui label"><%= tag %></span>
+    <% end %>
+  </td>
+  <%= yield %>
+</tr>

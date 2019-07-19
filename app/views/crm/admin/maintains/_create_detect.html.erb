@@ -1,0 +1,23 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    <%= t('.new') %>
+  </div>
+
+  <div class="content">
+    <%= form_with url: new_admin_maintain_url, method: :get do |f| %>
+      <div class="inline fields">
+        <%= f.hidden_field :tutelar_id, value: @tutelar.id %>
+        <%= f.collection_select :tutelage_id, @tutelages, :id, :name, label: '选择现有', on: { wrapper_all: false } %>
+        <%= f.submit '下一步', on: { wrapper_all: false, offset: false } %>
+      </div>
+    <% end %>
+    <div class="ui horizontal divider">或</div>
+    <div class="ui center aligned basic segment">
+      <%= link_to new_admin_maintain_path(tutelar_id: @tutelar.id), remote: true, class: 'ui teal button' do %>
+        <i class="fas fa-plus"></i>
+        <span>新增</span>
+      <% end %>
+    </div>
+  </div>
+</div>

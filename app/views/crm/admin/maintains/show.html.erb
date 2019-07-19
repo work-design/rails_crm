@@ -1,0 +1,9 @@
+<% content_for :breadcrumb do %>
+<div class="ui basic segment breadcrumb">
+  <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: 'section' %>
+  <i class="fas fa-angle-right divider"></i>
+  <div class="active section"><%= t('.title') %></div>
+</div>
+<% end %>
+
+<%= render 'show_table' %>

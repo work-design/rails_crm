@@ -1,0 +1,32 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_admin_maintain_tag_template_path(@maintain_tag_template), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= MaintainTagTemplate.human_attribute_name(:name) %></td>
+      <td><%= @maintain_tag_template.name %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= MaintainTagTemplate.human_attribute_name(:logged_type) %></td>
+      <td><%= @maintain_tag_template.logged_type %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= MaintainTagTemplate.human_attribute_name(:entity_column) %></td>
+      <td><%= @maintain_tag_template.entity_column %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= MaintainTagTemplate.human_attribute_name(:entity_value) %></td>
+      <td><%= @maintain_tag_template.entity_value %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= MaintainTagTemplate.human_attribute_name(:sequence) %></td>
+      <td><%= @maintain_tag_template.sequence %></td>
+    </tr>
+  </tbody>
+</table>

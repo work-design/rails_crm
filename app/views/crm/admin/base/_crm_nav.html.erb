@@ -1,0 +1,15 @@
+<% if rails_role_user.any_role?('crm/admin') %>
+<div class="item">
+  <a class="<%= active_helper(modules: ['crm/admin'], active_class: 'title active', item_class: 'title') %>">
+    <i class="fas fa-chart-line fa-fw"></i>
+    <span>市场管理</span>
+    <i class="dropdown icon"></i>
+  </a>
+  <div class="<%= active_helper(modules: ['crm/admin'], active_class: 'menu content active', item_class: 'menu content') %>">
+    <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show']) %>
+    <%= link_to t('crm.admin.maintains.public.title'), public_admin_maintains_path, class: active_helper('maintains': 'public') %>
+    <%= link_to t('crm.admin.maintain_source_templates.index.title'), admin_maintain_source_templates_path, class: active_helper(controllers: 'maintain_source_templates') %>
+    <%= link_to t('crm.admin.maintain_tag_templates.index.title'), admin_maintain_tag_templates_path, class: active_helper(controllers: 'maintain_tag_templates') %>
+  </div>
+</div>
+<% end %>
