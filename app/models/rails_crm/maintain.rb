@@ -16,6 +16,7 @@ module RailsCrm::Maintain
   
     has_many :maintain_logs, dependent: :delete_all
     has_many :maintain_tags, -> { distinct }, through: :maintain_logs
+    has_many :orders, dependent: :nullify
     
     accepts_nested_attributes_for :tutelar, reject_if: :all_blank
     accepts_nested_attributes_for :client, reject_if: :all_blank
@@ -65,10 +66,6 @@ module RailsCrm::Maintain
       booked_id: booked.booked_id
     }
     ml.save
-  end
-  
-  def orders
-    Order.default_where('extra/maintain_id': self.id.to_s)
   end
   
   def option_maintain_tags

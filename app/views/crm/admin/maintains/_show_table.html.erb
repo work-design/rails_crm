@@ -60,14 +60,6 @@
             <% end %>
           </div>
         <% end %>
-        <% @maintain.orders.each do |order| %>
-          <div class="ui image label">
-            <%= link_to_if order.uuid, admin_orders_path(id: order) %>
-          </div>
-        <% end %>
-        <%= link_to order_admin_maintain_path(@maintain), data: { tooltip: '购卡' }, class: 'ui mini circular icon button', remote: true do %>
-          <i class="fas fa-credit-card"></i>
-        <% end %>
       </td>
     </tr>
   </tbody>

@@ -1,5 +1,5 @@
 class Crm::Admin::MaintainsController < Crm::Admin::BaseController
-  before_action :set_maintain, only: [:show, :courses, :edit, :update, :edit_order, :update_order, :edit_transfer, :update_transfer, :detach, :assume, :destroy]
+  before_action :set_maintain, only: [:show, :courses, :edit, :update, :orders, :edit_order, :update_order, :edit_transfer, :update_transfer, :detach, :assume, :destroy]
   before_action :prepare_form, only: [:new, :create_detect, :edit]
 
   def index
@@ -189,7 +189,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   end
   
   def orders
-  
+    @orders = @maintain.orders.page(params[:page])
   end
   
   def edit_order
@@ -201,7 +201,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     q_params.merge! params.permit(:card_template_id)
     card_template = CardTemplate.find(q_params['card_template_id'])
   
-    order = card_template.generate_order! buyer: @maintain.tutelar, extra: { maintain_id: @maintain.id }
+    order = card_template.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
     redirect_back fallback_location: admin_maintains_url
   end

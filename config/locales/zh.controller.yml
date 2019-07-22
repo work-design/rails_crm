@@ -1,0 +1,31 @@
+zh:
+  crm:
+    admin:
+      maintains:
+        index:
+          title: 我的客户
+          transfer: 移交
+          detach: 释放
+          orders: 订单
+        public:
+          title: 待分配客户
+          assume: 接收
+        show:
+          title: 详情
+        orders:
+          title: 订单列表
+      maintain_logs:
+        index:
+          title: 跟踪日志
+      maintain_sources:
+        index:
+          title: 客户来源
+      maintain_tags:
+        index:
+          title: 客户标签
+      maintain_source_templates:
+        index:
+          title: 客户来源
+      maintain_tag_templates:
+        index:
+          title: 客户标签
