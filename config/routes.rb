@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         patch 'transfer' => :update_transfer
         patch :detach
         patch :assume
+        get :orders
         get 'order' => :edit_order
         patch 'order' => :update_order
       end

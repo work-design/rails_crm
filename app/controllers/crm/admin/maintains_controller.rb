@@ -188,6 +188,10 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     redirect_to admin_maintains_url
   end
   
+  def orders
+  
+  end
+  
   def edit_order
     @card_templates = CardTemplate.default_where(default_params)
   end
