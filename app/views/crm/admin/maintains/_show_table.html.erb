@@ -52,7 +52,7 @@
     <tr>
       <td class="right aligned"><%= Card.human_name %></td>
       <td>
-        <% @maintain.client.cards.each do |card| %>
+        <% @maintain.tutelage.cards.each do |card| %>
           <div class="ui image label">
             <%= link_to_if card.card_uuid, admin_card_card_logs_path(card) %>
             <%= link_to card_admin_tutelage_path(@maintain.tutelage, card_id: card.id), method: :delete do %>
