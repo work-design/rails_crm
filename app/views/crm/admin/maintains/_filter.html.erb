@@ -50,13 +50,13 @@
   </dd>
 </dl>
 <dl>
-  <dt><%= link_to_if Maintain.human_attribute_name(:pipeline_id), admin_pipelines_path %></dt>
+  <dt><%= link_to_if Maintain.human_attribute_name(:pipeline_id), admin_pipelines_path(piping_type: 'Maintain') %></dt>
   <dd>
     <%= link_to t('.all'), filter_params(except: [:pipeline_id]), class: active_params(pipeline_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
     <% @pipelines.each do |pipeline| %>
       <%= link_to pipeline.name, filter_params(pipeline_id: pipeline.id), class: active_params(pipeline_id: pipeline.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
     <% end %>
-    <%= link_to new_admin_pipeline_path, data: { tooltip: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to new_admin_pipeline_path(piping_type: 'Maintain'), data: { tooltip: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </dd>

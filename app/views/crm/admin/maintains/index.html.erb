@@ -27,7 +27,7 @@
         </div>
         <div>
           <%= Maintain.human_attribute_name(:pipeline_id) %>
-          <%= link_to admin_pipelines_path, data: { tooltip: '流水线' }, target: '_blank' do %>
+          <%= link_to admin_pipelines_path(piping_type: 'Maintain'), data: { tooltip: '流水线' }, target: '_blank' do %>
             <i class="fas fa-cog"></i>
           <% end %>
         </div>
@@ -63,6 +63,9 @@
         <% end %>
         <%= link_to detach_admin_maintain_path(maintain), method: :patch, data: { tooltip: t('crm.admin.maintains.index.detach'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-hand-holding"></i>
+        <% end %>
+        <%= link_to transfer_admin_maintain_path(maintain), data: { tooltip: t('.transfer') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-random"></i>
         <% end %>
         <%= link_to orders_admin_maintain_path(maintain), data: { tooltip: t('.orders') }, class: 'ui mini circular icon button' do %>
           <i class="fas fa-shopping-cart"></i>

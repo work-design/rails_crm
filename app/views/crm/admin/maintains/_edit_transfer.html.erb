@@ -12,7 +12,7 @@
           <i class="fas fa-cog"></i>
         <% end %>
       </div>
-      <%= f.collection_select :member_id, @members, :id, :name %>
+      <%= f.collection_select :member_id, @members, :id, :name, on: { wrapper_input_id: true } %>
       <%= f.submit %>
     <% end %>
   </div>
