@@ -52,7 +52,7 @@
         <%= link_to assume_admin_maintain_path(maintain), data: { tooltip: t('.assume') }, method: :patch, class: 'ui mini circular icon button' do %>
           <i class="fas fa-vote-yea"></i>
         <% end %>
-        <%= link_to transfer_admin_maintain_path(maintain), data: { tooltip: t('.transfer') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to assign_admin_maintain_path(maintain), data: { tooltip: t('.assign') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-random"></i>
         <% end %>
         <%= link_to admin_maintain_maintain_logs_path(maintain), data: { tooltip: t('.log') }, class: 'ui mini circular icon button' do %>

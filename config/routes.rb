@@ -18,8 +18,10 @@ Rails.application.routes.draw do
         get :courses
         get 'transfer' => :edit_transfer
         patch 'transfer' => :update_transfer
-        patch :detach
+        get 'assign' => :edit_assign
+        patch 'assign' => :update_assign
         patch :assume
+        patch :detach
         get :orders
         get 'order' => :edit_order
         patch 'order' => :update_order

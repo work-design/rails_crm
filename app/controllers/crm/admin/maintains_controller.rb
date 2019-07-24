@@ -1,5 +1,11 @@
 class Crm::Admin::MaintainsController < Crm::Admin::BaseController
-  before_action :set_maintain, only: [:show, :courses, :edit, :update, :orders, :edit_order, :update_order, :edit_transfer, :update_transfer, :detach, :assume, :destroy]
+  before_action :set_maintain, only: [
+    :show, :courses, :edit, :update, :orders,
+    :edit_order, :update_order,
+    :edit_transfer, :update_transfer,
+    :edit_assign, :update_assign,
+    :detach, :assume, :destroy
+  ]
   before_action :prepare_form, only: [:new, :create_detect, :edit]
 
   def index
@@ -182,6 +188,29 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     @maintain.transfer
     redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
   end
+
+  def edit_assign
+    pipeline_params = {
+      piping_type: 'Maintain',
+      piping_id: nil,
+      'pipeline_members.position': 1
+    }
+    pipeline_params.merge! 'pipeline_members.job_title_id': current_member.job_title_ids if current_member
+    pipeline_params.merge! default_params
+    @pipelines = Pipeline.default_where(pipeline_params)
+    if @maintain.pipeline_member
+      @members = Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
+    else
+      @members = Member.none
+    end
+  end
+
+  def update_assign
+    @maintain.assign_attributes maintain_params.slice(:pipeline_id, :member_id)
+    @maintain.save
+    
+    redirect_back fallback_location: admin_maintains_url(id: params[:id]), notice: '移交成功'
+  end
   
   def detach
     @maintain.update member_id: nil
@@ -237,10 +266,14 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     p = params.fetch(:maintain, {}).permit(
       :note,
       :pipeline_id,
+      :pipeline_member_id,
+      :member_id,
       :maintain_source_id
     )
     p.merge! default_params
-    p.merge! member_id: current_member.id if current_member
+    if p[:member_id].blank? && current_member
+      p.merge! member_id: current_member.id
+    end
     p
   end
   
