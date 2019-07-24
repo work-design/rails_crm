@@ -41,17 +41,21 @@ module RailsCrm::Maintain
   
   def transfer!
     self.state = 'transferred'
-    next_member = pipeline_member&.next_member
-    return if next_member.nil?
-    m = Maintain.new
-    m.pipeline_member = pipeline_member.next_member
-    m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'tutelar_type', 'tutelar_id', 'tutelage_id', 'maintain_source_id', 'pipeline_id')
     
-    self.class.transaction do
-      self.save!
-      m.save!
+    next_member = pipeline_member&.next_member
+    if next_member
+      m = Maintain.new
+      m.pipeline_member = next_member
+      m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'tutelar_type', 'tutelar_id', 'tutelage_id', 'maintain_source_id', 'pipeline_id')
+      
+      self.class.transaction do
+        self.save!
+        m.save!
+      end
+      m
+    else
+      self.save
     end
-    m
   end
   
   def confirm_booker_time!(booked)
