@@ -10,6 +10,7 @@ zh:
         public:
           title: 待分配客户
           assume: 接收
+          transfer: 指定
         show:
           title: 详情
         orders:

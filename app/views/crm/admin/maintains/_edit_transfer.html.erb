@@ -1,6 +1,6 @@
 <div class="ui modal" id="modal">
   <i class="close icon"></i>
-  <div class="ui header blue">
+  <div class="ui header">
     <%= t('.edit') %>
   </div>
 
@@ -12,6 +12,7 @@
           <i class="fas fa-cog"></i>
         <% end %>
       </div>
+      <%= f.collection_select :member_id, @members, :id, :name %>
       <%= f.submit %>
     <% end %>
   </div>
