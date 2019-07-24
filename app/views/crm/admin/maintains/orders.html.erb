@@ -14,10 +14,8 @@
   <thead>
     <tr>
       <th><%= Order.human_attribute_name(:uuid) %></th>
-      <th><%= Order.human_attribute_name(:payment_type) %></th>
       <th><%= Order.human_attribute_name(:amount) %></th>
       <th><%= Order.human_attribute_name(:received_amount) %></th>
-      <th><%= Order.human_attribute_name(:currency) %></th>
       <th><%= Order.human_attribute_name(:payment_status) %></th>
       <th><%= Order.human_attribute_name(:created_at) %></th>
       <th>
@@ -31,10 +29,8 @@
   <% @orders.each do |order| %>
     <tr id="order_<%= order.id %>">
       <td><%= link_to_if order.uuid, admin_order_path(order) %></td>
-      <td><span class="ui label"><%= order.payment_type %></span></td>
       <td><%= order.amount %></td>
       <td><%= order.received_amount %></td>
-      <td><%= order.currency %></td>
       <td>
         <%= order.payment_status_i18n %>
         <% if ['part_paid', 'all_paid'].include?(order.payment_status) %>
