@@ -39,15 +39,17 @@ module RailsCrm::Maintain
     MaintainTag.cached.slice(*ids).values
   end
   
-  def transfer
+  def transfer!
+    self.state = 'transferred'
     next_member = pipeline_member&.next_member
     return if next_member.nil?
     m = Maintain.new
     m.pipeline_member = pipeline_member.next_member
     m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'tutelar_type', 'tutelar_id', 'tutelage_id', 'maintain_source_id', 'pipeline_id')
+    
     self.class.transaction do
-      self.update state: 'transferred'
-      m.save
+      self.save!
+      m.save!
     end
     m
   end

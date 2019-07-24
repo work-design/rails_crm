@@ -184,8 +184,9 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   end
   
   def update_transfer
-    @maintain.update pipeline_id: maintain_params[:pipeline_id]
-    @maintain.transfer
+    @maintain.assign_attributes maintain_params.slice(:pipeline_id)
+    @maintain.transfer!
+    
     redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
   end
 
