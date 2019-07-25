@@ -28,7 +28,7 @@
   
   <% @orders.each do |order| %>
     <tr id="order_<%= order.id %>">
-      <td><%= link_to_if order.uuid, admin_order_path(order) %></td>
+      <td><%= link_to order.uuid, admin_order_path(order), text: true %></td>
       <td><%= order.amount %></td>
       <td><%= order.received_amount %></td>
       <td>
