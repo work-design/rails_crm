@@ -30,7 +30,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       member_id: nil
     }
     q_params.merge! search_params
-    q_params.merge! 'pipeline_member.job_title_id': current_member.job_title_ids + [nil] if current_member
+    q_params.merge! 'pipeline_member.job_title_id': current_member.lower_job_title_ids + [nil] if current_member
     q_params.merge! default_params
     @maintains = Maintain.default_where(q_params, { member_id: { allow: nil } }).page(params[:page])
   end
