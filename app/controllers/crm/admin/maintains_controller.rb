@@ -14,19 +14,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     if params[:myself] && current_member
       q_params.merge! member_id: current_member.id
     end
-    q_params.merge! params.permit(
-      :state,
-      :maintain_source_id,
-      :pipeline_id,
-      'client.real_name',
-      'client.real_name-like',
-      'client.birthday-gte',
-      'client.birthday-lte',
-      'tutelar.identity',
-      'created_at-gte',
-      'created_at-lte',
-      'maintain_logs.maintain_tag_id'
-    )
+    q_params.merge! search_params
     if (q_params.keys - [:member_id]).blank?
       q_params.merge! state: 'init'
     end
@@ -41,6 +29,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     q_params = {
       member_id: nil
     }
+    q_params.merge! search_params
     q_params.merge! 'pipeline_member.job_title_id': current_member.job_title_ids + [nil] if current_member
     q_params.merge! default_params
     @maintains = Maintain.default_where(q_params, { member_id: { allow: nil } }).page(params[:page])
@@ -294,6 +283,22 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   
   def tutelage_params
     params.fetch(:maintain, {}).fetch(:tutelage_attributes, {}).permit!
+  end
+  
+  def search_params
+    params.permit(
+      :state,
+      :maintain_source_id,
+      :pipeline_id,
+      'client.real_name',
+      'client.real_name-like',
+      'client.birthday-gte',
+      'client.birthday-lte',
+      'tutelar.identity',
+      'created_at-gte',
+      'created_at-lte',
+      'maintain_logs.maintain_tag_id'
+    )
   end
 
 end
