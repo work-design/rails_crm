@@ -2,7 +2,7 @@ class Crm::Admin::BaseController < RailsCrm.config.admin_controller.constantize
 
   def member_params
     if current_member
-      { member_id: current_member.all_lower_ids }
+      { member_id: current_member.all_follower_ids }
     else
       {}
     end
