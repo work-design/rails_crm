@@ -257,7 +257,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       piping_id: nil,
       'pipeline_members.position': 1
     }
-    pipeline_params.merge! 'pipeline_members.job_title_id': current_member.job_title_ids if current_member
+    pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
     pipeline_params.merge! default_params
     @pipelines = Pipeline.default_where(pipeline_params)
     @maintain_sources = MaintainSource.default_where(organ_ancestors_params)
