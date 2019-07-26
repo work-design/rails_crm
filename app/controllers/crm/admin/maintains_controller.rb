@@ -227,7 +227,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   
     order = card_template.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
-    redirect_back fallback_location: admin_maintains_url
+    redirect_to orders_admin_maintains_url(id: order.id)
   end
 
   def destroy
