@@ -213,7 +213,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   end
   
   def orders
-    @orders = @maintain.orders.page(params[:page])
+    @orders = @maintain.orders.order(id: :desc).page(params[:page])
   end
   
   def edit_order
@@ -227,7 +227,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   
     order = card_template.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
-    redirect_to orders_admin_maintains_url(id: order.id)
+    redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
   end
 
   def destroy
