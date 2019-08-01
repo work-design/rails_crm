@@ -222,10 +222,10 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   
   def update_order
     q_params = default_params
-    q_params.merge! params.permit(:card_template_id)
-    card_template = CardTemplate.find(q_params['card_template_id'])
+    q_params.merge! params.permit(:advance_id)
+    advance = Advance.find(q_params['advance_id'])
   
-    order = card_template.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
+    order = advance.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
     redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
   end
