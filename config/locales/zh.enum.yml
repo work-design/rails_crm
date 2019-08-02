@@ -1,0 +1,10 @@
+zh:
+  activerecord:
+    enum:
+      maintain:
+        state:
+          init: 待处理
+          transferred: 已移交
+        maintain_tag:
+          logged_type:
+            TimeBooking: 预约
