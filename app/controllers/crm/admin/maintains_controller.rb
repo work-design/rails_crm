@@ -121,7 +121,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     maintains_params = params.fetch(:maintains, {})
     maintains_params.each do |maintain_params|
       r = maintain_params.permit!
-      r.merge! default_params
+      r.merge! default_form_params
       @maintain = Maintain.create(r)
     end
     
