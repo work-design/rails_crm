@@ -260,7 +260,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       :member_id,
       :maintain_source_id
     )
-    p.merge! default_params
+    p.merge! default_form_params
     if p[:member_id].blank? && current_member
       p.merge! member_id: current_member.id
     end
@@ -273,12 +273,12 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   
   def client_params
     p = params.fetch(:maintain, {}).fetch(:client_attributes, {}).permit!
-    p.merge! default_params
+    p.merge! default_form_params
   end
   
   def tutelar_params
     p = params.fetch(:maintain, {}).fetch(:tutelar_attributes, {}).permit!
-    p.merge! default_params
+    p.merge! default_form_params
   end
   
   def tutelage_params

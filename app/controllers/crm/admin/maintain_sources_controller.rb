@@ -78,7 +78,7 @@ class Crm::Admin::MaintainSourcesController < Crm::Admin::BaseController
       :name,
       :maintain_source_template_id
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end

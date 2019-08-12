@@ -80,7 +80,7 @@ class Crm::Admin::MaintainTagsController < Crm::Admin::BaseController
       :color,
       :logged_type
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end
