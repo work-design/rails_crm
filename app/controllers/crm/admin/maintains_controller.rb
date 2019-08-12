@@ -120,8 +120,8 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def batch
     maintains_params = params.fetch(:maintains, {})
     maintains_params.each do |maintain_params|
-      r = maintain_params.permit!
-      r.merge! default_form_params
+      p = maintain_params.permit!
+      p.merge! default_form_params
       @maintain = Maintain.create(r)
     end
     
