@@ -13,6 +13,9 @@ module RailsCrm::Maintain
     belongs_to :client, class_name: 'Profile', foreign_key: :client_id, inverse_of: :client_maintains
     belongs_to :tutelar, class_name: 'Profile', foreign_key: :tutelar_id, inverse_of: :tutelar_maintains
     belongs_to :tutelage, optional: true
+    
+    belongs_to :upstream, class_name: self.name
+    belongs_to :source, class_name: self.name
   
     has_many :maintain_logs, dependent: :delete_all
     has_many :maintain_tags, -> { distinct }, through: :maintain_logs
@@ -27,6 +30,11 @@ module RailsCrm::Maintain
       transferred: 'transferred'
     }
     
+    before_validation do
+      self.upstream ||= self
+      self.source ||= self
+      self.position = self.pipeline_member&.position
+    end
     before_save :sync_pipeline_member, if: -> { pipeline_id_changed? }
   end
   
@@ -45,6 +53,8 @@ module RailsCrm::Maintain
     next_member = pipeline_member&.next_member
     if next_member
       m = Maintain.new
+      m.upstream = self
+      m.source = self.source
       m.pipeline_member = next_member
       m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'tutelar_type', 'tutelar_id', 'tutelage_id', 'maintain_source_id', 'pipeline_id')
       

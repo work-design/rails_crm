@@ -1,5 +1,6 @@
 class RailsCrmInit < ActiveRecord::Migration[6.0]
   def change
+    
     create_table :maintains do |t|
       t.references :member
       t.references :client, polymorphic: true
@@ -9,6 +10,9 @@ class RailsCrmInit < ActiveRecord::Migration[6.0]
       t.references :organ  # For SaaS
       t.references :pipeline_member
       t.references :pipeline
+      t.references :upstream
+      t.references :source
+      t.integer :position
       t.string :state
       t.string :note
       t.timestamps
@@ -59,5 +63,6 @@ class RailsCrmInit < ActiveRecord::Migration[6.0]
     end
     
     add_reference :orders, :maintain
+    
   end
 end
