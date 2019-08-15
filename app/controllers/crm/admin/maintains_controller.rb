@@ -19,9 +19,9 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       q_params.merge! state: 'init'
     end
     
-    @maintain_sources = MaintainSource.where(organ_ancestors_params)
-    @maintain_tags = MaintainTag.where(organ_ancestors_params)
-    @pipelines = Pipeline.where(organ_ancestors_params)
+    @maintain_sources = MaintainSource.default_where(organ_ancestors_params)
+    @maintain_tags = MaintainTag.default_where(organ_ancestors_params)
+    @pipelines = Pipeline.default_where(organ_ancestors_params)
     @maintains = Maintain.default_where(q_params).includes(:tutelage, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
   end
   
