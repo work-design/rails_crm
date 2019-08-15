@@ -21,8 +21,8 @@
 <dl>
   <dt>只看自己</dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:myself]), class: active_params(myself: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
-    <%= link_to '只看自己', filter_params(myself: true), class: active_params(myself: true, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:member_id]), class: active_params(member_id: nil, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to '只看自己', filter_params(member_id: current_member&.id), class: active_params(member_id: current_member&.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
   </dd>
 </dl>
 <dl>

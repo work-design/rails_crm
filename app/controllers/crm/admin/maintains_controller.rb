@@ -11,9 +11,6 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! member_params
-    if params[:myself] && current_member
-      q_params.merge! member_id: current_member.id
-    end
     q_params.merge! search_params
     if (q_params.keys - [:member_id]).blank?
       q_params.merge! state: 'init'
@@ -291,6 +288,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       :state,
       :maintain_source_id,
       :pipeline_id,
+      :member_id,
       'client.real_name',
       'client.real_name-like',
       'client.birthday-gte',
