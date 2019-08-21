@@ -83,6 +83,8 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
 
   def create
     @maintain = Maintain.new(maintain_params)
+    @maintain.member_id ||= current_member.id
+    
     if client_params[:id]
       @maintain.client = Profile.find client_params[:id]
     else
@@ -259,9 +261,6 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       :maintain_source_id
     )
     p.merge! default_form_params
-    if p[:member_id].blank? && current_member
-      p.merge! member_id: current_member.id
-    end
     p
   end
   
