@@ -4,6 +4,9 @@ module RailsCrm::Maintain
     attribute :state, :string, default: 'init'
     attribute :note, :string
     attribute :pipeline_id, :integer
+    attribute :upstream_id, :integer
+    attribute :source_id, :integer
+    attribute :position, :integer
     
     belongs_to :member, inverse_of: :maintains, optional: true
     belongs_to :maintain_source, optional: true

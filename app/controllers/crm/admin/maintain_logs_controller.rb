@@ -61,7 +61,7 @@ class Crm::Admin::MaintainLogsController < Crm::Admin::BaseController
 
   private
   def prepare_form
-    @maintain_tags = MaintainTag.default_where(organ_ancestors_params)
+    @maintain_tags = MaintainTag.default_where(default_params)
   end
   
   def set_maintain

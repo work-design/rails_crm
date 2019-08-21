@@ -16,9 +16,9 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       q_params.merge! state: 'init'
     end
     
-    @maintain_sources = MaintainSource.default_where(organ_ancestors_params)
-    @maintain_tags = MaintainTag.default_where(organ_ancestors_params)
-    @pipelines = Pipeline.default_where(organ_ancestors_params)
+    @maintain_sources = MaintainSource.default_where(default_params)
+    @maintain_tags = MaintainTag.default_where(default_params)
+    @pipelines = Pipeline.default_where(default_params.merge(piping_type: 'Maintain'))
     @maintains = Maintain.default_where(q_params).includes(:tutelage, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
   end
   
@@ -249,7 +249,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
     pipeline_params.merge! default_params
     @pipelines = Pipeline.default_where(pipeline_params)
-    @maintain_sources = MaintainSource.default_where(organ_ancestors_params)
+    @maintain_sources = MaintainSource.default_where(default_params)
   end
 
   def maintain_params

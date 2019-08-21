@@ -3,7 +3,7 @@ class Crm::Admin::MaintainSourcesController < Crm::Admin::BaseController
 
   def index
     q_params = {}
-    q_params.merge! organ_ancestors_params
+    q_params.merge! default_params
     q_params.merge! params.permit(:name)
     @selected_maintain_sources = MaintainSource.where.not(maintain_source_template_id: nil).default_where(q_params).order(maintain_source_template_id: :asc)
     @maintain_source_templates = MaintainSourceTemplate.order(id: :asc)
