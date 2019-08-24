@@ -1,4 +1,4 @@
-//= require rails_taxon/outer
+import 'rails_taxon/outer'
 
 $('#maintain_client_attributes_birthday_type').dropdown();
 $('#maintain_client_attributes_gender').dropdown();
