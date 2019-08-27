@@ -128,6 +128,26 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     head :ok
   end
 
+  def new_batch_assign
+    pipeline_params = {
+      'pipeline.piping_type': 'Maintain',
+      'pipeline.piping_id': nil,
+      position: 1
+    }
+    pipeline_params.merge! job_title_id: current_member.lower_job_title_ids if current_member
+    pipeline_params.merge! default_params
+    job_title_ids = PipelineMebmer.default_where(pipeline_params).pluck(:job_title_id)
+  
+    @members = Member.default_where('member_departments.job_title_id': job_title_ids)
+  end
+
+  def create_batch_assign
+    @maintains = Maintain.where(id: params[:add_ids])
+    @maintains.update_all member_id: params[:member_id]
+  
+    redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
+  end
+
   def show
   end
 

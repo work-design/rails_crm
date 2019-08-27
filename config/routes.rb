@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         post :batch
         get 'detect' => :new_detect
         post 'detect' => :create_detect
+        get 'assign' => :new_batch_assign
+        patch 'assign' => :create_batch_assign
       end
       member do
         get :courses
