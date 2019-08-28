@@ -136,13 +136,14 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     }
     pipeline_params.merge! job_title_id: current_member.lower_job_title_ids if current_member
     pipeline_params.merge! default_params
-    job_title_ids = PipelineMebmer.default_where(pipeline_params).pluck(:job_title_id)
+    job_title_ids = PipelineMember.default_where(pipeline_params).pluck(:job_title_id)
   
     @members = Member.default_where('member_departments.job_title_id': job_title_ids)
   end
 
   def create_batch_assign
-    @maintains = Maintain.where(id: params[:add_ids])
+    add_ids = params[:add_ids].to_s.split(',')
+    @maintains = Maintain.where(id: add_ids)
     @maintains.update_all member_id: params[:member_id]
   
     redirect_back fallback_location: admin_maintains_url, notice: '移交成功'

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
         get 'detect' => :new_detect
         post 'detect' => :create_detect
         get 'assign' => :new_batch_assign
-        patch 'assign' => :create_batch_assign
+        post 'assign' => :create_batch_assign
       end
       member do
         get :courses
