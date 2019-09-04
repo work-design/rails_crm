@@ -9,12 +9,12 @@ zh:
         age-gte: 年龄大于
         age-lte: 年龄小于
       maintain/client:
-        real_name: 孩子姓名
-        nick_name: 孩子昵称
-        age: 孩子年龄
-      maintain/tutelar:
-        real_name: 家长姓名
-        identity: 家长手机号
+        real_name: 客户
+        nick_name: 客户昵称
+        age: 年龄
+      maintain/agent:
+        real_name: 代理人
+        identity: 联系方式
       maintain_log:
         maintain_tag_id: 标签
         logged_type: 日志类型
