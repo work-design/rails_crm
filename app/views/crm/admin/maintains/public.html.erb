@@ -27,7 +27,7 @@
         <p><%= Maintain.human_attribute_name('tutelar.real_name') %></p>
         <p class="ui green text"><%= Maintain.human_attribute_name('tutelar.identity') %></p>
       </th>
-      <th><%= Tutelage.human_attribute_name(:relation) %></th>
+      <th><%= Agency.human_attribute_name(:relation) %></th>
       <th>
         <%= Maintain.human_attribute_name(:maintain_source_id) %>
         <%= link_to admin_maintain_sources_path, data: { tooltip: '来源设置' }, target: '_blank' do %>

@@ -10,11 +10,11 @@
     <%= ef.file_field :avatar %>
   <% end %>
   <h4 class="ui dividing center aligned header">关系</h4>
-  <%= f.fields :tutelage do |ef| %>
-    <%= ef.select :relation, options_for_select(Tutelage.options_i18n(:relation)) %>
+  <%= f.fields :agency do |ef| %>
+    <%= ef.select :relation, options_for_select(Agency.options_i18n(:relation)) %>
   <% end %>
   <h4 class="ui dividing center aligned header">家长信息</h4>
-  <%= f.fields :tutelar do |ef| %>
+  <%= f.fields :agent do |ef| %>
     <%= ef.text_field :real_name %>
     <%= ef.text_field :identity, required: true %>
     <%= ef.select :gender, options_for_select(Profile.options_i18n(:gender)) %>

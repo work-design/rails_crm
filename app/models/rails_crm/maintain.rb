@@ -12,10 +12,10 @@ module RailsCrm::Maintain
     belongs_to :maintain_source, optional: true
     belongs_to :pipeline, optional: true
     belongs_to :pipeline_member, optional: true
-    
-    belongs_to :client, class_name: 'Profile', foreign_key: :client_id, inverse_of: :client_maintains
-    belongs_to :tutelar, class_name: 'Profile', foreign_key: :tutelar_id, inverse_of: :tutelar_maintains
-    belongs_to :tutelage, optional: true
+
+    belongs_to :agency, optional: true
+    belongs_to :client, polymorphic: true, inverse_of: :client_maintains
+    belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
     
     belongs_to :upstream, class_name: self.name
     belongs_to :source, class_name: self.name
@@ -24,9 +24,9 @@ module RailsCrm::Maintain
     has_many :maintain_tags, -> { distinct }, through: :maintain_logs
     has_many :orders, dependent: :nullify
     
-    accepts_nested_attributes_for :tutelar, reject_if: :all_blank
+    accepts_nested_attributes_for :agency, reject_if: :all_blank
+    accepts_nested_attributes_for :agent, reject_if: :all_blank
     accepts_nested_attributes_for :client, reject_if: :all_blank
-    accepts_nested_attributes_for :tutelage, reject_if: :all_blank
     
     enum state: {
       init: 'init',

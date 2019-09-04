@@ -19,7 +19,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     @maintain_sources = MaintainSource.default_where(default_params)
     @maintain_tags = MaintainTag.default_where(default_params)
     @pipelines = Pipeline.default_where(default_params.merge(piping_type: 'Maintain'))
-    @maintains = Maintain.default_where(q_params).includes(:tutelage, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
+    @maintains = Maintain.default_where(q_params).includes(:agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
   end
   
   def public
@@ -39,9 +39,9 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def create_detect
     q_params = {}
     q_params.merge! default_params
-    @tutelar = Profile.default_where(q_params).find_by(identity: params[:identity])
-    if @tutelar
-      @tutelages = @tutelar.proteges
+    @agent = Profile.default_where(q_params).find_by(identity: params[:identity])
+    if @agent
+      @agencies = @agent.proteges
       
       respond_to do |format|
         format.js { render 'create_detect' }
@@ -50,14 +50,14 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     else
       @maintain = Maintain.new
       @maintain.member_id = current_member.id if current_member
-      @maintain.tutelar = Profile.new(identity: params[:identity])
+      @maintain.agent = Profile.new(identity: params[:identity])
       @maintain.client = Profile.new
-      @maintain.build_tutelage
+      @maintain.build_agency
       
       respond_to do |format|
         format.js { render 'new' }
         format.json {
-          @tutelages = Tutelage.none
+          @agencies = Agency.none
           render 'create_detect'
         }
       end
@@ -67,15 +67,15 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def new
     @maintain = Maintain.new
     @maintain.member_id = current_member.id if current_member
-    if params[:tutelar_id]
-      @maintain.tutelar = Profile.find params[:tutelar_id]
+    if params[:agent_id]
+      @maintain.agent = Profile.find params[:agent_id]
     else
-      @maintain.tutelar = Profile.new
+      @maintain.agent = Profile.new
     end
-    if params[:tutelage_id]
-      tutelage = Tutelage.find params[:tutelage_id]
-      @maintain.tutelage = tutelage
-      @maintain.client = tutelage.pupil
+    if params[:agency_id]
+      agency = Agency.find params[:agency_id]
+      @maintain.agency = agency
+      @maintain.client = agency.client
     else
       @maintain.client = Profile.new
     end
@@ -90,15 +90,15 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     else
       @maintain.client = Profile.new client_params
     end
-    if tutelar_params[:id]
-      @maintain.tutelar = Profile.find tutelar_params[:id]
+    if agent_params[:id]
+      @maintain.agent = Profile.find agent_params[:id]
     else
-      @maintain.tutelar = Profile.new tutelar_params
+      @maintain.agent = Profile.new agent_params
     end
-    if tutelage_params[:id]
-      @maintain.tutelage = Tutelage.find tutelage_params[:id]
+    if agency_params[:id]
+      @maintain.agency = Agency.find agency_params[:id]
     else
-      @maintain.tutelage = Tutelage.new tutelage_params
+      @maintain.agency = Agency.new agency_params
     end
 
     respond_to do |format|
@@ -246,7 +246,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     q_params.merge! params.permit(:advance_id)
     advance = Advance.find(q_params['advance_id'])
   
-    order = advance.generate_order! buyer: @maintain.tutelar, maintain_id: @maintain.id
+    order = advance.generate_order! buyer: @maintain.agent, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
     redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
   end
@@ -286,7 +286,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   end
   
   def update_params
-    maintain_params.merge! params.fetch(:maintain, {}).permit(client_attributes: {}, tutelar_attributes: {}, tutelage_attributes: {})
+    maintain_params.merge! params.fetch(:maintain, {}).permit(client_attributes: {}, agent_attributes: {}, agency_attributes: {})
   end
   
   def client_params
@@ -294,13 +294,13 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     p.merge! default_form_params
   end
   
-  def tutelar_params
-    p = params.fetch(:maintain, {}).fetch(:tutelar_attributes, {}).permit!
+  def agent_params
+    p = params.fetch(:maintain, {}).fetch(:agent_attributes, {}).permit!
     p.merge! default_form_params
   end
   
-  def tutelage_params
-    params.fetch(:maintain, {}).fetch(:tutelage_attributes, {}).permit!
+  def agency_params
+    params.fetch(:maintain, {}).fetch(:agency_attributes, {}).permit!
   end
   
   def search_params
@@ -313,7 +313,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       'client.real_name-like',
       'client.birthday-gte',
       'client.birthday-lte',
-      'tutelar.identity',
+      'agent.identity',
       'created_at-gte',
       'created_at-lte',
       'maintain_logs.maintain_tag_id'

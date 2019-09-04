@@ -4,8 +4,8 @@ class RailsCrmInit < ActiveRecord::Migration[6.0]
     create_table :maintains do |t|
       t.references :member
       t.references :client, polymorphic: true
-      t.references :tutelar, polymorphic: true
-      t.references :tutelage
+      t.references :agent, polymorphic: true
+      t.references :agency
       t.references :maintain_source
       t.references :organ  # For SaaS
       t.references :pipeline_member
