@@ -12,18 +12,8 @@ class Crm::Admin::MaintainSourceTemplatesController < Crm::Admin::BaseController
   def create
     @maintain_source_template = MaintainSourceTemplate.new(maintain_source_template_params)
 
-    respond_to do |format|
-      if @maintain_source_template.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_source_templates_url }
-        format.js { redirect_back fallback_location: admin_maintain_source_templates_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js { redirect_back fallback_location: admin_maintain_source_templates_url }
-        format.json { render :show }
-      end
+    unless @maintain_source_template.save
+      render :new, locals: { model: @maintain_source_template }, status: :unprocessable_entity
     end
   end
 
@@ -36,24 +26,13 @@ class Crm::Admin::MaintainSourceTemplatesController < Crm::Admin::BaseController
   def update
     @maintain_source_template.assign_attributes(maintain_source_template_params)
 
-    respond_to do |format|
-      if @maintain_source_template.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_source_templates_url }
-        format.js { redirect_back fallback_location: admin_maintain_source_templates_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_back fallback_location: admin_maintain_source_templates_url }
-        format.json { render :show }
-      end
+    unless @maintain_source_template.save
+      render :edit, locals: { model: @maintain_source_template }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @maintain_source_template.destroy
-    redirect_to admin_maintain_source_templates_url
   end
 
   private

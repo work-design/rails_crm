@@ -15,18 +15,8 @@ class Crm::Admin::MaintainLogsController < Crm::Admin::BaseController
     @maintain_log = @maintain.maintain_logs.build(maintain_log_params)
     @maintain_log.member_id = current_member.id
 
-    respond_to do |format|
-      if @maintain_log.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.js { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.json { render :show }
-      end
+    unless @maintain_log.save
+      render :new, locals: { model: @maintain_log }, status: :unprocessable_entity
     end
   end
 
@@ -38,25 +28,14 @@ class Crm::Admin::MaintainLogsController < Crm::Admin::BaseController
 
   def update
     @maintain_log.assign_attributes(maintain_log_params)
-
-    respond_to do |format|
-      if @maintain_log.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.js { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_to admin_maintain_maintain_logs_url(@maintain) }
-        format.json { render :show }
-      end
+    
+    unless @maintain_log.save
+      render :edit, locals: { model: @maintain_log }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @maintain_log.destroy
-    redirect_to admin_maintain_maintain_logs_url(@maintain)
   end
 
   private

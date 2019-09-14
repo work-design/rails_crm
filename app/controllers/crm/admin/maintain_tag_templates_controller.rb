@@ -12,18 +12,8 @@ class Crm::Admin::MaintainTagTemplatesController < Crm::Admin::BaseController
   def create
     @maintain_tag_template = MaintainTagTemplate.new(maintain_tag_template_params)
 
-    respond_to do |format|
-      if @maintain_tag_template.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_tag_templates_url }
-        format.js { redirect_back fallback_location: admin_maintain_tag_templates_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js { redirect_back fallback_location: admin_maintain_tag_templates_url }
-        format.json { render :show }
-      end
+    unless @maintain_tag_template.save
+      render :new, locals: { model: @maintain_tag_template }, status: :unprocessable_entity
     end
   end
 
@@ -36,24 +26,13 @@ class Crm::Admin::MaintainTagTemplatesController < Crm::Admin::BaseController
   def update
     @maintain_tag_template.assign_attributes(maintain_tag_template_params)
 
-    respond_to do |format|
-      if @maintain_tag_template.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_tag_templates_url }
-        format.js { redirect_back fallback_location: admin_maintain_tag_templates_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_back fallback_location: admin_maintain_tag_templates_url }
-        format.json { render :show }
-      end
+    unless @maintain_tag_template.save
+      render :edit, locals: { model: @maintain_tag_template }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @maintain_tag_template.destroy
-    redirect_to admin_maintain_tag_templates_url
   end
 
   private

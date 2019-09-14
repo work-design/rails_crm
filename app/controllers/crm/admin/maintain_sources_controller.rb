@@ -24,18 +24,8 @@ class Crm::Admin::MaintainSourcesController < Crm::Admin::BaseController
   def create
     @maintain_source = MaintainSource.new(maintain_source_params)
 
-    respond_to do |format|
-      if @maintain_source.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_sources_url }
-        format.js
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js
-        format.json { render :show }
-      end
+    unless @maintain_source.save
+      render :new, locals: { model: @maintain_source }, status: :unprocessable_entity
     end
   end
 
@@ -48,24 +38,13 @@ class Crm::Admin::MaintainSourcesController < Crm::Admin::BaseController
   def update
     @maintain_source.assign_attributes(maintain_source_params)
 
-    respond_to do |format|
-      if @maintain_source.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_sources_url }
-        format.js { redirect_back fallback_location: admin_maintain_sources_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_back fallback_location: admin_maintain_sources_url }
-        format.json { render :show }
-      end
+    unless @maintain_source.save
+      render :edit, locals: { model: @maintain_source }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @maintain_source.destroy
-    redirect_to admin_maintain_sources_url
   end
 
   private

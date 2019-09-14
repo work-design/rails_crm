@@ -17,18 +17,8 @@ class Crm::Admin::MaintainTagsController < Crm::Admin::BaseController
   def create
     @maintain_tag = MaintainTag.new(maintain_tag_params)
 
-    respond_to do |format|
-      if @maintain_tag.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_tags_url }
-        format.js
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js
-        format.json { render :show }
-      end
+    unless @maintain_tag.save
+      render :new, locals: { model: @maintain_tag }, status: :unprocessable_entity
     end
   end
 
@@ -48,24 +38,13 @@ class Crm::Admin::MaintainTagsController < Crm::Admin::BaseController
   def update
     @maintain_tag.assign_attributes(maintain_tag_params)
 
-    respond_to do |format|
-      if @maintain_tag.save
-        format.html.phone
-        format.html { redirect_to admin_maintain_tags_url }
-        format.js { redirect_back fallback_location: admin_maintain_tags_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_back fallback_location: admin_maintain_tags_url }
-        format.json { render :show }
-      end
+    unless @maintain_tag.save
+      render :edit, locals: { model: @maintain_tag }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @maintain_tag.destroy
-    redirect_to admin_maintain_tags_url
   end
 
   private

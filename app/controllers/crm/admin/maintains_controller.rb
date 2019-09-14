@@ -101,19 +101,8 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       @maintain.agency = Agency.new agency_params
     end
 
-    respond_to do |format|
-      if @maintain.save
-        format.html.phone { redirect_to admin_maintains_url }
-        format.html { redirect_to admin_maintains_url }
-        format.json { render 'show' }
-        format.js { redirect_to admin_maintains_url }
-      else
-        logger.debug "#{@maintain.error_text}"
-        format.html.phone { render 'new' }
-        format.html { render 'new' }
-        format.json { process_errors(@maintain) }
-        format.js { redirect_to admin_maintains_url }
-      end
+    unless @maintain.save
+      render :new, locals: { model: @maintain }, status: :unprocessable_entity
     end
   end
   
@@ -164,16 +153,8 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def update
     @maintain.assign_attributes(update_params)
 
-    respond_to do |format|
-      if @maintain.save
-        format.html { redirect_to admin_maintains_url }
-        format.json { render 'show' }
-        format.js { redirect_to admin_maintains_url }
-      else
-        format.html { render 'edit' }
-        format.js
-        format.json
-      end
+    unless @maintain.save
+      render :edit, locals: { model: @maintain }, status: :unprocessable_entity
     end
   end
 
@@ -253,7 +234,6 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
 
   def destroy
     @maintain.destroy
-    redirect_to admin_maintains_url
   end
 
   private
