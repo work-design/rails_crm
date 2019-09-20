@@ -59,7 +59,7 @@ module RailsCrm::Maintain
       m.upstream = self
       m.source = self.source
       m.pipeline_member = next_member
-      m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'tutelar_type', 'tutelar_id', 'tutelage_id', 'maintain_source_id', 'pipeline_id')
+      m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'agent_type', 'agent_id', 'agency_id', 'maintain_source_id', 'pipeline_id')
       
       self.class.transaction do
         self.save!
