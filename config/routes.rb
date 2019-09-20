@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :maintain_source_templates
     resources :maintain_tag_templates
     resources :maintains do
+      resources :maintain_logs
       collection do
         get :public
         post :batch
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
         get 'order' => :edit_order
         patch 'order' => :update_order
       end
-      resources :maintain_logs
     end
     resources :maintain_sources do
       post :sync, on: :collection

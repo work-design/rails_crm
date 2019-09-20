@@ -13,7 +13,7 @@ module RailsCrm::Maintain
     belongs_to :pipeline, optional: true
     belongs_to :pipeline_member, optional: true
 
-    belongs_to :agency, optional: true
+    belongs_to :agency, optional: true, inverse_of: :maintain
     belongs_to :client, polymorphic: true, inverse_of: :client_maintains
     belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
     
