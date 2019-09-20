@@ -55,7 +55,7 @@
         <% @maintain.tutelage.cards.each do |card| %>
           <div class="ui image label">
             <%= link_to card.card_uuid, admin_card_card_logs_path(card), text: true %>
-            <%= link_to card_admin_tutelage_path(@maintain.tutelage, card_id: card.id), method: :delete do %>
+            <%= link_to card_admin_agency_path(@maintain.agency, card_id: card.id), method: :delete do %>
               <i class="delete icon"></i>
             <% end %>
           </div>
