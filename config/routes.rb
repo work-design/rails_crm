@@ -18,7 +18,6 @@ Rails.application.routes.draw do
         post 'assign' => :create_batch_assign
       end
       member do
-        get :events
         get 'transfer' => :edit_transfer
         patch 'transfer' => :update_transfer
         get 'assign' => :edit_assign

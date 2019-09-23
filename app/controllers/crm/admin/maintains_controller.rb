@@ -141,13 +141,6 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def show
   end
 
-  def events
-    q_params = {}
-    q_params.merge! default_params
-    q_params.merge! params.permit(:event_id)
-    @course_crowds = EventParticipant.default_where(q_params).page(params[:page])
-  end
-
   def edit
   end
 
