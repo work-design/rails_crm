@@ -6,7 +6,7 @@
 
   <div class="content">
     <%= form_with url: assign_admin_maintains_path(add_ids: params[:add_ids]) do |f| %>
-      <%= f.collection_select :member_id, @members, :id, :name, on: { wrapper_input_id: true } %>
+      <%= f.collection_select :member_id, @members, :id, :name, on: { wrap_input_id: true } %>
       <%= f.submit %>
     <% end %>
   </div>

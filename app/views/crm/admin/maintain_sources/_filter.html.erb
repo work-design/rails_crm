@@ -1,5 +1,5 @@
 <div class="ui top attached segment">
-  <%= search_form_with model: MaintainSource.new(params.permit(:name)) do |f| %>
+  <%= form_with theme: 'search', model: MaintainSource.new(params.permit(:name)) do |f| %>
     <div class="fields">
       <%= f.text_field :name %>
       <%= f.submit %>

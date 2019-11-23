@@ -7,7 +7,7 @@
   <div class="content">
     <%= form_with url: order_admin_maintain_path(@maintain), method: :patch do |f| %>
       <%= f.collection_select :card_template_id, @card_templates, :id, :name, label: '选择卡', include_blank: true %>
-      <div id="_advance_id_wrapper"></div>
+      <div id="_advance_id_wrap"></div>
       <%= f.submit %>
     <% end %>
   </div>

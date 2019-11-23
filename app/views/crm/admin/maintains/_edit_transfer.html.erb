@@ -7,12 +7,12 @@
   <div class="content">
     <%= form_with scope: :maintain, url: transfer_admin_maintain_path(@maintain), method: :patch do |f| %>
       <div class="inline fields">
-        <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, on: { wrapper_all: false } %>
+        <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, on: { wrap_all: false } %>
         <%= link_to new_admin_pipeline_path, data: { tooltip: '来源设置' }, remote: true, target: '_blank' do %>
           <i class="fas fa-cog"></i>
         <% end %>
       </div>
-      <%= f.collection_select :member_id, @members, :id, :name, on: { wrapper_input_id: true } %>
+      <%= f.collection_select :member_id, @members, :id, :name, on: { wrap_input_id: true } %>
       <%= f.submit %>
     <% end %>
   </div>

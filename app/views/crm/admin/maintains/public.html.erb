@@ -1,5 +1,5 @@
 <div class="ui top attached segment">
-  <%= search_form_with model: Maintain.new do |f| %>
+  <%= form_with theme: 'search', model: Maintain.new do |f| %>
     <div class="fields">
       <%= f.text_field 'client.real_name' %>
       <%= f.text_field 'tutelar.identity' %>
