@@ -3,23 +3,19 @@ module RailsCrm::Maintain
   included do
     attribute :state, :string, default: 'init'
     attribute :note, :string
-    attribute :pipeline_id, :integer
-    attribute :upstream_id, :integer
-    attribute :source_id, :integer
     attribute :position, :integer
     
+    belongs_to :organ, optional: true
     belongs_to :member, inverse_of: :maintains, optional: true
     belongs_to :maintain_source, optional: true
     belongs_to :pipeline, optional: true
     belongs_to :pipeline_member, optional: true
-
     belongs_to :agency, optional: true, inverse_of: :maintain
     belongs_to :client, polymorphic: true, inverse_of: :client_maintains
     belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
-    
     belongs_to :upstream, class_name: self.name
     belongs_to :source, class_name: self.name
-  
+    
     has_many :maintain_logs, dependent: :delete_all
     has_many :maintain_tags, -> { distinct }, through: :maintain_logs
     has_many :orders, dependent: :nullify

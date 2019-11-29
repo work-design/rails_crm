@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version = RailsCrm::VERSION
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
-  s.homepage = 'https://github.com/work-design/rails_org'
+  s.homepage = 'https://github.com/work-design/rails_crm'
   s.summary = 'Summary of RailsCrm.'
   s.description = 'Description of RailsCrm.'
   s.license = 'LGPL-3.0'

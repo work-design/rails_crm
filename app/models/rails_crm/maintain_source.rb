@@ -1,7 +1,9 @@
 module RailsCrm::MaintainSource
   extend ActiveSupport::Concern
   included do
-    belongs_to :organ
+    attribute :name, :string
+    attribute :maintains_count, :integer, default: 0
+    belongs_to :organ, optional: true
     belongs_to :maintain_source_template, optional: true
     
     validates :name, presence: true

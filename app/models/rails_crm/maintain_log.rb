@@ -4,6 +4,7 @@ module RailsCrm::MaintainLog
     attribute :note, :string
     attribute :tag_str, :string
     attribute :tag_sequence, :integer
+    attribute :extra, :json
   
     belongs_to :maintain
     belongs_to :member
