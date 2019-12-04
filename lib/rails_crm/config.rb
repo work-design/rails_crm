@@ -7,9 +7,6 @@ module RailsCrm #:nodoc:
     config.app_controller = 'ApplicationController'
     config.my_controller = 'MyController'
     config.admin_controller = 'AdminController'
-    config.member_controller = 'MemberController'
   end
 
 end
-
-
