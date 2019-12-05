@@ -1,6 +1,6 @@
 class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   before_action :set_maintain, only: [
-    :show, :courses, :edit, :update, :orders,
+    :show, :edit, :update, :orders,
     :edit_order, :update_order,
     :edit_transfer, :update_transfer,
     :edit_assign, :update_assign,
@@ -42,25 +42,15 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     @agent = Profile.default_where(q_params).find_by(identity: params[:identity])
     if @agent
       @agencies = @agent.proteges
-      
-      respond_to do |format|
-        format.js { render 'create_detect' }
-        format.json { render 'create_detect' }
-      end
+        render 'create_detect'
     else
       @maintain = Maintain.new
       @maintain.member_id = current_member.id if current_member
       @maintain.agent = Profile.new(identity: params[:identity])
       @maintain.client = Profile.new
       @maintain.build_agency
-      
-      respond_to do |format|
-        format.js { render 'new' }
-        format.json {
-          @agencies = Agency.none
-          render 'create_detect'
-        }
-      end
+      @agencies = Agency.none
+      render 'new'
     end
   end
 
