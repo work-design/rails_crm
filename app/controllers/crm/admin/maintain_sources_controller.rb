@@ -7,14 +7,7 @@ class Crm::Admin::MaintainSourcesController < Crm::Admin::BaseController
     q_params.merge! params.permit(:name)
     @selected_maintain_sources = MaintainSource.where.not(maintain_source_template_id: nil).default_where(q_params).order(maintain_source_template_id: :asc)
     @maintain_source_templates = MaintainSourceTemplate.order(id: :asc)
-    respond_to do |format|
-      format.html {
-        @maintain_sources = MaintainSource.where(maintain_source_template_id: nil).default_where(q_params).page(params[:page])
-      }
-      format.json {
-        @maintain_sources = MaintainSource.default_where(q_params).page(params[:page])
-      }
-    end
+    @maintain_sources = MaintainSource.where(maintain_source_template_id: nil).default_where(q_params).page(params[:page])
   end
 
   def new
