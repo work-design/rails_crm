@@ -1,9 +1,9 @@
 require 'rails_com'
 module RailsCrm
   class Engine < ::Rails::Engine
-  
+
     config.factory_bot.definition_file_paths += Dir["#{config.root}/test/factories"] if defined?(FactoryBotRails)
-  
+
     config.generators do |g|
       g.rails = {
         assets: false,
@@ -17,10 +17,6 @@ module RailsCrm
       }
       g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
     end
-  
-    initializer 'rails_crm.assets.precompile' do |app|
-      app.config.assets.precompile += ['rails_crm_manifest.js']
-    end
-    
+
   end
 end
