@@ -3,8 +3,7 @@
     <%= check_box_tag 'xx' %>
   </td>
   <td>
-    <p><%= maintain.client.real_name %></p>
-    <p class="ui grey text"><%= maintain.client.nick_name %></p>
+    <p><%= maintain.client.name %></p>
   </td>
   <td>
     <span><%= maintain.client.age %></span>
@@ -14,7 +13,7 @@
     </span>
   </td>
   <td>
-    <p><%= maintain.agent.real_name %></p>
+    <p><%= maintain.agent.name %></p>
     <p class="ui green text"><%= maintain.agent.identity %></p>
   </td>
   <td><%= maintain.agency.relation_i18n %></td>
