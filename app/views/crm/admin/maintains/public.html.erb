@@ -12,8 +12,8 @@
 <table class="ui bottom attached selectable table">
   <thead>
     <tr>
-      <th data-controller="check" data-check-name="xx">
-        <%= check_box_tag 'xxd', nil, false, data: { action: 'check#toggleAll' } %>
+      <th data-controller="check">
+        <%= check_box_tag 'xxd', nil, false, value: 'xx', data: { action: 'check#toggleAll' } %>
       </th>
       <th>
         <p><%= Maintain.human_attribute_name('client.real_name') %></p>
