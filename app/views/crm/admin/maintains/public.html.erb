@@ -9,11 +9,11 @@
   <% end %>
 </div>
 
-<table class="ui bottom attached selectable table">
+<table class="ui bottom attached selectable table" data-controller="check">
   <thead>
     <tr>
-      <th data-controller="check">
-        <%= check_box_tag 'xxd', nil, false, value: 'xx', data: { action: 'check#toggleAll' } %>
+      <th>
+        <%= check_box_tag 'xxd', 'xx', false, data: { action: 'check#toggleAll' } %>
       </th>
       <th>
         <p><%= Maintain.human_attribute_name('client.real_name') %></p>
@@ -42,7 +42,11 @@
         <% end %>
       </th>
       <th><%= Maintain.human_attribute_name(:state) %></th>
-      <th></th>
+      <th>
+        <%= link_to assign_admin_maintains_path, data: { tooltip: t('.assign'), action: 'check#applyFor' }, remote: true, class: 'ui mini button' do %>
+          <i class="fas fa-hand-holding-usd"></i>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>

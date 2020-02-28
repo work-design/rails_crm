@@ -1,6 +1,6 @@
 <tr title="<%= maintain.created_at %>">
   <td>
-    <%= check_box_tag 'xx' %>
+    <%= check_box_tag 'xx', maintain.id, false, data: { action: 'check#toggle' } %>
   </td>
   <td>
     <p><%= maintain.client.name %></p>
