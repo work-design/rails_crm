@@ -1,6 +1,7 @@
 zh:
   crm:
     admin:
+      title: 市场管理
       maintains:
         index:
           title: 我的客户

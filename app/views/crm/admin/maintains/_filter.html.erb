@@ -32,7 +32,7 @@
     <% @maintain_sources.each do |maintain_source| %>
       <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_params(maintain_source_id: maintain_source.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
     <% end %>
-    <%= link_to new_admin_maintain_source_path, data: { tooltip: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to new_admin_maintain_source_path, aria: { label: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </dd>
@@ -44,7 +44,7 @@
     <% @maintain_tags.each do |maintain_tag| %>
       <%= link_to maintain_tag.name, filter_params('maintain_logs.maintain_tag_id': maintain_tag.id), class: active_params('maintain_logs.maintain_tag_id': maintain_tag.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
     <% end %>
-    <%= link_to new_admin_maintain_tag_path, data: { tooltip: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to new_admin_maintain_tag_path, aria: { label: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </dd>
@@ -56,7 +56,7 @@
     <% @pipelines.each do |pipeline| %>
       <%= link_to pipeline.name, filter_params(pipeline_id: pipeline.id), class: active_params(pipeline_id: pipeline.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
     <% end %>
-    <%= link_to new_admin_pipeline_path(piping_type: 'Maintain'), data: { tooltip: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to new_admin_pipeline_path(piping_type: 'Maintain'), aria: { label: t('.new') }, remote: true, class: 'ui mini circular icon button' do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </dd>

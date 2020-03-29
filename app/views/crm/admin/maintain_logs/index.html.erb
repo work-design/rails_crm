@@ -15,7 +15,7 @@
     <tr>
       <th>
         <%= MaintainLog.human_attribute_name(:maintain_tag_id) %>
-        <%= link_to admin_maintain_tags_path, data: { tooltip: '标签设置' }, target: '_blank' do %>
+        <%= link_to admin_maintain_tags_path, aria: { label: '标签设置' }, target: '_blank' do %>
           <i class="fas fa-cog"></i>
         <% end %>
       </th>
@@ -45,10 +45,10 @@
       <td><%= simple_format maintain_log.extra %></td>
       <td><time><%= maintain_log.created_at.to_s(:rfc822) %></time></td>
       <td class="ui labels">
-        <%= link_to edit_admin_maintain_maintain_log_path(@maintain, maintain_log), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_maintain_maintain_log_path(@maintain, maintain_log), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_maintain_maintain_log_path(@maintain, maintain_log), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_maintain_maintain_log_path(@maintain, maintain_log), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

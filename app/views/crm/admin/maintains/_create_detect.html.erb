@@ -8,8 +8,8 @@
     <%= form_with url: new_admin_maintain_url, method: :get do |f| %>
       <div class="inline fields">
         <%= f.hidden_field :agent_id, value: @agent.id %>
-        <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', on: { wrap_all: false } %>
-        <%= f.submit '下一步', on: { wrap_all: false, offset: false } %>
+        <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', can: { wrap_all: false } %>
+        <%= f.submit '下一步', can: { wrap_all: false, offset: false } %>
       </div>
     <% end %>
     <div class="ui horizontal divider">或</div>
