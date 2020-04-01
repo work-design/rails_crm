@@ -1,6 +1,4 @@
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -45,7 +43,7 @@
         <p><%= Maintain.human_attribute_name(:state) %></p>
       </th>
       <th>
-        <%= link_to detect_admin_maintains_path, class: 'ui teal button', remote: true do %>
+        <%= link_to detect_admin_maintains_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -59,24 +57,24 @@
         <p><%= maintain.state_i18n %></p>
       </td>
       <td>
-        <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-clock"></i>
         <% end %>
-        <%= link_to detach_admin_maintain_path(maintain), method: :patch, aria: { label: t('crm.admin.maintains.index.detach'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to detach_admin_maintain_path(maintain), method: :patch, aria: { label: t('crm.admin.maintains.index.detach'), confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-hand-holding"></i>
         <% end %>
         <% if current_user.admin? || Rails.env.development? %>
-        <%= link_to transfer_admin_maintain_path(maintain), aria: { label: t('.transfer') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to transfer_admin_maintain_path(maintain), aria: { label: t('.transfer') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-random"></i>
         <% end %>
         <% end %>
-        <%= link_to orders_admin_maintain_path(maintain), aria: { label: t('.orders') }, class: 'ui mini circular icon button' do %>
+        <%= link_to orders_admin_maintain_path(maintain), aria: { label: t('.orders') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-shopping-cart"></i>
         <% end %>
-        <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'ui mini circular icon button', remote: true do %>
+        <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

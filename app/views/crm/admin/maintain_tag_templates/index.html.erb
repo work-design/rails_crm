@@ -12,7 +12,7 @@
       <th><%= MaintainTagTemplate.human_attribute_name(:sequence) %></th>
       <th><%= MaintainTagTemplate.human_attribute_name(:color) %></th>
       <th>
-        <%= link_to new_admin_maintain_tag_template_path, class: 'ui mini primary button', remote: true do %>
+        <%= link_to new_admin_maintain_tag_template_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -30,13 +30,13 @@
         <span class="ui label" style="background-color: <%= maintain_tag_template.color %>;"><%= maintain_tag_template.color %></span>
       </td>
       <td>
-        <%= link_to admin_maintain_tag_template_path(maintain_tag_template), aria: { label: t('.show') }, class: 'ui mini circular icon button', remote: true do %>
+        <%= link_to admin_maintain_tag_template_path(maintain_tag_template), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light', remote: true do %>
           <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_admin_maintain_tag_template_path(maintain_tag_template), aria: { label: t('.edit') }, class: 'ui mini circular icon button', remote: true do %>
+        <%= link_to edit_admin_maintain_tag_template_path(maintain_tag_template), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_maintain_tag_template_path(maintain_tag_template), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_maintain_tag_template_path(maintain_tag_template), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

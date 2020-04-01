@@ -27,7 +27,7 @@
       <th><%= MaintainLog.human_attribute_name(:extra) %></th>
       <th><%= MaintainLog.human_attribute_name(:created_at) %></th>
       <th>
-        <%= link_to new_admin_maintain_maintain_log_path(@maintain), remote: true, class: 'ui mini primary button' do %>
+        <%= link_to new_admin_maintain_maintain_log_path(@maintain), remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -45,10 +45,10 @@
       <td><%= simple_format maintain_log.extra %></td>
       <td><time><%= maintain_log.created_at.to_s(:rfc822) %></time></td>
       <td class="ui labels">
-        <%= link_to edit_admin_maintain_maintain_log_path(@maintain, maintain_log), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_maintain_maintain_log_path(@maintain, maintain_log), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_maintain_maintain_log_path(@maintain, maintain_log), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_maintain_maintain_log_path(@maintain, maintain_log), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

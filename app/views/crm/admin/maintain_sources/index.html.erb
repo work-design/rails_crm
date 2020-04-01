@@ -14,7 +14,7 @@
       <th><%= MaintainSource.human_attribute_name(:name) %></th>
       <th><%= MaintainSource.human_attribute_name(:maintains_count) %></th>
       <th>
-        <%= link_to new_admin_maintain_source_path, class: 'ui mini primary button', remote: true do %>
+        <%= link_to new_admin_maintain_source_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -43,10 +43,10 @@
       <td><%= maintain_source.name %></td>
       <td><%= maintain_source.maintains_count %></td>
       <td>
-        <%= link_to edit_admin_maintain_source_path(maintain_source), aria: { label: t('.edit') }, class: 'ui circular mini icon button', remote: true do %>
+        <%= link_to edit_admin_maintain_source_path(maintain_source), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_maintain_source_path(maintain_source), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'ui circular mini icon button' do %>
+        <%= link_to admin_maintain_source_path(maintain_source), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

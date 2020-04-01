@@ -19,7 +19,7 @@
       <th><%= Order.human_attribute_name(:payment_status) %></th>
       <th><%= Order.human_attribute_name(:created_at) %></th>
       <th>
-        <%= link_to order_admin_maintain_path(@maintain), aria: { label: '购卡' }, class: 'ui mini circular icon button', remote: true do %>
+        <%= link_to order_admin_maintain_path(@maintain), aria: { label: '购卡' }, class: 'button is-small is-rounded is-light', remote: true do %>
           <i class="fas fa-credit-card"></i>
         <% end %>
       </th>
@@ -43,7 +43,7 @@
       </td>
       <td><time><%= order.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to edit_admin_order_path(order), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_order_path(order), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
       </td>
