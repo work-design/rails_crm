@@ -14,25 +14,25 @@
 <dl>
   <dt><%= Maintain.human_attribute_name(:state) %></dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
     <% Maintain.options_i18n(:state).each do |text, state| %>
-      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+      <%= link_to text, filter_params(state: state), class: active_params(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
     <% end %>
   </dd>
 </dl>
 <dl>
   <dt>只看自己</dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:member_id]), class: active_params(member_id: nil, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
-    <%= link_to '只看自己', filter_params(member_id: current_member&.id), class: active_params(member_id: current_member&.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:member_id]), class: active_params(member_id: nil, active_class: 'button is-info', item_class: 'button is-light') %>
+    <%= link_to '只看自己', filter_params(member_id: current_member&.id), class: active_params(member_id: current_member&.id, active_class: 'button is-info', item_class: 'button is-light') %>
   </dd>
 </dl>
 <dl>
   <dt><%= link_to Maintain.human_attribute_name(:maintain_source_id), admin_maintain_sources_path, text: true %></dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:maintain_source_id]), class: active_params(maintain_source_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:maintain_source_id]), class: active_params(maintain_source_id: '', active_class: 'button is-info', item_class: 'button is-light') %>
     <% @maintain_sources.each do |maintain_source| %>
-      <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_params(maintain_source_id: maintain_source.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+      <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_params(maintain_source_id: maintain_source.id, active_class: 'button is-info', item_class: 'button is-light') %>
     <% end %>
     <%= link_to new_admin_maintain_source_path, aria: { label: t('.new') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-plus"></i>
@@ -42,9 +42,9 @@
 <dl>
   <dt><%= link_to MaintainLog.human_attribute_name(:maintain_tag_id), admin_maintain_tags_path, text: true %></dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:'maintain_logs.maintain_tag_id']), class: active_params('maintain_logs.maintain_tag_id': '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:'maintain_logs.maintain_tag_id']), class: active_params('maintain_logs.maintain_tag_id': '', active_class: 'button is-info', item_class: 'button is-light') %>
     <% @maintain_tags.each do |maintain_tag| %>
-      <%= link_to maintain_tag.name, filter_params('maintain_logs.maintain_tag_id': maintain_tag.id), class: active_params('maintain_logs.maintain_tag_id': maintain_tag.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+      <%= link_to maintain_tag.name, filter_params('maintain_logs.maintain_tag_id': maintain_tag.id), class: active_params('maintain_logs.maintain_tag_id': maintain_tag.id, active_class: 'button is-info', item_class: 'button is-light') %>
     <% end %>
     <%= link_to new_admin_maintain_tag_path, aria: { label: t('.new') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-plus"></i>
@@ -54,9 +54,9 @@
 <dl>
   <dt><%= link_to Maintain.human_attribute_name(:pipeline_id), admin_pipelines_path(piping_type: 'Maintain'), text: true %></dt>
   <dd>
-    <%= link_to t('.all'), filter_params(except: [:pipeline_id]), class: active_params(pipeline_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to t('.all'), filter_params(except: [:pipeline_id]), class: active_params(pipeline_id: '', active_class: 'button is-info', item_class: 'button is-light') %>
     <% @pipelines.each do |pipeline| %>
-      <%= link_to pipeline.name, filter_params(pipeline_id: pipeline.id), class: active_params(pipeline_id: pipeline.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+      <%= link_to pipeline.name, filter_params(pipeline_id: pipeline.id), class: active_params(pipeline_id: pipeline.id, active_class: 'button is-info', item_class: 'button is-light') %>
     <% end %>
     <%= link_to new_admin_pipeline_path(piping_type: 'Maintain'), aria: { label: t('.new') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-plus"></i>
