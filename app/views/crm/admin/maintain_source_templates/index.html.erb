@@ -7,7 +7,7 @@
     <tr>
       <th><%= MaintainSourceTemplate.human_attribute_name(:name) %></th>
       <th>
-        <%= link_to new_admin_maintain_source_template_path, class: 'ui teal button', remote: true do %>
+        <%= link_to new_admin_maintain_source_template_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
