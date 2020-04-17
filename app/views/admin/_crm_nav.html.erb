@@ -1,9 +1,9 @@
 <div class="<%= active_helper(modules: 'crm/admin', active_class: 'menu ex-accordion is-active', item_class: 'menu ex-accordion') %>" data-controller="menu">
-  <%= content_tag :div, class: 'menu-list' do -%>
+  <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show']) %>
     <%= link_to t('crm.admin.maintains.public.title'), public_admin_maintains_path, class: active_helper('maintains': 'public') %>
     <%= link_to t('crm.admin.maintain_source_templates.index.title'), admin_maintain_source_templates_path, class: active_helper(controllers: 'maintain_source_templates') %>
-    <%= link_to t('crm.admin.maintain_tag_templates.index.title'), admin_maintain_tag_templates_path, class: active_helper(controllers: 'maintain_tag_templates') %>
+    <%= link_to t('crm.admin.maintain_tag_templates.index.title'), admin_maintain_tag_templates_path, class: active_helper(controllers: 'maintain_tag_templates') -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fas fa-chart-line fa-fw"></i>
