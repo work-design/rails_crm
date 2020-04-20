@@ -8,7 +8,7 @@
   <td>
     <span><%= maintain.client.age %></span>
     <span class="ui icon label">
-      <i class="fas <%= active_assert(maintain.client.male?, expected: 'fa-male', unexpected: 'fa-female') %>"></i>
+      <i class="fas <%= maintain.client.male? ? 'fa-male' : 'fa-female' %>"></i>
       <%= maintain.client.gender_i18n %>
     </span>
   </td>

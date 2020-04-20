@@ -1,4 +1,4 @@
-<div class="<%= active_helper(modules: 'crm/admin', active_class: 'menu ex-accordion is-active', item_class: 'menu ex-accordion') %>" data-controller="menu">
+<div class="<%= active_helper(modules: 'crm/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show']) %>
     <%= link_to t('crm.admin.maintains.public.title'), public_admin_maintains_path, class: active_helper('maintains': 'public') %>
