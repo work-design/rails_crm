@@ -1,14 +1,11 @@
 <% content_for :breadcrumb do %>
-  <div class="ui basic segment breadcrumb">
-    <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: 'section' %>
-    <i class="fas fa-angle-right divider"></i>
-    <div class="active section"><%= t('crm.admin.maintain_logs.index.title') %></div>
-  </div>
+  <ul>
+    <li><%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path %></li>
+    <li class="is-active"><%= t('crm.admin.maintain_logs.index.title') %></li>
+  </ul>
 <% end %>
 
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -44,7 +41,7 @@
       </td>
       <td><%= simple_format maintain_log.extra %></td>
       <td><time><%= maintain_log.created_at.to_s(:rfc822) %></time></td>
-      <td class="ui labels">
+      <td>
         <%= link_to edit_admin_maintain_maintain_log_path(@maintain, maintain_log), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>

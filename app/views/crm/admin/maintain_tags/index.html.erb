@@ -1,14 +1,11 @@
 <% content_for :breadcrumb do %>
-  <div class="ui basic segment breadcrumb">
-    <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: 'section' %>
-    <i class="fas fa-angle-right divider"></i>
-    <div class="active section"><%= t('crm.admin.maintain_tags.index.title') %></div>
-  </div>
+  <ul>
+    <li><%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path %></li>
+    <li class="is-active"><%= t('crm.admin.maintain_tags.index.title') %></li>
+  </ul>
 <% end %>
 
-<div class="ui top attached segment">
-  <%= render 'filter' %>
-</div>
+<%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">
   <thead>
@@ -33,7 +30,7 @@
       <td><%= maintain_tag_template.logged_type_i18n %></td>
       <td><%= maintain_tag.sequence if maintain_tag %></td>
       <td>
-        <span class="ui label" style="background-color: <%= maintain_tag.color %>;"><%= maintain_tag_template.color %></span>
+        <span class="button" style="background-color: <%= maintain_tag.color %>;"><%= maintain_tag_template.color %></span>
       </td>
       <td><%= maintain_tag.maintain_logs_count if maintain_tag %></td>
       <td>
