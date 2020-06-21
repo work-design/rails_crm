@@ -1,4 +1,4 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th class="six wide">
@@ -9,27 +9,27 @@
   </thead>
   <tbody>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:name) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:name) %></td>
       <td><%= @maintain_tag.name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:logged_type) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:logged_type) %></td>
       <td><%= @maintain_tag.logged_type %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:entity_column) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_column) %></td>
       <td><%= @maintain_tag.entity_column %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:entity_value) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_value) %></td>
       <td><%= @maintain_tag.entity_value %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:sequence) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:sequence) %></td>
       <td><%= @maintain_tag.sequence %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainTag.human_attribute_name(:maintain_logs_count) %></td>
+      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:maintain_logs_count) %></td>
       <td><%= @maintain_tag.maintain_logs_count %></td>
     </tr>
   </tbody>

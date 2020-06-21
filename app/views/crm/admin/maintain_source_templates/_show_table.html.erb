@@ -1,4 +1,4 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th class="six wide">
@@ -9,11 +9,11 @@
   </thead>
   <tbody>
     <tr>
-      <td class="right aligned"><%= MaintainSource.human_attribute_name(:name) %></td>
+      <td class="has-text-right"><%= MaintainSource.human_attribute_name(:name) %></td>
       <td><%= @maintain_source.name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= MaintainSource.human_attribute_name(:maintains_count) %></td>
+      <td class="has-text-right"><%= MaintainSource.human_attribute_name(:maintains_count) %></td>
       <td><%= @maintain_source.maintains_count %></td>
     </tr>
   </tbody>

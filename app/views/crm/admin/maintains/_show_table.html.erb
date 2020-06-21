@@ -1,4 +1,4 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th class="six wide">
@@ -9,35 +9,35 @@
   </thead>
   <tbody>
     <tr>
-      <td class="right aligned"><%= Maintain.human_attribute_name('client.real_name') %></td>
+      <td class="has-text-right"><%= Maintain.human_attribute_name('client.real_name') %></td>
       <td><%= @maintain.client.real_name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Maintain.human_attribute_name('client.nick_name') %></td>
+      <td class="has-text-right"><%= Maintain.human_attribute_name('client.nick_name') %></td>
       <td><%= @maintain.client.nick_name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Profile.human_attribute_name(:birthday_type) %></td>
+      <td class="has-text-right"><%= Profile.human_attribute_name(:birthday_type) %></td>
       <td><%= @maintain.client.birthday_type_i18n %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Profile.human_attribute_name(:birthday) %></td>
+      <td class="has-text-right"><%= Profile.human_attribute_name(:birthday) %></td>
       <td><%= @maintain.client.birthday %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Profile.human_attribute_name(:gender) %></td>
+      <td class="has-text-right"><%= Profile.human_attribute_name(:gender) %></td>
       <td><%= @maintain.client.gender_i18n %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Maintain.human_attribute_name(:note) %></td>
+      <td class="has-text-right"><%= Maintain.human_attribute_name(:note) %></td>
       <td><%= @maintain.note %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Maintain.human_attribute_name('tutelar.real_name') %></td>
+      <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.real_name') %></td>
       <td><%= @maintain.tutelar.real_name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Maintain.human_attribute_name('tutelar.identity') %></td>
+      <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.identity') %></td>
       <td>
         <%= @maintain.tutelar.identity %>
         <% if @maintain.tutelar.user && @maintain.tutelar.account&.wechat_response %>
@@ -50,7 +50,7 @@
       </td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Card.human_name %></td>
+      <td class="has-text-right"><%= Card.human_name %></td>
       <td>
         <% @maintain.tutelage.cards.each do |card| %>
           <div class="ui image label">
