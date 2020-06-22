@@ -7,7 +7,7 @@
       <th></th>
       <th>
         <p><%= Maintain.human_attribute_name('client.real_name') %></p>
-        <p class="ui grey text"><%= Maintain.human_attribute_name('client.nick_name') %></p>
+        <p class="has-text-grey"><%= Maintain.human_attribute_name('client.nick_name') %></p>
       </th>
       <th>
         <p><%= Profile.human_attribute_name(:age) %></p>
@@ -15,7 +15,7 @@
       </th>
       <th>
         <p><%= Maintain.human_attribute_name('agent.real_name') %></p>
-        <p class="ui green text"><%= Maintain.human_attribute_name('agent.identity') %></p>
+        <p class="has-text-success"><%= Maintain.human_attribute_name('agent.identity') %></p>
       </th>
       <th><%= Agency.human_attribute_name(:relation) %></th>
       <th>
@@ -40,7 +40,7 @@
         <% end %>
       </th>
       <th>
-        <p class="ui grey text"><%= Maintain.human_attribute_name(:member_id) %></p>
+        <p class="has-text-grey"><%= Maintain.human_attribute_name(:member_id) %></p>
         <p><%= Maintain.human_attribute_name(:state) %></p>
       </th>
       <th>
@@ -54,7 +54,7 @@
   <% @maintains.each do |maintain| %>
     <%= render layout: 'maintain', locals: { maintain: maintain } do %>
       <td>
-        <p class="ui grey text"><%= maintain.member&.name %></p>
+        <p class="has-text-grey"><%= maintain.member&.name %></p>
         <p><%= maintain.state_i18n %></p>
       </td>
       <td>
