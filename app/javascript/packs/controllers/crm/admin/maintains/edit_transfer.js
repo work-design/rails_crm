@@ -6,4 +6,3 @@ $('#maintain_pipeline_id').dropdown({
     Rails.ajax({url: search_url, type: 'GET', dataType: 'script'});
   }
 });
-$('#maintain_member_id').dropdown();

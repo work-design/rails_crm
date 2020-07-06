@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 10744237a6fc7f1a94ab07b2bfd2c38dc3a74f1c
+  revision: 3ace4fde1d7bac2a05819eabc75e2cf74f1e1db2
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
@@ -14,12 +14,13 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: cb2893df63e71a121f804808892c0e3340212939
+  revision: 7230e62059a66f185976dac40fb1813fbba18ba4
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
       http-form_data (~> 2.2)
       httpx (~> 0.8)
+      kaminari
       rails (~> 6.0)
 
 PATH
@@ -104,6 +105,18 @@ GEM
       timers
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
