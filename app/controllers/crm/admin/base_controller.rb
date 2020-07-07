@@ -1,4 +1,4 @@
-class Crm::Admin::BaseController < RailsCrm.config.admin_controller.constantize
+class Crm::Admin::BaseController < AdminController
 
   def member_params
     if current_member
@@ -7,12 +7,12 @@ class Crm::Admin::BaseController < RailsCrm.config.admin_controller.constantize
       {}
     end
   end
-  
+
   def transfer_params(original_params = {})
     r = {}
     if original_params['age-gte']
       r['birthday-gte'] = ''
     end
   end
-  
-end
+
+end unless defined? Crm::Admin::BaseController

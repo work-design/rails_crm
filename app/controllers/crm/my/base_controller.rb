@@ -1,4 +1,3 @@
-class Crm::My::BaseController < RailsCrm.config.my_controller.constantize
+class Crm::My::BaseController < MyController
 
-
-end
+end unless defined? Crm::My::BaseController
