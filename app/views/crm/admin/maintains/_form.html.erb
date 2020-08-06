@@ -18,7 +18,7 @@
     <%= ef.text_field :real_name %>
     <%= ef.text_field :identity, required: true %>
     <%= ef.select :gender, options_for_select(Profile.options_i18n(:gender)) %>
-    <%= render partial: 'nodes/outer_select', locals: { f: ef, outer: 'area' } %>
+    <%= render partial: 'taxon/nodes/outer_select', locals: { f: ef, outer: 'area' } %>
     <%= ef.text_area :address, rows: 3 %>
   <% end %>
   <h4 class="ui dividing center aligned header">线索信息</h4>
