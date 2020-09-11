@@ -27,7 +27,7 @@
         </div>
         <div>
           <%= Maintain.human_attribute_name(:pipeline_id) %>
-          <%= link_to admin_pipelines_path(piping_type: 'Maintain'), aria: { label: '流水线' }, target: '_blank' do %>
+          <%= link_to admin_task_templates_path(tasking_type: 'Maintain'), aria: { label: '流水线' }, target: '_blank' do %>
             <i class="fas fa-cog"></i>
           <% end %>
         </div>

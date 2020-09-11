@@ -1,5 +1,6 @@
 module RailsCrm::Maintain
   extend ActiveSupport::Concern
+
   included do
     attribute :state, :string, default: 'init'
     attribute :note, :string
@@ -8,8 +9,7 @@ module RailsCrm::Maintain
     belongs_to :organ, optional: true
     belongs_to :member, inverse_of: :maintains, optional: true
     belongs_to :maintain_source, optional: true
-    belongs_to :pipeline, optional: true
-    belongs_to :pipeline_member, optional: true
+    belongs_to :task_template, optional: true
     belongs_to :agency, optional: true, inverse_of: :maintain
     belongs_to :client, class_name: 'Profile', inverse_of: :client_maintains
     belongs_to :agent, class_name: 'User', inverse_of: :agent_maintains, optional: true

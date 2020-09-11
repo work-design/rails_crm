@@ -15,13 +15,13 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     if (q_params.keys - [:member_id]).blank?
       q_params.merge! state: 'init'
     end
-    
+
     @maintain_sources = MaintainSource.default_where(default_params)
     @maintain_tags = MaintainTag.default_where(default_params)
-    @pipelines = Pipeline.default_where(default_params.merge(piping_type: 'Maintain'))
+    @pipelines = TaskTemplate.default_where(default_params.merge(tasking_type: 'Maintain'))
     @maintains = Maintain.default_where(q_params).includes(:agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
   end
-  
+
   def public
     q_params = {
       member_id: nil,
@@ -74,7 +74,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def create
     @maintain = Maintain.new(maintain_params)
     @maintain.member_id ||= current_member.id
-    
+
     if client_params[:id]
       @maintain.client = Profile.find client_params[:id]
     else
@@ -95,7 +95,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       render :new, locals: { model: @maintain }, status: :unprocessable_entity
     end
   end
-  
+
   def batch
     maintains_params = params.fetch(:maintains, {})
     maintains_params.each do |maintain_params|
@@ -103,7 +103,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       p.merge! default_form_params
       @maintain = Maintain.create(p)
     end
-    
+
     head :ok
   end
 
@@ -116,7 +116,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     pipeline_params.merge! job_title_id: current_member.lower_job_title_ids if current_member
     pipeline_params.merge! default_params
     job_title_ids = PipelineMember.default_where(pipeline_params).pluck(:job_title_id)
-  
+
     @members = Member.default_where('member_departments.job_title_id': job_title_ids)
   end
 
@@ -124,7 +124,7 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     add_ids = params[:add_ids].to_s.split(',')
     @maintains = Maintain.where(id: add_ids)
     @maintains.update_all member_id: params[:member_id]
-  
+
     redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
   end
 
@@ -157,11 +157,11 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
       @members = Member.none
     end
   end
-  
+
   def update_transfer
     @maintain.assign_attributes maintain_params.slice(:pipeline_id)
     @maintain.transfer!
-    
+
     redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
   end
 
@@ -184,10 +184,10 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
   def update_assign
     @maintain.assign_attributes maintain_params.slice(:pipeline_id, :member_id)
     @maintain.save
-    
+
     redirect_back fallback_location: admin_maintains_url(id: params[:id]), notice: '移交成功'
   end
-  
+
   def detach
     @maintain.update member_id: nil
     redirect_to admin_maintains_url
@@ -197,20 +197,20 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     @maintain.update member_id: current_member.id
     redirect_to admin_maintains_url
   end
-  
+
   def orders
     @orders = @maintain.orders.order(id: :desc).page(params[:page])
   end
-  
+
   def edit_order
     @card_templates = CardTemplate.default_where(default_params)
   end
-  
+
   def update_order
     q_params = default_params
     q_params.merge! params.permit(:advance_id)
     advance = Advance.find(q_params['advance_id'])
-  
+
     order = advance.generate_order! buyer: @maintain.agent, maintain_id: @maintain.id
     flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
     redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
@@ -248,25 +248,25 @@ class Crm::Admin::MaintainsController < Crm::Admin::BaseController
     p.merge! default_form_params
     p
   end
-  
+
   def update_params
     maintain_params.merge! params.fetch(:maintain, {}).permit(client_attributes: {}, agent_attributes: {}, agency_attributes: {})
   end
-  
+
   def client_params
     p = params.fetch(:maintain, {}).fetch(:client_attributes, {}).permit!
     p.merge! default_form_params
   end
-  
+
   def agent_params
     p = params.fetch(:maintain, {}).fetch(:agent_attributes, {}).permit!
     p.merge! default_form_params
   end
-  
+
   def agency_params
     params.fetch(:maintain, {}).fetch(:agency_attributes, {}).permit!
   end
-  
+
   def search_params
     params.permit(
       :state,
