@@ -1,10 +1,7 @@
-<%= form_with model: [:admin, @maintain_tag_template] do |f| %>
-  <%= render 'shared/error_messages', target: @maintain_tag_template %>
-  <%= f.text_field :name %>
-  <%= f.text_field :logged_type %>
-  <%= f.text_field :entity_column %>
-  <%= f.text_field :entity_value %>
-  <%= f.text_field :sequence %>
-  <%= f.color_field :color %>
-  <%= f.submit %>
-<% end %>
+<%= render 'shared/error_messages', target: f.object %>
+<%= f.text_field :name %>
+<%= f.text_field :logged_type %>
+<%= f.text_field :entity_column %>
+<%= f.text_field :entity_value %>
+<%= f.text_field :sequence %>
+<%= f.color_field :color %>

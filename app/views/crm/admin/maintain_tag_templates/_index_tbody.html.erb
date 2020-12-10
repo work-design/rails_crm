@@ -1,0 +1,21 @@
+<tr>
+  <td><%= maintain_tag_template.name %></td>
+  <td><%= maintain_tag_template.logged_type %></td>
+  <td><%= maintain_tag_template.entity_column %></td>
+  <td><%= maintain_tag_template.entity_value %></td>
+  <td><%= maintain_tag_template.sequence %></td>
+  <td>
+    <span class="tag" style="background-color: <%= maintain_tag_template.color %>;"><%= maintain_tag_template.color %></span>
+  </td>
+  <td>
+    <%= link_to({ action: 'show', id: maintain_tag_template.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+    <%= link_to({ action: 'edit', id: maintain_tag_template.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: maintain_tag_template.id }, method: :delete, remote: true, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>
