@@ -1,10 +1,11 @@
-json.extract! maintain,
-              :id,
-              :note,
-              :state,
-              :state_i18n,
-              :created_at,
-              :updated_at
+json.extract!(
+  maintain,
+  :id,
+  :note,
+  :state,
+  :state_i18n,
+  :created_at
+)
 json.client maintain.client, :id, :real_name, :nick_name, :birthday_type, :birthday, :age_str, :gender#, :avatar_url
 json.tutelar maintain.tutelar, :id, :real_name, :identity, :mobile, :address, :wechat
 json.tutelage maintain.tutelage, :id, :relation

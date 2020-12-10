@@ -1,36 +1,24 @@
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th class="six wide">
-        <%= link_to t('.edit'), edit_admin_maintain_tag_path(@maintain_tag), class: 'ui mini blue right floated button', remote: true %>
-      </th>
-      <th class="ten wide"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:name) %></td>
-      <td><%= @maintain_tag.name %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:logged_type) %></td>
-      <td><%= @maintain_tag.logged_type %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_column) %></td>
-      <td><%= @maintain_tag.entity_column %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_value) %></td>
-      <td><%= @maintain_tag.entity_value %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:sequence) %></td>
-      <td><%= @maintain_tag.sequence %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= MaintainTag.human_attribute_name(:maintain_logs_count) %></td>
-      <td><%= @maintain_tag.maintain_logs_count %></td>
-    </tr>
-  </tbody>
-</table>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:name) %></td>
+  <td><%= @maintain_tag.name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:logged_type) %></td>
+  <td><%= @maintain_tag.logged_type %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_column) %></td>
+  <td><%= @maintain_tag.entity_column %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:entity_value) %></td>
+  <td><%= @maintain_tag.entity_value %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:sequence) %></td>
+  <td><%= @maintain_tag.sequence %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MaintainTag.human_attribute_name(:maintain_logs_count) %></td>
+  <td><%= @maintain_tag.maintain_logs_count %></td>
+</tr>
