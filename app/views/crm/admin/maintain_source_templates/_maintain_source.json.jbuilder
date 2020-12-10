@@ -1,6 +1,7 @@
-json.extract! maintain_source,
-              :id,
-              :name,
-              :maintains_count,
-              :created_at,
-              :updated_at
+json.extract!(
+  maintain_source,
+  :id,
+  :name,
+  :maintains_count,
+  :created_at
+)

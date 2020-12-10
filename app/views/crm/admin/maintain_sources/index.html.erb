@@ -1,57 +1,32 @@
-<% content_for :breadcrumb do %>
-  <ul>
-    <li><%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path %></li>
-    <li class="is-active"><%= t('crm.admin.maintain_sources.index.title') %></li>
-  </ul>
+
+<% @maintain_source_templates.each do |maintain_source_template| %>
+  <% maintain_source = @selected_maintain_sources.find { |i| i.maintain_source_template_id == maintain_source_template.id } %>
+  <tr>
+    <td><%= maintain_source_template.name %></td>
+    <td><%= maintain_source.maintains_count if maintain_source %></td>
+    <td>
+      <div class="ui toggle checkbox">
+        <% if maintain_source %>
+          <%= check_box_tag '', nil, true, data: { method: :delete, remote: true, url: admin_maintain_source_path(maintain_source), submit: true }, id: nil %>
+        <% end %>
+        <% unless maintain_source %>
+          <%= check_box_tag '[maintain_source]maintain_source_template_id', maintain_source_template.id, false, data: { method: :post, remote: true, url: admin_maintain_sources_path, submit: true }, id: nil %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
 <% end %>
-
-<%= render 'filter_form' %>
-
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th><%= MaintainSource.human_attribute_name(:name) %></th>
-      <th><%= MaintainSource.human_attribute_name(:maintains_count) %></th>
-      <th>
-        <%= link_to new_admin_maintain_source_path, remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @maintain_source_templates.each do |maintain_source_template| %>
-    <% maintain_source = @selected_maintain_sources.find { |i| i.maintain_source_template_id == maintain_source_template.id } %>
-    <tr>
-      <td><%= maintain_source_template.name %></td>
-      <td><%= maintain_source.maintains_count if maintain_source %></td>
-      <td>
-        <div class="ui toggle checkbox">
-          <% if maintain_source %>
-            <%= check_box_tag '', nil, true, data: { method: :delete, remote: true, url: admin_maintain_source_path(maintain_source), submit: true }, id: nil %>
-          <% end %>
-          <% unless maintain_source %>
-            <%= check_box_tag '[maintain_source]maintain_source_template_id', maintain_source_template.id, false, data: { method: :post, remote: true, url: admin_maintain_sources_path, submit: true }, id: nil %>
-          <% end %>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-  <% @maintain_sources.each do |maintain_source| %>
-    <tr>
-      <td><%= maintain_source.name %></td>
-      <td><%= maintain_source.maintains_count %></td>
-      <td>
-        <%= link_to edit_admin_maintain_source_path(maintain_source), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to admin_maintain_source_path(maintain_source), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= paginate @maintain_sources %>
+<% @maintain_sources.each do |maintain_source| %>
+  <tr>
+    <td><%= maintain_source.name %></td>
+    <td><%= maintain_source.maintains_count %></td>
+    <td>
+      <%= link_to edit_admin_maintain_source_path(maintain_source), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
+      <%= link_to admin_maintain_source_path(maintain_source), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
