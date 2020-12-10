@@ -1,66 +1,54 @@
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th class="six wide">
-        <%= link_to t('.edit'), edit_admin_maintain_path(@maintain), class: 'ui mini blue right floated button', remote: true %>
-      </th>
-      <th class="ten wide"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="has-text-right"><%= Maintain.human_attribute_name('client.real_name') %></td>
-      <td><%= @maintain.client.real_name %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Maintain.human_attribute_name('client.nick_name') %></td>
-      <td><%= @maintain.client.nick_name %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Profile.human_attribute_name(:birthday_type) %></td>
-      <td><%= @maintain.client.birthday_type_i18n %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Profile.human_attribute_name(:birthday) %></td>
-      <td><%= @maintain.client.birthday %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Profile.human_attribute_name(:gender) %></td>
-      <td><%= @maintain.client.gender_i18n %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Maintain.human_attribute_name(:note) %></td>
-      <td><%= @maintain.note %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.real_name') %></td>
-      <td><%= @maintain.tutelar.real_name %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.identity') %></td>
-      <td>
-        <%= @maintain.tutelar.identity %>
-        <% if @maintain.tutelar.user && @maintain.tutelar.account&.wechat_response %>
-          <%= image_tag @maintain.tutelar.account.qrcode_url, class: 'ui small image' %>
-        <% else %>
-          <%= link_to qrcode_admin_profile_path(@maintain.tutelar), method: :patch, remote: true, id: 'account_qrcode' do %>
-            <i class="fas fa-qrcode"></i>
-          <% end %>
+<tr>
+  <td class="has-text-right"><%= Maintain.human_attribute_name('client.real_name') %></td>
+  <td><%= @maintain.client.real_name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Maintain.human_attribute_name('client.nick_name') %></td>
+  <td><%= @maintain.client.nick_name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Profile.human_attribute_name(:birthday_type) %></td>
+  <td><%= @maintain.client.birthday_type_i18n %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Profile.human_attribute_name(:birthday) %></td>
+  <td><%= @maintain.client.birthday %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Profile.human_attribute_name(:gender) %></td>
+  <td><%= @maintain.client.gender_i18n %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Maintain.human_attribute_name(:note) %></td>
+  <td><%= @maintain.note %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.real_name') %></td>
+  <td><%= @maintain.tutelar.real_name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Maintain.human_attribute_name('tutelar.identity') %></td>
+  <td>
+    <%= @maintain.tutelar.identity %>
+    <% if @maintain.tutelar.user && @maintain.tutelar.account&.wechat_response %>
+      <%= image_tag @maintain.tutelar.account.qrcode_url, class: 'ui small image' %>
+    <% else %>
+      <%= link_to qrcode_admin_profile_path(@maintain.tutelar), method: :patch, remote: true, id: 'account_qrcode' do %>
+        <i class="fas fa-qrcode"></i>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Card.human_name %></td>
+  <td>
+    <% @maintain.tutelage.cards.each do |card| %>
+      <div class="ui image label">
+        <%= link_to card.card_uuid, admin_card_card_logs_path(card), text: true %>
+        <%= link_to card_admin_agency_path(@maintain.agency, card_id: card.id), method: :delete do %>
+          <i class="delete icon"></i>
         <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= Card.human_name %></td>
-      <td>
-        <% @maintain.tutelage.cards.each do |card| %>
-          <div class="ui image label">
-            <%= link_to card.card_uuid, admin_card_card_logs_path(card), text: true %>
-            <%= link_to card_admin_agency_path(@maintain.agency, card_id: card.id), method: :delete do %>
-              <i class="delete icon"></i>
-            <% end %>
-          </div>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+    <% end %>
+  </td>
+</tr>

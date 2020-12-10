@@ -2,7 +2,6 @@ module RailsCrm::Maintain
   extend ActiveSupport::Concern
 
   included do
-    attribute :state, :string, default: 'init'
     attribute :note, :string
     attribute :position, :integer
 
@@ -27,7 +26,7 @@ module RailsCrm::Maintain
     enum state: {
       init: 'init',
       transferred: 'transferred'
-    }
+    }, _default: 'init'
 
     before_validation do
       self.upstream ||= self

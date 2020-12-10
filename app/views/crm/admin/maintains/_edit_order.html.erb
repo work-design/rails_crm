@@ -1,14 +1,5 @@
-<div class="ui modal" id="modal">
-  <i class="fas fa-times close"></i>
-  <div class="ui header">
-    <%= t('.edit') %>
-  </div>
-
-  <div class="content">
-    <%= form_with url: order_admin_maintain_path(@maintain), method: :patch do |f| %>
-      <%= f.collection_select :card_template_id, @card_templates, :id, :name, label: '选择卡', include_blank: true %>
-      <div id="_advance_id_wrap"></div>
-      <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+<%= form_with url: { action: 'order' }, method: :patch do |f| %>
+  <%= f.collection_select :card_template_id, @card_templates, :id, :name, label: '选择卡', include_blank: true %>
+  <div id="_advance_id_wrap"></div>
+  <%= f.submit %>
+<% end %>
