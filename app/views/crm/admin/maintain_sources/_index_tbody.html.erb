@@ -1,0 +1,12 @@
+<tr>
+  <td><%= maintain_source.name %></td>
+  <td><%= maintain_source.maintains_count %></td>
+  <td>
+    <%= link_to({ action: 'edit', id: maintain_source.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: maintain_source.id }, method: :delete, remote: true, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>
