@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope module: :crm, defaults: { business: 'crm' } do
+  scope module: :crm, defaults: { namespace: 'application', business: 'crm' } do
 
   end
 
