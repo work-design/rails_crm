@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  scope module: :crm do
+  scope module: :crm, defaults: { business: 'crm' } do
 
   end
 
-  scope :admin, module: 'crm/admin', as: 'admin' do
+  scope :admin, module: 'crm/admin', as: :admin, defaults: { namespace: 'admin', business: 'crm' } do
     resources :maintain_source_templates
     resources :maintain_tag_templates
     resources :maintains do
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :my, module: 'crm/my', as: 'my' do
+  scope :my, module: 'crm/my', as: :my, defaults: { namespace: 'my', business: 'crm' } do
   end
 
 end
