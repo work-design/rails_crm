@@ -11,10 +11,10 @@
     <td>
       <div data-controller="input">
         <% if maintain_tag %>
-          <%= check_box_tag '', nil, true, data: { method: :delete, remote: true, url: admin_maintain_tag_path(maintain_tag), submit: true }, id: nil %>
+          <%= check_box_tag '', nil, true, data: { method: :delete, url: admin_maintain_tag_path(maintain_tag), submit: true }, id: nil %>
         <% end %>
         <% unless maintain_tag %>
-          <%= check_box_tag '[maintain_tag]maintain_tag_template_id', maintain_tag_template.id, false, data: { method: :post, remote: true, url: admin_maintain_tags_path, submit: true }, id: nil %>
+          <%= check_box_tag '[maintain_tag]maintain_tag_template_id', maintain_tag_template.id, false, data: { method: :post, url: admin_maintain_tags_path, submit: true }, id: nil %>
         <% end %>
       </div>
     </td>

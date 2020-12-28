@@ -43,7 +43,7 @@
       </th>
       <th><%= Maintain.human_attribute_name(:state) %></th>
       <th>
-        <%= link_to assign_admin_maintains_path, aria: { label: t('.assign'), action: 'check#applyFor' }, remote: true, class: 'ui mini button' do %>
+        <%= link_to assign_admin_maintains_path, aria: { label: t('.assign'), action: 'check#applyFor' }, class: 'ui mini button' do %>
           <i class="fas fa-hand-holding-usd"></i>
         <% end %>
       </th>
@@ -59,16 +59,16 @@
         <%= link_to assume_admin_maintain_path(maintain), aria: { label: t('.assume') }, method: :patch, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-vote-yea"></i>
         <% end %>
-        <%= link_to assign_admin_maintain_path(maintain), aria: { label: t('.assign') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+        <%= link_to assign_admin_maintain_path(maintain), aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-hand-holding-usd"></i>
         <% end %>
         <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('.log') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-clock"></i>
         <% end %>
-        <%= link_to admin_maintain_path(maintain), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light', remote: true do %>
+        <%= link_to admin_maintain_path(maintain), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light', remote: true do %>
+        <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
         <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>

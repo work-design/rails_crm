@@ -7,10 +7,10 @@
     <td>
       <div class="ui toggle checkbox">
         <% if maintain_source %>
-          <%= check_box_tag '', nil, true, data: { method: :delete, remote: true, url: admin_maintain_source_path(maintain_source), submit: true }, id: nil %>
+          <%= check_box_tag '', nil, true, data: { method: :delete, url: admin_maintain_source_path(maintain_source), submit: true }, id: nil %>
         <% end %>
         <% unless maintain_source %>
-          <%= check_box_tag '[maintain_source]maintain_source_template_id', maintain_source_template.id, false, data: { method: :post, remote: true, url: admin_maintain_sources_path, submit: true }, id: nil %>
+          <%= check_box_tag '[maintain_source]maintain_source_template_id', maintain_source_template.id, false, data: { method: :post, url: admin_maintain_sources_path, submit: true }, id: nil %>
         <% end %>
       </div>
     </td>

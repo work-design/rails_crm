@@ -33,7 +33,7 @@
     <% if @maintain.tutelar.user && @maintain.tutelar.account&.wechat_response %>
       <%= image_tag @maintain.tutelar.account.qrcode_url, class: 'ui small image' %>
     <% else %>
-      <%= link_to qrcode_admin_profile_path(@maintain.tutelar), method: :patch, remote: true, id: 'account_qrcode' do %>
+      <%= link_to qrcode_admin_profile_path(@maintain.tutelar), method: :patch, id: 'account_qrcode' do %>
         <i class="fas fa-qrcode"></i>
       <% end %>
     <% end %>
