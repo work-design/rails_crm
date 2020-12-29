@@ -1,0 +1,14 @@
+<th>
+  <%= MaintainLog.human_attribute_name(:maintain_tag_id) %>
+  <%= link_to({ controller: 'maintain_tags' }, aria: { label: '标签设置' }, target: '_blank') do %>
+    <i class="fas fa-cog"></i>
+  <% end %>
+</th>
+<th><%= MaintainLog.human_attribute_name(:note) %></th>
+<th>
+  <p><%= MaintainLog.human_attribute_name(:logged_type) %></p>
+  <p><%= MaintainLog.human_attribute_name(:logged_id) %></p>
+</th>
+<th><%= MaintainLog.human_attribute_name(:extra) %></th>
+<th><%= MaintainLog.human_attribute_name(:created_at) %></th>
+<th></th>

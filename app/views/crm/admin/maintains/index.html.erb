@@ -1,87 +1,26 @@
-<%= render 'filter_form' %>
-<%= render 'filter_table' %>
-
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th></th>
-      <th>
-        <p><%= Maintain.human_attribute_name('client.real_name') %></p>
-        <p class="has-text-grey"><%= Maintain.human_attribute_name('client.nick_name') %></p>
-      </th>
-      <th>
-        <p><%= Profile.human_attribute_name(:age) %></p>
-        <p><%= Profile.human_attribute_name(:gender) %></p>
-      </th>
-      <th>
-        <p><%= Maintain.human_attribute_name('agent.real_name') %></p>
-        <p class="has-text-success"><%= Maintain.human_attribute_name('agent.identity') %></p>
-      </th>
-      <th><%= Agency.human_attribute_name(:relation) %></th>
-      <th>
-        <div>
-          <%= Maintain.human_attribute_name(:maintain_source_id) %>
-          <%= link_to admin_maintain_sources_path, aria: { label: '来源设置' }, target: '_blank' do %>
-            <i class="fas fa-cog"></i>
-          <% end %>
-        </div>
-        <div>
-          <%= Maintain.human_attribute_name(:pipeline_id) %>
-          <%= link_to admin_task_templates_path(tasking_type: 'Maintain'), aria: { label: '流水线' }, target: '_blank' do %>
-            <i class="fas fa-cog"></i>
-          <% end %>
-        </div>
-      </th>
-      <th><%= Profile.human_attribute_name(:note) %></th>
-      <th>
-        <%= MaintainLog.human_attribute_name(:maintain_tag_id) %>
-        <%= link_to admin_maintain_tags_path, aria: { label: '标签设置' }, target: '_blank' do %>
-          <i class="fas fa-cog"></i>
-        <% end %>
-      </th>
-      <th>
-        <p class="has-text-grey"><%= Maintain.human_attribute_name(:member_id) %></p>
-        <p><%= Maintain.human_attribute_name(:state) %></p>
-      </th>
-      <th>
-        <%= link_to detect_admin_maintains_path, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @maintains.each do |maintain| %>
-    <%= render layout: 'maintain', locals: { maintain: maintain } do %>
-      <td>
-        <p class="has-text-grey"><%= maintain.member&.name %></p>
-        <p><%= maintain.state_i18n %></p>
-      </td>
-      <td>
-        <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-clock"></i>
-        <% end %>
-        <%= link_to detach_admin_maintain_path(maintain), method: :patch, aria: { label: t('crm.admin.maintains.index.detach'), confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-hand-holding"></i>
-        <% end %>
-        <% if current_user.admin? || Rails.env.development? %>
-        <%= link_to transfer_admin_maintain_path(maintain), aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-random"></i>
-        <% end %>
-        <% end %>
-        <%= link_to orders_admin_maintain_path(maintain), aria: { label: t('.orders') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-shopping-cart"></i>
-        <% end %>
-        <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      </td>
-    <% end %>
+<td>
+  <p class="has-text-grey"><%= maintain.member&.name %></p>
+  <p><%= maintain.state_i18n %></p>
+</td>
+<td>
+  <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-clock"></i>
   <% end %>
-  </tbody>
-</table>
-
-<%= paginate @maintains %>
+  <%= link_to detach_admin_maintain_path(maintain), method: :patch, aria: { label: t('crm.admin.maintains.index.detach'), confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-hand-holding"></i>
+  <% end %>
+  <% if current_user.admin? || Rails.env.development? %>
+  <%= link_to transfer_admin_maintain_path(maintain), aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-random"></i>
+  <% end %>
+  <% end %>
+  <%= link_to orders_admin_maintain_path(maintain), aria: { label: t('.orders') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-shopping-cart"></i>
+  <% end %>
+  <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-pencil-alt"></i>
+  <% end %>
+  <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
+</td>

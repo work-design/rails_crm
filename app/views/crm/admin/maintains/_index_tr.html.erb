@@ -1,0 +1,36 @@
+<tr title="<%= model.created_at %>">
+  <td>
+    <%= check_box_tag 'xx', model.id, false, data: { action: 'check#toggle' } %>
+  </td>
+  <td>
+    <p><%= model.client.name %></p>
+  </td>
+  <td>
+    <span><%= model.client.age %></span>
+    <span class="ui icon label">
+      <i class="fas <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+      <%= model.client.gender_i18n %>
+    </span>
+  </td>
+  <td>
+    <p><%= model.agent.name %></p>
+    <p class="ui green text"><%= model.agent.identity %></p>
+  </td>
+  <td><%= model.agency.relation_i18n %></td>
+  <td>
+    <p><%= model.maintain_source&.name %></p>
+    <p>
+      <span><%= model.pipeline&.name %></span>
+      <% if model.pipeline_member %>
+      <span style="color: <%= model.pipeline_member.color %>">(<%= model.pipeline_member.name %>)</span>
+      <% end %>
+    </p>
+  </td>
+  <td><%= model.note %></td>
+  <td>
+    <% model.tags.each do |tag| %>
+      <span class="ui label"><%= tag %></span>
+    <% end %>
+  </td>
+  <%= yield %>
+</tr>

@@ -1,20 +1,7 @@
-<tr>
-  <td><%= maintain_tag.name %></td>
-  <td><%= maintain_tag.logged_type_i18n %></td>
-  <td><%= maintain_tag.sequence %></td>
-  <td>
-    <span class="tag" style="background-color: <%= maintain_tag.color %>;"><%= maintain_tag.color %></span>
-  </td>
-  <td><%= maintain_tag.maintain_logs_count %></td>
-  <td>
-    <%= link_to({ action: 'edit', id: maintain_tag.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ action: 'edit', id: maintain_tag.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to({ action: 'destroy', id: maintain_tag.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.name %></td>
+<td><%= model.logged_type_i18n %></td>
+<td><%= model.sequence %></td>
+<td>
+  <span class="tag" style="background-color: <%= model.color %>"><%= model.color %></span>
+</td>
+<td><%= model.maintain_logs_count %></td>
