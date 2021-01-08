@@ -5,6 +5,7 @@ class Crm::Admin::MaintainTagsController < Crm::Admin::BaseController
     q_params = {}
     q_params.merge! default_params
     q_params.merge! params.permit(:name)
+
     @maintain_tags = MaintainTag.where(maintain_tag_template_id: nil).default_where(q_params).page(params[:page])
     @selected_maintain_tags = MaintainTag.where.not(maintain_tag_template_id: nil).default_where(q_params).order(maintain_tag_template_id: :asc)
     @maintain_tag_templates = MaintainTagTemplate.order(id: :asc)
@@ -25,8 +26,6 @@ class Crm::Admin::MaintainTagsController < Crm::Admin::BaseController
   def sync
     q_params = default_params
     MaintainTag.default_where(q_params).sync_from_template
-
-    redirect_to admin_maintain_tags_url
   end
 
   def show
