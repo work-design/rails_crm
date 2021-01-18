@@ -1,3 +1,4 @@
-class Crm::My::BaseController < MyController
-
-end unless defined? Crm::My::BaseController
+module Crm
+  class My::BaseController < MyController
+  end
+end
