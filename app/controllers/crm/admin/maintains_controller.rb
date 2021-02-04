@@ -19,7 +19,7 @@ module Crm
 
       @maintain_sources = MaintainSource.default_where(default_params)
       @maintain_tags = MaintainTag.default_where(default_params)
-      @pipelines = TaskTemplate.default_where(default_params.merge(tasking_type: 'Maintain'))
+      @pipelines = Bench::TaskTemplate.default_where(default_params.merge(tasking_type: 'Crm::Maintain'))
       @maintains = Maintain.default_where(q_params).includes(:agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
     end
 
