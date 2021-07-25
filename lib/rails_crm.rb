@@ -1,2 +1,2 @@
-require_relative 'rails_crm/engine'
-require_relative 'rails_crm/config'
+require 'rails_crm/engine'
+require 'rails_crm/config'

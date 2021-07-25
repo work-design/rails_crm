@@ -1,5 +1,5 @@
 # RailsCrm
-Short description and motivation.
+简单 CRM 架构
 
 ## Usage
 How to use my plugin.
