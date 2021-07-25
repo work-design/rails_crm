@@ -1,20 +1,13 @@
 GIT
-  remote: https://github.com/qinmingyuan/default_form.git
-  revision: d0fbf0383bf8f9ec7941f79ad2dabd95a478e53b
+  remote: https://github.com/qinmingyuan/viter.git
+  revision: 7e67bf86c44f0c95c918d631df253e0f824caf15
   specs:
-    default_form (1.5.1)
-      rails_com (~> 1.2)
-
-GIT
-  remote: https://github.com/qinmingyuan/default_where.git
-  revision: 73338e8c9bf69cb2cb25ea0a62fee1fe0a0905ba
-  specs:
-    default_where (2.2.3)
-      activerecord (>= 4.0, <= 7.0)
+    viter (0.1.0)
+      rails
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: ff2fa793ea78f7c6b1d824a86c4910dab26223cd
+  revision: ee517ffe0b36b1007196df8e86e5f611c0ba38cf
   specs:
     rails_com (1.2.9)
       acme-client
@@ -105,12 +98,9 @@ GEM
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    default_where (2.2.0)
+      activerecord (>= 4.0.0)
     erubi (1.10.0)
-    factory_bot (6.2.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
-      railties (>= 5.0.0)
     faraday (1.5.1)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -164,6 +154,7 @@ GEM
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    pg (1.2.3)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -195,7 +186,7 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
-    ruby2_keywords (0.0.4)
+    ruby2_keywords (0.0.5)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -206,7 +197,7 @@ GEM
     sqlite3 (1.4.2)
     thor (1.1.0)
     timers (4.3.3)
-    turbo-rails (0.5.12)
+    turbo-rails (0.6.0)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -221,13 +212,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  default_form!
-  default_where!
-  factory_bot_rails
+  pg
   rails
   rails_com!
   rails_crm!
   sqlite3
+  viter!
 
 BUNDLED WITH
    2.2.22
