@@ -21,24 +21,6 @@ module Crm
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @maintain_log.assign_attributes(maintain_log_params)
-
-      unless @maintain_log.save
-        render :edit, locals: { model: @maintain_log }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @maintain_log.destroy
-    end
-
     private
     def prepare_form
       @maintain_tags = MaintainTag.default_where(default_params)

@@ -29,24 +29,6 @@ module Crm
       MaintainTag.default_where(q_params).sync_from_template
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @maintain_tag.assign_attributes(maintain_tag_params)
-
-      unless @maintain_tag.save
-        render :edit, locals: { model: @maintain_tag }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @maintain_tag.destroy
-    end
-
     private
     def set_maintain_tag
       @maintain_tag = MaintainTag.find(params[:id])

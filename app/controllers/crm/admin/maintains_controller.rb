@@ -129,20 +129,6 @@ module Crm
       redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @maintain.assign_attributes(update_params)
-
-      unless @maintain.save
-        render :edit, locals: { model: @maintain }, status: :unprocessable_entity
-      end
-    end
-
     def edit_transfer
       pipeline_params = {
         piping_type: 'Maintain',
@@ -215,10 +201,6 @@ module Crm
       order = advance.generate_order! buyer: @maintain.agent, maintain_id: @maintain.id
       flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
       redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
-    end
-
-    def destroy
-      @maintain.destroy
     end
 
     private

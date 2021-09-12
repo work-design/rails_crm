@@ -27,24 +27,6 @@ module Crm
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @maintain_source.assign_attributes(maintain_source_params)
-
-      unless @maintain_source.save
-        render :edit, locals: { model: @maintain_source }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @maintain_source.destroy
-    end
-
     private
     def set_maintain_source
       @maintain_source = MaintainSource.find(params[:id])
