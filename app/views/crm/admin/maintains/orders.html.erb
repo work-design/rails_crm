@@ -1,7 +1,7 @@
 <% content_for :breadcrumb do %>
   <div class="ui basic segment breadcrumb">
     <%= link_to t('crm.admin.maintains.index.title'), admin_maintains_path, class: 'section' %>
-    <i class="fas fa-angle-right divider"></i>
+    <i class="fa-light fa-angle-right divider"></i>
     <div class="active section"><%= t('.title') %></div>
   </div>
 <% end %>
@@ -20,7 +20,7 @@
       <th><%= Order.human_attribute_name(:created_at) %></th>
       <th>
         <%= link_to order_admin_maintain_path(@maintain), aria: { label: '购卡' }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-credit-card"></i>
+          <i class="fa-light fa-credit-card"></i>
         <% end %>
       </th>
     </tr>
@@ -44,7 +44,7 @@
       <td><time data-controller="time"><%= order.created_at.to_s(:rfc822) %></time></td>
       <td>
         <%= link_to edit_admin_order_path(order), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
+          <i class="fa-light fa-pencil-alt"></i>
         <% end %>
       </td>
     </tr>

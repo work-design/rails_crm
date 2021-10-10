@@ -25,13 +25,13 @@
 <div class="inline fields">
   <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, wrap: { all: false } %>
   <%= link_to admin_maintain_sources_path, aria: { label: '来源设置' }, target: '_blank' do %>
-    <i class="fas fa-cog"></i>
+    <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
 <div class="inline fields">
   <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, wrap: { all: false } %>
   <%= link_to admin_pipelines_path, aria: { label: '流水线' }, target: '_blank' do %>
-    <i class="fas fa-cog"></i>
+    <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
 <%= f.text_field :note %>

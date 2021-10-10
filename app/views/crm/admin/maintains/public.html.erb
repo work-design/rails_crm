@@ -31,20 +31,20 @@
       <th>
         <%= Maintain.human_attribute_name(:maintain_source_id) %>
         <%= link_to admin_maintain_sources_path, aria: { label: '来源设置' }, target: '_blank' do %>
-          <i class="fas fa-cog"></i>
+          <i class="fa-light fa-cog"></i>
         <% end %>
       </th>
       <th><%= Maintain.human_attribute_name(:note) %></th>
       <th>
         <%= MaintainLog.human_attribute_name(:maintain_tag_id) %>
         <%= link_to admin_maintain_tags_path, aria: { label: '标签设置' }, target: '_blank' do %>
-          <i class="fas fa-cog"></i>
+          <i class="fa-light fa-cog"></i>
         <% end %>
       </th>
       <th><%= Maintain.human_attribute_name(:state) %></th>
       <th>
         <%= link_to assign_admin_maintains_path, aria: { label: t('.assign'), action: 'check#applyFor' }, class: 'ui mini button' do %>
-          <i class="fas fa-hand-holding-usd"></i>
+          <i class="fa-light fa-hand-holding-usd"></i>
         <% end %>
       </th>
     </tr>
@@ -57,22 +57,22 @@
       </td>
       <td>
         <%= link_to assume_admin_maintain_path(maintain), aria: { label: t('.assume') }, method: :patch, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-vote-yea"></i>
+          <i class="fa-light fa-vote-yea"></i>
         <% end %>
         <%= link_to assign_admin_maintain_path(maintain), aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-hand-holding-usd"></i>
+          <i class="fa-light fa-hand-holding-usd"></i>
         <% end %>
         <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('.log') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-clock"></i>
+          <i class="fa-light fa-clock"></i>
         <% end %>
         <%= link_to admin_maintain_path(maintain), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-eye"></i>
+          <i class="fa-light fa-eye"></i>
         <% end %>
         <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
+          <i class="fa-light fa-pencil-alt"></i>
         <% end %>
         <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash-alt"></i>
+          <i class="fa-light fa-trash-alt"></i>
         <% end %>
       </td>
     <% end %>
