@@ -66,13 +66,13 @@
           <i class="fa-light fa-clock"></i>
         <% end %>
         <%= link_to admin_maintain_path(maintain), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-light fa-eye"></i>
+          <i class="fa-light fa-circle-info"></i>
         <% end %>
         <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-light fa-pencil-alt"></i>
+          <i class="fa-light fa-pencil"></i>
         <% end %>
         <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-light fa-trash-alt"></i>
+          <i class="fa-light fa-trash"></i>
         <% end %>
       </td>
     <% end %>
