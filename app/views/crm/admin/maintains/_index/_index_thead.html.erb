@@ -21,9 +21,6 @@
   </div>
   <div>
     <%= Crm::Maintain.human_attribute_name(:pipeline_id) %>
-    <%= link_to({ controller: 'bench/admin/task_templates', tasking_type: 'Crm::Maintain' }, aria: { label: '流水线' }, target: '_blank') do %>
-      <i class="fa-light fa-cog"></i>
-    <% end %>
   </div>
 </th>
 <th><%= Profiled::Profile.human_attribute_name(:note) %></th>
