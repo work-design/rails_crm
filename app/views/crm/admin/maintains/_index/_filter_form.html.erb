@@ -1,9 +1,9 @@
-<%= form_with theme: 'search', model: Maintain.new do |f| %>
+<%= form_with theme: 'search', model: Crm::Maintain.new do |f| %>
   <div class="field-body">
-    <%= f.text_field :'client.real_name' %>
-    <%= f.text_field :'tutelar.identity' %>
-    <%= f.text_field :'age-gte' %>
-    <%= f.text_field :'age-lte' %>
+    <%= f.text_field 'client.real_name' %>
+    <%= f.text_field 'tutelar.identity' %>
+    <%= f.text_field 'age-gte' %>
+    <%= f.text_field 'age-lte' %>
     <div class="field is-narrow">
       <%= f.submit %>
       <%= link_to t('.clear'), filter_params(except: [:'client.real_name', :'tutelar.identity', 'age-gte', 'age-lte']), class: 'button is-light' %>

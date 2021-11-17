@@ -1,0 +1,10 @@
+<td><%= model.name %></td>
+<td><%= model.maintains_count %></td>
+<td>
+  <%= link_to({ action: 'edit', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-pencil"></i>
+  <% end %>
+  <%= link_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+    <i class="fa-light fa-trash"></i>
+  <% end %>
+</td>

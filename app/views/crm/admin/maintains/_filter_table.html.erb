@@ -1,9 +1,9 @@
 <table class="as-search">
   <tr>
-    <th><%= Maintain.human_attribute_name(:state) %></th>
+    <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:state]), class: active_params(state: '', active: 'button is-info', item: 'button is-light') %>
-      <% Maintain.options_i18n(:state).each do |text, state| %>
+      <% Crm::Maintain.options_i18n(:state).each do |text, state| %>
         <%= link_to text, filter_params(state: state), class: active_params(state: state, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
@@ -16,37 +16,37 @@
     </td>
   </tr>
   <tr>
-    <th><%= link_to Maintain.human_attribute_name(:maintain_source_id), admin_maintain_sources_path, text: true %></th>
+    <th><%= link_to Crm::Maintain.human_attribute_name(:maintain_source_id), { controller: 'maintain_sources' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:maintain_source_id]), class: active_params(maintain_source_id: '', active: 'button is-info', item: 'button is-light') %>
       <% @maintain_sources.each do |maintain_source| %>
         <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_params(maintain_source_id: maintain_source.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
-      <%= link_to new_admin_maintain_source_path, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light' do %>
+      <%= link_to({ controller: 'maintain_sources', action: 'new' }, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-plus"></i>
       <% end %>
     </td>
   </tr>
   <tr>
-    <th><%= link_to MaintainLog.human_attribute_name(:maintain_tag_id), admin_maintain_tags_path, text: true %></th>
+    <th><%= link_to Crm::MaintainLog.human_attribute_name(:maintain_tag_id), { controller: 'maintain_tags' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:'maintain_logs.maintain_tag_id']), class: active_params('maintain_logs.maintain_tag_id': '', active: 'button is-info', item: 'button is-light') %>
       <% @maintain_tags.each do |maintain_tag| %>
         <%= link_to maintain_tag.name, filter_params('maintain_logs.maintain_tag_id': maintain_tag.id), class: active_params('maintain_logs.maintain_tag_id': maintain_tag.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
-      <%= link_to new_admin_maintain_tag_path, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light' do %>
+      <%= link_to({ controller: 'maintain_tags', action: 'new' }, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-plus"></i>
       <% end %>
     </td>
   </tr>
   <tr>
-    <th><%= link_to Maintain.human_attribute_name(:pipeline_id), admin_task_templates_path(tasking_type: 'Maintain'), text: true %></th>
+    <th><%= link_to Crm::Maintain.human_attribute_name(:pipeline_id), { controller: 'bench/admin/task_templates', tasking_type: 'Crm::Maintain' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:pipeline_id]), class: active_params(pipeline_id: '', active: 'button is-info', item: 'button is-light') %>
       <% @pipelines.each do |pipeline| %>
         <%= link_to pipeline.name, filter_params(pipeline_id: pipeline.id), class: active_params(pipeline_id: pipeline.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
-      <%= link_to new_admin_task_template_path(tasking_type: 'Maintain'), aria: { label: t('.new') }, class: 'button is-small is-rounded is-light' do %>
+      <%= link_to({ controller: 'bench/admin/task_templates', action: 'new', tasking_type: 'Crm::Maintain' }, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-plus"></i>
       <% end %>
     </td>

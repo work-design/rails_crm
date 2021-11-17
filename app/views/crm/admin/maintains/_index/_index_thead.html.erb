@@ -1,0 +1,40 @@
+<th></th>
+<th>
+  <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
+  <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name('client.nick_name') %></p>
+</th>
+<th>
+  <p><%= Profiled::Profile.human_attribute_name(:age) %></p>
+  <p><%= Profiled::Profile.human_attribute_name(:gender) %></p>
+</th>
+<th>
+  <p><%= Crm::Maintain.human_attribute_name('agent.real_name') %></p>
+  <p class="has-text-success"><%= Crm::Maintain.human_attribute_name('agent.identity') %></p>
+</th>
+<th><%= Agential::Agency.human_attribute_name(:relation) %></th>
+<th>
+  <div>
+    <%= Crm::Maintain.human_attribute_name(:maintain_source_id) %>
+    <%= link_to({ controller: 'maintain_sources' }, aria: { label: '来源设置' }, target: '_blank') do %>
+      <i class="fa-light fa-cog"></i>
+    <% end %>
+  </div>
+  <div>
+    <%= Crm::Maintain.human_attribute_name(:pipeline_id) %>
+    <%= link_to({ controller: 'bench/admin/task_templates', tasking_type: 'Crm::Maintain' }, aria: { label: '流水线' }, target: '_blank') do %>
+      <i class="fa-light fa-cog"></i>
+    <% end %>
+  </div>
+</th>
+<th><%= Profiled::Profile.human_attribute_name(:note) %></th>
+<th>
+  <%= Crm::MaintainLog.human_attribute_name(:maintain_tag_id) %>
+  <%= link_to({ controller: 'maintain_tags' }, aria: { label: '标签设置' }, target: '_blank') do %>
+    <i class="fa-light fa-cog"></i>
+  <% end %>
+</th>
+<th>
+  <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name(:member_id) %></p>
+  <p><%= Crm::Maintain.human_attribute_name(:state) %></p>
+</th>
+<th></th>
