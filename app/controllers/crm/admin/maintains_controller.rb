@@ -41,12 +41,12 @@ module Crm
       q_params = {}
       q_params.merge! default_params
       @agent = Profiled::Profile.default_where(q_params).find_by(identity: params[:identity])
+
       if @agent
-        @agencies = @agent.proteges
-          render 'create_detect'
+        @agencies = @agent.agencies
+        render 'create_detect'
       else
-        @maintain = Maintain.new
-        @maintain.member_id = current_member.id if current_member
+        @maintain = current_member.maintains.build
         @maintain.agent = Profile.new(identity: params[:identity])
         @maintain.client = Profile.new
         @maintain.build_agency
@@ -56,15 +56,15 @@ module Crm
     end
 
     def new
-      @maintain = Maintain.new
-      @maintain.member_id = current_member.id if current_member
+      @maintain = current_member.maintains.build
+
       if params[:agent_id]
         @maintain.agent = Profile.find params[:agent_id]
       else
         @maintain.agent = Profile.new
       end
       if params[:agency_id]
-        agency = Agency.find params[:agency_id]
+        agency = Agential::Agency.find params[:agency_id]
         @maintain.agency = agency
         @maintain.client = agency.client
       else
@@ -210,13 +210,13 @@ module Crm
 
     def prepare_form
       pipeline_params = {
-        piping_type: 'Maintain',
-        piping_id: nil,
+        tasking_type: 'Crm::Maintain',
+        tasking_id: nil,
         'pipeline_members.position': 1
       }
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
-      @pipelines = Pipeline.default_where(pipeline_params)
+      @task_templates = Bench::TaskTemplate.default_where(pipeline_params)
       @maintain_sources = MaintainSource.default_where(default_params)
     end
 

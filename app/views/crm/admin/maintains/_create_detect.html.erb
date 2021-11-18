@@ -1,23 +1,14 @@
-<div class="ui modal" id="modal">
-  <i class="fa-light fa-times close"></i>
-  <div class="ui header blue">
-    <%= t('.new') %>
+<%= form_with url: new_admin_maintain_url, method: :get do |f| %>
+  <div class="inline fields">
+    <%= f.hidden_field :agent_id, value: @agent.id %>
+    <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', can: { wrap_all: false } %>
+    <%= f.submit '下一步', can: { wrap_all: false, offset: false } %>
   </div>
-
-  <div class="content">
-    <%= form_with url: new_admin_maintain_url, method: :get do |f| %>
-      <div class="inline fields">
-        <%= f.hidden_field :agent_id, value: @agent.id %>
-        <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', can: { wrap_all: false } %>
-        <%= f.submit '下一步', can: { wrap_all: false, offset: false } %>
-      </div>
-    <% end %>
-    <div class="ui horizontal divider">或</div>
-    <div class="ui center aligned basic segment">
-      <%= link_to new_admin_maintain_path(agent_id: @agent.id), class: 'button is-link is-small' do %>
-        <i class="fa-light fa-plus"></i>
-        <span>新增</span>
-      <% end %>
-    </div>
-  </div>
+<% end %>
+<div class="ui horizontal divider">或</div>
+<div class="ui center aligned basic segment">
+  <%= link_to new_admin_maintain_path(agent_id: @agent.id), class: 'button is-link is-small' do %>
+    <i class="fa-light fa-plus"></i>
+    <span>新增</span>
+  <% end %>
 </div>
