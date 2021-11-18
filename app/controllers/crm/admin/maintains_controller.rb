@@ -40,7 +40,7 @@ module Crm
     def create_detect
       q_params = {}
       q_params.merge! default_params
-      @agent = Profile.default_where(q_params).find_by(identity: params[:identity])
+      @agent = Profiled::Profile.default_where(q_params).find_by(identity: params[:identity])
       if @agent
         @agencies = @agent.proteges
           render 'create_detect'
@@ -50,7 +50,7 @@ module Crm
         @maintain.agent = Profile.new(identity: params[:identity])
         @maintain.client = Profile.new
         @maintain.build_agency
-        @agencies = Agency.none
+        @agencies = Agential::Agency.none
         render 'new'
       end
     end

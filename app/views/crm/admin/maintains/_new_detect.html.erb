@@ -1,15 +1,4 @@
-<div class="modal is-active" data-controller="modal">
-  <div class="modal-background" data-action="click->modal#close"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title"><%= t('.new') %></p>
-      <button class="delete" data-action="modal#close"></button>
-    </header>
-    <section class="modal-card-body">
-      <%= form_with url: detect_admin_maintains_url do |f| %>
-        <%= f.text_field :identity, label: '家长联系方式' %>
-        <%= f.submit '下一步' %>
-      <% end %>
-    </section>
-  </div>
-</div>
+<%= form_with url: { action: 'create_detect' } do |f| %>
+  <%= f.text_field :identity, label: '家长联系方式' %>
+  <%= f.submit '下一步' %>
+<% end %>
