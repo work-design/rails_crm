@@ -25,7 +25,7 @@
       </th>
     </tr>
   </thead>
-  
+
   <% @orders.each do |order| %>
     <tr id="order_<%= order.id %>">
       <td><%= link_to order.uuid, admin_order_path(order), text: true %></td>
@@ -41,7 +41,7 @@
           <%= link_to t('.add_payment'), new_admin_payment_path(order_id: order.id), class: 'button is-link is-small' %>
         <% end %>
       </td>
-      <td><time data-controller="time"><%= order.created_at.to_s(:iso8601) %></time></td>
+      <td><time data-controller="time"><%= order.created_at.to_formatted_s(:iso8601) %></time></td>
       <td>
         <%= link_to edit_admin_order_path(order), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fa-light fa-pencil"></i>
