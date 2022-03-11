@@ -8,6 +8,8 @@ module Crm
       :detach, :assume, :destroy
     ]
     before_action :prepare_form, only: [:new, :create_detect, :edit]
+    before_action :set_maintain_sources, only: [:index, :public]
+    before_action :set_maintain_tags, only: [:index, :public]
 
     def index
       q_params = {}
@@ -17,8 +19,6 @@ module Crm
         q_params.merge! state: 'init'
       end
 
-      @maintain_sources = MaintainSource.default_where(default_params)
-      @maintain_tags = MaintainTag.default_where(default_params)
       @pipelines = Bench::TaskTemplate.default_where(default_params.merge(tasking_type: 'Crm::Maintain'))
       @maintains = Maintain.default_where(q_params).includes(:agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
     end
@@ -218,6 +218,14 @@ module Crm
       pipeline_params.merge! default_params
       @task_templates = Bench::TaskTemplate.default_where(pipeline_params)
       @maintain_sources = MaintainSource.default_where(default_params)
+    end
+
+    def set_maintain_sources
+      @maintain_sources = MaintainSource.default_where(default_params)
+    end
+
+    def set_maintain_tags
+      @maintain_tags = MaintainTag.default_where(default_params)
     end
 
     def maintain_params

@@ -22,7 +22,7 @@
       <% @maintain_sources.each do |maintain_source| %>
         <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_params(maintain_source_id: maintain_source.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
-      <%= link_to({ controller: 'maintain_sources', action: 'new' }, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'maintain_sources', action: 'new' }, aria: { label: t('.new') }, class: 'button is-rounded is-light') do %>
         <i class="fa-light fa-plus"></i>
       <% end %>
     </td>
@@ -34,7 +34,7 @@
       <% @maintain_tags.each do |maintain_tag| %>
         <%= link_to maintain_tag.name, filter_params('maintain_logs.maintain_tag_id': maintain_tag.id), class: active_params('maintain_logs.maintain_tag_id': maintain_tag.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
-      <%= link_to({ controller: 'maintain_tags', action: 'new' }, aria: { label: t('.new') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'maintain_tags', action: 'new' }, aria: { label: t('.new') }, class: 'button is-rounded is-light') do %>
         <i class="fa-light fa-plus"></i>
       <% end %>
     </td>
