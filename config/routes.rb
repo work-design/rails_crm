@@ -34,7 +34,10 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :my, defaults: { namespace: 'my' } do
+    namespace :me, defaults: { namespace: 'me' } do
+      controller :home do
+        get :index
+      end
     end
   end
 
