@@ -1,4 +1,4 @@
-<%= form_with theme: 'search', model: MaintainSource.new(params.permit(:name)) do |f| %>
+<%= form_with theme: 'search', model: Crm::MaintainSource.new(params.permit(:name)) do |f| %>
   <div class="field-body">
     <%= f.text_field :name %>
     <div class="field is-narrow">
