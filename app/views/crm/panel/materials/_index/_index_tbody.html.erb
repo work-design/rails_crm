@@ -1,1 +1,1 @@
-<td><%= model.picture %></td>
+<td><%= image_tag model.picture, class: 'image is-32x32' if model.picture.attached? %></td>

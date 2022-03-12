@@ -35,3 +35,6 @@ zh:
       tags:
         index:
           title: 客户标签
+      materials:
+        index:
+          title: 物料
