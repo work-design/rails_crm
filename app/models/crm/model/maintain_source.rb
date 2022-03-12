@@ -5,13 +5,15 @@ module Crm
     included do
       attribute :name, :string
       attribute :maintains_count, :integer, default: 0
-      belongs_to :organ, optional: true
-      belongs_to :maintain_source_template, optional: true
+
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
+      belongs_to :source, optional: true
 
       validates :name, presence: true
 
       before_validation do
-        self.name = maintain_source_template.name if maintain_source_template
+        self.name = source.name if source
       end
     end
 

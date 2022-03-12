@@ -6,13 +6,14 @@ module Crm
       attribute :note, :string
       attribute :position, :integer
 
-      belongs_to :organ, optional: true
-      belongs_to :member, inverse_of: :maintains, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :member, class_name: 'Org::Member', inverse_of: :maintains, optional: true
       belongs_to :maintain_source, optional: true
       belongs_to :task_template, optional: true
       belongs_to :agency, optional: true, inverse_of: :maintain
       belongs_to :client, class_name: 'Profile', inverse_of: :client_maintains
       belongs_to :agent, class_name: 'User', inverse_of: :agent_maintains, optional: true
+
       belongs_to :upstream, class_name: self.name
       belongs_to :source, class_name: self.name
 

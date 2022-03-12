@@ -12,16 +12,17 @@ module Crm
       attribute :color, :string, default: '#2A92CA'
       attribute :maintain_logs_count, :integer, default: 0
 
-      belongs_to :organ, optional: true
-      belongs_to :maintain_tag_template, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
+      belongs_to :tag, optional: true
 
       validates :logged_type, uniqueness: { scope: [:organ_id, :sequence] }, allow_blank: true
       validates :name, presence: true
 
       before_validation do
-        if maintain_tag_template
-          self.name = maintain_tag_template.name
-          self.color = maintain_tag_template.color
+        if tag
+          self.name = tag.name
+          self.color = tag.color
           self.manual = false
         end
       end
