@@ -1,10 +1,10 @@
 module Crm
-  module Model::Organ
+  module Ext::Organ
     extend ActiveSupport::Concern
 
     included do
-      has_many :maintains, dependent: :nullify
-      has_many :pupils, through: :maintains
+      has_many :maintains, class_name: 'Crm::Maintain', dependent: :nullify
+      has_many :clients, through: :maintains
     end
 
     def maintains_count

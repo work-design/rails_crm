@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :crm do
+    namespace :panel do
+      resources :materials
+    end
+  end
 
   namespace :crm, defaults: { business: 'crm' } do
     namespace :admin, defaults: { namespace: 'admin' } do
@@ -38,7 +43,9 @@ Rails.application.routes.draw do
 
     namespace :panel, defaults: { namespace: 'panel' } do
       resources :sources
-      resources :tags
+      resources :tags do
+        resources :materials
+      end
     end
 
     namespace :me, defaults: { namespace: 'me' } do

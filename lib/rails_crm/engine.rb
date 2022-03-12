@@ -3,12 +3,7 @@ module RailsCrm
   class Engine < ::Rails::Engine
 
     config.generators do |g|
-      g.rails = {
-        assets: false,
-        stylesheets: false,
-        helper: false,
-        jbuilder: true
-      }
+      g.resource_route false
       g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
     end
 

@@ -4,7 +4,7 @@ module Crm
 
     included do
       has_many :maintains, class_name: 'Crm::Maintain'
-      has_many :pupils, through: :maintains
+      has_many :clients, through: :maintains
     end
 
   end
