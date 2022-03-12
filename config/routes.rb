@@ -37,8 +37,8 @@ Rails.application.routes.draw do
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do
-      resources :maintain_source_templates
-      resources :maintain_tag_templates
+      resources :sources
+      resources :tags
     end
 
     namespace :me, defaults: { namespace: 'me' } do

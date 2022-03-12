@@ -1,5 +1,5 @@
 module Crm
-  class MaintainTagTemplate < ApplicationRecord
-    include Model::MaintainTagTemplate
+  class Tag < ApplicationRecord
+    include Model::Tag
   end
 end
