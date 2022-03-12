@@ -1,7 +1,7 @@
 <div class="<%= active_helper(modules: 'crm/panel', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
   <%= content_tag :div, class: 'menu-list' do %>
-    <%= link_to t('crm.panel.maintain_source_templates.index.title'), { controller: 'crm/panel/maintain_source_templates' }, class: active_helper(controllers: 'maintain_source_templates', active: 'is-active') %>
-    <%= link_to t('crm.panel.maintain_tag_templates.index.title'), { controller: 'crm/panel/maintain_tag_templates' }, class: active_helper(controllers: 'maintain_tag_templates', active: 'is-active') -%>
+    <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, class: active_helper(controllers: 'sources', active: 'is-active') %>
+    <%= link_to t('crm.panel.tags.index.title'), { controller: 'crm/panel/tags' }, class: active_helper(controllers: 'tags', active: 'is-active') -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-chart-line fa-fw"></i>

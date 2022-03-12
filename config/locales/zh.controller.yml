@@ -29,9 +29,9 @@ zh:
           title: 客户标签
     panel:
       title: 市场管理
-      maintain_source_templates:
+      sources:
         index:
           title: 客户来源
-      maintain_tag_templates:
+      tags:
         index:
           title: 客户标签

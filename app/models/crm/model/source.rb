@@ -1,5 +1,5 @@
 module Crm
-  module Model::MaintainSourceTemplate
+  module Model::Source
     extend ActiveSupport::Concern
 
     included do

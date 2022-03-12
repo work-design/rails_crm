@@ -1,5 +1,5 @@
 module Crm
-  module Model::MaintainTagTemplate
+  module Model::Tag
     extend ActiveSupport::Concern
 
     included do
