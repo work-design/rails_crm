@@ -2,8 +2,8 @@
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
     <%= link_to t('crm.admin.maintains.public.title'), { controller: 'crm/admin/maintains', action: 'public' }, class: active_helper('maintains': 'public', active: 'is-active') %>
-    <%= link_to t('crm.admin.maintain_source_templates.index.title'), { controller: 'crm/admin/maintain_source_templates' }, class: active_helper(controllers: 'maintain_source_templates', active: 'is-active') %>
-    <%= link_to t('crm.admin.maintain_tag_templates.index.title'), { controller: 'crm/admin/maintain_tag_templates' }, class: active_helper(controllers: 'maintain_tag_templates', active: 'is-active') -%>
+    <%= link_to t('crm.admin.maintain_sources.index.title'), { controller: 'crm/admin/maintain_sources' }, class: active_helper(controllers: 'maintain_sources', active: 'is-active') %>
+    <%= link_to t('crm.admin.maintain_tags.index.title'), { controller: 'crm/admin/maintain_tags' }, class: active_helper(controllers: 'maintain_tags', active: 'is-active') -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-chart-line fa-fw"></i>

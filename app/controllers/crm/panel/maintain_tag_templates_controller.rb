@@ -1,5 +1,5 @@
 module Crm
-  class Admin::MaintainTagTemplatesController < Admin::BaseController
+  class Panel::MaintainTagTemplatesController < Panel::BaseController
     before_action :set_maintain_tag_template, only: [:show, :edit, :update, :destroy]
 
     def index

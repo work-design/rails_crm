@@ -1,5 +1,5 @@
 module Crm
-  class Admin::MaintainSourceTemplatesController < Admin::BaseController
+  class Panel::MaintainSourceTemplatesController < Panel::BaseController
 
     private
     def maintain_source_template_params

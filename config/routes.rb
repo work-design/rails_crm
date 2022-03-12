@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   namespace :crm, defaults: { business: 'crm' } do
     namespace :admin, defaults: { namespace: 'admin' } do
-      resources :maintain_source_templates
-      resources :maintain_tag_templates
       resources :maintains do
         resources :maintain_logs
         collection do
@@ -27,11 +25,20 @@ Rails.application.routes.draw do
         end
       end
       resources :maintain_sources do
-        post :sync, on: :collection
+        collection do
+          post :sync
+        end
       end
       resources :maintain_tags do
-        post :sync, on: :collection
+        collection do
+          post :sync
+        end
       end
+    end
+
+    namespace :panel, defaults: { namespace: 'panel' } do
+      resources :maintain_source_templates
+      resources :maintain_tag_templates
     end
 
     namespace :me, defaults: { namespace: 'me' } do
