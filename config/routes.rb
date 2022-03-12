@@ -47,6 +47,7 @@ Rails.application.routes.draw do
       controller :home do
         get :index
       end
+      resources :tags
     end
   end
 
