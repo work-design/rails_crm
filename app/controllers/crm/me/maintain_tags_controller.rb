@@ -12,6 +12,7 @@ module Crm
     def tag
       @tag = Tag.find params[:tag_id]
       @contact = current_corp_user.contacts.build(state: @tag.name)
+      @contact.save
     end
 
     private
