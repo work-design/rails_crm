@@ -47,7 +47,11 @@ Rails.application.routes.draw do
       controller :home do
         get :index
       end
-      resources :tags
+      resources :maintain_tags do
+        collection do
+          get :tag
+        end
+      end
     end
   end
 
