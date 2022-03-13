@@ -1,11 +1,11 @@
-<% @maintain_tag_templates.each do |maintain_tag_template| %>
-  <% maintain_tag = @selected_maintain_tags.find { |i| i.maintain_tag_template_id == maintain_tag_template.id } %>
+<% @tags.each do |tag| %>
+  <% maintain_tag = @selected_maintain_tags.find { |i| i.tag_id == tag.id } %>
   <tr>
-    <td><%= maintain_tag_template.name %></td>
-    <td><%= maintain_tag_template.logged_type_i18n %></td>
+    <td><%= tag.name %></td>
+    <td><%= tag.logged_type_i18n %></td>
     <td><%= maintain_tag.sequence if maintain_tag %></td>
     <td>
-      <span class="button" style="background-color: <%= maintain_tag.color %>;"><%= maintain_tag_template.color %></span>
+      <span class="button" style="background-color: <%= maintain_tag.color %>;"><%= tag.color %></span>
     </td>
     <td><%= maintain_tag.maintain_logs_count if maintain_tag %></td>
     <td>
@@ -14,7 +14,7 @@
           <%= check_box_tag '', nil, true, data: { method: :delete, url: admin_maintain_tag_path(maintain_tag), submit: true }, id: nil %>
         <% end %>
         <% unless maintain_tag %>
-          <%= check_box_tag '[maintain_tag]maintain_tag_template_id', maintain_tag_template.id, false, data: { method: :post, url: admin_maintain_tags_path, submit: true }, id: nil %>
+          <%= check_box_tag '[maintain_tag]tag_id', tag.id, false, data: { method: :post, url: admin_maintain_tags_path, submit: true }, id: nil %>
         <% end %>
       </div>
     </td>
