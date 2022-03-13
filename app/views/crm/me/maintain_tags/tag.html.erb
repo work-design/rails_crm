@@ -1,8 +1,8 @@
 <div class="weui-panel">
   <div class="weui-panel__bd">
     <span><%= @tag.name %></span>
-    <div class="image">
-
+    <div class="image is-128x128">
+      <%= image_tag @contact.qr_code %>
     </div>
   </div>
 </div>
