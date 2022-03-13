@@ -1,1 +1,12 @@
-<td><%= image_tag model.picture, class: 'image is-32x32' if model.picture.attached? %></td>
+<td><%= model.type_i18n %></td>
+<td>
+<% if model.is_a?(Crm::TextMaterial) %>
+  <%= model.note %>
+<% else %>
+  <%= image_tag model.picture, class: 'image is-32x32' if model.picture.attached? %>
+<% end %>
+</td>
+<td>
+  <p><%= model.top_y %></p>
+  <p><%= model.left_x %></p>
+</td>

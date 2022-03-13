@@ -1,1 +1,5 @@
+<%= f.select :type, options_for_select(Crm::Material.options_i18n(:type), f.object.type) %>
 <%= f.file_field :picture %>
+<%= f.text_field :note %>
+<%= f.number_field :top_y %>
+<%= f.number_field :left_x %>

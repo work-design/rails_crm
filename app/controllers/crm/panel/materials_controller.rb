@@ -3,6 +3,12 @@ module Crm
     before_action :set_tag
     before_action :set_new_material, only: [:new, :create]
 
+    def index
+      @materials = @tag.materials
+
+      @primary_material = @tag.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
+    end
+
     private
     def set_tag
       @tag = Tag.find params[:tag_id]
@@ -14,7 +20,11 @@ module Crm
 
     def material_params
       params.fetch(:material, {}).permit(
-        :picture
+        :type,
+        :picture,
+        :note,
+        :left_x,
+        :top_y
       )
     end
   end

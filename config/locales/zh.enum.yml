@@ -1,10 +1,15 @@
 zh:
   activerecord:
     enum:
-      maintain:
+      crm/maintain:
         state:
           init: 待处理
           transferred: 已移交
         maintain_tag:
           logged_type:
             TimeBooking: 预约
+      crm/material:
+        type:
+          Crm::PrimaryMaterial: 主图
+          Crm::QrcodeMaterial: 二维码
+          Crm::TextMaterial: 文字
