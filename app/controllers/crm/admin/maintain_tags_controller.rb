@@ -7,9 +7,9 @@ module Crm
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @maintain_tags = MaintainTag.where(maintain_tag_template_id: nil).default_where(q_params).page(params[:page])
-      @selected_maintain_tags = MaintainTag.where.not(maintain_tag_template_id: nil).default_where(q_params).order(maintain_tag_template_id: :asc)
-      @maintain_tag_templates = MaintainTagTemplate.order(id: :asc)
+      @maintain_tags = MaintainTag.where(tag_id: nil).default_where(q_params).page(params[:page])
+      @selected_maintain_tags = MaintainTag.where.not(tag_id: nil).default_where(q_params).order(tag_id: :asc)
+      @tags = Tag.order(id: :asc)
     end
 
     def new

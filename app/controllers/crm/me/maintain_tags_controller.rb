@@ -1,5 +1,5 @@
 module Crm
-  class Me::TagsController < Me::BaseController
+  class Me::MaintainTagsController < Me::BaseController
 
     def index
       @tags = Tag.all
