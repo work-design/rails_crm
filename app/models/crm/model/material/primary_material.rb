@@ -15,10 +15,11 @@ module Crm
     end
 
     def url_with_watermark
-      t = qrcode.watermark
+      t = ''
+      t += qrcode.watermark if qrcode
       t += text.watermark if text
 
-      [picture.url, t].join('!')
+      [picture.url, t.presence].compact.join('!')
     end
 
   end
