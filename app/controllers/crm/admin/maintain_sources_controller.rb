@@ -7,7 +7,7 @@ module Crm
       q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
-      @maintain_sources = MaintainSource.includes(:maintain_source_template).default_where(q_params).page(params[:page])
+      @maintain_sources = MaintainSource.includes(:source).default_where(q_params).page(params[:page])
     end
 
     def templates
