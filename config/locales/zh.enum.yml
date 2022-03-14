@@ -13,3 +13,26 @@ zh:
           Crm::PrimaryMaterial: 主图
           Crm::QrcodeMaterial: 二维码
           Crm::TextMaterial: 文字
+        align:
+          north: 上
+          south: 下
+          west: 左
+          east: 右
+          center: 中
+          northwest: 左上
+          northeast: 右上
+          southwest: 左下
+          southeast: 右下
+        font:
+          simsun: 宋体
+          simhei: 黑体
+          simkai: 楷体
+          simli: 隶书
+          simyou: 幼圆
+          simfang: 仿宋
+          sc: 简体中文
+          tc: 繁体中文
+          arial: Arial
+          georgia: Georgia
+          helvetica: Helvetica
+          roman: Times-New-Roman

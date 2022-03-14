@@ -6,8 +6,8 @@ module Crm
       attribute :type, :string
       attribute :note, :string
       attribute :extra, :json
-      attribute :left_x, :integer, default: 0
-      attribute :top_y, :integer, default: 0
+      attribute :margin_x, :integer, default: 0
+      attribute :margin_y, :integer, default: 0
 
       enum font: {
         simsun: 'simsun',
@@ -23,6 +23,18 @@ module Crm
         helvetica: 'helvetica',
         roman: 'roman'
       }, _prefix: true, _default: 'simsun'
+
+      enum align: {
+        center: 'center',
+        north: 'north',
+        south: 'south',
+        west: 'west',
+        east: 'east',
+        northwest: 'northwest',
+        northeast: 'northeast',
+        southwest: 'southwest',
+        southeast: 'southeast'
+      }, _prefix: true, _default: 'northwest'
 
       belongs_to :tag
 

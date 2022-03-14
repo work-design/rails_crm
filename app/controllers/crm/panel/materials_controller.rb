@@ -23,8 +23,10 @@ module Crm
         :type,
         :picture,
         :note,
-        :left_x,
-        :top_y
+        :margin_x,
+        :margin_y,
+        :font,
+        :align
       )
     end
   end
