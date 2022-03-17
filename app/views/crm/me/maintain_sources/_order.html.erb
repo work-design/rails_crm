@@ -1,6 +1,11 @@
 <div class="column is-one-third">
-  <%= link_to({ controller: 'trade/my/orders', action: 'add', good_id: source.id, good_type: source.class_name }, class: 'is-block py-2 has-background-light is-flex-direction-column has-text-centered') do %>
-    <div class="header has-text-grey">购买物料</div>
-    <div class="description has-text-danger"><%= source.price.to_money.format(html_wrap: true).html_safe %></div>
+  <%= form_with theme: nil, url: { controller: 'trade/my/orders', action: 'add' }, class: 'is-block py-2 has-background-light is-flex-direction-column has-text-centered' do |f| %>
+    <%= f.hidden_field :good_type, value: source.class_name %>
+    <%= f.hidden_field :good_id, value: source.id %>
+    <%= f.hidden_field :member_id, value: current_member&.id %>
+    <%= button_tag do %>
+      <div class="header has-text-grey">购买物料</div>
+      <div class="description has-text-danger"><%= source.price.to_money.format(html_wrap: true).html_safe %></div>
+    <% end %>
   <% end %>
 </div>
