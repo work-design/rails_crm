@@ -3,6 +3,7 @@
 <% end %>
 
 <div class="box">
-
+<% if @primary_material %>
   <%= image_tag @primary_material.url_with_watermark, class: 'image' %>
+<% end %>
 </div>
