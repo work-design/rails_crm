@@ -14,9 +14,9 @@ module Crm
       tag.materials.find(&->(i){ i.is_a?(TextMaterial) })
     end
 
-    def url_with_watermark
+    def url_with_watermark(replace = nil)
       t = ''
-      t += qrcode.watermark if qrcode
+      t += qrcode.watermark(replace) if qrcode
       t += text.watermark if text
 
       [picture.url, t.presence].compact.join('!')
