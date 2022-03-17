@@ -38,8 +38,6 @@ module Crm
 
       belongs_to :source
 
-      has_many :material_contacts
-
       has_one_attached :picture
     end
 

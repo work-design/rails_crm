@@ -8,6 +8,7 @@ module Crm
 
       has_many :maintain_sources, dependent: :nullify
       has_many :materials
+      has_many :source_contacts
     end
 
   end
