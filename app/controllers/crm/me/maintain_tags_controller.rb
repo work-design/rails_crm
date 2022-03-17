@@ -11,6 +11,7 @@ module Crm
 
     def tag
       @tag = Tag.find params[:tag_id]
+      @primary_material = @tag.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
       @contact = current_corp_user.contacts.find_or_initialize_by(state: @tag.name)
       @contact.save
     end

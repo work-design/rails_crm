@@ -1,8 +1,12 @@
 <div class="weui-panel">
   <div class="weui-panel__bd">
     <span><%= @tag.name %></span>
-    <div class="image is-128x128">
-      <%= image_tag @contact.qr_code %>
+    <div class="image">
+    <% if @primary_material %>
+      <%= image_tag @primary_material.url_with_watermark %>
+    <% else %>
+      <%= image_tag @tag.qr_code %>
+    <% end %>
     </div>
   </div>
 </div>

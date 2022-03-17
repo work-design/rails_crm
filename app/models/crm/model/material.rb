@@ -41,5 +41,21 @@ module Crm
       has_one_attached :picture
     end
 
+    def width
+      if picture.attached?
+        picture.blob.metadata.fetch('width', 0)
+      else
+        0
+      end
+    end
+
+    def height
+      if picture.attached?
+        picture.blob.metadata.fetch('height', 0)
+      else
+        0
+      end
+    end
+
   end
 end
