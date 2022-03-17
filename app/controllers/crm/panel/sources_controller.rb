@@ -5,7 +5,8 @@ module Crm
     def source_params
       params.fetch(:source, {}).permit(
         :name,
-        :price
+        :price,
+        :logo
       )
     end
 

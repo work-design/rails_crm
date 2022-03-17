@@ -1,0 +1,6 @@
+<div class="column is-one-third">
+  <%= link_to({ controller: 'trade/my/orders', action: 'add', good_id: source.id, good_type: source.class_name }, class: 'is-block py-2 has-background-light is-flex-direction-column has-text-centered') do %>
+    <div class="header has-text-grey">购买物料</div>
+    <div class="description has-text-danger"><%= source.price.to_money.format(html_wrap: true).html_safe %></div>
+  <% end %>
+</div>
