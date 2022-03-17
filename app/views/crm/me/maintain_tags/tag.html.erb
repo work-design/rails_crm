@@ -3,7 +3,7 @@
     <span><%= @tag.name %></span>
     <div class="image">
     <% if @primary_material %>
-      <%= image_tag @primary_material.url_with_watermark %>
+      <%= image_tag @primary_material.url_with_watermark(@tag.file) %>
     <% else %>
       <%= image_tag @tag.qr_code %>
     <% end %>
