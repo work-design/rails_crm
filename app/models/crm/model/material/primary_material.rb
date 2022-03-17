@@ -7,11 +7,11 @@ module Crm
     end
 
     def qrcode
-      tag.materials.find(&->(i){ i.is_a?(QrcodeMaterial) })
+      source.materials.find(&->(i){ i.is_a?(QrcodeMaterial) })
     end
 
     def text
-      tag.materials.find(&->(i){ i.is_a?(TextMaterial) })
+      source.materials.find(&->(i){ i.is_a?(TextMaterial) })
     end
 
     def url_with_watermark(replace = nil)

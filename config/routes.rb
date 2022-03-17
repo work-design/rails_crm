@@ -37,19 +37,19 @@ Rails.application.routes.draw do
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do
-      resources :sources
-      resources :tags do
+      resources :sources do
         resources :materials
       end
+      resources :tags
     end
 
     namespace :me, defaults: { namespace: 'me' } do
       controller :home do
         get :index
       end
-      resources :maintain_tags do
+      resources :maintain_sources do
         collection do
-          get :tag
+          get :source
         end
       end
     end

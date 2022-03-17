@@ -11,7 +11,6 @@ module Crm
       attribute :sequence, :integer, default: 1
 
       has_many :maintain_tags
-      has_many :materials
     end
 
   end

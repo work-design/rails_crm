@@ -36,7 +36,9 @@ module Crm
         southeast: 'southeast'
       }, _prefix: true, _default: 'northwest'
 
-      belongs_to :tag
+      belongs_to :source
+
+      has_many :material_contacts
 
       has_one_attached :picture
     end

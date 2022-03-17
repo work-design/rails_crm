@@ -13,7 +13,7 @@ module Crm
       validates :name, presence: true
 
       before_validation do
-        self.name = source.name if source
+        self.name ||= source.name if source
       end
     end
 

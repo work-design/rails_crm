@@ -15,7 +15,7 @@ module Crm
 
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name
-      belongs_to :source, class_name: self.name
+      belongs_to :original, class_name: self.name
 
       has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
@@ -32,7 +32,7 @@ module Crm
 
       before_validation do
         self.upstream ||= self
-        self.source ||= self
+        self.original ||= self
         self.position = self.pipeline_member&.position
       end
       before_save :sync_pipeline_member, if: -> { pipeline_id_changed? }
@@ -54,7 +54,7 @@ module Crm
       if next_member
         m = Maintain.new
         m.upstream = self
-        m.source = self.source
+        m.original = self.original
         m.pipeline_member = next_member
         m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'agent_type', 'agent_id', 'agency_id', 'maintain_source_id', 'pipeline_id')
 
