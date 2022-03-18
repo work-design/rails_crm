@@ -9,6 +9,7 @@ module Crm
       mc = source_contacts.build
       mc.trade_item = trade_item
       mc.maintain_source = maintain_source
+      mc.contact_id = Hash(trade_item.extra).fetch('contact_id')
 
       mc.save
     end
