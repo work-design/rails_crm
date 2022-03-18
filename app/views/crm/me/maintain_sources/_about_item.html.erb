@@ -1,10 +1,11 @@
-<%= link_to({ controller: '/home', action: 'help' }, class: 'weui-cell weui-cell_access') do %>
+<%= link_to({ controller: 'trade/my/orders' }, class: 'weui-cell weui-cell_access') do %>
   <div class="weui-cell__bd">
-    <i class="fa-light fa-circle-question fa-fw"></i>
-    <span>使用帮助</span>
+    <i class="fa-light fa-bag-shopping fa-fw"></i>
+    <span>查看订单</span>
   </div>
   <div class="weui-cell__ft"></div>
-<% end %>
+<% end if @contact&.source_contact %>
+<%= render partial: 'order', locals: { source: @source } %>
 <%= link_to({ controller: 'wechat/me/externals' }, class: 'weui-cell weui-cell_access') do %>
   <div class="weui-cell__bd">
     <i class="fa-light fa-users-line fa-fw"></i>

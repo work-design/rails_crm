@@ -3,6 +3,8 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :maintain_source
       belongs_to :source
       belongs_to :contact, class_name: 'Wechat::Contact'
