@@ -38,3 +38,7 @@ zh:
       materials:
         index:
           title: 物料
+    me:
+      maintain_sources:
+        index:
+          title: 客户来源

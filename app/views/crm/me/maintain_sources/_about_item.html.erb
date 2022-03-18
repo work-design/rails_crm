@@ -1,11 +1,11 @@
-<%= link_to({ controller: 'trade/my/orders' }, class: 'weui-cell weui-cell_access') do %>
+<%= link_to({ controller: 'trade/my/trade_items', action: 'show', id: @contact.source_contact.trade_item_id }, class: 'weui-cell weui-cell_access') do %>
   <div class="weui-cell__bd">
     <i class="fa-light fa-bag-shopping fa-fw"></i>
     <span>查看订单</span>
   </div>
   <div class="weui-cell__ft"></div>
 <% end if @contact&.source_contact %>
-<%= render partial: 'order', locals: { source: @source } %>
+<%= render partial: 'order', locals: { source: @source } unless @contact&.source_contact %>
 <%= link_to({ controller: 'wechat/me/externals' }, class: 'weui-cell weui-cell_access') do %>
   <div class="weui-cell__bd">
     <i class="fa-light fa-users-line fa-fw"></i>
