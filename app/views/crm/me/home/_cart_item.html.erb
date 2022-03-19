@@ -1,0 +1,15 @@
+<% if @wechat_user %>
+<div class="weui-cell weui-cell_access">
+  <div class="weui-cell__bd">
+    <%= @wechat_user.name %>
+  </div>
+</div>
+<% else %>
+<%= link_to @url, class: 'weui-cell weui-cell_access' do %>
+  <div class="weui-cell__bd">
+    <i class="fa-brands fa-weixin fa-fw has-text-primary"></i>
+    <span>绑定微信</span>
+  </div>
+  <div class="weui-cell__ft"></div>
+<% end %>
+<% end %>

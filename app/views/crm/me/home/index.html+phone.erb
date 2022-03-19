@@ -1,0 +1,38 @@
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_appmsg">
+      <div class="weui-media-box__hd">
+        <div class="is-avatar">
+          <div class="text">一</div>
+        </div>
+      </div>
+      <div class="weui-media-box__bd">
+        <% if request.variant.any?(:work_wechat) %>
+          <ww-open-data type="userName" openid="<%= current_corp_user&.user_id %>"></ww-open-data>
+        <% else %>
+          <p><%= current_member.name %></p>
+        <% end %>
+        <p class="has-text-grey"><%= current_organ.name %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_small-appmsg">
+      <div class="weui-cells">
+        <%= render 'cart_item' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if request.variant.any?(:work_wechat) %>
+<div
+  data-controller="open-data"
+  data-open-data-options-value="<%= (current_js_app&.agent_config(request.original_url) || {}).to_json %>"
+  data-open-data-apis-value="<%= ['openUserProfile'].to_json %>"
+  data-open-data-debug-value="false">
+</div>
+<% end %>
