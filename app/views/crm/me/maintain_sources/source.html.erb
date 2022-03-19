@@ -4,14 +4,16 @@
   </div>
   <div class="weui-panel__bd">
     <div class="is-flex is-flex-direction-column">
-      <div class="has-text-centered has-text-grey"><%= @primary_material.width %>px</div>
+      <% if @primary_material %>
+        <div class="has-text-centered has-text-grey"><%= @primary_material.width %>px</div>
+      <% end %>
       <div class="is-flex pl-5 pb-5">
         <% if @primary_material %>
           <%= image_tag @primary_material.url_with_watermark(@contact&.file), class: 'image' %>
+          <div class="has-text-centered has-text-grey" style="writing-mode: tb-rl"><%= @primary_material.height %>px</div>
         <% else %>
-          <%= image_tag @contact.qr_code, class: 'image' %>
+          <%= image_tag @contact.qr_code, class: 'image' if @contact.qr_code %>
         <% end %>
-        <div class="has-text-centered has-text-grey" style="writing-mode: tb-rl"><%= @primary_material.height %>px</div>
       </div>
     </div>
   </div>
