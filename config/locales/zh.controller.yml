@@ -39,6 +39,9 @@ zh:
         index:
           title: 物料
     me:
+      home:
+        index:
+          title: 我的
       maintain_sources:
         index:
           title: 客户来源
