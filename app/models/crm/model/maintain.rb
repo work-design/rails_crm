@@ -11,7 +11,7 @@ module Crm
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
       belongs_to :agency, class_name: 'Agential::Agency', optional: true, inverse_of: :maintain
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
-      belongs_to :agent, class_name: 'Auth::User', inverse_of: :agent_maintains, optional: true
+      belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
 
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name
