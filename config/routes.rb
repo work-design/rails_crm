@@ -1,29 +1,31 @@
 Rails.application.routes.draw do
-
+  concern :maintaining do
+    resources :maintains do
+      resources :maintain_logs
+      collection do
+        get :public
+        post :batch
+        get 'detect' => :new_detect
+        post 'detect' => :create_detect
+        get 'assign' => :new_batch_assign
+        post 'assign' => :create_batch_assign
+      end
+      member do
+        get 'transfer' => :edit_transfer
+        patch 'transfer' => :update_transfer
+        get 'assign' => :edit_assign
+        patch 'assign' => :update_assign
+        patch :assume
+        patch :detach
+        get :orders
+        get 'order' => :edit_order
+        patch 'order' => :update_order
+      end
+    end
+  end
   namespace :crm, defaults: { business: 'crm' } do
     namespace :admin, defaults: { namespace: 'admin' } do
-      resources :maintains do
-        resources :maintain_logs
-        collection do
-          get :public
-          post :batch
-          get 'detect' => :new_detect
-          post 'detect' => :create_detect
-          get 'assign' => :new_batch_assign
-          post 'assign' => :create_batch_assign
-        end
-        member do
-          get 'transfer' => :edit_transfer
-          patch 'transfer' => :update_transfer
-          get 'assign' => :edit_assign
-          patch 'assign' => :update_assign
-          patch :assume
-          patch :detach
-          get :orders
-          get 'order' => :edit_order
-          patch 'order' => :update_order
-        end
-      end
+      concerns :maintaining
       resources :maintain_sources do
         collection do
           post :sync
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
     end
 
     namespace :me, defaults: { namespace: 'me' } do
+      concerns :maintaining
       controller :home do
         get :index
       end

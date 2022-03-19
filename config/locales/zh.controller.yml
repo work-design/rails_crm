@@ -42,3 +42,19 @@ zh:
       maintain_sources:
         index:
           title: 客户来源
+      maintains:
+        index:
+          title: 我的客户
+          transfer: 移交
+          detach: 释放
+          orders: 订单
+        public:
+          title: 待分配客户
+          assume: 接收
+          assign: 派单
+        show:
+          title: 详情
+        orders:
+          title: 订单列表
+        new_batch_assign:
+          title: 批量派单
