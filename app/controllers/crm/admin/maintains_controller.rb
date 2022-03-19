@@ -47,8 +47,8 @@ module Crm
         render 'create_detect'
       else
         @maintain = current_member.maintains.build
-        @maintain.agent = Profile.new(identity: params[:identity])
-        @maintain.client = Profile.new
+        @maintain.agent = Profiled::Profile.new(identity: params[:identity])
+        @maintain.client = Profiled::Profile.new
         @maintain.build_agency
         @agencies = Agential::Agency.none
         render 'new'
@@ -59,16 +59,16 @@ module Crm
       @maintain = current_member.maintains.build
 
       if params[:agent_id]
-        @maintain.agent = Profile.find params[:agent_id]
+        @maintain.agent = Profiled::Profile.find params[:agent_id]
       else
-        @maintain.agent = Profile.new
+        @maintain.agent = Profiled::Profile.new
       end
       if params[:agency_id]
         agency = Agential::Agency.find params[:agency_id]
         @maintain.agency = agency
         @maintain.client = agency.client
       else
-        @maintain.client = Profile.new
+        @maintain.client = Profiled::Profile.new
       end
     end
 
@@ -77,14 +77,14 @@ module Crm
       @maintain.member_id ||= current_member.id
 
       if client_params[:id]
-        @maintain.client = Profile.find client_params[:id]
+        @maintain.client = Profiled::Profile.find client_params[:id]
       else
-        @maintain.client = Profile.new client_params
+        @maintain.client = Profiled::Profile.new client_params
       end
       if agent_params[:id]
-        @maintain.agent = Profile.find agent_params[:id]
+        @maintain.agent = Profiled::Profile.find agent_params[:id]
       else
-        @maintain.agent = Profile.new agent_params
+        @maintain.agent = Profiled::Profile.new agent_params
       end
       if agency_params[:id]
         @maintain.agency = Agency.find agency_params[:id]
@@ -118,7 +118,7 @@ module Crm
       pipeline_params.merge! default_params
       job_title_ids = PipelineMember.default_where(pipeline_params).pluck(:job_title_id)
 
-      @members = Member.default_where('member_departments.job_title_id': job_title_ids)
+      @members = Org::Member.default_where('member_departments.job_title_id': job_title_ids)
     end
 
     def create_batch_assign
@@ -137,11 +137,11 @@ module Crm
       }
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.job_title_ids if current_member
       pipeline_params.merge! default_params
-      @pipelines = Pipeline.default_where(pipeline_params)
+      @pipelines = Bench::TaskTemplate.default_where(pipeline_params)
       if @maintain.pipeline_member
-        @members = Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
+        @members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
       else
-        @members = Member.none
+        @members = Org::Member.none
       end
     end
 
@@ -160,11 +160,11 @@ module Crm
       }
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
-      @pipelines = Pipeline.default_where(pipeline_params)
+      @pipelines = Bench::TaskTemplate.default_where(pipeline_params)
       if @maintain.pipeline_member
-        @members = Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
+        @members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
       else
-        @members = Member.none
+        @members = Org::Member.none
       end
     end
 
@@ -190,13 +190,13 @@ module Crm
     end
 
     def edit_order
-      @card_templates = CardTemplate.default_where(default_params)
+      @card_templates = Trade::CardTemplate.default_where(default_params)
     end
 
     def update_order
       q_params = default_params
       q_params.merge! params.permit(:advance_id)
-      advance = Advance.find(q_params['advance_id'])
+      advance = Trade::Advance.find(q_params['advance_id'])
 
       order = advance.generate_order! buyer: @maintain.agent, maintain_id: @maintain.id
       flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
