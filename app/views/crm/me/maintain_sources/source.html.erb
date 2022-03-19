@@ -3,16 +3,16 @@
     <span><%= @source.name %></span>
   </div>
   <div class="weui-panel__bd">
-    <div class="box is-radiusless">
-      <div class="has-text-centered">
-        <span>宽：<%= @primary_material.width %>px</span>
-        <span>高： <%= @primary_material.height %>px</span>
+    <div class="is-flex is-flex-direction-column">
+      <div class="has-text-centered has-text-grey"><%= @primary_material.width %>px</div>
+      <div class="is-flex pl-5">
+        <% if @primary_material %>
+          <%= image_tag @primary_material.url_with_watermark(@contact&.file), class: 'image' %>
+        <% else %>
+          <%= image_tag @contact.qr_code, class: 'image' %>
+        <% end %>
+        <div class="has-text-centered has-text-grey" style="writing-mode: tb-rl"><%= @primary_material.height %>px</div>
       </div>
-      <% if @primary_material %>
-        <%= image_tag @primary_material.url_with_watermark(@contact&.file), class: 'image' %>
-      <% else %>
-        <%= image_tag @contact.qr_code, class: 'image' %>
-      <% end %>
     </div>
   </div>
   <div class="weui-panel__ft">
