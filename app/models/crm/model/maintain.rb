@@ -9,7 +9,7 @@ module Crm
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
-      belongs_to :agency, class_name: 'Agential::Agency', optional: true, inverse_of: :maintain
+      belongs_to :agency, class_name: 'Agential::Agency', optional: true
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
       belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
 

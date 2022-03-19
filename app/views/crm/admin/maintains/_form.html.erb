@@ -2,34 +2,32 @@
 <%= f.fields :client do |ef| %>
   <%= ef.text_field :real_name %>
   <%= ef.text_field :nick_name %>
-  <%= ef.select :birthday_type, options_for_select(Profile.options_i18n(:birthday_type)) %>
+  <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>
   <%= ef.date_field :birthday %>
-  <%= ef.select :gender, options_for_select(Profile.options_i18n(:gender)) %>
+  <%= ef.select :gender, options_for_select(Profiled::Profile.options_i18n(:gender)) %>
   <%= ef.file_field :avatar %>
 <% end %>
 <h4 class="ui dividing center aligned header">关系</h4>
 <%= f.fields :agency do |ef| %>
-  <%= ef.select :relation, options_for_select(Agency.options_i18n(:relation)) %>
+  <%= ef.select :relation, options_for_select(Agential::Agency.options_i18n(:relation)) %>
 <% end %>
 <h4 class="ui dividing center aligned header">家长信息</h4>
 <%= f.fields :agent do |ef| %>
   <%= ef.text_field :real_name %>
   <%= ef.text_field :identity, required: true %>
-  <%= ef.select :gender, options_for_select(Profile.options_i18n(:gender)) %>
-  <%= render partial: 'taxon/nodes/outer_select', locals: { f: ef, outer: 'area' } %>
-  <%= ef.text_area :address, rows: 3 %>
+  <%= ef.select :gender, options_for_select(Profiled::Profile.options_i18n(:gender)) %>
 <% end %>
 <h4 class="ui dividing center aligned header">线索信息</h4>
 <%= f.hidden_field :member_id %>
 <div class="inline fields">
   <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, wrap: { all: false } %>
-  <%= link_to admin_maintain_sources_path, aria: { label: '来源设置' }, target: '_blank' do %>
+  <%= link_to({ controller: 'maintain_sources' }, aria: { label: '来源设置' }, target: '_blank') do %>
     <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
 <div class="inline fields">
-  <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, wrap: { all: false } %>
-  <%= link_to admin_pipelines_path, aria: { label: '流水线' }, target: '_blank' do %>
+  <%= f.collection_select :pipeline_id, @task_templates, :id, :name, include_blank: true, wrap: { all: false } %>
+  <%= link_to({ contorller: 'bench/admin/task_templates' }, aria: { label: '流水线' }, target: '_blank') do %>
     <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
