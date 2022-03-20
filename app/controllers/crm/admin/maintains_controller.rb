@@ -76,22 +76,6 @@ module Crm
       @maintain = Maintain.new(maintain_params)
       @maintain.member_id ||= current_member.id
 
-      if client_params[:id]
-        @maintain.client = Profiled::Profile.find client_params[:id]
-      else
-        @maintain.client = Profiled::Profile.new client_params
-      end
-      if agent_params[:id]
-        @maintain.agent = Profiled::Profile.find agent_params[:id]
-      else
-        @maintain.agent = Profiled::Profile.new agent_params
-      end
-      if agency_params[:id]
-        @maintain.agency = Agential::Agency.find agency_params[:id]
-      else
-        @maintain.agency = Agential::Agency.new agency_params
-      end
-
       unless @maintain.save
         render :new, locals: { model: @maintain }, status: :unprocessable_entity
       end
@@ -234,7 +218,10 @@ module Crm
         :pipeline_id,
         :pipeline_member_id,
         :member_id,
-        :maintain_source_id
+        :maintain_source_id,
+        client_attributes: {},
+        agent_attributes: {},
+        agency_attributes: {}
       )
       p.merge! default_form_params
       p

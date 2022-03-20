@@ -9,10 +9,8 @@
   <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('crm.admin.maintains.index.detach') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
     <i class="fa-light fa-hand-holding"></i>
   <% end %>
-  <% if current_user.admin? || Rails.env.development? %>
-  <%= link_to({ action: 'transfer', id: model.id }, aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light') do %>
+  <%= link_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-random"></i>
-  <% end %>
   <% end %>
   <%= link_to({ action: 'orders', id: model.id }, aria: { label: t('.orders') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-shopping-cart"></i>

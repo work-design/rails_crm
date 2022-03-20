@@ -33,13 +33,13 @@ module Crm
       before_validation do
         self.upstream ||= self
         self.original ||= self
-        self.position = self.pipeline_member&.position
       end
-      before_save :sync_pipeline_member, if: -> { pipeline_id_changed? }
+      before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
     end
 
     def sync_pipeline_member
-      self.pipeline_member ||= self.pipeline.pipeline_members.first if self.pipeline
+      #self.task_member ||= self.task_template.pipeline_members.first if self.pipeline
+      #self.position = self.pipeline_member&.position
     end
 
     def tags
