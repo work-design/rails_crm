@@ -1,6 +1,7 @@
 module Crm
   class Source < ApplicationRecord
     include Model::Source
+    include Com::Ext::Taxon
     include Trade::Model::Good
 
     def order_paid(trade_item)
