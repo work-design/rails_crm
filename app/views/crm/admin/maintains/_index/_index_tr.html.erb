@@ -7,29 +7,29 @@
   </td>
   <td>
     <span><%= model.client.age %></span>
-    <span class="ui icon label">
+    <span class="tag">
       <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
       <%= model.client.gender_i18n %>
     </span>
   </td>
   <td>
-    <p><%= model.agent.name %></p>
-    <p class="ui green text"><%= model.agent.identity %></p>
+    <p><%= model.agent&.name %></p>
+    <p class="has-text-success"><%= model.agent&.identity %></p>
   </td>
-  <td><%= model.agency.relation_i18n %></td>
+  <td><%= model.agency&.relation_i18n %></td>
   <td>
     <p><%= model.maintain_source&.name %></p>
     <p>
-      <span><%= model.pipeline&.name %></span>
-      <% if model.pipeline_member %>
-      <span style="color: <%= model.pipeline_member.color %>">(<%= model.pipeline_member.name %>)</span>
+      <span><%= model.task_template&.name %></span>
+      <% if model.member %>
+      <span>(<%= model.member.name %>)</span>
       <% end %>
     </p>
   </td>
   <td><%= model.note %></td>
   <td>
     <% model.tags.each do |tag| %>
-      <span class="ui label"><%= tag %></span>
+      <span class="tag"><%= tag %></span>
     <% end %>
   </td>
   <%= yield %>
