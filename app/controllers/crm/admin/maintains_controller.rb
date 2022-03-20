@@ -87,9 +87,9 @@ module Crm
         @maintain.agent = Profiled::Profile.new agent_params
       end
       if agency_params[:id]
-        @maintain.agency = Agency.find agency_params[:id]
+        @maintain.agency = Agential::Agency.find agency_params[:id]
       else
-        @maintain.agency = Agency.new agency_params
+        @maintain.agency = Agential::Agency.new agency_params
       end
 
       unless @maintain.save
