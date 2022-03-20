@@ -1,12 +1,5 @@
 <h4 class="ui dividing center aligned header">儿童信息</h4>
-<%= f.fields :client do |ef| %>
-  <%= ef.text_field :real_name %>
-  <%= ef.text_field :nick_name %>
-  <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>
-  <%= ef.date_field :birthday %>
-  <%= ef.select :gender, options_for_select(Profiled::Profile.options_i18n(:gender)) %>
-  <%= ef.file_field :avatar %>
-<% end %>
+
 <h4 class="ui dividing center aligned header">关系</h4>
 <%= f.fields :agency do |ef| %>
   <%= ef.select :relation, options_for_select(Agential::Agency.options_i18n(:relation)) %>
@@ -31,4 +24,4 @@
     <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
-<%= f.text_field :note %>
+<%= f.text_area :note %>
