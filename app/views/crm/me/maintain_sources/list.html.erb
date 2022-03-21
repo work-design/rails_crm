@@ -1,0 +1,13 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd"><%= @source.name %></div>
+  <div class="weui-panel__bd">
+    <div class="weui-cells">
+    <% @sources.each do |source| %>
+      <%= link_to({ action: 'source', source_id: source.id }, class: 'weui-cell weui-cell_access') do %>
+        <span class="weui-cell__bd"><%= source.name %></span>
+        <span class="weui-cell__ft"></span>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

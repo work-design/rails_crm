@@ -53,6 +53,7 @@ Rails.application.routes.draw do
       resources :maintain_sources do
         collection do
           get :source
+          get :list
         end
       end
     end
