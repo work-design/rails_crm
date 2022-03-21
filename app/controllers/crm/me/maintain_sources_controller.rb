@@ -22,6 +22,10 @@ module Crm
       end
     end
 
+    def share
+
+    end
+
     private
     def set_sources
       @sources = Source.roots
