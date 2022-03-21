@@ -15,7 +15,7 @@ module Crm
     end
 
     def url_with_watermark(replace = nil)
-      t = ''
+      t = '/fw/300'
       t += qrcode.watermark(replace) if qrcode
       t += text.watermark if text
 

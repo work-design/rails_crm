@@ -8,6 +8,7 @@ module Crm
       attribute :extra, :json
       attribute :margin_x, :integer, default: 0
       attribute :margin_y, :integer, default: 0
+      attribute :percent, :integer, default: 0
 
       enum font: {
         simsun: 'simsun',
