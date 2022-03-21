@@ -10,7 +10,7 @@
   class="weui-cell weui-cell_access"
   data-controller="share-moment"
   data-share-moment-options-value="<%= (current_js_app&.agent_config(request.original_url) || {}).to_json %>"
-  data-share-moment-apis-value="<%= ['shareToExternalMoments'].to_json %>"
+  data-share-moment-apis-value="<%= ['shareToExternalMoments', 'selectExternalContact'].to_json %>"
   data-share-moment-debug-value="true"
   data-share-moment-images-value="<%= [@contact.source_contact.qy_media.url].to_json %>"
   data-action="click->share-moment#shareImage"
