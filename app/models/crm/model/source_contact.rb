@@ -18,7 +18,7 @@ module Crm
       primary_material.url_with_watermark(contact.file)
     end
 
-    def to_qymedia
+    def to_qy_media
       r = nil
       Tempfile.open do |file|
         file.binmode
@@ -28,10 +28,10 @@ module Crm
         end if res.error.nil?
 
         file.rewind
-        qymedia = qy_media.build(corp_id: contact.corp_id, suite_id: contact.suite_id)
-        r = qymedia.corp.api.uploadimg(file)
-        qymedia.url = r['url']
-        qymedia.save
+        qy_media || build_qy_media(corp_id: contact.corp_id, suite_id: contact.suite_id)
+        r = qy_media.corp.api.uploadimg(file)
+        qy_media.url = r['url']
+        qy_media.save
         logger.debug "#{r}"
       end
       r
