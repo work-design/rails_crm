@@ -1,0 +1,17 @@
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+<div class="buttons are-small mb-0 pt-2">
+  <%= render 'button' %>
+</div>
+
+<table class="table is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <%= render 'qrcode_thead' %>
+      <%= render 'index_thead_actions' %>
+    </tr>
+  </thead>
+  <tbody>
+    <%= yield %>
+  </tbody>
+</table>

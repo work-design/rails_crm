@@ -1,6 +1,8 @@
-<%= render layout: 'index_table' do %>
-  <%= render partial: 'qrcode_tbody', layout: 'index_tr', collection: @source.qrcodes, as: :model %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @source.texts, as: :model %>
+<%= render layout: 'qrcode_table' do %>
+  <%= render partial: 'qrcode_tbody', layout: 'qrcode_tr', collection: @source.qrcodes, as: :model %>
+<% end %>
+<%= render layout: 'text_table' do %>
+  <%= render partial: 'text_tbody', layout: 'text_tr', collection: @source.texts, as: :model %>
 <% end %>
 
 <div class="box">
