@@ -13,7 +13,7 @@ module Crm
     end
 
     def set_new_text
-      @text = @source.texts.build(material_params)
+      @text = @source.texts.build(text_params)
     end
 
     def text_params

@@ -21,23 +21,25 @@ module Crm
         helvetica: 'helvetica',
         roman: 'roman'
       }, _prefix: true, _default: 'simsun'
+
+      enum align: {
+        center: 'center',
+        north: 'north',
+        south: 'south',
+        west: 'west',
+        east: 'east',
+        northwest: 'northwest',
+        northeast: 'northeast',
+        southwest: 'southwest',
+        southeast: 'southeast'
+      }, _prefix: true, _default: 'northwest'
+
+      belongs_to :source
     end
 
-    enum align: {
-      center: 'center',
-      north: 'north',
-      south: 'south',
-      west: 'west',
-      east: 'east',
-      northwest: 'northwest',
-      northeast: 'northeast',
-      southwest: 'southwest',
-      southeast: 'southeast'
-    }, _prefix: true, _default: 'northwest'
-  end
+    def watermark
+      "/watermark/text/#{Base64.urlsafe_encode64(note)}/font/#{font}/align/#{align}/margin/#{margin_x}x#{margin_y}"
+    end
 
-  def watermark
-    "/watermark/text/#{Base64.urlsafe_encode64(note)}/font/#{font}/align/#{align}/margin/#{margin_x}x#{margin_y}"
   end
-
 end

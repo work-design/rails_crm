@@ -14,8 +14,7 @@ module Crm
     end
 
     def url_with_watermark
-      primary_material = source.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
-      primary_material.url_with_watermark(contact.file)
+      source.url_with_watermark(contact.file)
     end
 
     def to_qy_media

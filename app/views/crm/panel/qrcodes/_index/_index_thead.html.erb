@@ -1,15 +1,11 @@
-<th><%= Crm::Material.human_attribute_name(:type) %></th>
-<th><%= Crm::Material.human_attribute_name(:picture) %></th>
-<th><%= Crm::Material.human_attribute_name(:align) %></th>
+<th><%= Crm::Qrcode.human_attribute_name(:picture) %></th>
+<th><%= Crm::Qrcode.human_attribute_name(:align) %></th>
 <th>
-  <p><%= Crm::Material.human_attribute_name(:margin_y) %></p>
-  <p><%= Crm::Material.human_attribute_name(:margin_x) %></p>
+  <p><%= Crm::Qrcode.human_attribute_name(:margin_y) %></p>
+  <p><%= Crm::Qrcode.human_attribute_name(:margin_x) %></p>
 </th>
 <th>
-  <p><%= Crm::Material.human_attribute_name(:width) %></p>
-  <p><%= Crm::Material.human_attribute_name(:height) %></p>
+  <p><%= Crm::Qrcode.human_attribute_name(:width) %></p>
+  <p><%= Crm::Qrcode.human_attribute_name(:height) %></p>
 </th>
-<th>
-  <p><%= Crm::Material.human_attribute_name(:fw) %></p>
-  <p class="has-text-grey"><%= Crm::Material.human_attribute_name(:fh) %></p>
-</th>
+<th><%= Crm::Qrcode.human_attribute_name(:fixed_width) %></th>

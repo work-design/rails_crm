@@ -7,6 +7,7 @@ module Crm
       attribute :materialize, :boolean, default: false
 
       has_one :qrcode, dependent: :destroy
+      has_many :qrcodes, dependent: :destroy
       has_many :texts, dependent: :destroy
       has_many :maintain_sources, dependent: :nullify
       has_many :source_contacts

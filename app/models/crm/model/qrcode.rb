@@ -3,10 +3,9 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
-      attribute :extra, :json
       attribute :margin_x, :integer, default: 0
       attribute :margin_y, :integer, default: 0
-      attribute :fw, :integer, default: 0
+      attribute :fixed_width, :integer, default: 0
 
       enum align: {
         center: 'center',
@@ -22,6 +21,22 @@ module Crm
 
       belongs_to :source
       has_one_attached :picture
+    end
+
+    def width
+      if picture.attached?
+        picture.blob.metadata.fetch('width', 0)
+      else
+        0
+      end
+    end
+
+    def height
+      if picture.attached?
+        picture.blob.metadata.fetch('height', 0)
+      else
+        0
+      end
     end
 
     def watermark(blob = nil)
