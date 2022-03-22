@@ -15,7 +15,6 @@ module Crm
     end
 
     def source
-      @primary_material = @source.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
       if current_corp_user
         @contact = current_corp_user.contacts.find_or_initialize_by(state: @source.name)
         @contact.save
