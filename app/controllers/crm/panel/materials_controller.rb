@@ -4,7 +4,7 @@ module Crm
     before_action :set_new_material, only: [:new, :create]
 
     def index
-      @materials = @source.materials
+      @materials = @source.materials.order(id: :asc)
 
       @primary_material = @source.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
     end
@@ -26,7 +26,9 @@ module Crm
         :margin_x,
         :margin_y,
         :font,
-        :align
+        :align,
+        :fw,
+        :percent
       )
     end
   end

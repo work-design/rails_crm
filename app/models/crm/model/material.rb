@@ -9,6 +9,7 @@ module Crm
       attribute :margin_x, :integer, default: 0
       attribute :margin_y, :integer, default: 0
       attribute :percent, :integer, default: 0
+      attribute :fw, :integer, default: 0
 
       enum font: {
         simsun: 'simsun',
@@ -56,6 +57,14 @@ module Crm
       else
         0
       end
+    end
+
+    def h_by_w
+      Rational(height, width)
+    end
+
+    def fh
+      (fw * h_by_w).to_i
     end
 
   end
