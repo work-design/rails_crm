@@ -1,5 +1,6 @@
 <%= render layout: 'index_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @materials, as: :model %>
+  <%= render partial: 'qrcode_tbody', layout: 'index_tr', collection: @source.qrcodes, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @source.texts, as: :model %>
 <% end %>
 
 <div class="box">

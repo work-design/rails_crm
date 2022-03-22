@@ -5,6 +5,7 @@ module Crm
     included do
       attribute :name, :string
       attribute :materialize, :boolean, default: false
+      attribute :fixed_width, :integer, default: 0
 
       has_one :qrcode, dependent: :destroy
       has_many :qrcodes, dependent: :destroy
@@ -41,7 +42,7 @@ module Crm
     end
 
     def url_with_watermark(replace = nil)
-      t = "/fw/#{fw}"
+      t = "/fw/#{fixed_width}"
       t += qrcode.watermark(replace) if qrcode
       texts.each do |text|
         t += text.watermark

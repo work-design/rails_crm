@@ -1,0 +1,13 @@
+<td>
+  <%= image_tag model.picture, class: 'image is-32x32' if model.picture.attached? %>
+</td>
+<th><%= model.align_i18n %></th>
+<td>
+  <p><%= model.margin_y %></p>
+  <p><%= model.margin_x %></p>
+</td>
+<td>
+  <p><%= model.width %></p>
+  <p><%= model.height %></p>
+</td>
+<td><%= model.fixed_width %></td>
