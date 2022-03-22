@@ -1,0 +1,5 @@
+<%= f.text_field :note %>
+<%= f.number_field :margin_y %>
+<%= f.number_field :margin_x %>
+<%= f.select :font, options_for_select(Crm::Material.options_i18n(:font), f.object.font) %>
+<%= f.select :align, options_for_select(Crm::Material.options_i18n(:align), f.object.align) %>

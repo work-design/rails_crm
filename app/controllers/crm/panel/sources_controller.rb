@@ -13,6 +13,7 @@ module Crm
       params.fetch(:source, {}).permit(
         :name,
         :price,
+        :picture,
         :logo,
         :parent_ancestors
       )

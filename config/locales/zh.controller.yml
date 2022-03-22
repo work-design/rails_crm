@@ -35,9 +35,12 @@ zh:
       tags:
         index:
           title: 客户标签
-      materials:
+      qrcodes:
         index:
-          title: 物料
+          title: 二维码
+      texts:
+        index:
+          title: 文字
     me:
       home:
         index:

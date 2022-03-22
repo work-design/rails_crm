@@ -8,11 +8,7 @@ zh:
         maintain_tag:
           logged_type:
             TimeBooking: 预约
-      crm/material:
-        type:
-          Crm::PrimaryMaterial: 主图
-          Crm::QrcodeMaterial: 二维码
-          Crm::TextMaterial: 文字
+      crm/text:
         align:
           north: 上
           south: 下
@@ -36,3 +32,14 @@ zh:
           georgia: Georgia
           helvetica: Helvetica
           roman: Times-New-Roman
+      crm/qrcode:
+        align:
+          north: 上
+          south: 下
+          west: 左
+          east: 右
+          center: 中
+          northwest: 左上
+          northeast: 右上
+          southwest: 左下
+          southeast: 右下

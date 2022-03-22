@@ -1,12 +1,10 @@
 module Crm
-  class Crm::Panel::MaterialsController < Crm::Panel::BaseController
+  class Crm::Panel::QrcodesController < Crm::Panel::BaseController
     before_action :set_source
     before_action :set_new_material, only: [:new, :create]
 
     def index
       @materials = @source.materials.order(id: :asc)
-
-      @primary_material = @source.materials.find(&->(i){ i.is_a?(PrimaryMaterial) })
     end
 
     private
@@ -15,7 +13,7 @@ module Crm
     end
 
     def set_new_material
-      @material = @source.materials.build(material_params)
+      @material = @source.build_qrcode(material_params)
     end
 
     def material_params

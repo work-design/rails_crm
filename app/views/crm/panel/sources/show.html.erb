@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="box">
-<% if @primary_material %>
-  <%= image_tag @primary_material.url_with_watermark, class: 'image' %>
+<% if @source.picture.attached? %>
+  <%= image_tag @source.url_with_watermark, class: 'image' %>
 <% end %>
 </div>

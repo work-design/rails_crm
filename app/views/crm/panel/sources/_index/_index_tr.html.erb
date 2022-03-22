@@ -2,8 +2,11 @@
   <%= yield %>
   <td>
     <span data-show-target="item" style="visibility: hidden">
-      <%= link_to({ controller: 'materials', source_id: model.id }, aria: { label: t('crm.panel.materials.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-images"></i>
+      <%= link_to({ controller: 'qrcodes', source_id: model.id }, aria: { label: t('crm.panel.qrcodes.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-qrcode"></i>
+      <% end %>
+      <%= link_to({ controller: 'texts', source_id: model.id }, aria: { label: t('crm.panel.texts.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-text"></i>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-circle-info"></i>

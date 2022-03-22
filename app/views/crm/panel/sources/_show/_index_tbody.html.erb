@@ -1,0 +1,22 @@
+<td><%= model.type_i18n %></td>
+<td>
+<% if model.is_a?(Crm::TextMaterial) %>
+  <p><%= model.note %></p>
+  <p class="has-text-grey"><%= model.font_i18n %></p>
+<% else %>
+  <%= image_tag model.picture, class: 'image is-32x32' if model.picture.attached? %>
+<% end %>
+</td>
+<th><%= model.align_i18n %></th>
+<td>
+  <p><%= model.margin_y %></p>
+  <p><%= model.margin_x %></p>
+</td>
+<td>
+  <p><%= model.width %></p>
+  <p><%= model.height %></p>
+</td>
+<td>
+  <p><%= model.fw %></p>
+  <p class="has-text-grey"><%= model.fh %></p>
+</td>

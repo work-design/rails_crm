@@ -40,7 +40,8 @@ Rails.application.routes.draw do
 
     namespace :panel, defaults: { namespace: 'panel' } do
       resources :sources do
-        resources :materials
+        resources :qrcodes
+        resources :texts
       end
       resources :tags
     end
