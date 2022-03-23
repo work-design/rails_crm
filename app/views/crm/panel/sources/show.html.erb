@@ -1,3 +1,5 @@
+<%= render 'show_table' %>
+
 <%= render layout: 'qrcode_table' do %>
   <%= render partial: 'qrcode_tbody', layout: 'qrcode_tr', collection: @source.qrcodes, as: :model %>
 <% end %>

@@ -46,7 +46,8 @@ module Crm
 
     def percent
       min = [source.width, source.height].min
-      fixed_width / min
+      r = (fixed_width / min.to_f) * 100
+      r.round
     end
 
   end

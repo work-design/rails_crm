@@ -1,0 +1,16 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= Crm::Source.human_attribute_name(:picture) %></th>
+      <th><%= Crm::Source.human_attribute_name(:width) %></th>
+      <th><%= Crm::Source.human_attribute_name(:height) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= image_tag @source.picture, class: 'image is-48x48' %></td>
+      <td><%= @source.width %></td>
+      <td><%= @source.height %></td>
+    </tr>
+  </tbody>
+</table>
