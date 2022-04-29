@@ -60,4 +60,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resolve 'Crm::Source', controller: 'maintain_sources', action: 'source' do |source, options|
+    [:crm, :me, options]
+  end
 end
