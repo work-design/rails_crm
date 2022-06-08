@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
   namespace :crm, defaults: { business: 'crm' } do
     namespace :admin, defaults: { namespace: 'admin' } do
+      root 'home#index'
       concerns :maintaining
       resources :maintain_sources do
         collection do

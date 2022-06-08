@@ -2,7 +2,7 @@ module Crm
   class Admin::MaintainLogsController < Admin::BaseController
     before_action :set_maintain
     before_action :set_maintain_log, only: [:show, :edit, :update, :destroy]
-    before_action :prepare_form, only: [:new, :edit]
+    before_action :set_maintain_tags, only: [:new, :edit]
 
     def index
       @maintain_logs = @maintain.maintain_logs.order(id: :desc).page(params[:page]).per(params[:per])
@@ -22,7 +22,7 @@ module Crm
     end
 
     private
-    def prepare_form
+    def set_maintain_tags
       @maintain_tags = MaintainTag.default_where(default_params)
     end
 

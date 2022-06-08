@@ -88,8 +88,6 @@ module Crm
         p.merge! default_form_params
         @maintain = Maintain.create(p)
       end
-
-      head :ok
     end
 
     def new_batch_assign

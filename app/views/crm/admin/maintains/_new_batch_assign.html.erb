@@ -1,13 +1,4 @@
-<div class="ui modal" id="modal">
-  <i class="fa-light fa-times close"></i>
-  <div class="ui header">
-    <%= t('.title') %>
-  </div>
-
-  <div class="content">
-    <%= form_with url: assign_admin_maintains_path(add_ids: params[:add_ids]) do |f| %>
-      <%= f.collection_select :member_id, @members, :id, :name, can: { wrap_input_id: true } %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+<%= form_with url: assign_admin_maintains_path(add_ids: params[:add_ids]) do |f| %>
+  <%= f.collection_select :member_id, @members, :id, :name, can: { wrap_input_id: true } %>
+  <%= f.submit %>
+<% end %>
