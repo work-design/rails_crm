@@ -2,7 +2,7 @@ module Crm
   class Source < ApplicationRecord
     include Model::Source
     include Com::Ext::Taxon
-    include Trade::Model::Good
+    include Trade::Ext::Good
 
     def order_paid(trade_item)
       maintain_source = maintain_sources.find_or_initialize_by(organ_id: trade_item.member_organ_id)
