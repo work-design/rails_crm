@@ -212,9 +212,7 @@ module Crm
     def maintain_params
       p = params.fetch(:maintain, {}).permit(
         :note,
-        :pipeline_id,
         :pipeline_member_id,
-        :member_id,
         :maintain_source_id,
         client_attributes: {},
         agent_attributes: {},
@@ -246,8 +244,6 @@ module Crm
       params.permit(
         :state,
         :maintain_source_id,
-        :pipeline_id,
-        :member_id,
         'client.real_name',
         'client.real_name-like',
         'client.birthday-gte',
