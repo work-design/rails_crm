@@ -2,7 +2,7 @@
 
 <h4 class="ui dividing center aligned header">关系</h4>
 <%= f.fields :agency do |ef| %>
-  <%= ef.select :relation, options_for_select(Agential::Agency.options_i18n(:relation)) %>
+  <%= ef.select :relation, options_for_select(Crm::Agency.options_i18n(:relation)) %>
 <% end %>
 <h4 class="ui dividing center aligned header">家长信息</h4>
 <%= f.fields :agent do |ef| %>

@@ -1,4 +1,4 @@
-<%= form_with url: new_admin_maintain_url, method: :get do |f| %>
+<%= form_with url: { action: 'new' }, method: :get do |f| %>
   <div class="inline fields">
     <%= f.hidden_field :agent_id, value: @agent.id %>
     <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', can: { wrap_all: false } %>
@@ -7,7 +7,7 @@
 <% end %>
 <div class="ui horizontal divider">或</div>
 <div class="ui center aligned basic segment">
-  <%= link_to new_admin_maintain_path(agent_id: @agent.id), class: 'button is-link is-small' do %>
+  <%= link_to({ action: 'new', agent_id: @agent.id }, class: 'button is-link is-small') do %>
     <i class="fa-light fa-plus"></i>
     <span>新增</span>
   <% end %>
