@@ -28,7 +28,7 @@
     </td>
   </tr>
   <tr>
-    <th><%= link_to Crm::MaintainLog.human_attribute_name(:maintain_tag_id), { controller: 'maintain_tags' }, text: true %></th>
+    <th><%= link_to Crm::Maintain.human_attribute_name(:maintain_tag_id), { controller: 'maintain_tags' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:'maintain_logs.maintain_tag_id']), class: active_params('maintain_logs.maintain_tag_id': '', active: 'button is-info', item: 'button is-light') %>
       <% @maintain_tags.each do |maintain_tag| %>
