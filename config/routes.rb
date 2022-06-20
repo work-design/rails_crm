@@ -36,6 +36,14 @@ Rails.application.routes.draw do
           post :sync
         end
       end
+      resources :agencies do
+        member do
+          get 'crowd' => :edit_crowd
+          patch 'crowd' => :update_crowd
+          delete 'crowd' => :destroy_crowd
+          delete 'card' => :destroy_card
+        end
+      end
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do
@@ -58,6 +66,11 @@ Rails.application.routes.draw do
           get :list
         end
       end
+      resources :agencies
+    end
+
+    namespace :my, defaults: { namespace: 'my' } do
+      resources :agencies
     end
   end
 

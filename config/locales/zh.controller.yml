@@ -27,6 +27,9 @@ zh:
       maintain_tags:
         index:
           title: 客户标签
+      agencies:
+        index:
+          title: 会员列表
     panel:
       title: 市场管理
       sources:
@@ -64,3 +67,6 @@ zh:
           title: 订单列表
         new_batch_assign:
           title: 批量派单
+      agencies:
+        index:
+          title: 我的客户

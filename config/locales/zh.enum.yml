@@ -8,6 +8,9 @@ zh:
         maintain_tag:
           logged_type:
             TimeBooking: 预约
+      crm/agency:
+        relation:
+          unknown: 未知
       crm/text:
         align:
           north: 上
