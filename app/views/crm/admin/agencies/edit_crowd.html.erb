@@ -1,0 +1,6 @@
+<turbo-frame id="modal">
+  <%= form_with url: { action: 'crowd' }, method: :patch do |f| %>
+    <%= f.collection_select :crowd_id, @crowds, :id, :name %>
+    <%= f.submit %>
+  <% end %>
+</turbo-frame>

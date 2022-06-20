@@ -50,7 +50,7 @@ module Crm
         @maintain.agent = Profiled::Profile.new(identity: params[:identity])
         @maintain.client = Profiled::Profile.new
         @maintain.build_agency
-        @agencies = Agential::Agency.none
+        @agencies = Agency.none
         render 'new'
       end
     end
@@ -64,7 +64,7 @@ module Crm
         @maintain.agent = Profiled::Profile.new
       end
       if params[:agency_id]
-        agency = Agential::Agency.find params[:agency_id]
+        agency = Agency.find params[:agency_id]
         @maintain.agency = agency
         @maintain.client = agency.client
       else

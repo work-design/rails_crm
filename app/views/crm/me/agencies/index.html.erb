@@ -1,0 +1,40 @@
+<%= render 'filter' %>
+
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= Agency.human_attribute_name(:relation) %></th>
+      <th><%= Agency.human_attribute_name(:note) %></th>
+      <th><%= Agency.human_attribute_name(:commission_ratio) %></th>
+      <th><%= Agency.human_attribute_name('client.name') %></th>
+      <th>
+        <%= link_to new_my_agency_path, remote: true, class: 'button is-small is-info' do %>
+          <i class="fa-light fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @agencies.each do |agency| %>
+    <tr>
+      <td><%= agency.relation_i18n %></td>
+      <td><%= agency.note %></td>
+      <td><%= agency.commission_ratio %></td>
+      <td>
+        <%= link_to agency.client.name %>
+      </td>
+      <td>
+        <%= link_to my_agency_path(agency), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fa-light fa-circle-info"></i>
+        <% end %>
+        <%= link_to edit_my_agency_path(agency), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fa-light fa-pencil"></i>
+        <% end %>
+        <%= link_to my_agency_path(agency), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fa-light fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

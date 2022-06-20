@@ -1,0 +1,18 @@
+<div class="weui-panel">
+  <div class="weui-panel__hd">我的宝贝</div>
+  <div class="weui-panel__bd">
+    <% @tutelages.each do |tutelage| %>
+    <div class="weui-media-box weui-media-box_appmsg">
+      <div class="weui-media-box__hd">
+        <%= image_tag tutelage.pupil.avatar, class: 'weui-media-box__thumb' %>
+      </div>
+      <div class="weui-media-box__bd">
+        <h4 class="weui-media-box__title"><%= tutelage.relation_i18n %></h4>
+        <p class="weui-media-box__desc">
+          <%= tutelage.pupil.real_name %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_my_pupil_path(@pupil), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:name) %></td>
+      <td><%= @pupil.name %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:petname) %></td>
+      <td><%= @pupil.petname %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:birthday_type) %></td>
+      <td><%= @pupil.birthday_type %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:birthday) %></td>
+      <td><%= @pupil.birthday %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:gender) %></td>
+      <td><%= @pupil.gender %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Pupil.human_attribute_name(:note) %></td>
+      <td><%= @pupil.note %></td>
+    </tr>
+  </tbody>
+</table>

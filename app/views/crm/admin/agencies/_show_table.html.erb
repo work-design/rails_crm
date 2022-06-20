@@ -1,0 +1,33 @@
+<table class="table is-hoverable is-fullwidth">
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= Agency.human_attribute_name('client.real_name') %></td>
+      <td><%= @agency.client.real_name %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Agency.human_attribute_name('client.age') %></td>
+      <td><%= @agency.client.age %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Agency.human_attribute_name('client.gender') %></td>
+      <td><%= @agency.client.gender %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Agency.human_attribute_name(:note) %></td>
+      <td><%= @agency.client.note %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Agency.human_attribute_name('agent.identity') %></td>
+      <td>
+        <%= @agency.tutelar.identity %>
+        <% if @agency.tutelar.user && @agency.tutelar.account&.wechat_response %>
+          <%= image_tag @agency.tutelar.account.qrcode_url, class: 'ui small image' %>
+        <% else %>
+          <%= link_to qrcode_admin_profile_path(@agency.tutelar), method: :patch, remote: true, id: 'account_qrcode' do %>
+            <i class="fa-light fa-qrcode"></i>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

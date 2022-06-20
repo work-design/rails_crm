@@ -1,0 +1,38 @@
+<td><%= model.client.real_name %></td>
+<td><%= model.client.age %></td>
+<td>
+  <span class="ui icon label">
+    <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+    <%= model.client.gender_i18n %>
+  </span>
+</td>
+<td><%= model.client.note %></td>
+<td>
+  <% model.crowds.each do |crowd| %>
+    <div class="ui image label">
+      <%= image_tag crowd.logo if crowd.logo.present? %>
+      <%= crowd.name %>
+      <%= link_to crowd_admin_agency_path(model, crowd_id: crowd.id), method: :delete, remote: true do %>
+        <i class="delete icon"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to crowd_admin_agency_path(model), aria: { label: '分班' }, class: 'button is-small is-rounded is-light', remote: true do %>
+    <i class="hand point right icon"></i>
+  <% end %>
+</td>
+<td>
+  <% model.cards.each do |card| %>
+    <div class="ui image label">
+      <%= link_to card.card_uuid, admin_card_card_logs_path(card), text: true %>
+      <%= link_to card_admin_agency_path(model, card_id: card.id), method: :delete do %>
+        <i class="delete icon"></i>
+      <% end %>
+    </div>
+  <% end %>
+</td>
+<td>
+  <%= link_to admin_agency_path(model), class: 'button is-small is-rounded is-light', remote: true do %>
+    <i class="fa-light fa-circle-info"></i>
+  <% end %>
+</td>
