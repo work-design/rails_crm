@@ -1,6 +1,7 @@
 module Crm
   class Admin::OrdersController < Trade::Admin::OrdersController
     before_action :set_maintain
+    before_action :set_addresses, only: [:new, :create]
 
     def index
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
@@ -28,6 +29,10 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+    end
+
+    def set_addresses
+      @addresses = @maintain.addresses.page(params[:page])
     end
 
   end
