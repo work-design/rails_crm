@@ -6,16 +6,13 @@ module Crm
 
     def index
       q_params = {}
-      q_params.merge! params.permit('address_users.user_id')
+      q_params.merge! params.permit(:tel)
 
       @addresses = @maintain.addresses.includes(:area).default_where(q_params).page(params[:page])
     end
 
     def new
-      @address.area ||= Area.new
-    end
-
-    def create
+      @address.area ||= Profiled::Area.new
     end
 
     private
@@ -24,7 +21,7 @@ module Crm
     end
 
     def set_address
-      @address = Address.find(params[:id])
+      @address = @maintain.addresses.find(params[:id])
     end
 
     def set_new_address
