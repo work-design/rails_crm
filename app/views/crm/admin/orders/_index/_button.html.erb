@@ -1,3 +1,4 @@
-<%= link_to({ action: 'new' }, aria: { label: '购卡' }, class: 'button is-small is-rounded is-light') do %>
+<%= link_to({ action: 'new' }, data: { turbo_frame: 'modal' }, class: 'button is-small is-info mb-1') do %>
   <i class="fa-light fa-credit-card"></i>
+  <span class="pl-1">下单</span>
 <% end %>

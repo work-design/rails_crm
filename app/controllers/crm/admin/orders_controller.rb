@@ -6,6 +6,10 @@ module Crm
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
     end
 
+    def new
+      @order = @maintain.orders.build
+    end
+
     def edit
       @card_templates = Trade::CardTemplate.default_where(default_params)
     end
