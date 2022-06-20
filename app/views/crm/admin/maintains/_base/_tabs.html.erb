@@ -1,0 +1,7 @@
+<tr>
+  <th>只看自己</th>
+  <td>
+    <%= link_to t('.all'), filter_params(except: [:member_id]), class: active_params(member_id: nil, active: 'button is-info', item: 'button is-light') %>
+    <%= link_to '只看自己', filter_params(member_id: current_member&.id), class: active_params(member_id: current_member&.id, active: 'button is-info', item: 'button is-light') %>
+  </td>
+</tr>
