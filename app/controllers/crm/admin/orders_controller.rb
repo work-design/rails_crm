@@ -1,5 +1,6 @@
 module Crm
   class Admin::OrdersController < Admin::BaseController
+    before_action :set_maintain
 
     def index
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
@@ -19,6 +20,10 @@ module Crm
       redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
     end
 
+    private
+    def set_maintain
+      @maintain = Maintain.find params[:maintain_id]
+    end
 
   end
 end

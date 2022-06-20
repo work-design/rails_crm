@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   concern :maintaining do
     resources :maintains do
       resources :maintain_logs
+      resources :orders
       collection do
         get :public
         post :batch
@@ -17,9 +18,6 @@ Rails.application.routes.draw do
         patch 'assign' => :update_assign
         patch :assume
         patch :detach
-        get :orders
-        get 'order' => :edit_order
-        patch 'order' => :update_order
       end
     end
   end

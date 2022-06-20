@@ -1,0 +1,7 @@
+<%= render 'button' %>
+
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @orders, as: :model %>
+<% end %>
+
+<%= paginate @orders %>
