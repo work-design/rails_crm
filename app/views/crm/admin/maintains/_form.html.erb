@@ -1,14 +1,14 @@
 <div class="level">
   <h4 class="level-item has-text-centered">线索信息</h4>
 </div>
-<div class="inline field">
-  <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, wrap: { all: false } %>
+<div class="field is-horizontal">
+  <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, all: { normal: nil } %>
   <%= link_to({ controller: 'maintain_sources' }, aria: { label: '来源设置' }, target: '_blank') do %>
     <i class="fa-light fa-cog"></i>
   <% end %>
 </div>
-<div class="inline fields">
-  <%= f.collection_select :pipeline_id, @task_templates, :id, :name, include_blank: true, wrap: { all: false } %>
+<div class="field is-horizontal">
+  <%= f.collection_select :pipeline_id, @task_templates, :id, :name, include_blank: true, all: { normal: nil } %>
   <%= link_to({ contorller: 'bench/admin/task_templates' }, aria: { label: '流水线' }, target: '_blank') do %>
     <i class="fa-light fa-cog"></i>
   <% end %>
