@@ -1,5 +1,5 @@
 module Crm
-  class Admin::OrdersController < Admin::BaseController
+  class Admin::OrdersController < Trade::Admin::OrdersController
     before_action :set_maintain
 
     def index
@@ -8,6 +8,7 @@ module Crm
 
     def new
       @order = @maintain.orders.build
+      @order.trade_items.build
     end
 
     def edit
