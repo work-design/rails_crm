@@ -12,6 +12,8 @@ module Crm
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
       belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
 
+      has_many :orders, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id, dependent: :nullify
+
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name
@@ -19,7 +21,6 @@ module Crm
 
       has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
-      has_many :orders, dependent: :nullify
 
       accepts_nested_attributes_for :agency, reject_if: :all_blank
       accepts_nested_attributes_for :agent, reject_if: :all_blank
