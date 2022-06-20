@@ -15,6 +15,9 @@
   <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('crm.admin.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-shopping-cart"></i>
   <% end %>
+  <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('profiled.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-location-dot"></i>
+  <% end %>
   <%= link_to({ action: 'edit', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
     <i class="fa-light fa-pencil"></i>
   <% end %>

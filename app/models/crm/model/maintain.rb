@@ -13,6 +13,7 @@ module Crm
       belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
 
       has_many :orders, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id, dependent: :nullify
+      has_many :addresses, class_name: 'Profiled::Address', primary_key: :member_id, foreign_key: :agent_id
 
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true

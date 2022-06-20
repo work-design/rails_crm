@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :maintains do
       resources :maintain_logs
       resources :orders
+      resources :addresses
       collection do
         get :public
         post :batch
