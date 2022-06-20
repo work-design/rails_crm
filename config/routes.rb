@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do
+      root 'home#index'
       resources :sources do
         resources :qrcodes
         resources :texts
