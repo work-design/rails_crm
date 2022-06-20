@@ -1,4 +1,4 @@
-module Agential
+module Crm
   class My::AgenciesController < My::BaseController
     before_action :set_agency, only: [:show, :edit, :update, :destroy]
 
