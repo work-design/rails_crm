@@ -7,7 +7,7 @@
   <p><%= model.client.age %></p>
   <p>
     <span class="tag">
-      <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+      <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
       <span class="pl-1"><%= model.client.gender_i18n %></span>
     </span>
   </p>
