@@ -2,20 +2,16 @@
   <%= check_box_tag 'xx', model.id, false, data: { action: 'check#toggle' } %>
 </td>
 <td>
-  <p><%= model.client.name %></p>
+  <p><%= model.client.real_name %></p>
+  <p class="has-text-grey"><%= model.client.nick_name %></p>
 </td>
-<td>
-  <span><%= model.client.age %></span>
-  <span class="tag">
-      <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
-    <%= model.client.gender_i18n %>
-    </span>
+<td class="has-text-centered">
+  <p><%= model.client.age %></p>
+  <p class="tag">
+    <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+    <span class="pl-1"><%= model.client.gender_i18n %></span>
+  </p>
 </td>
-<td>
-  <p><%= model.agent&.name %></p>
-  <p class="has-text-success"><%= model.agent&.identity %></p>
-</td>
-<td><%= model.agency&.relation_i18n %></td>
 <td>
   <p><%= model.maintain_source&.name %></p>
   <p>
