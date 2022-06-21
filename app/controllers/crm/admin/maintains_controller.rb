@@ -158,7 +158,6 @@ module Crm
 
     def detach
       @maintain.update member_id: nil
-      redirect_to admin_maintains_url
     end
 
     def assume
