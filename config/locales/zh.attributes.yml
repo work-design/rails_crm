@@ -4,6 +4,7 @@ zh:
       crm/maintain:
         state: 状态
         maintain_source_id: 客户来源
+        maintain_tag_id: 标签
         pipeline_id: 流水线
         member_id: 负责人
         payment_strategy_id: 付款形式
