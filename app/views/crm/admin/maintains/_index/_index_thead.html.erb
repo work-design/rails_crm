@@ -1,16 +1,12 @@
+<th><%= Crm::Maintain.human_attribute_name('client.identity') %></th>
 <th>
   <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
   <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name('client.nick_name') %></p>
 </th>
-<th>
+<th class="has-text-centered">
   <p><%= Profiled::Profile.human_attribute_name(:age) %></p>
   <p><%= Profiled::Profile.human_attribute_name(:gender) %></p>
 </th>
-<th>
-  <p><%= Crm::Maintain.human_attribute_name('agent.real_name') %></p>
-  <p class="has-text-success"><%= Crm::Maintain.human_attribute_name('agent.identity') %></p>
-</th>
-<th><%= Crm::Agency.human_attribute_name(:relation) %></th>
 <th>
   <div>
     <%= Crm::Maintain.human_attribute_name(:maintain_source_id) %>

@@ -9,9 +9,5 @@ module Crm
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
     end
 
-    def name
-      id
-    end
-
   end
 end

@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   ]
 
   s.add_dependency 'rails_extend'
+  s.add_dependency 'rails_profile'
 end

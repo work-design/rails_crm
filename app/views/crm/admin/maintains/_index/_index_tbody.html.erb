@@ -1,18 +1,17 @@
+<td><%= model.client.identity %></td>
 <td>
-  <p><%= model.client.name %></p>
+  <p><%= model.client.real_name %></p>
+  <p class="has-text-grey"><%= model.client.nick_name %></p>
 </td>
-<td>
-  <span><%= model.client.age %></span>
-  <span class="tag">
+<td class="has-text-centered">
+  <p><%= model.client.age %></p>
+  <p>
+    <span class="tag">
       <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
-    <%= model.client.gender_i18n %>
+      <span class="pl-1"><%= model.client.gender_i18n %></span>
     </span>
+  </p>
 </td>
-<td>
-  <p><%= model.agent&.name %></p>
-  <p class="has-text-success"><%= model.agent&.identity %></p>
-</td>
-<td><%= model.agency&.relation_i18n %></td>
 <td>
   <p><%= model.maintain_source&.name %></p>
   <p>

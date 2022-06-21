@@ -12,6 +12,7 @@ zh:
         real_name: 客户
         nick_name: 客户昵称
         age: 年龄
+        identity: 联系方式
       crm/maintain/agent:
         real_name: 代理人
         identity: 联系方式
