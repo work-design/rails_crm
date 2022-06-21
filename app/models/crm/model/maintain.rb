@@ -32,11 +32,18 @@ module Crm
         transferred: 'transferred'
       }, _default: 'init'
 
-      before_validation do
-        self.upstream ||= self
-        self.original ||= self
-      end
+      before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      before_save :sync_organ_to_client, if: -> { client_id.present? && client_id_changed? }
+    end
+
+    def init_stream
+      self.upstream ||= self
+      self.original ||= self
+    end
+
+    def sync_organ_to_client
+      self.client.organ_id = self.organ_id
     end
 
     def sync_pipeline_member
