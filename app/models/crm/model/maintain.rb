@@ -5,12 +5,14 @@ module Crm
     included do
       attribute :note, :string
       attribute :position, :integer
+      attribute :deposit_ratio, :integer, default: 100, comment: '最小预付比例'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
       belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
+      belongs_to :payment_strategy, class_name: 'Trade::PaymentStrategy', optional: true
 
       has_many :orders, class_name: 'Trade::Order', dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify

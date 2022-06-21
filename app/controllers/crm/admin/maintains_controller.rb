@@ -7,8 +7,8 @@ module Crm
       :edit_assign, :update_assign,
       :detach, :assume, :destroy
     ]
-    before_action :prepare_form, only: [:new, :create_detect, :edit]
-    before_action :set_maintain_sources, only: [:index, :public]
+    before_action :set_task_templates, :set_payment_strategies, only: [:new, :create_detect, :edit, :update]
+    before_action :set_maintain_sources, only: [:index, :public, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
 
     def index
@@ -170,7 +170,7 @@ module Crm
       @maintain = Maintain.find(params[:id])
     end
 
-    def prepare_form
+    def set_task_templates
       pipeline_params = {
         tasking_type: 'Crm::Maintain',
         tasking_id: nil,
@@ -179,7 +179,10 @@ module Crm
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
       @task_templates = Bench::TaskTemplate.default_where(pipeline_params)
-      @maintain_sources = MaintainSource.default_where(default_params)
+    end
+
+    def set_payment_strategies
+      @payment_strategies = Trade::PaymentStrategy.default_where(default_params)
     end
 
     def set_maintain_sources
@@ -195,6 +198,8 @@ module Crm
         :note,
         :pipeline_member_id,
         :maintain_source_id,
+        :deposit_ratio,
+        :payment_strategy_id,
         client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}
