@@ -74,6 +74,7 @@ module Crm
     def create
       @maintain = Maintain.new(maintain_params)
       @maintain.member_id ||= current_member.id
+      @maintain.client.organ = @maintain.organ
 
       unless @maintain.save
         render :new, locals: { model: @maintain }, status: :unprocessable_entity
@@ -199,7 +200,6 @@ module Crm
         agency_attributes: {}
       )
       p.merge! default_form_params
-      p
     end
 
     def update_params
