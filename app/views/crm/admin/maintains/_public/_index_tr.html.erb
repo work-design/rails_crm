@@ -1,23 +1,24 @@
-<td>
-  <p><%= maintain.state_i18n %></p>
-</td>
-<td>
-  <%= link_to assume_admin_maintain_path(maintain), aria: { label: t('.assume') }, method: :patch, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-vote-yea"></i>
-  <% end %>
-  <%= link_to assign_admin_maintain_path(maintain), aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-hand-holding-usd"></i>
-  <% end %>
-  <%= link_to admin_maintain_maintain_logs_path(maintain), aria: { label: t('.log') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-clock"></i>
-  <% end %>
-  <%= link_to admin_maintain_path(maintain), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-circle-info"></i>
-  <% end %>
-  <%= link_to edit_admin_maintain_path(maintain), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-pencil"></i>
-  <% end %>
-  <%= link_to admin_maintain_path(maintain), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-    <i class="fa-light fa-trash"></i>
-  <% end %>
+<tr title="<%= model.created_at %>" id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+  <%= yield %>
+  <td>
+    <div data-show-target="item" style="visibility: hidden">
+      <%= link_to({ action: 'assume', id: model.id }, aria: { label: t('.assume') }, method: :patch, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-vote-yea"></i>
+      <% end %>
+      <%= link_to({ action: 'assign', id: model.id }, aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-hand-holding-usd"></i>
+      <% end %>
+      <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.log') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-clock"></i>
+      <% end %>
+      <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-circle-info"></i>
+      <% end %>
+      <%= link_to({ action: 'edit', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-pencil"></i>
+      <% end %>
+      <%= link_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-trash"></i>
+      <% end %>
+  </div>
 </td>

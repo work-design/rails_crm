@@ -1,4 +1,7 @@
 <td>
+  <%= check_box_tag 'xx', model.id, false, data: { action: 'check#toggle' } %>
+</td>
+<td>
   <p><%= model.client.name %></p>
 </td>
 <td>
