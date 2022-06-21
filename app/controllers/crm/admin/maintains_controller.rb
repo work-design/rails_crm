@@ -162,7 +162,6 @@ module Crm
 
     def assume
       @maintain.update member_id: current_member.id
-      redirect_to admin_maintains_url
     end
 
     private
