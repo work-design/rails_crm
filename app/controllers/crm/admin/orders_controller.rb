@@ -1,14 +1,13 @@
 module Crm
   class Admin::OrdersController < Trade::Admin::OrdersController
     before_action :set_maintain
-    before_action :set_addresses, only: [:new, :create]
+    before_action :set_addresses, :set_new_order, only: [:new, :create]
 
     def index
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
     end
 
     def new
-      @order = @maintain.orders.build
       @order.trade_items.build
     end
 
@@ -29,6 +28,10 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+    end
+
+    def set_new_order
+      @order = @maintain.orders.build(order_params)
     end
 
     def set_addresses
