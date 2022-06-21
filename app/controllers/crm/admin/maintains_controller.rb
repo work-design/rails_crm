@@ -97,7 +97,7 @@ module Crm
       }
       pipeline_params.merge! job_title_id: current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
-      job_title_ids = PipelineMember.default_where(pipeline_params).pluck(:job_title_id)
+      #job_title_ids = PipelineMember.default_where(pipeline_params).pluck(:job_title_id)
 
       @members = Org::Member.default_where('member_departments.job_title_id': job_title_ids)
     end
