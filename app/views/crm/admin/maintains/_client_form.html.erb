@@ -8,5 +8,4 @@
   <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>
   <%= ef.date_field :birthday %>
   <%= ef.select :gender, options_for_select(Profiled::Profile.options_i18n(:gender)) %>
-  <%= ef.file_field :avatar %>
 <% end %>
