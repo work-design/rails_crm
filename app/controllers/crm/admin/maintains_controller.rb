@@ -8,7 +8,7 @@ module Crm
       :detach, :assume, :destroy
     ]
     before_action :set_task_templates, :set_payment_strategies, only: [:new, :create_detect, :edit, :update]
-    before_action :set_maintain_sources, only: [:index, :public, :new, :create, :edit, :update]
+    before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
 
     def index
