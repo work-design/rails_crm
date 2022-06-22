@@ -1,0 +1,16 @@
+<%= form_with url: { action: 'new' }, method: :get do |f| %>
+  <div class="field is-horizontal">
+    <%= f.hidden_field :agent_id, value: @agent.id %>
+    <%= f.collection_select :agency_id, @agencies, :id, :name, label: '选择现有', all: { normal: nil } %>
+    <%= f.submit '下一步', all: { normal: nil }, offset: { submit: nil } %>
+  </div>
+<% end %>
+<div class="level">
+  <div class="level-item">或</div>
+</div>
+<div class="box">
+  <%= link_to({ action: 'new', agent_id: @agent.id }, class: 'button is-link is-small') do %>
+    <i class="fa-light fa-plus"></i>
+    <span>新增</span>
+  <% end %>
+</div>
