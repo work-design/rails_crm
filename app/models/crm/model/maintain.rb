@@ -6,17 +6,24 @@ module Crm
       attribute :note, :string
       attribute :position, :integer
       attribute :deposit_ratio, :integer, default: 100, comment: '最小预付比例'
+      attribute :client_type, :string, default: 'Profiled::Client'
+      attribute :agent_type, :string, default: 'Profiled::Agent'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
-      belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
-      belongs_to :agent, class_name: 'Profiled::Profile', inverse_of: :agent_maintains, optional: true
       belongs_to :payment_strategy, class_name: 'Trade::PaymentStrategy', optional: true
+
+      belongs_to :profile_client, class_name: 'Profiled::Profile', foreign_key: :client_id, optional: true
+      belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
+      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
+      accepts_nested_attributes_for :profile_client, reject_if: :all_blank
 
       has_many :orders, class_name: 'Trade::Order', dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
 
+      belongs_to :client, polymorphic: true, inverse_of: :client_maintains, optional: true
+      belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name
@@ -26,8 +33,6 @@ module Crm
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 
       accepts_nested_attributes_for :agency, reject_if: :all_blank
-      accepts_nested_attributes_for :agent, reject_if: :all_blank
-      accepts_nested_attributes_for :client, reject_if: :all_blank
 
       enum state: {
         init: 'init',

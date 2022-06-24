@@ -12,7 +12,9 @@ module Crm
     before_action :set_maintain_tags, only: [:index, :public]
 
     def index
-      q_params = {}
+      q_params = {
+        client_type: 'Profiled::Profile'
+      }
       q_params.merge! member_params
       q_params.merge! search_params
       if (q_params.keys - [:member_id]).blank?
@@ -47,8 +49,8 @@ module Crm
         render 'create_detect'
       else
         @maintain = current_member.maintains.build
-        @maintain.agent = Profiled::Profile.new(identity: params[:identity])
-        @maintain.client = Profiled::Profile.new(identity: params[:identity])
+        @maintain.profile_agent = Profiled::Profile.new(identity: params[:identity])
+        @maintain.profile_client = Profiled::Profile.new(identity: params[:identity])
         @maintain.build_agency
         render 'new'
       end
@@ -74,7 +76,9 @@ module Crm
     def create
       @maintain = Maintain.new(maintain_params)
       @maintain.member_id ||= current_member.id
-      @maintain.client.organ = @maintain.organ
+      @maintain.profile_client.organ = @maintain.organ
+
+      binding.b
 
       unless @maintain.save
         render :new, locals: { model: @maintain }, status: :unprocessable_entity
@@ -200,7 +204,9 @@ module Crm
         :maintain_source_id,
         :deposit_ratio,
         :payment_strategy_id,
-        client_attributes: {},
+        :client_type,
+        :agent_type,
+        profile_client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}
       )
