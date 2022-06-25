@@ -78,8 +78,6 @@ module Crm
       @maintain.member_id ||= current_member.id
       @maintain.profile_client.organ = @maintain.organ
 
-      binding.b
-
       unless @maintain.save
         render :new, locals: { model: @maintain }, status: :unprocessable_entity
       end
