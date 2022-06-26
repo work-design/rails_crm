@@ -6,7 +6,7 @@ module Crm
       has_many :agencies, class_name: 'Crm::Agency', dependent: :delete_all, inverse_of: :client
       has_many :agents, through: :agencies
 
-      has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
+      has_many :client_maintains, class_name: 'Crm::Maintain', as: :client, inverse_of: :client
     end
 
   end
