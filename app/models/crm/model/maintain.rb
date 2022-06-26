@@ -26,8 +26,8 @@ module Crm
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
-      belongs_to :upstream, class_name: self.name
-      belongs_to :original, class_name: self.name
+      belongs_to :upstream, class_name: self.name, optional: true
+      belongs_to :original, class_name: self.name, optional: true
 
       has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
