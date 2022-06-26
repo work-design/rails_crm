@@ -7,8 +7,8 @@ module Crm
       attribute :commission_ratio, :decimal, precision: 4, scale: 2, comment: '交易时抽成比例'
       attribute :note, :string, comment: '备注'
 
-      belongs_to :agent, class_name: 'Auth::User'
-      belongs_to :client, class_name: 'Profiled::Profile'
+      belongs_to :agent, polymorphic: true
+      belongs_to :client, polymorphic: true
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
 
