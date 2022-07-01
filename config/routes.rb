@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     resources :maintains do
       resources :maintain_logs
       resources :orders
-      resources :addresses
+      resources :addresses do
+        member do
+          patch :actions
+        end
+      end
       collection do
         get :public
         post :batch

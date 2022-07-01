@@ -1,7 +1,7 @@
 module Crm
   class Admin::AddressesController < Profiled::Admin::AddressesController
     before_action :set_maintain
-    before_action :set_address, only: [:show, :edit, :update, :destroy]
+    before_action :set_address, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_address, only: [:new, :create]
 
     def index
