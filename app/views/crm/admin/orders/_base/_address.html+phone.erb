@@ -1,0 +1,25 @@
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <%= button_to({ controller: 'crm/admin/addresses', action: 'order', address_id: @order.address_id }, class: 'weui-cell weui-cell_access') do %>
+      <div class="weui-cell__hd">
+        <i class="fa-light fa-location-dot fa-fw has-text-danger pr-2"></i>
+      </div>
+      <div class="weui-cell__bd">
+      <% if @order.address %>
+        <p>
+          <span><%= @order.address.contact %></span>
+          <span><%= @order.address.tel %></span>
+        </p>
+        <p class="is-size-7">
+          <span><%= @order.address.area.full_name %></span>
+          <span><%= @order.address.station&.name %></span>
+          <span><%= @order.address.detail %></span>
+        </p>
+      <% else %>
+        <span>收货人信息</span>
+      <% end %>
+      </div>
+      <div class="weui-cell__ft"></div>
+    <% end %>
+  </div>
+</div>

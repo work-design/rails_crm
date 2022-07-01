@@ -4,6 +4,14 @@ Rails.application.routes.draw do
       resources :maintain_logs
       resources :orders
       resources :addresses do
+        collection do
+          post :order
+          post :order_from
+          post :order_new
+          post :order_create
+          post :from_new
+          post :from_create
+        end
         member do
           patch :actions
         end
