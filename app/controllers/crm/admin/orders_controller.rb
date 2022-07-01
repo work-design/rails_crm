@@ -12,6 +12,16 @@ module Crm
       @order.trade_items.build
     end
 
+    def create
+      @order.compute_promote
+
+      if params[:commit].present? && @order.save
+        render 'create'
+      else
+        render 'new'
+      end
+    end
+
     def edit
       @card_templates = Trade::CardTemplate.default_where(default_params)
     end
