@@ -21,6 +21,10 @@ zh:
       orders:
         index:
           title: 订单
+        new:
+          title: 为客户下单
+        create:
+          title: 为客户下单
       maintain_logs:
         index:
           title: 跟踪日志
@@ -40,6 +44,8 @@ zh:
           title: 发货地址
         from_new:
           title: 创建发货地址
+        order:
+          title: 收货地址
         order_new:
           title: 创建收货地址
     panel:
