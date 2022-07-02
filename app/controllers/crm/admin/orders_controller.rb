@@ -19,6 +19,7 @@ module Crm
       if params[:commit].present? && @order.save
         render 'create'
       else
+        @order.trade_items.build
         render 'new'
       end
     end
