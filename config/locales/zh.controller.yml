@@ -40,6 +40,8 @@ zh:
           title: 发货地址
         from_new:
           title: 创建发货地址
+        order_new:
+          title: 创建收货地址
     panel:
       title: 市场管理
       sources:
