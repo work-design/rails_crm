@@ -1,4 +1,4 @@
-<%= form_with url: { action: 'order' }, method: :patch do |f| %>
+<%= form_with url: { action: 'update' }, method: :patch do |f| %>
   <%= f.collection_select :card_template_id, @card_templates, :id, :name, label: '选择卡', include_blank: true %>
   <div id="_advance_id_wrap"></div>
   <%= f.submit %>

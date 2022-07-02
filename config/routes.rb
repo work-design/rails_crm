@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   concern :maintaining do
     resources :maintains do
       resources :maintain_logs
-      resources :orders
+      resources :orders do
+        member do
+          patch :actions
+        end
+      end
       resources :addresses do
         collection do
           post :order

@@ -3,6 +3,7 @@ module Crm
     before_action :set_maintain
     before_action :set_addresses, :set_new_order, only: [:new, :create]
     before_action :set_payment_strategies, only: [:new, :create, :edit, :update]
+    before_action :set_order, only: [:show, :edit, :update, :destroy, :actions]
 
     def index
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
@@ -43,6 +44,10 @@ module Crm
 
     def set_new_order
       @order = @maintain.orders.build(order_params)
+    end
+
+    def set_order
+      @order = @maintain.orders.find params[:id]
     end
 
     def set_addresses
