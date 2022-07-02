@@ -14,6 +14,7 @@ module Crm
 
     def sync_user_from_maintain
       self.user = maintain.client.users[0]
+      self.save
     end
 
   end
