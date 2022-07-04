@@ -2,11 +2,7 @@ Rails.application.routes.draw do
   concern :maintaining do
     resources :maintains do
       resources :maintain_logs
-      resources :orders do
-        member do
-          patch :actions
-        end
-      end
+      resources :orders
       resources :addresses do
         collection do
           post :order
@@ -15,9 +11,6 @@ Rails.application.routes.draw do
           post :order_create
           post :from_new
           post :from_create
-        end
-        member do
-          patch :actions
         end
       end
       collection do
