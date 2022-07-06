@@ -4,7 +4,7 @@
     <span><%= t('crm.panel.title') %></span>
     <i class="fa-solid dropdown"></i>
   </a>
-  <div class="menu-list">
+  <div class="menu-list" data-empty-target="content">
     <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, class: active_helper(controllers: ['sources', 'qrcodes', 'texts'], active: 'is-active') %>
     <%= link_to t('crm.panel.tags.index.title'), { controller: 'crm/panel/tags' }, class: active_helper(controllers: ['tags'], active: 'is-active') %>
   </div>
