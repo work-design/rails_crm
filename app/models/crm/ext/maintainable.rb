@@ -11,6 +11,7 @@ module Crm
     def sync_user_from_maintain
       return unless maintain
       self.user = maintain.client.users[0]
+      self.member = maintain.client.members[0]
       self.save
     end
 
