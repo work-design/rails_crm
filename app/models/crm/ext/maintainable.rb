@@ -5,16 +5,23 @@ module Crm
     included do
       belongs_to :maintain, class_name: 'Crm::Maintain', optional: true
 
+      after_create_commit :change_maintain_state, if: -> { maintain_id.present? && saved_change_to_maintain_id? }
       after_save_commit :sync_maintain_user_later, if: -> { maintain_id.present? && saved_change_to_maintain_id? }
     end
 
     def sync_maintain_user_later
+      return unless maintain
       OrderMaintainSyncJob.perform_later(self)
     end
 
     def sync_user_from_maintain
       self.user = maintain.client.users[0]
       self.save
+    end
+
+    def change_maintain_state
+      return unless maintain
+      maintain.update state: 'ordered'
     end
 
   end

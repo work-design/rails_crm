@@ -37,6 +37,7 @@ module Crm
 
       enum state: {
         init: 'init',
+        ordered: 'ordered',
         transferred: 'transferred'
       }, _default: 'init'
 
