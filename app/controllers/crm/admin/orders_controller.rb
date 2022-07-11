@@ -4,6 +4,7 @@ module Crm
     before_action :set_addresses, :set_new_order, only: [:new, :create]
     before_action :set_payment_strategies, only: [:new, :create, :edit, :update]
     before_action :set_order, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_new_order, only: [:new, :add, :create]
 
     def index
       @orders = @maintain.orders.order(id: :desc).page(params[:page])
@@ -11,6 +12,11 @@ module Crm
 
     def new
       @order.trade_items.build
+    end
+
+    def add
+      @order.valid?
+      @order.sum_amount
     end
 
     def create
@@ -43,6 +49,16 @@ module Crm
 
     def set_payment_strategies
       @payment_strategies = Trade::PaymentStrategy.default_where(default_params)
+    end
+
+    def _prefixes
+      super do |pres|
+        if ['add'].include?(params[:action])
+          pres + ['trade/my/orders/_add', 'trade/my/orders']
+        else
+          pres
+        end
+      end
     end
 
   end

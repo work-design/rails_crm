@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   concern :maintaining do
     resources :maintains do
       resources :maintain_logs
-      resources :orders
+      resources :orders do
+        collection do
+          post :add
+        end
+      end
       resources :wallet_templates
       resources :card_templates
       resources :addresses do
