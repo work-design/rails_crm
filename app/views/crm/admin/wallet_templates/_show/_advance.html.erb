@@ -1,10 +1,12 @@
 <div class="column is-one-third">
-  <%= form_with model: @order, url: { controller: 'orders', action: 'create' }, class: 'is-block py-2 has-background-light is-flex-direction-column has-text-centered' do |f| %>
+  <%= form_with model: @order, url: { controller: 'orders', action: 'create' }, class: 'button_to is-block' do |f| %>
     <%= f.fields :trade_items do |ef| %>
       <%= ef.hidden_field :good_type, value: advance.class_name %>
       <%= ef.hidden_field :good_id, value: advance.id %>
     <% end %>
-    <div class="header has-text-grey"><%= advance.amount %></div>
-    <div class="description has-text-danger"><%= advance.price.to_money.format(html_wrap: true).html_safe %></div>
+    <%= button_tag class: 'py-2 has-background-light is-flex-direction-column has-text-centered' do %>
+      <div class="header has-text-grey"><%= advance.amount %></div>
+      <div class="description has-text-danger"><%= advance.price.to_money.format(html_wrap: true).html_safe %></div>
+    <% end %>
   <% end %>
 </div>

@@ -2,6 +2,7 @@ module Crm
   class Admin::WalletTemplatesController < Trade::Admin::WalletTemplatesController
     before_action :set_maintain
     before_action :set_wallet_template, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_new_order, only: [:show]
 
     def index
       q_params = {}
@@ -19,9 +20,9 @@ module Crm
       @maintain = Maintain.find params[:maintain_id]
     end
 
-    def set_new_address
-      @address = @maintain.addresses.build(address_params)
-      @address.area ||= Profiled::Area.new
+    def set_new_order
+      @order = @maintain.orders.build
+      @order.trade_items.build
     end
 
     def _prefixes
