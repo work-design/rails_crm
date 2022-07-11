@@ -21,6 +21,7 @@ module Crm
 
       has_many :orders, class_name: 'Trade::Order', dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
+      has_many :wallets, class_name: 'Trade::Wallet', dependent: :nullify
 
       belongs_to :client, polymorphic: true, inverse_of: :client_maintains, autosave: true, optional: true
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true

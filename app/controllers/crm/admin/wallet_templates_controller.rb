@@ -12,7 +12,8 @@ module Crm
       @wallet_templates = Trade::WalletTemplate.default_where(q_params)
     end
 
-    def order
+    def show
+      @wallet = @maintain.wallets.find_or_initialize_by(wallet_template_id: @wallet_template.id)
     end
 
     def order_from
@@ -42,8 +43,8 @@ module Crm
 
     def _prefixes
       super do |pres|
-        if ['order', 'order_from', 'order_new', 'order_create', 'from_new', 'from_create'].include?(params[:action])
-          pres + ['profiled/my/addresses/_base', 'profiled/my/addresses']
+        if ['show'].include?(params[:action])
+          pres + ['trade/my/wallet_templates', 'trade/my/base']
         else
           pres
         end
