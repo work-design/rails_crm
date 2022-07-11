@@ -1,0 +1,19 @@
+<tr>
+  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:name) %></td>
+  <td class="is-several">
+    <%= image_tag client.avatar, class: 'image is-24x24' if client.avatar.present? %>
+    <span><%= client.name %></span>
+  </td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:gender) %></td>
+  <td><%= client.gender_i18n %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:external_type) %></td>
+  <td><%= client.external_type_i18n %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:unionid) %></td>
+  <td><%= client.unionid %></td>
+</tr>

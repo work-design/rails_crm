@@ -1,28 +1,9 @@
 <tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:identity) %></td>
-  <td><%= @maintain.client.identity %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name('client.real_name') %></td>
-  <td><%= @maintain.client.real_name %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name('client.nick_name') %></td>
-  <td><%= @maintain.client.nick_name %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:birthday_type) %></td>
-  <td><%= @maintain.client.birthday_type_i18n %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:birthday) %></td>
-  <td><%= @maintain.client.birthday %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:gender) %></td>
-  <td><%= @maintain.client.gender_i18n %></td>
-</tr>
-<tr>
   <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:note) %></td>
   <td><%= @maintain.note %></td>
 </tr>
+<tr>
+  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:remark) %></td>
+  <td><%= @maintain.remark %></td>
+</tr>
+<%= render partial: @maintain.client_type.split('::')[-1].underscore, locals: { client: @maintain.client } %>
