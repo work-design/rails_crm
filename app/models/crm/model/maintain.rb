@@ -22,6 +22,7 @@ module Crm
       has_many :orders, class_name: 'Trade::Order', dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', dependent: :nullify
+      has_many :cards, class_name: 'Trade::Card', dependent: :nullify
 
       belongs_to :client, polymorphic: true, inverse_of: :client_maintains, autosave: true, optional: true
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
@@ -47,6 +48,24 @@ module Crm
     def init_stream
       self.upstream ||= self
       self.original ||= self
+    end
+
+    def sync_user_to_orders
+      orders.each do |order|
+        order.user = self.client.users[0]
+        order.member = self.client.members[0]
+        order.save
+      end
+      wallets.each do |wallet|
+        wallet.user = client.users[0]
+        wallet.member = client.members[0]
+        wallet.save
+      end
+      cards.each do |card|
+        card.user = client.users[0]
+        card.member = client.members[0]
+        card.save
+      end
     end
 
     def sync_pipeline_member
