@@ -37,8 +37,7 @@ module Crm
 
       enum state: {
         init: 'init',
-        ordered: 'ordered',
-        transferred: 'transferred'
+        ordered: 'ordered'
       }, _default: 'init'
 
       before_validation :init_stream, if: :new_record?
@@ -61,8 +60,6 @@ module Crm
     end
 
     def transfer!
-      self.state = 'transferred'
-
       next_member = pipeline_member&.next_member
       if next_member
         m = Maintain.new
