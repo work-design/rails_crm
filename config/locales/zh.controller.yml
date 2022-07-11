@@ -48,6 +48,9 @@ zh:
           title: 收货地址
         order_new:
           title: 创建收货地址
+      wallet_templates:
+        index:
+          title: 会员充值
     panel:
       title: 市场管理
       sources:

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :maintains do
       resources :maintain_logs
       resources :orders
+      resources :wallet_templates
+      resources :card_templates
       resources :addresses do
         collection do
           post :order

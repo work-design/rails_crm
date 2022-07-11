@@ -1,5 +1,5 @@
 module Crm
-  module Ext::Order
+  module Ext::Maintainable
     extend ActiveSupport::Concern
 
     included do
