@@ -54,6 +54,12 @@ zh:
       wallet_logs:
         index:
           title: 使用日志
+      card_templates:
+        index:
+          title: 会员卡
+      card_purchases:
+        index:
+          title: 续费明细
     panel:
       title: 市场管理
       sources:
