@@ -30,8 +30,15 @@ GIT
       rails (>= 5.0)
 
 GIT
+  remote: https://github.com/work-design/rails_notice.git
+  revision: 9466b5ecddd76cb3b61d71db5d6b14394575c4d5
+  specs:
+    rails_notice (1.0.3)
+      rails_extend
+
+GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 2a11d641239311e3ee145091de15fc15c066fb9f
+  revision: cd2267f7764c08c8f860afeb2a5f0550e3233778
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -200,8 +207,6 @@ GEM
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
-      racc (~> 1.4)
     pg (1.4.1)
     propshaft (0.6.4)
       actionpack (>= 7.0.0)
@@ -233,8 +238,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
-    rails_notice (0.1.0)
-      rails (>= 5.0.1)
     rails_profile (0.0.1)
       rails_com (~> 1.2)
     railties (7.0.3)
@@ -284,6 +287,7 @@ DEPENDENCIES
   rails_crm!
   rails_design!
   rails_extend!
+  rails_notice!
   rails_trade!
   sdoc
 
