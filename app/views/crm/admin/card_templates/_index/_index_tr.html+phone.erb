@@ -1,0 +1,6 @@
+<%= link_to({ action: 'show', id: model.id }, class: 'weui-cell weui-cell_active weui-cell_access') do %>
+  <div class="weui-cell__bd weui-cell_primary">
+    <%= yield %>
+  </div>
+  <div class="weui-cell__ft"></div>
+<% end %>
