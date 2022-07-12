@@ -3,6 +3,7 @@ module Crm
     before_action :set_maintain
     before_action :set_wallet_template, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_order, only: [:show]
+    before_action :set_wallet_template_ids, only: [:index]
 
     def index
       q_params = {}
@@ -23,6 +24,10 @@ module Crm
     def set_new_order
       @order = @maintain.orders.build
       @order.trade_items.build
+    end
+
+    def set_wallet_template_ids
+      @wallet_template_ids = @maintain.wallets.pluck(:wallet_template_id)
     end
 
     def _prefixes

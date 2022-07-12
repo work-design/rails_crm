@@ -51,6 +51,9 @@ zh:
       wallet_templates:
         index:
           title: 会员充值
+      wallet_logs:
+        index:
+          title: 使用日志
     panel:
       title: 市场管理
       sources:

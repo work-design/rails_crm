@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         end
       end
       resources :wallet_templates
+      resources :wallets, only: [] do
+        resources :wallet_logs
+      end
       resources :card_templates
       resources :addresses do
         collection do
