@@ -1,0 +1,7 @@
+<p><%= link_to model.uuid, { action: 'show', id: model.id }, text: true %></p>
+<p><%= model.serial_number %></p>
+<p>
+  <span class="has-text-danger"><%= model.amount.to_money.format(html_wrap: true).html_safe %></span>
+  <span class="tag"><%= model.payment_status_i18n %></span>
+</p>
+<p class="has-text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
