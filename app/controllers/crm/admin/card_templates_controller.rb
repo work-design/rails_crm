@@ -1,29 +1,20 @@
 module Crm
   class Admin::CardTemplatesController < Trade::Admin::CardTemplatesController
     before_action :set_maintain
-    before_action :set_wallet_template, only: [:show, :edit, :update, :destroy, :actions]
-    before_action :set_new_address, only: [:new, :create, :order_new, :order_create, :from_new, :from_create]
-    before_action :set_addresses, only: [:order, :order_from, :order_create, :from_create]
+    before_action :set_card_template, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_card_template_ids, only: [:index]
+    before_action :set_card_templates
+    before_action :set_new_order, only: [:show]
 
     def index
       q_params = {}
       q_params.merge! params.permit(:tel)
 
-      @card_templates = Trade::CardTemplate.default_where(default_params)
-    end
-
-    def xx
-      q_params = default_params
-      q_params.merge! params.permit(:advance_id)
-      advance = Trade::Advance.find(q_params['advance_id'])
-
-      order = advance.generate_order! buyer: @maintain.agent, maintain_id: @maintain.id
-      flash[:notice] = "已下单，请等待财务核销, 订单号为：#{order.uuid}"
-      redirect_to orders_admin_maintain_url(@maintain, order_id: order.id)
+      @card_templates = Trade::CardTemplate.default_where(default_params).page(params[:page])
     end
 
     def show
-      @wallet = @maintain.wallets.find_or_initialize_by(wallet_template_id: @wallet_template.id)
+      @card = @maintain.cards.find_by(card_template_id: @card_template.id)
     end
 
     private
@@ -31,10 +22,23 @@ module Crm
       @maintain = Maintain.find params[:maintain_id]
     end
 
+    def set_card_templates
+      @card_templates = Trade::CardTemplate.default_where(default_params)
+    end
+
+    def set_new_order
+      @order = @maintain.orders.build
+      @order.trade_items.build
+    end
+
+    def set_card_template_ids
+      @card_template_ids = @maintain.cards.pluck(:card_template_id)
+    end
+
     def _prefixes
       super do |pres|
         if ['show'].include?(params[:action])
-          pres + ['trade/my/card_templates', 'trade/my/base']
+          pres + ['trade/my/card_templates/_show', 'trade/my/card_templates', 'trade/my/base']
         else
           pres
         end

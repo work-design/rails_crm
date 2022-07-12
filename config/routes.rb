@@ -20,7 +20,11 @@ Rails.application.routes.draw do
       resources :wallets, only: [] do
         resources :wallet_logs
       end
-      resources :card_templates
+      resources :card_templates do
+        resources :cards do
+          resources :card_purchases
+        end
+      end
       resources :addresses do
         collection do
           post :order
