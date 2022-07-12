@@ -5,6 +5,6 @@ module Crm
     def index
       @card_purchases = @card.card_purchases.order(last_expire_on: :desc).page(params[:page])
     end
-    
+
   end
 end
