@@ -1,0 +1,19 @@
+<%= render 'top_bar' %>
+<%= render 'order' %>
+
+<div class="weui-panel">
+  <div class="weui-panel__bd">
+    <div class="weui-media-box weui-media-box_small-appmsg">
+      <div class="weui-cells weui-cells_checkbox">
+      <% if @order.trade_items.map(&:good_type).exclude?('Trade::Advance') %>
+        <%= render partial: 'wallet', locals: { wallet: @maintain.wallets.first } %>
+      <% end %>
+      </div>
+      <div class="weui-cells">
+      <% unless @order.all_paid? %>
+        <%= render 'hand_payment' %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

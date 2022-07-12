@@ -6,6 +6,15 @@ Rails.application.routes.draw do
         collection do
           post :add
         end
+        member do
+          get :payment_types
+        end
+      end
+      resources :payments do
+        collection do
+          get :order_new
+          post :order_create
+        end
       end
       resources :wallet_templates
       resources :wallets, only: [] do

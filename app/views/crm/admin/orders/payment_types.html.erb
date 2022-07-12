@@ -1,0 +1,17 @@
+<table class="table is-fullwidth is-borderless as-show">
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= Trade::Order.human_attribute_name(:unreceived_amount) %></td>
+      <td class="has-text-danger"><%= @order.unreceived_amount.to_money.format(html_wrap: true).html_safe %></td>
+    </tr>
+    <% unless @order.trade_items.map(&:good_type).include?('Trade::Advance') %>
+      <%= render partial: 'wallet', collection: @order.maintain.wallets, as: :wallet %>
+    <% end %>
+    <tr>
+      <td></td>
+      <td>
+        <button class="button is-danger is-large">立即支付</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
