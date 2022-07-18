@@ -4,4 +4,4 @@
   <span class="has-text-danger"><%= model.amount.to_money.format(html_wrap: true).html_safe %></span>
   <span class="tag"><%= model.payment_status_i18n %></span>
 </p>
-<p class="has-text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+<p class="has-text-grey is-size-7"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>

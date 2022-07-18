@@ -1,3 +1,15 @@
 <%= link_to({ action: 'payment_types', id: model.id }, class: 'weui-actionsheet__cell') do %>
   <span><%= t('trade.admin.orders.payment_types.title') %></span>
 <% end %>
+<div
+  data-controller="mini-program"
+  data-mini-program-url-value="/pages/print/execute/index"
+  data-mini-program-data-value="<%= { url: url_for(action: 'print_data', id: model.id, only_path: false) }.to_json %>"
+  data-action="click->mini-program#link"
+  class="weui-actionsheet__cell"
+>
+  <button>
+    <i class="fa-light fa-print"></i>
+    <span>打印订单</span>
+  </button>
+</div>

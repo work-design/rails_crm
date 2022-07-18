@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         end
         member do
           get :payment_types
+          get :print_data
         end
       end
       resources :payments do
