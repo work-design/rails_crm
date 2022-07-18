@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: b22ea09c7259ebe3f9f251d55a9038f62d9a6873
+  revision: ba119b421ab90bdddf041c85b466a635ff7ce109
   specs:
     rails_com (1.3.0)
       acme-client
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 03b71553b2b6a0b689d50eb996ecf36481ab662e
+  revision: 5aec2075909a584f2cb64c61b82d26d471af18da
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -206,8 +206,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
-    nokogiri (1.13.7-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.1)
     propshaft (0.6.4)
