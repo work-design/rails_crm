@@ -58,6 +58,8 @@ module Crm
           pres + ['trade/my/orders/_add', 'trade/my/orders']
         elsif ['payment_types'].include?(params[:action])
           pres + ['trade/my/orders/_payment_types']
+        elsif ['show'].include?(params[:action])
+          pres + ['trade/my/orders/_show', 'trade/my/orders/_base']
         else
           pres
         end
