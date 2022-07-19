@@ -3,7 +3,10 @@
     <%= link_to({ controller: 'crm/admin/maintains' }, class: 'px-4') do %>
       <i class="fa-regular fa-angle-left"></i>
     <% end %>
-    <div class="weui-title"><%= t('.title') %></div>
+    <div class="weui-title">
+      <span><%= @maintain.remark %></span>
+      <span><%= t('.title') %></span>
+    </div>
     <i class="px-4" style="width: 48.75px"></i>
   </div>
 </div>

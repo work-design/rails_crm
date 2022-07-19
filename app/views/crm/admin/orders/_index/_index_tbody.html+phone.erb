@@ -3,5 +3,8 @@
 <p>
   <span class="has-text-danger"><%= model.amount.to_money.format(html_wrap: true).html_safe %></span>
   <span class="tag"><%= model.payment_status_i18n %></span>
+  <% if model.payment_strategy.present? %>
+  <span class="tag is-danger"><%= model.payment_strategy.name %></span>
+  <% end %>
 </p>
 <p class="has-text-grey is-size-7"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
