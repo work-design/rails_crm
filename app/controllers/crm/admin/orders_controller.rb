@@ -7,7 +7,7 @@ module Crm
     before_action :set_new_order, only: [:new, :add, :create]
 
     def index
-      @orders = @maintain.orders.order(id: :desc).page(params[:page])
+      @orders = @maintain.orders.includes(:payment_strategy).order(id: :desc).page(params[:page])
     end
 
     def new
