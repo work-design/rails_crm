@@ -7,6 +7,7 @@ Rails.application.routes.draw do
           post :add
         end
         member do
+          post :package
           get :payment_types
           get :print_data
         end
