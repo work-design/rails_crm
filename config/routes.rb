@@ -106,9 +106,9 @@ Rails.application.routes.draw do
         resources :agencies
       end
     end
+  end
 
-    resolve 'Crm::Source', controller: 'maintain_sources', action: 'source' do |source, options|
-      [:crm, :me, options]
-    end
+  resolve 'Crm::Source', controller: 'maintain_sources', action: 'source' do |source, options|
+    [:crm, :me, options]
   end
 end
