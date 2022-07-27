@@ -9,7 +9,7 @@ module Crm
       q_params = {}
       q_params.merge! params.permit(:tel)
 
-      @addresses = @maintain.addresses.includes(:area).default_where(q_params).page(params[:page])
+      @addresses = @maintain.addresses.includes(:area, :station).default_where(q_params).page(params[:page])
     end
 
     def new
