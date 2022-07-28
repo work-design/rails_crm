@@ -25,6 +25,8 @@ zh:
           title: 为客户下单
         create:
           title: 为客户下单
+        add:
+          title: 生成订单
       maintain_logs:
         index:
           title: 跟踪日志
