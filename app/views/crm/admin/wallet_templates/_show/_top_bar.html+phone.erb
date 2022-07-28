@@ -3,7 +3,10 @@
     <%= link_to({ action: 'index' }, class: 'px-4') do %>
       <i class="fa-regular fa-angle-left"></i>
     <% end %>
-    <div class="weui-title"><%= @wallet_template.name %></div>
+    <div class="weui-title">
+      <span><%= @maintain.remark %></span>
+      <span class="pl-1"><%= @wallet_template.name %></span>
+    </div>
     <i class="px-4" style="width: 37.5px"></i>
   </div>
 </div>
