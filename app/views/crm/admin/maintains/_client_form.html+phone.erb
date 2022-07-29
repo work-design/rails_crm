@@ -1,0 +1,15 @@
+<div class="weui-form__control-area">
+  <div class="weui-cells__group weui-cells__group_form">
+    <div class="weui-cells__title">客户信息</div>
+    <div class="weui-cells">
+      <%= f.fields :profile_client do |ef| %>
+        <%= ef.text_field :identity, readonly: true %>
+        <%= ef.text_field :real_name %>
+        <%= ef.text_field :nick_name %>
+        <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>
+        <%= ef.date_field :birthday %>
+        <%= ef.select :gender, options_for_select(Profiled::Profile.options_i18n(:gender)) %>
+      <% end %>
+    </div>
+  </div>
+</div>

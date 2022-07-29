@@ -2,7 +2,7 @@
   <h4 class="level-item has-text-centered">客户信息</h4>
 </div>
 <%= f.fields :profile_client do |ef| %>
-  <%= ef.text_field :identity %>
+  <%= ef.text_field :identity, readonly: true %>
   <%= ef.text_field :real_name %>
   <%= ef.text_field :nick_name %>
   <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>

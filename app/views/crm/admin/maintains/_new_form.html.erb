@@ -1,4 +1,4 @@
-<%= form_with model: model, scope: model_name, url: { action: 'create' } do |f| %>
+<%= form_with model: model, url: { action: 'create' } do |f| %>
   <%= render 'error_messages', target: f.object %>
   <%= render partial: 'client_form', locals: { f: f } %>
   <%= render partial: 'form', locals: { f: f } %>

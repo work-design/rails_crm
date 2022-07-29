@@ -1,11 +1,4 @@
-<%= form_with theme: 'weui', model: model, scope: model_name, url: { action: 'create' } do |f| %>
-  <div class="weui-form__control-area">
-    <div class="weui-cells__group weui-cells__group_form">
-      <div class="weui-cells__title">客户信息</div>
-      <div class="weui-cells">
-        <%= render partial: 'client_form', locals: { f: f } %>
-      </div>
-    </div>
-  </div>
+<%= form_with theme: 'weui', model: model, url: { action: 'create' } do |f| %>
+  <%= render partial: 'client_form', locals: { f: f } %>
   <%= f.submit %>
 <% end %>
