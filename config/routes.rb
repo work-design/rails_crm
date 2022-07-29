@@ -20,7 +20,7 @@ Rails.application.routes.draw do
           end
         end
         resources :wallet_templates
-        resources :wallets, only: [] do
+        resources :wallets, only: [:index] do
           resources :wallet_logs
         end
         resources :card_templates
