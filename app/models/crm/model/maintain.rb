@@ -14,6 +14,8 @@ module Crm
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
       belongs_to :payment_strategy, class_name: 'Trade::PaymentStrategy', optional: true
 
+      belongs_to :client_user, class_name: 'Auth::User', optional: true
+      belongs_to :client_member, class_name: 'Org::Member', optional: true
       belongs_to :profile_client, class_name: 'Profiled::Profile', foreign_key: :client_id, optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
       accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
@@ -43,6 +45,7 @@ module Crm
 
       before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      after_save_commit :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_user_id', 'client_member_id']).present? }
     end
 
     def init_stream
@@ -52,18 +55,18 @@ module Crm
 
     def sync_user_to_orders
       orders.each do |order|
-        order.user = self.client.users[0]
-        order.member = self.client.members[0]
+        order.user_id = self.client.client_user_id
+        order.member_id = self.client.client_member_id
         order.save
       end
       wallets.each do |wallet|
-        wallet.user = client.users[0]
-        wallet.member = client.members[0]
+        wallet.user_id = client.client_user_id
+        wallet.member_id = client.client_member_id
         wallet.save
       end
       cards.each do |card|
-        card.user = client.users[0]
-        card.member = client.members[0]
+        card.user_id = client.client_user_id
+        card.member_id = client.client_member_id
         card.save
       end
     end
