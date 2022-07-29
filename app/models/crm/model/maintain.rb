@@ -45,7 +45,8 @@ module Crm
 
       before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
-      after_save_commit :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_user_id', 'client_member_id']).present? }
+      after_save_commit :sync_user_to_orders, if: -> { saved_change_to_client_user_id? }
+      after_save_commit :sync_member_to_orders, if: -> { saved_change_to_client_member_id? }
     end
 
     def init_stream
@@ -53,22 +54,16 @@ module Crm
       self.original ||= self
     end
 
+    def sync_member_to_orders
+      orders.update_all member_id: client_member_id
+      wallets.update_all member_id: client.client_member_id
+      cards.update_all member_id: client.client_member_id
+    end
+
     def sync_user_to_orders
-      orders.each do |order|
-        order.user_id = self.client.client_user_id
-        order.member_id = self.client.client_member_id
-        order.save
-      end
-      wallets.each do |wallet|
-        wallet.user_id = client.client_user_id
-        wallet.member_id = client.client_member_id
-        wallet.save
-      end
-      cards.each do |card|
-        card.user_id = client.client_user_id
-        card.member_id = client.client_member_id
-        card.save
-      end
+      orders.update_all(user_id: client_user_id)
+      wallets.update_all(user_id: client_user_id)
+      cards.update_all(user_id: client_user_id)
     end
 
     def sync_pipeline_member
