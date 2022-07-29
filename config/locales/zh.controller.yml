@@ -61,6 +61,9 @@ zh:
       wallet_logs:
         index:
           title: 使用日志
+      wallet_payments:
+        index:
+          title: 使用
       card_templates:
         index:
           title: 会员卡

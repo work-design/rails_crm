@@ -1,0 +1,16 @@
+<div class="weui-form-preview">
+  <div class="weui-form-preview__bd">
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Trade::Wallet.human_attribute_name(:amount) %></label>
+      <span class="weui-form-preview__value">
+        <span class="has-text-danger"><%= model.amount %></span>
+        <span class="has-text-grey"><%= model.wallet_template.unit %></span>
+      </span>
+    </div>
+  </div>
+  <div class="weui-form-preview__ft">
+    <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, class: 'weui-form-preview__btn weui-form-preview__btn_primary') do %>
+      <%= t('crm.admin.wallet_payments.index.title') %>
+    <% end %>
+  </div>
+</div>
