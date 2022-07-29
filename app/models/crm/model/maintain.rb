@@ -6,8 +6,8 @@ module Crm
       attribute :note, :string
       attribute :position, :integer
       attribute :deposit_ratio, :integer, default: 100, comment: '最小预付比例'
-      attribute :client_type, :string, default: 'Profiled::Client'
-      attribute :agent_type, :string, default: 'Profiled::Agent'
+      attribute :client_type, :string, default: 'Profiled::Profile'
+      attribute :agent_type, :string, default: 'Profiled::Profile'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', inverse_of: :maintains, optional: true
@@ -18,8 +18,8 @@ module Crm
       belongs_to :client_member, class_name: 'Org::Member', optional: true
       belongs_to :profile_client, class_name: 'Profiled::Profile', foreign_key: :client_id, optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
-      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
       accepts_nested_attributes_for :profile_client, reject_if: :all_blank
+      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
 
       has_many :orders, class_name: 'Trade::Order', dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
