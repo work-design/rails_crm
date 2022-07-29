@@ -55,15 +55,16 @@ module Crm
     end
 
     def sync_member_to_orders
+      return unless client_member
       orders.update_all member_id: client_member_id
-      wallets.update_all member_id: client.client_member_id
-      cards.update_all member_id: client.client_member_id
+      wallets.update_all member_id: client_member_id
+      cards.update_all member_id: client_member_id
     end
 
     def sync_user_to_orders
-      orders.update_all(user_id: client_user_id)
-      wallets.update_all(user_id: client_user_id)
-      cards.update_all(user_id: client_user_id)
+      orders.update_all user_id: client_user_id
+      wallets.update_all user_id: client_user_id
+      cards.update_all user_id: client_user_id
     end
 
     def sync_pipeline_member
