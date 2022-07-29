@@ -3,11 +3,7 @@
     <%= link_to({ controller: @maintain.client_type == 'Wechat::External' ? 'wechat/me/follows' : 'maintains' }, class: 'px-4') do %>
       <i class="fa-regular fa-angle-left"></i>
     <% end %>
-    <div class="weui-title">
-      <span><%= @maintain.remark %></span>
-      <span class="px-2"></span>
-      <span><%= t('.title') %></span>
-    </div>
+    <div class="weui-title"><%= t('.title') %></div>
     <i class="px-4" style="width: 48.75px"></i>
   </div>
 </div>
