@@ -11,7 +11,7 @@ module Crm
     end
 
     def new
-      @order.trade_items.build
+      @order.items.build
     end
 
     def add
@@ -26,7 +26,7 @@ module Crm
       if params[:commit].present? && @order.save
         render 'create'
       else
-        @order.trade_items.build
+        @order.items.build
         render 'new'
       end
     end

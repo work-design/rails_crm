@@ -28,7 +28,7 @@ module Crm
 
     def set_new_order
       @order = @maintain.orders.build
-      @order.trade_items.build
+      @order.items.build
     end
 
     def set_card_template_ids
