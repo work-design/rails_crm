@@ -15,7 +15,7 @@ module Crm
       q_params = {
         client_type: 'Profiled::Profile'
       }
-      q_params.merge! member_params
+      q_params.merge! default_params
       q_params.merge! search_params
       if (q_params.keys - [:member_id]).blank?
         q_params.merge! state: 'init'
