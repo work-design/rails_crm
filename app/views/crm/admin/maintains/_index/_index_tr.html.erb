@@ -11,18 +11,28 @@
       <%= link_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-random"></i>
       <% end %>
-      <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('crm.admin.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-shopping-cart"></i>
-      <% end %>
-      <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('profiled.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-location-dot"></i>
-      <% end %>
       <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-pencil"></i>
       <% end %>
       <%= link_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { confirm: t('.confirm') } }) do %>
         <i class="fa-light fa-trash"></i>
       <% end %>
+    </div>
+    <div>
+      <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('crm.admin.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-shopping-cart"></i>
+      <% end %>
+      <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('profiled.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-light fa-location-dot"></i>
+      <% end %>
+      <%= link_to({ controller: 'wallet_templates', maintain_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-wallet"></i>
+        <span><%= t('crm.admin.wallet_templates.index.title') %></span>
+      <% end if model.wallets.blank? %>
+      <%= link_to({ controller: 'wallets', maintain_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-wallet"></i>
+        <span><%= t('crm.admin.wallets.index.title') %></span>
+      <% end if model.wallets.present? %>
     </div>
   </td>
 </tr>
