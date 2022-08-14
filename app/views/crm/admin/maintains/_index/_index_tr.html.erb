@@ -18,21 +18,16 @@
         <i class="fa-light fa-trash"></i>
       <% end %>
     </div>
-    <div>
+    <div data-show-target="item" style="visibility: hidden" class="mt-2">
       <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('crm.admin.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-shopping-cart"></i>
       <% end %>
       <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('profiled.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-light fa-location-dot"></i>
       <% end %>
-      <%= link_to({ controller: 'wallet_templates', maintain_id: model.id }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'wallets', maintain_id: model.id }, aria: { label: t('crm.admin.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-wallet"></i>
-        <span><%= t('crm.admin.wallet_templates.index.title') %></span>
-      <% end if model.wallets.blank? %>
-      <%= link_to({ controller: 'wallets', maintain_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-wallet"></i>
-        <span><%= t('crm.admin.wallets.index.title') %></span>
-      <% end if model.wallets.present? %>
+      <% end %>
     </div>
   </td>
 </tr>
