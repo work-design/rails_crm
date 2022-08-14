@@ -1,11 +1,11 @@
 <div class="weui-panel is-borderless">
   <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
-    <% if @order.trade_items[0].good_type == 'Trade::Advance' %>
-      <%= link_to({ controller: 'wallet_templates', action: 'show', id: @order.trade_items[0].good.wallet_template_id }, class: 'px-4') do %>
+    <% if @order.items[0].good_type == 'Trade::Advance' %>
+      <%= link_to({ controller: 'wallet_templates', action: 'show', id: @order.items[0].good.wallet_template_id }, class: 'px-4') do %>
         <i class="fa-regular fa-angle-left"></i>
       <% end %>
-    <% elsif @order.trade_items[0].good_type == 'Trade::Purchase' %>
-      <%= link_to({ controller: 'card_templates', action: 'show', id: @order.trade_items[0].good.card_template_id }, class: 'px-4') do %>
+    <% elsif @order.items[0].good_type == 'Trade::Purchase' %>
+      <%= link_to({ controller: 'card_templates', action: 'show', id: @order.items[0].good.card_template_id }, class: 'px-4') do %>
         <i class="fa-regular fa-angle-left"></i>
       <% end %>
     <% end %>
