@@ -9,7 +9,7 @@ module Crm
       q_params = {}
       q_params.merge! params.permit(:tel)
 
-      @wallet_templates = Trade::WalletTemplate.default_where(q_params)
+      @wallet_templates = Trade::WalletTemplate.default_where(q_params).page(params[:page])
     end
 
     def show
