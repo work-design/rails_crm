@@ -4,7 +4,7 @@ zh:
       crm/maintain:
         state:
           init: 待处理
-          transferred: 已移交
+          ordered: 已下单
         maintain_tag:
           logged_type:
             TimeBooking: 预约
