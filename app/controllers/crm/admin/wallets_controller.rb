@@ -7,8 +7,8 @@ module Crm
     def index
       q_params = {}
 
-      @wallets = @maintain.wallets.default_where(q_params).order(id: :desc)
-      @wallet_templates = Trade::WalletTemplate.default_where(default_params).where.not(id: @wallets.pluck(:wallet_template_id))
+      @wallets = @maintain.wallets.default_where(q_params).order(wallet_template_id: :desc)
+      @wallet_templates = Trade::WalletTemplate.default_where(default_params).where.not(id: @wallets.pluck(:wallet_template_id)).order(id: :asc)
     end
 
     private
