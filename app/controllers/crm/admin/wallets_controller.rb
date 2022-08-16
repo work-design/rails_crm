@@ -2,6 +2,7 @@ module Crm
   class Admin::WalletsController < Trade::Admin::WalletsController
     before_action :set_maintain
     before_action :set_wallet, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_new_wallet, only: [:index, :create]
 
     def index
       q_params = {}
@@ -19,16 +20,16 @@ module Crm
       @wallet = @wallet_template.wallets.find(params[:id])
     end
 
-    def set_new_order
-      @order = @maintain.orders.build
-      @order.items.build
+    def set_new_wallet
+      @wallet = @maintain.wallets.build(wallet_params)
     end
 
     def wallet_params
       params.fetch(:wallet, {}).permit(
         :account_bank,
         :account_name,
-        :account_num
+        :account_num,
+        :wallet_template_id
       )
     end
 
