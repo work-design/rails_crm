@@ -17,7 +17,7 @@ module Crm
     end
 
     def set_wallet
-      @wallet = @wallet_template.wallets.find(params[:id])
+      @wallet = @maintain.wallets.find(params[:id])
     end
 
     def set_new_wallet

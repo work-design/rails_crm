@@ -1,13 +1,4 @@
 <td>
-  <span><%= model.name %></span>
-  <div class="is-several">
-  <% if model.user %>
-    <i class="fa-solid fa-user"></i>
-    <span><%= model.user_id %></span>
-  <% end %>
-  </div>
-</td>
-<td>
   <span><%= model.amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
   <span><%= model.wallet_template.unit %></span>
 </td>
