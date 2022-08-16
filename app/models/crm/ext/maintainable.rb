@@ -11,8 +11,8 @@ module Crm
 
     def sync_user_from_maintain
       return unless maintain
-      self.user = maintain.client_user_id
-      self.member = maintain.client_member_id
+      self.user_id = maintain.client_user_id
+      self.member_id = maintain.client_member_id
     end
 
     def change_maintain_state
