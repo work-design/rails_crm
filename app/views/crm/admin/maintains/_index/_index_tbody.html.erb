@@ -1,7 +1,9 @@
-<td><%= model.client.identity %></td>
 <td>
-  <p><%= model.client.real_name %></p>
-  <p class="has-text-grey"><%= model.client.nick_name %></p>
+  <p><%= model.client.identity %></p>
+  <p>
+    <span><%= model.client.real_name %></span>
+    <span class="has-text-grey">（<%= model.client.nick_name %>）</span>
+  </p>
 </td>
 <td class="has-text-centered">
   <p><%= model.client.age %></p>
@@ -34,4 +36,8 @@
 <td>
   <p><%= model.payment_strategy&.name %></p>
   <p class="has-text-success"><%= model.deposit_ratio %></p>
+</td>
+<td>
+  <p><%= model.client_user_id %></p>
+  <p><%= model.client_member_id %></p>
 </td>

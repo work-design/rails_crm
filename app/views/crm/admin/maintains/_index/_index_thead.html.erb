@@ -1,7 +1,9 @@
-<th><%= Crm::Maintain.human_attribute_name('client.identity') %></th>
 <th>
-  <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
-  <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name('client.nick_name') %></p>
+  <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
+  <p>
+    <span><%= Crm::Maintain.human_attribute_name('client.real_name') %></span>
+    <span class="has-text-grey">（<%= Crm::Maintain.human_attribute_name('client.nick_name') %>）</span>
+  </p>
 </th>
 <th class="has-text-centered">
   <p><%= Profiled::Profile.human_attribute_name(:age) %></p>
@@ -32,4 +34,8 @@
 <th>
   <p><%= Crm::Maintain.human_attribute_name(:payment_strategy_id) %></p>
   <p class="has-text-success"><%= Crm::Maintain.human_attribute_name(:deposit_ratio) %></p>
+</th>
+<th>
+  <p><%= Crm::Maintain.human_attribute_name(:client_user_id) %></p>
+  <p><%= Crm::Maintain.human_attribute_name(:client_member_id) %></p>
 </th>
