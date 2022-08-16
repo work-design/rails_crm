@@ -5,5 +5,5 @@
   </div>
 </td>
 <td>
-  <span class="tag">未开通</span>
+  <%= render partial: 'advance', collection: model.unopened_advances.without_card, as: :advance, locals: { model: model } %>
 </td>

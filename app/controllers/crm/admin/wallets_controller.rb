@@ -19,6 +19,11 @@ module Crm
       @wallet = @wallet_template.wallets.find(params[:id])
     end
 
+    def set_new_order
+      @order = @maintain.orders.build
+      @order.items.build
+    end
+
     def wallet_params
       params.fetch(:wallet, {}).permit(
         :account_bank,
