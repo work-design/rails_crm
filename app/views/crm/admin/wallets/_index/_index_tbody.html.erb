@@ -1,0 +1,33 @@
+<td>
+  <span><%= model.name %></span>
+  <div class="is-several">
+  <% if model.user %>
+    <i class="fa-solid fa-user"></i>
+    <span><%= model.user_id %></span>
+  <% end %>
+  </div>
+</td>
+<td>
+  <span><%= model.amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
+  <span><%= model.wallet_template.unit %></span>
+</td>
+<td>
+  <span><%= model.income_amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
+  <span><%= model.wallet_template.unit %></span>
+  <%= link_to({ controller: 'wallet_advances', wallet_id: model.id }, aria: { label: t('trade.admin.wallet_advances.index.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-gem"></i>
+  <% end %>
+</td>
+<td>
+  <span><%= model.expense_amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
+  <span><%= model.wallet_template.unit %></span>
+  <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, aria: { label: t('trade.admin.wallet_payments.index.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-light fa-credit-card"></i>
+  <% end %>
+  <%= link_to({ controller: 'payouts', wallet_id: model.id }) do %>
+    <i class="fa-light fa-wallet"></i>
+  <% end %>
+</td>
+<td>
+  <p><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+</td>
