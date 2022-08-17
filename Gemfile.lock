@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: fdc140ce6be70637ffa0612c5ffe7aa8e3e58cc8
+  revision: 3008dd71179db48a3c653050bdd99d62f50f45ab
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -48,7 +48,7 @@ GIT
 PATH
   remote: .
   specs:
-    rails_crm (0.0.1)
+    rails_crm (0.0.2)
       rails_extend
       rails_profile
       rails_trade
