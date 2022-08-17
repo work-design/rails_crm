@@ -12,9 +12,7 @@ module Crm
     before_action :set_maintain_tags, only: [:index, :public]
 
     def index
-      q_params = {
-        client_type: 'Profiled::Profile'
-      }
+      q_params = {}
       q_params.merge! default_params
       q_params.merge! search_params
       if (q_params.keys - [:member_id]).blank?
@@ -202,9 +200,8 @@ module Crm
         :maintain_source_id,
         :deposit_ratio,
         :payment_strategy_id,
-        :client_type,
         :agent_type,
-        profile_client_attributes: {},
+        client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}
       )
