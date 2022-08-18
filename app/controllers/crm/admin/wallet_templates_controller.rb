@@ -19,6 +19,7 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+      @client = @maintain.client
     end
 
     def set_new_order
@@ -27,7 +28,7 @@ module Crm
     end
 
     def set_wallet_template_ids
-      @wallet_template_ids = @maintain.wallets.pluck(:wallet_template_id)
+      @wallet_template_ids = @client.wallets.pluck(:wallet_template_id)
     end
 
     def _prefixes
