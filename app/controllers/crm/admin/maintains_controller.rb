@@ -74,7 +74,7 @@ module Crm
     def create
       @maintain = Maintain.new(maintain_params)
       @maintain.member_id ||= current_member.id
-      @maintain.profile_client.organ = @maintain.organ
+      @maintain.client.organ = @maintain.organ
 
       unless @maintain.save
         render :new, locals: { model: @maintain }, status: :unprocessable_entity
