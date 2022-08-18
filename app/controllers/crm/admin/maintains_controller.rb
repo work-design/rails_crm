@@ -48,7 +48,7 @@ module Crm
       else
         @maintain = current_member.maintains.build
         @maintain.profile_agent = Profiled::Profile.new(identity: params[:identity])
-        @maintain.profile_client = Profiled::Profile.new(identity: params[:identity])
+        @maintain.client = Profiled::Profile.new(identity: params[:identity])
         @maintain.build_agency
         render 'new'
       end
