@@ -1,8 +1,8 @@
 module Crm
-  class AccountSyncUserJob < ApplicationJob
+  class ClientSyncUserJob < ApplicationJob
 
-    def perform(account)
-      account.sync_user
+    def perform(profile)
+      profile.sync_user
     end
 
   end
