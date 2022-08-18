@@ -5,10 +5,6 @@
     <span class="has-text-grey">（<%= Crm::Maintain.human_attribute_name('client.nick_name') %>）</span>
   </p>
 </th>
-<th class="has-text-centered">
-  <p><%= Profiled::Profile.human_attribute_name(:age) %></p>
-  <p><%= Profiled::Profile.human_attribute_name(:gender) %></p>
-</th>
 <th>
   <p><%= Crm::Maintain.human_attribute_name(:payment_strategy_id) %></p>
   <p class="has-text-success"><%= Crm::Maintain.human_attribute_name(:deposit_ratio) %></p>

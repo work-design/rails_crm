@@ -3,15 +3,11 @@
   <p>
     <span><%= model.client.real_name %></span>
     <span class="has-text-grey">（<%= model.client.nick_name %>）</span>
-  </p>
-</td>
-<td class="has-text-centered">
-  <p><%= model.client.age %></p>
-  <p>
     <span class="tag">
       <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
       <span class="pl-1"><%= model.client.gender_i18n %></span>
     </span>
+    <span class="tag"><%= model.client.age_str %></span>
   </p>
 </td>
 <td>
