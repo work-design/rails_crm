@@ -74,6 +74,10 @@ module Crm
       #self.position = self.pipeline_member&.position
     end
 
+    def name
+      remark.presence || client.name
+    end
+
     def tags
       ids = maintain_logs.pluck(:maintain_tag_id).uniq
       MaintainTag.cached.slice(*ids).values
