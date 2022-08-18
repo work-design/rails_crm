@@ -1,2 +1,9 @@
-<span><%= model.name %></span>
-<span class="tag"><%= model.add_way_i18n %></span>
+<p>
+  <span><%= model.name %></span>
+  <% if model.add_way %>
+  <span class="tag"><%= model.add_way_i18n %></span>
+  <% end %>
+</p>
+<p class="is-size-7 has-text-grey">
+  <%= model.remark_mobiles.join(',') %>
+</p>
