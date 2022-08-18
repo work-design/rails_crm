@@ -14,12 +14,13 @@ module Crm
     end
 
     def show
-      @card = @maintain.cards.find_by(card_template_id: @card_template.id)
+      @card = @client.cards.find_by(card_template_id: @card_template.id)
     end
 
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+      @client = @maintain.client
     end
 
     def set_card_templates
@@ -32,7 +33,7 @@ module Crm
     end
 
     def set_card_template_ids
-      @card_template_ids = @maintain.cards.pluck(:card_template_id)
+      @card_template_ids = @client.cards.pluck(:card_template_id)
     end
 
     def _prefixes

@@ -7,7 +7,7 @@ module Crm
     before_action :set_new_order, only: [:new, :add, :create]
 
     def index
-      @orders = @maintain.orders.includes(:payment_strategy).order(id: :desc).page(params[:page])
+      @orders = @client.orders.includes(:payment_strategy).order(id: :desc).page(params[:page])
     end
 
     def new
@@ -34,6 +34,7 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+      @client = @maintain.client
     end
 
     def set_new_order
@@ -41,11 +42,11 @@ module Crm
     end
 
     def set_order
-      @order = @maintain.orders.find params[:id]
+      @order = @client.orders.find params[:id]
     end
 
     def set_addresses
-      @addresses = @maintain.addresses.page(params[:page])
+      @addresses = @client.addresses.page(params[:page])
     end
 
     def set_payment_strategies

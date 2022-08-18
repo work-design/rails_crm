@@ -7,6 +7,10 @@ module Crm
       has_many :agents, through: :agencies
 
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
+      has_many :orders, class_name: 'Trade::Order', foreign_key: :client_id, dependent: :nullify
+      has_many :addresses, class_name: 'Profiled::Address', foreign_key: :client_id, dependent: :nullify
+      has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :client_id, dependent: :nullify
+      has_many :cards, class_name: 'Trade::Card', foreign_key: :client_id, dependent: :nullify
 
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
     end

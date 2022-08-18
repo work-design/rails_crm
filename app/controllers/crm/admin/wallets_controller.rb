@@ -7,17 +7,18 @@ module Crm
     def index
       q_params = {}
 
-      @wallets = @maintain.wallets.default_where(q_params).order(wallet_template_id: :desc)
+      @wallets = @client.wallets.default_where(q_params).order(wallet_template_id: :desc)
       @wallet_templates = Trade::WalletTemplate.default_where(default_params).where.not(id: @wallets.pluck(:wallet_template_id)).order(id: :asc)
     end
 
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+      @client = @maintain.client
     end
 
     def set_wallet
-      @wallet = @maintain.wallets.find(params[:id])
+      @wallet = @client.wallets.find(params[:id])
     end
 
     def set_new_wallet
