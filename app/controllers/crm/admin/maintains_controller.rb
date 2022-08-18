@@ -230,8 +230,9 @@ module Crm
       params.permit(
         :state,
         :maintain_source_id,
-        'client.real_name',
+        'client.nick_nake-like',
         'client.real_name-like',
+        'client.identity',
         'client.birthday-gte',
         'client.birthday-lte',
         'agent.identity',
