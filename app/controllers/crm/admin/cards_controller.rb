@@ -1,5 +1,5 @@
 module Crm
-  class Admin::CardTemplatesController < Trade::Admin::CardTemplatesController
+  class Admin::CardsController < Trade::Admin::CardsController
     before_action :set_maintain
     before_action :set_card_template, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_card_template_ids, only: [:index]
