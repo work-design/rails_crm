@@ -1,0 +1,10 @@
+<div class="weui-media-box weui-media-box_appmsg">
+  <div class="weui-media-box__bd">
+    <%= yield %>
+  </div>
+  <div class="weui-media-box__ft px-3">
+    <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, class: 'button is-primary') do %>
+      <%= t('crm.admin.wallet_payments.index.title') %>
+    <% end %>
+  </div>
+</div>

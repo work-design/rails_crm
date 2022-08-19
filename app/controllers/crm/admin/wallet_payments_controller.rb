@@ -14,10 +14,11 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
+      @client = @maintain.client
     end
 
     def set_wallet
-      @wallet = @maintain.wallets.find params[:wallet_id]
+      @wallet = @client.wallets.find params[:wallet_id]
     end
 
     def set_new_wallet_payment

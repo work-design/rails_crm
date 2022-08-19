@@ -1,21 +1,6 @@
-<div class="weui-panel">
-  <div class="weui-panel__hd"><%= model.wallet_template.name %></div>
-  <div class="weui-panel__bd">
-    <div class="weui-form-preview">
-      <div class="weui-form-preview__bd">
-        <div class="weui-form-preview__item">
-          <label class="weui-form-preview__label"><%= Trade::Wallet.human_attribute_name(:amount) %></label>
-          <span class="weui-form-preview__value">
-        <span class="has-text-danger"><%= model.amount %></span>
-        <span class="has-text-grey"><%= model.wallet_template.unit %></span>
-      </span>
-        </div>
-      </div>
-      <div class="weui-form-preview__ft">
-        <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, class: 'weui-form-preview__btn weui-form-preview__btn_primary') do %>
-          <%= t('crm.admin.wallet_payments.index.title') %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="is-several">
+  <%= image_tag model.wallet_template.logo, class: 'image is-24x24' if model.wallet_template.logo.attached? %>
+  <span><%= model.wallet_template.name %></span>
 </div>
+<span class="has-text-danger"><%= model.amount %></span>
+<span class="has-text-grey"><%= model.wallet_template.unit %></span>
