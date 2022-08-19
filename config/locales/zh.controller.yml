@@ -64,7 +64,7 @@ zh:
       wallet_payments:
         index:
           title: 使用
-      card_templates:
+      cards:
         index:
           title: 会员卡
       card_purchases:

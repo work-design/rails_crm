@@ -5,12 +5,15 @@ module Crm
     before_action :set_card_template_ids, only: [:index]
     before_action :set_card_templates
     before_action :set_new_order, only: [:show]
+    before_action :set_new_card, only: [:create]
 
     def index
       q_params = {}
       q_params.merge! params.permit(:tel)
 
-      @card_templates = Trade::CardTemplate.default_where(default_params).page(params[:page])
+      @cards = @client.cards.default_where(q_params).order(card_template_id: :desc)
+
+      @card_templates = Trade::CardTemplate.default_where(default_params).where.not(id: @cards.pluck(:card_template_id)).order(id: :asc)
     end
 
     def show
@@ -32,8 +35,18 @@ module Crm
       @order.items.build
     end
 
+    def set_new_card
+      @card = @maintain.cards.build(card_params)
+    end
+
     def set_card_template_ids
       @card_template_ids = @client.cards.pluck(:card_template_id)
+    end
+
+    def card_params
+      params.fetch(:card, {}).permit(
+        :card_template_id
+      )
     end
 
     def _prefixes
