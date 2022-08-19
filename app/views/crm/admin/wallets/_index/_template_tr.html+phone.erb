@@ -1,0 +1,10 @@
+<div class="weui-media-box weui-media-box_appmsg">
+  <div class="weui-media-box__bd">
+    <%= yield %>
+  </div>
+  <div class="weui-media-box__ft px-3">
+    <%= button_to({ action: 'create' }, params: { 'wallet[wallet_template_id]': model.id }, class: 'button is-primary') do %>
+      <span>开通</span>
+    <% end %>
+  </div>
+</div>
