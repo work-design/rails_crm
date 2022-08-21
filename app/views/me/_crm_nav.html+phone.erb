@@ -1,10 +1,16 @@
-<div class="<%= active_helper(modules: ['crm/me'], active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu empty">
-  <a class="menu-label" data-action="menu#toggle">
+<div class="weui-panel" data-controller="empty">
+  <div class="weui-panel__hd">
     <i class="fa-solid fa-chart-line fa-fw"></i>
     <span><%= t('crm.me.title') %></span>
-    <i class="fa-solid dropdown"></i>
-  </a>
-  <div class="menu-list">
-    <%= link_to t('crm.me.maintains.index.title'), { controller: 'crm/me/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
+  </div>
+  <div class="weui-panel__bd">
+    <div class="columns is-4-mobile is-flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
+      <%= link_to({ controller: 'crm/me/maintains' }, class: 'column has-block-centered') do %>
+        <div class="has-text-grey-dark">
+          <i class="fa-solid fa-chart-line fa-fw fa-xl"></i>
+        </div>
+        <div class="has-text-dark"><%= t('crm.me.maintains.index.title') %></div>
+      <% end %>
+    </div>
   </div>
 </div>
