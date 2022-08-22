@@ -1,10 +1,10 @@
-<div class="<%= active_helper(modules: ['crm/me'], active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu empty">
-  <a class="menu-label" data-action="menu#toggle">
-    <i class="fa-solid fa-chart-line fa-fw"></i>
-    <span><%= t('crm.me.title') %></span>
-    <i class="fa-solid dropdown"></i>
-  </a>
-  <div class="menu-list">
-    <%= link_to t('crm.me.maintains.index.title'), { controller: 'crm/me/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
-  </div>
+<div class="menu-label" data-controller="empty">
+  <i class="fa-solid fa-chart-line fa-fw"></i>
+  <span><%= t('crm.me.title') %></span>
+  <%= link_to({ controller: 'crm/admin/home' }, aria: { label: '管理' }) do %>
+    <i class="fa-light fa-cog"></i>
+  <% end %>
+</div>
+<div class="menu-list">
+  <%= link_to t('crm.me.maintains.index.title'), { controller: 'crm/me/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
 </div>
