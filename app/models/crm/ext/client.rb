@@ -19,12 +19,18 @@ module Crm
       ClientSyncUserJob.perform_later(self)
     end
 
-    def sync_user
+    def sync_client_to_maintains
       client_maintains.each do |maintain|
         maintain.client_user_id ||= account.user_id
         maintain.client_member ||= account.members[0]
         maintain.save
       end
+    end
+
+    def sync_client_to_orders
+      account.user.orders.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
+      account.user.wallets.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
+      account.user.cards.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
     end
 
   end
