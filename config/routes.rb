@@ -94,6 +94,12 @@ Rails.application.routes.draw do
         controller :home do
           get :index
         end
+        resources :maintains, only: [] do
+          collection do
+            get 'client/:client_id' => :client
+            post 'client/:client_id' => :create_client
+          end
+        end
         resources :maintain_sources do
           collection do
             get :source
