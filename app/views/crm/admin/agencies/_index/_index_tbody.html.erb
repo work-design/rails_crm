@@ -2,7 +2,7 @@
 <td><%= model.client.age %></td>
 <td>
   <span class="ui icon label">
-    <i class="fa-light <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+    <i class="fa-regular <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
     <%= model.client.gender_i18n %>
   </span>
 </td>
@@ -33,6 +33,6 @@
 </td>
 <td>
   <%= link_to admin_agency_path(model), class: 'button is-small is-rounded is-light', remote: true do %>
-    <i class="fa-light fa-circle-info"></i>
+    <i class="fa-regular fa-circle-info"></i>
   <% end %>
 </td>

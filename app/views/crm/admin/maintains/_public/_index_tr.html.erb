@@ -3,22 +3,22 @@
   <td>
     <div data-show-target="item" style="visibility: hidden">
       <%= button_to({ action: 'assume', id: model.id }, method: :patch, aria: { label: t('.assume') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-vote-yea"></i>
+        <i class="fa-regular fa-vote-yea"></i>
       <% end %>
       <%= link_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-hand-holding-usd"></i>
+        <i class="fa-regular fa-hand-holding-usd"></i>
       <% end %>
       <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.log') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-clock"></i>
+        <i class="fa-regular fa-clock"></i>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-circle-info"></i>
+        <i class="fa-regular fa-circle-info"></i>
       <% end %>
       <%= link_to({ action: 'edit', id: model.id }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-pencil"></i>
+        <i class="fa-regular fa-pencil"></i>
       <% end %>
       <%= link_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-light fa-trash"></i>
+        <i class="fa-regular fa-trash"></i>
       <% end %>
   </div>
 </td>

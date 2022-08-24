@@ -24,7 +24,7 @@
           <%= image_tag @agency.tutelar.account.qrcode_url, class: 'ui small image' %>
         <% else %>
           <%= link_to qrcode_admin_profile_path(@agency.tutelar), method: :patch, remote: true, id: 'account_qrcode' do %>
-            <i class="fa-light fa-qrcode"></i>
+            <i class="fa-regular fa-qrcode"></i>
           <% end %>
         <% end %>
       </td>
