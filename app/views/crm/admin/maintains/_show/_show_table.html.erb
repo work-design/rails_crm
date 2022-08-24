@@ -31,14 +31,14 @@
   <td><%= @maintain.client.gender_i18n %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:name) %></td>
   <td><%= image_tag @maintain.client.avatar, class: 'image is-24x24' if @maintain.client.avatar.present? %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:external_type) %></td>
+  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:external_type) %></td>
   <td><%= @maintain.client.external_type_i18n %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Wechat::External.human_attribute_name(:unionid) %></td>
+  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:unionid) %></td>
   <td><%= @maintain.client.unionid %></td>
 </tr>

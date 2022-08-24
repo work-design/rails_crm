@@ -54,10 +54,10 @@ zh:
           title: 新增地址
       wallets:
         index:
-          title: 会员额度
-      wallet_templates:
-        index:
           title: 会员充值
+      services:
+        index:
+          title: 服务
       wallet_logs:
         index:
           title: 使用日志

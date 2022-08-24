@@ -10,18 +10,14 @@
   <i class="fa-solid fa-circle-info"></i>
   <span><%= t('.show') %></span>
 <% end %>
-<%= link_to({ controller: 'card_templates', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'cards', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-cards-blank"></i>
-  <span><%= t('crm.admin.card_templates.index.title') %></span>
+  <span><%= t('crm.admin.cards.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'wallet_templates', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
-  <i class="fa-solid fa-wallet"></i>
-  <span><%= t('crm.admin.wallet_templates.index.title') %></span>
-<% end if model.wallets.blank? %>
 <%= link_to({ controller: 'wallets', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-wallet"></i>
   <span><%= t('crm.admin.wallets.index.title') %></span>
-<% end if model.wallets.present? %>
+<% end %>
 <%= link_to({ controller: 'addresses', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-location-dot"></i>
   <span><%= t('crm.admin.addresses.index.title') %></span>
@@ -29,6 +25,10 @@
 <%= link_to({ controller: 'orders', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-truck-clock"></i>
   <span><%= t('crm.admin.orders.index.title') %></span>
+<% end %>
+<%= link_to({ controller: 'services', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-truck-clock"></i>
+  <span><%= t('crm.admin.services.index.title') %></span>
 <% end %>
 <%= link_to({ controller: 'orders', action: 'new', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-truck-fast"></i>

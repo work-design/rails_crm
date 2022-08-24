@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         resources :cards do
           resources :card_purchases
         end
+        resources :services
         resources :addresses do
           collection do
             post :order
