@@ -18,6 +18,10 @@
   <i class="fa-solid fa-truck-clock"></i>
   <span><%= t('crm.admin.orders.index.title') %></span>
 <% end %>
+<%= link_to({ controller: 'services', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-truck-clock"></i>
+  <span><%= t('crm.admin.services.index.title') %></span>
+<% end %>
 <%= link_to({ controller: 'orders', action: 'new', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-truck-fast"></i>
   <span><%= t('crm.admin.orders.new.title') %></span>

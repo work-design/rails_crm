@@ -1,5 +1,5 @@
 module Crm
-  class Me::MaintainLogsController < Crm::Admin::MaintainLogsController
+  class Me::MaintainLogsController < Admin::MaintainLogsController
     include Controller::Me
 
     private

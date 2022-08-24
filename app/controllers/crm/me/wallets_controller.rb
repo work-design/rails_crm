@@ -1,5 +1,5 @@
 module Crm
-  class Me::WalletsController < Crm::Admin::WalletsController
+  class Me::WalletsController < Admin::WalletsController
 
     private
     def set_maintain

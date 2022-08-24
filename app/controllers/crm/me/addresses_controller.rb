@@ -1,5 +1,5 @@
 module Crm
-  class Me::AddressesController < Crm::Admin::AddressesController
+  class Me::AddressesController < Admin::AddressesController
     include Controller::Me
 
     private

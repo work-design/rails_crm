@@ -1,5 +1,5 @@
 module Crm
-  class Me::CardsController < Admin::CardsController
+  class Me::ServicesController < Admin::ServicesController
 
     private
     def set_maintain

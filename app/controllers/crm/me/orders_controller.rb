@@ -1,5 +1,5 @@
 module Crm
-  class Me::OrdersController < Crm::Admin::OrdersController
+  class Me::OrdersController < Admin::OrdersController
     include Controller::Me
 
     private
