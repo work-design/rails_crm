@@ -11,6 +11,10 @@ module Crm
       @wallet_templates = Trade::WalletTemplate.default_where(default_params).where.not(id: @wallets.pluck(:wallet_template_id)).order(id: :asc)
     end
 
+    def xx
+
+    end
+
     private
     def set_maintain
       @maintain = Maintain.find params[:maintain_id]
@@ -23,6 +27,11 @@ module Crm
 
     def set_new_wallet
       @wallet = @maintain.wallets.build(wallet_params)
+    end
+
+    def set_new_order
+      @order = @maintain.orders.build
+      @order.items.build
     end
 
     def wallet_params
