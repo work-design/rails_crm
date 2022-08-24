@@ -9,6 +9,7 @@ zh:
         member_id: 负责人
         payment_strategy_id: 付款形式
         deposit_ratio: 首付款比例
+        remark: 备注
         age-gte: 年龄大于
         age-lte: 年龄小于
       crm/maintain/client:

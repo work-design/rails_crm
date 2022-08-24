@@ -5,5 +5,9 @@
   <% end %>
 </p>
 <p class="is-size-7 has-text-grey">
+<% if model.remark_mobiles.present? %>
   <%= model.remark_mobiles.join(',') %>
+<% else %>
+  <%= model.client.identity %>
+<% end %>
 </p>

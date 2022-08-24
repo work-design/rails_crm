@@ -17,6 +17,7 @@ module Crm
 
     def create_client
       @maintain = current_member.maintains.find_or_initialize_by(client_id: params[:client_id])
+      @maintain.save
     end
 
     private

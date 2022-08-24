@@ -196,6 +196,7 @@ module Crm
     def maintain_params
       p = params.fetch(:maintain, {}).permit(
         :note,
+        :remark,
         :pipeline_member_id,
         :maintain_source_id,
         :deposit_ratio,

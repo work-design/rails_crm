@@ -3,3 +3,22 @@
     <%= render 'client' %>
   </div>
 </div>
+
+<% if @maintain %>
+<div class="weui-panel">
+  <div class="weui-panel__hd">已在客户列表</div>
+  <div class="weui-panel__bd">
+    <div class="weui-form-preview">
+      <div class="weui-form-preview__bd">
+        <%= render 'maintain' %>
+      </div>
+    </div>
+  </div>
+  <div class="weui-panel__ft">
+    <%= link_to({ action: 'edit', id: @maintain.id }, class: 'weui-btn_cell weui-btn_cell-primary') do %>
+      <i class="fa-regular fa-pencil"></i>
+      <span><%= t('.edit') %></span>
+    <% end %>
+  </div>
+</div>
+<% end %>
