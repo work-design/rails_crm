@@ -13,7 +13,12 @@ Rails.application.routes.draw do
             get :print_data
           end
         end
-        resources :items
+        resources :items do
+          member do
+            patch :toggle
+          end
+        end
+        resources :carts
         resources :payments do
           collection do
             get :order_new
