@@ -1,5 +1,6 @@
 module Crm
   class Me::AddressesController < Crm::Admin::AddressesController
+    include Controller::Me
 
     private
     def set_maintain

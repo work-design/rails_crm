@@ -1,5 +1,6 @@
 module Crm
   class Me::OrdersController < Crm::Admin::OrdersController
+    include Controller::Me
 
     private
     def set_maintain
