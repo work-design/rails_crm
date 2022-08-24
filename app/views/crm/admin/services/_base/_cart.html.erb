@@ -13,7 +13,7 @@
   <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
 <% end if item %>
 
-<%= form_with theme: nil, url: { controller: 'items' }, data: { turbo_scroll: true, turbo_scroll_container: 'production_body' }, class: 'ml-1 button_to' do |f| %>
+<%= form_with theme: nil, url: { controller: 'items' }, data: { turbo_scroll: true, turbo_scroll_container: 'production_body' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :current_cart_id, value: cart.id %>
   <%= f.hidden_field :good_type, value: model.class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
