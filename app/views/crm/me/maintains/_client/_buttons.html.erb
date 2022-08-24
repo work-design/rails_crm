@@ -1,0 +1,5 @@
+<div class="buttons are-large is-centered">
+  <%= button_to({ action: 'create_client' }, class: 'button is-warning') do %>
+    <span>加入客户列表</span>
+  <% end unless @maintain %>
+</div>
