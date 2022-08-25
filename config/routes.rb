@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :maintain_logs
         resources :orders do
           collection do
+            get 'cart/:current_cart_id' => :cart
             post :add
           end
           member do
