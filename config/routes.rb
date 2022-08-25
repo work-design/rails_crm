@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         resources :wallet_templates
         resources :wallets, except: [:new] do
           resources :wallet_payments
+          resources :wallet_advances
           resources :wallet_logs
         end
         resources :card_templates
