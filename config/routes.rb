@@ -22,8 +22,8 @@ Rails.application.routes.draw do
         resources :carts
         resources :payments do
           collection do
-            get :order_new
-            post :order_create
+            get 'order/:order_id' => :order_new
+            post 'order/:order_id' => :order_create
           end
         end
         resources :wallet_templates
