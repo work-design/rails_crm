@@ -58,6 +58,9 @@ zh:
       services:
         index:
           title: 服务
+      wallet_advances:
+        index:
+          title: 充值
       wallet_logs:
         index:
           title: 使用日志

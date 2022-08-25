@@ -3,9 +3,6 @@
     <%= yield %>
   </div>
   <div class="weui-media-box__ft px-3">
-    <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, class: 'button is-primary') do %>
-      <%= t('crm.admin.wallet_payments.index.title') %>
-    <% end %>
     <%= button_to({ action: 'actions', id: model.id }, class: 'button is-borderless') do %>
       <i class="fa-regular fa-ellipsis-h fa-lg"></i>
     <% end %>
