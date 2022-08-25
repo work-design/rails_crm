@@ -5,9 +5,7 @@
   <div class="weui-panel__bd">
     <div class="weui-media-box weui-media-box_small-appmsg">
       <div class="weui-cells weui-cells_checkbox">
-      <% if @order.items.map(&:good_type).exclude?('Trade::Advance') %>
-        <%= render partial: 'wallet', locals: { wallet: @maintain.wallets.first } %>
-      <% end %>
+        <%= render partial: 'wallet_payment', collection: @order.payment_orders, as: :payment_order %>
       </div>
       <div class="weui-cells">
       <% unless @order.all_paid? %>

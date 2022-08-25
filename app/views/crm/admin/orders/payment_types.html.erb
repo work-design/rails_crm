@@ -4,9 +4,7 @@
       <td class="has-text-right"><%= Trade::Order.human_attribute_name(:unreceived_amount) %></td>
       <td class="has-text-danger"><%= @order.unreceived_amount.to_money.format(html_wrap: true).html_safe %></td>
     </tr>
-    <% unless @order.items.map(&:good_type).include?('Trade::Advance') %>
-      <%= render partial: 'wallet', collection: @order.maintain.wallets, as: :wallet %>
-    <% end %>
+    <%= render partial: 'wallet_payment', collection: @order.payment_orders, as: :payment_order %>
     <tr>
       <td></td>
       <td>
