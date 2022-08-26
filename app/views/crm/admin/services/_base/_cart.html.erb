@@ -1,4 +1,4 @@
-<% item = cart.client_item(good_id: model.id) %>
+<% item = cart.find_item(good_id: model.id) %>
 
 <%= button_to({ controller: 'items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number - 1 }, class: 'mr-1', form: { data: { turbo_scroll: true, turbo_scroll_container: 'production_body' } }) do %>
   <i class="fa-solid fa-circle-minus fa-xl has-text-dark-grey"></i>

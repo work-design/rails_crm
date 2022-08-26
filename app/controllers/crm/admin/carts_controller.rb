@@ -5,8 +5,8 @@ module Crm
     def show
       q_params = {}
 
-      @items = @cart.client_items.includes(produce_plan: :scene).default_where(q_params).order(id: :asc).page(params[:page])
-      @checked_ids = @cart.client_items.default_where(q_params).unscope(where: :status).status_checked.pluck(:id)
+      @items = @cart.items.includes(produce_plan: :scene).default_where(q_params).order(id: :asc).page(params[:page])
+      @checked_ids = @cart.items.default_where(q_params).unscope(where: :status).status_checked.pluck(:id)
     end
 
     private
