@@ -49,8 +49,8 @@ module Crm
 
       before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
-      after_save_commit :sync_user_to_orders, if: -> { saved_change_to_client_user_id? }
-      after_save_commit :sync_member_to_orders, if: -> { saved_change_to_client_member_id? }
+      after_save :sync_user_to_orders, if: -> { saved_change_to_client_user_id? }
+      after_save :sync_member_to_orders, if: -> { saved_change_to_client_member_id? }
     end
 
     def init_stream
@@ -59,7 +59,6 @@ module Crm
     end
 
     def sync_member_to_orders
-      return unless client_member
       orders.update_all member_id: client_member_id
       wallets.update_all member_id: client_member_id
       cards.update_all member_id: client_member_id
