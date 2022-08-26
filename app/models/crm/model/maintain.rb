@@ -49,6 +49,8 @@ module Crm
 
       before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      before_validation :sync_user_from_client, if: -> { client.new_record? }
+      before_save :sync_user_from_client, if: -> { client_id_changed? }
       after_save :sync_user_to_orders, if: -> { saved_change_to_client_user_id? }
       after_save :sync_member_to_orders, if: -> { saved_change_to_client_member_id? }
     end
@@ -56,6 +58,10 @@ module Crm
     def init_stream
       self.upstream ||= self
       self.original ||= self
+    end
+
+    def sync_user_from_client
+      self.client_user_id = client.account&.user_id
     end
 
     def sync_member_to_orders
