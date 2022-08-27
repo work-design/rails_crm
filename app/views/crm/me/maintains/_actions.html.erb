@@ -1,3 +1,7 @@
+<%= link_to({ action: 'edit', id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-pencil"></i>
+  <span><%= t('.edit') %></span>
+<% end %>
 <%= link_to({ controller: 'maintains', action: 'show', id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-circle-info"></i>
   <span><%= t('.show') %></span>
