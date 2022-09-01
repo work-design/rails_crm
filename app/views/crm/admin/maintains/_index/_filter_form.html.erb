@@ -7,7 +7,7 @@
     <%= f.text_field 'age-lte' %>
     <div class="field is-narrow">
       <%= f.submit %>
-      <%= link_to t('.clear'), filter_params(except: ['client.real_name', 'client.nick_name', 'client.identity', 'age-gte', 'age-lte']), class: 'button is-light' %>
+      <%= link_to t('.clear'), filter_params(except: ['client.real_name-like', 'client.nick_name-like', 'client.identity', 'age-gte', 'age-lte']), class: 'button is-light' %>
     </div>
   </div>
 <% end %>
