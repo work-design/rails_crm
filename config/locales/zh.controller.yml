@@ -2,7 +2,10 @@ zh:
   crm:
     title: 客户关系管理
     admin:
-      title: 市场管理
+      title: 客户管理
+      home:
+        index:
+          title: 客户管理
       maintains:
         index:
           title: 我的客户
