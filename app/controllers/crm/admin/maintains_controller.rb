@@ -231,7 +231,7 @@ module Crm
       params.permit(
         :state,
         :maintain_source_id,
-        'client.nick_nake-like',
+        'client.nick_name-like',
         'client.real_name-like',
         'client.identity',
         'client.birthday-gte',
