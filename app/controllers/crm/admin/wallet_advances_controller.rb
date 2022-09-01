@@ -2,7 +2,7 @@ module Crm
   class Admin::WalletAdvancesController < Trade::Admin::WalletAdvancesController
     before_action :set_maintain
     before_action :set_wallet
-    before_action :set_wallet_advance, only: [:show, :edit, :update, :actions]
+    before_action :set_wallet_advance, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_wallet_advance, only: [:new, :create]
 
     private
