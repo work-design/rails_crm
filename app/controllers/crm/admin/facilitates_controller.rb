@@ -1,5 +1,5 @@
 module Crm
-  class Admin::ServicesController < Bench::ServicesController
+  class Admin::FacilitatesController < Bench::FacilitatesController
     layout 'admin'
     before_action :set_maintain
     before_action :set_cart
@@ -11,7 +11,7 @@ module Crm
     end
 
     def set_cart
-      @cart = @maintain.carts.find_or_create_by(good_type: 'Bench::Service', aim: 'use')
+      @cart = @maintain.carts.find_or_create_by(good_type: 'Bench::Facilitate', aim: 'use')
     end
 
     def _xprefixes
