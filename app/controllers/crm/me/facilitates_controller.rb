@@ -1,5 +1,6 @@
 module Crm
   class Me::FacilitatesController < Admin::FacilitatesController
+    include Controller::Me
 
     private
     def set_maintain
