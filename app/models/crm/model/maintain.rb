@@ -3,7 +3,6 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
-      attribute :note, :string
       attribute :position, :integer
       attribute :deposit_ratio, :integer, default: 100, comment: '最小预付比例'
       attribute :agent_type, :string, default: 'Profiled::Profile'
