@@ -109,10 +109,13 @@ Rails.application.routes.draw do
             post 'client/:client_id' => :create_client
           end
         end
-        resources :maintain_sources do
+        resources :sources do
           collection do
             get :source
             get :list
+          end
+          member do
+            get :source
           end
         end
         resources :agencies
@@ -124,7 +127,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resolve 'Crm::Source', controller: 'maintain_sources', action: 'source' do |source, options|
-    [:crm, :me, options]
+  resolve 'Crm::Source', action: 'source' do |source, options|
+    [:crm, :me, source, options]
   end
 end

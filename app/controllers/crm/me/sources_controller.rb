@@ -1,5 +1,5 @@
 module Crm
-  class Me::MaintainSourcesController < Me::BaseController
+  class Me::SourcesController < Me::BaseController
     before_action :set_sources, only: [:index]
     before_action :set_source, only: [:list, :source]
 
@@ -7,7 +7,7 @@ module Crm
       q_params = {}
       q_params.merge! default_params
 
-      @maintain_sources = MaintainSource.default_where(q_params)
+      @sources = Source.default_where(q_params)
     end
 
     def list
