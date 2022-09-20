@@ -2,7 +2,7 @@
   <div class="inline fields">
     <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, can: { wrap_all: false } %>
     <%= link_to new_admin_pipeline_path, aria: { label: '来源设置' }, target: '_blank' do %>
-      <i class="fa-regular fa-cog"></i>
+      <i class="fa-solid fa-cog"></i>
     <% end %>
   </div>
   <%= f.collection_select :member_id, @members, :id, :name, can: { wrap_input_id: true } %>

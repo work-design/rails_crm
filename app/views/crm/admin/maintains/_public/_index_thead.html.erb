@@ -20,14 +20,14 @@
 <th>
   <%= Crm::Maintain.human_attribute_name(:maintain_source_id) %>
   <%= link_to({ controller: 'maintain_sources' }, aria: { label: '来源设置' }, target: '_blank') do %>
-    <i class="fa-regular fa-cog"></i>
+    <i class="fa-solid fa-cog"></i>
   <% end %>
 </th>
 <th><%= Crm::Maintain.human_attribute_name(:note) %></th>
 <th>
   <%= Crm::MaintainLog.human_attribute_name(:maintain_tag_id) %>
   <%= link_to({ controller: 'maintain_tags' }, aria: { label: '标签设置' }, target: '_blank') do %>
-    <i class="fa-regular fa-cog"></i>
+    <i class="fa-solid fa-cog"></i>
   <% end %>
 </th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
