@@ -25,13 +25,13 @@
       </td>
       <td>
         <%= link_to my_agency_path(agency), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-regular fa-circle-info"></i>
+          <i class="fa-solid fa-circle-info"></i>
         <% end %>
         <%= link_to edit_my_agency_path(agency), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-regular fa-pencil"></i>
+          <i class="fa-solid fa-pencil"></i>
         <% end %>
         <%= link_to my_agency_path(agency), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fa-regular fa-trash"></i>
+          <i class="fa-solid fa-trash"></i>
         <% end %>
       </td>
     </tr>
