@@ -8,7 +8,7 @@
 <td class="has-text-centered">
   <p><%= model.client.age %></p>
   <p class="tag">
-    <i class="fa-regular <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
+    <i class="fa-solid <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
     <span class="pl-1"><%= model.client.gender_i18n %></span>
   </p>
 </td>
@@ -21,7 +21,7 @@
     <% end %>
   </p>
 </td>
-<td><%= model.note %></td>
+<td><%= model.remark %></td>
 <td>
   <% model.tags.each do |tag| %>
     <span class="tag"><%= tag %></span>
