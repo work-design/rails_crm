@@ -6,3 +6,4 @@
 </td>
 <td><%= simple_format model.extra %></td>
 <td><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></td>
+<td><%= model.member.name %></td>
