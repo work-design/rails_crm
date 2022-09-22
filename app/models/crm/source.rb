@@ -4,7 +4,7 @@ module Crm
     include Com::Ext::Taxon
     include Trade::Ext::Good
 
-    def order_paid(trade_item)
+    def order_deliverable(trade_item)
       maintain_source = maintain_sources.find_or_initialize_by(organ_id: trade_item.member_organ_id)
 
       mc = source_contacts.build
