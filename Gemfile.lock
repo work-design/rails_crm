@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4ec30571c00374df9189b0ce3529fbdca3631c3f
+  revision: 99e5616607ffccde04032a2368d7ada3448137a3
   specs:
     rails_com (1.3.0)
       acme-client
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 80b2c8a8fb6f86302d6849e51e47eabec24fdccb
+  revision: bd3c754466e3b2d35dda2fa420aba44a4c32628c
   specs:
     rails_design (0.0.1)
       rails
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d13de6a6c753dfc412f54ce1c13e54ad6e09ffb8
+  revision: 75a34733d6d275ea2888c6cf0d649e1a5ae6b407
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -259,7 +259,7 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
+    turbo-rails (1.3.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
