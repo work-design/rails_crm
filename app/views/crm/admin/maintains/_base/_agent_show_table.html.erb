@@ -10,7 +10,7 @@
       <%= image_tag @maintain.tutelar.account.qrcode_url, class: 'ui small image' %>
     <% else %>
       <%= link_to qrcode_admin_profile_path(@maintain.tutelar), method: :patch, id: 'account_qrcode' do %>
-        <i class="fa-regular fa-qrcode"></i>
+        <i class="fa-solid fa-qrcode"></i>
       <% end %>
     <% end %>
   </td>
