@@ -3,8 +3,6 @@
     <%= f.text_field 'client.real_name-like' %>
     <%= f.text_field 'client.nick_name-like' %>
     <%= f.text_field 'client.identity' %>
-    <%= f.text_field 'age-gte' %>
-    <%= f.text_field 'age-lte' %>
     <div class="field is-narrow">
       <%= f.submit %>
       <%= link_to t('.clear'), filter_params(except: ['client.real_name-like', 'client.nick_name-like', 'client.identity', 'age-gte', 'age-lte']), class: 'button is-light' %>
