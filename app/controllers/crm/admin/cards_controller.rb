@@ -1,6 +1,7 @@
 module Crm
   class Admin::CardsController < Trade::Admin::CardsController
-    before_action :set_maintain
+    include Controller::Admin
+    before_action :set_common_maintain
     before_action :set_card_template, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_card_template_ids, only: [:index]
     before_action :set_card_templates
@@ -21,11 +22,6 @@ module Crm
     end
 
     private
-    def set_maintain
-      @maintain = Maintain.find params[:maintain_id]
-      @client = @maintain.client
-    end
-
     def set_card_templates
       @card_templates = Trade::CardTemplate.default_where(default_params)
     end

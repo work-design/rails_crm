@@ -1,6 +1,7 @@
 module Crm
   class Admin::OrdersController < Trade::Admin::OrdersController
-    before_action :set_maintain
+    include Controller::Admin
+    before_action :set_common_maintain
     before_action :set_addresses, :set_new_order, only: [:new, :create]
     before_action :set_payment_strategies, only: [:new, :create, :edit, :update]
     before_action :set_order, only: [:show, :payment_types, :print_data, :package, :edit, :update, :destroy, :actions]
@@ -32,11 +33,6 @@ module Crm
     end
 
     private
-    def set_maintain
-      @maintain = Maintain.find params[:maintain_id]
-      @client = @maintain.client
-    end
-
     def set_new_order
       @order = @maintain.orders.build(order_params)
     end

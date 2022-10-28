@@ -1,6 +1,7 @@
 module Crm
   class Admin::WalletLogsController < Trade::Admin::WalletLogsController
-    before_action :set_maintain
+    include Controller::Admin
+    before_action :set_common_maintain
     before_action :set_wallet
     before_action :set_wallet_log, only: [:show, :edit, :update, :destroy, :actions]
 
@@ -9,11 +10,6 @@ module Crm
     end
 
     private
-    def set_maintain
-      @maintain = Maintain.find params[:maintain_id]
-      @client = @maintain.client
-    end
-
     def set_wallet
       @wallet = @client.wallets.find params[:wallet_id]
     end
