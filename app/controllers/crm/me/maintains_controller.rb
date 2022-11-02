@@ -11,6 +11,10 @@ module Crm
       @maintains = current_member.maintains.includes(:client).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def show
+      @client = @maintain.client
+    end
+
     def client
       @maintain = current_member.maintains.find_by(client_id: params[:client_id])
     end
