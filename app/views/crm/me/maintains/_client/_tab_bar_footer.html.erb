@@ -1,3 +1,11 @@
 <div class="py-2">
-  <%= render 'buttons' %>
+  <div class="buttons are-large is-centered">
+  <% if @maintain %>
+    <%= render 'buttons' %>
+  <% else %>
+    <%= button_to({ action: 'create_client' }, class: 'button is-warning') do %>
+      <span>加入客户列表</span>
+    <% end %>
+  <% end %>
+  </div>
 </div>

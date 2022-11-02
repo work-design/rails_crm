@@ -1,9 +1,11 @@
+<%= link_to({ action: 'show', id: model.id }) do %>
 <p>
   <span><%= model.name %></span>
   <% if model.add_way %>
   <span class="tag"><%= model.add_way_i18n %></span>
   <% end %>
 </p>
+<% end %>
 <p class="is-size-7 has-text-grey">
 <% if model.remark_mobiles.present? %>
   <%= model.remark_mobiles.join(',') %>
