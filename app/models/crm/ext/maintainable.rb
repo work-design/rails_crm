@@ -13,7 +13,7 @@ module Crm
     def sync_from_maintain
       return unless maintain
       self.client_id = maintain.client_id
-      self.user_id = maintain.client_user_id || maintain.client.account.user_id
+      self.user_id = maintain.client_user_id || maintain.client.account&.user_id
       self.member_id = maintain.client_member_id
     end
 
