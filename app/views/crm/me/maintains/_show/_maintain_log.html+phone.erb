@@ -1,0 +1,9 @@
+<p>
+  <% if model.maintain_tag %>
+  <span class="tag"><%= model.maintain_tag.name %></span>
+  <% end %>
+  <span><%= model.note %></span>
+</p>
+<p class="has-text-grey">
+  <time data-controller="time" data-format="human"><%= model.created_at.to_formatted_s(:iso8601) %></time>
+</p>

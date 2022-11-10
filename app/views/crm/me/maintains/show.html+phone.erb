@@ -7,3 +7,13 @@
     </div>
   </div>
 </div>
+
+<div class="weui-panel">
+  <div class="weui-panel__hd"><%= t('crm.admin.maintain_logs.index.title') %></div>
+  <div class="weui-panel__bd">
+    <%= render partial: 'maintain_log', layout: 'maintain_log_tr', collection: @maintain.maintain_logs.limit(3), as: :model %>
+  </div>
+  <div class="weui-panel__ft">
+    <%= render 'button_new' %>
+  </div>
+</div>
