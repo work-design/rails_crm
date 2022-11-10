@@ -6,6 +6,7 @@
   <% end %>
 </p>
 <% end %>
+<%= link_to({ action: 'show', id: model.id }) do %>
 <p class="is-size-7 has-text-grey">
 <% if model.remark_mobiles.present? %>
   <%= model.remark_mobiles.join(',') %>
@@ -13,3 +14,4 @@
   <%= model.client.identity %>
 <% end %>
 </p>
+<% end %>
