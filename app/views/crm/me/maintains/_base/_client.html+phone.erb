@@ -1,7 +1,9 @@
+<% if @client.real_name.present? %>
 <div class="weui-form-preview__item">
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:real_name) %></label>
   <span class="weui-form-preview__value"><%= @client.real_name %></span>
 </div>
+<% end %>
 <div class="weui-form-preview__item">
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:nick_name) %></label>
   <span class="weui-form-preview__value"><%= @client.nick_name %></span>
@@ -10,6 +12,7 @@
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:gender) %></label>
   <span class="weui-form-preview__value"><%= @client.gender_i18n %></span>
 </div>
+<% if @client.birthday.present? %>
 <div class="weui-form-preview__item">
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:birthday) %></label>
   <span class="weui-form-preview__value">
@@ -21,6 +24,7 @@
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:age) %></label>
   <span class="weui-form-preview__value"><%= @client.age %></span>
 </div>
+<% end %>
 <div class="weui-form-preview__item">
   <label class="weui-form-preview__label"><%= Profiled::Profile.human_attribute_name(:identity) %></label>
   <span class="weui-form-preview__value"><%= @client.identity %></span>
