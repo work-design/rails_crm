@@ -4,6 +4,7 @@
     <span><%= Crm::Maintain.human_attribute_name('client.real_name') %></span>
     <span class="has-text-grey">（<%= Crm::Maintain.human_attribute_name('client.nick_name') %>）</span>
   </p>
+  <p><%= Profiled::Profile.human_attribute_name(:remark) %></p>
 </th>
 <th>
   <p><%= Crm::Maintain.human_attribute_name(:payment_strategy_id) %></p>
@@ -25,7 +26,6 @@
     <%= Crm::Maintain.human_attribute_name(:pipeline_id) %>
   </div>
 </th>
-<th><%= Profiled::Profile.human_attribute_name(:remark) %></th>
 <th>
   <%= Crm::MaintainLog.human_attribute_name(:maintain_tag_id) %>
   <%= link_to({ controller: 'maintain_tags' }, aria: { label: '标签设置' }, target: '_blank') do %>

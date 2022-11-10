@@ -7,8 +7,11 @@
       <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
       <span class="pl-1"><%= model.client.gender_i18n %></span>
     </span>
+    <% if model.client.birthday %>
     <span class="tag"><%= model.client.age_str %></span>
+    <% end %>
   </p>
+  <p><%= model.remark %></p>
 </td>
 <td>
   <p><%= model.payment_strategy&.name %></p>
@@ -28,7 +31,6 @@
     <% end %>
   </p>
 </td>
-<td><%= model.remark %></td>
 <td>
   <% model.tags.each do |tag| %>
     <span class="tag"><%= tag %></span>
