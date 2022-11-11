@@ -7,7 +7,7 @@
 </p>
 <% end %>
 <%= link_to({ action: 'show', id: model.id }) do %>
-<p class="is-size-7 has-text-grey">
+<p class="is-size-7">
 <% if model.remark_mobiles.present? %>
   <%= model.remark_mobiles.join(',') %>
 <% else %>
