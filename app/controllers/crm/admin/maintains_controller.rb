@@ -50,7 +50,7 @@ module Crm
         @maintain.profile_agent = Profiled::Profile.new(identity: params[:identity])
         @maintain.client = Profiled::Profile.new(identity: params[:identity])
         @maintain.build_agency
-        render 'new'
+        render 'new', locals: { model: @maintain }
       end
     end
 
