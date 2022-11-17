@@ -6,7 +6,7 @@
       </i>
     <% end %>
     <div class="level-item pl-4 is-align-items-baseline">
-      <%= @cart.item_amount.to_money.format(html_wrap: true).html_safe %>
+      <%= @cart.item_amount.to_money.format.html_safe %>
     </div>
   </div>
   <div class="level-right mt-0 pr-4">
