@@ -1,6 +1,7 @@
 module Crm
   class Admin::MaintainSourcesController < Admin::BaseController
-    before_action :set_maintain_source, only: [:show, :edit, :update, :destroy]
+    before_action :set_maintain_source, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_new_maintain_source, only: [:new, :create]
 
     def index
       q_params = {}
@@ -15,21 +16,13 @@ module Crm
       @selected_maintain_sources = MaintainSource.where.not(maintain_source_template_id: nil).default_where(q_params).order(maintain_source_template_id: :asc)
     end
 
-    def new
-      @maintain_source = MaintainSource.new
-    end
-
-    def create
-      @maintain_source = MaintainSource.new(maintain_source_params)
-
-      unless @maintain_source.save
-        render :new, locals: { model: @maintain_source }, status: :unprocessable_entity
-      end
-    end
-
     private
     def set_maintain_source
       @maintain_source = MaintainSource.find(params[:id])
+    end
+
+    def set_new_maintain_source
+      @maintain_source = MaintainSource.new(maintain_source_params)
     end
 
     def maintain_source_params
