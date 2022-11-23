@@ -95,7 +95,7 @@ zh:
       home:
         index:
           title: 我的
-      maintain_sources:
+      sources:
         index:
           title: 客户来源
       maintains:
