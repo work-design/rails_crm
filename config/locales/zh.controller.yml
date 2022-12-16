@@ -15,6 +15,8 @@ zh:
           title: 待分配客户
           assume: 接收
           assign: 派单
+        new_detect:
+          title: 添加客户
         show:
           title: 详情
         new_batch_assign:
@@ -104,6 +106,8 @@ zh:
           transfer: 移交
           detach: 释放
           orders: 订单
+        detect:
+          title: 添加客户
         public:
           title: 待分配客户
           assume: 接收
