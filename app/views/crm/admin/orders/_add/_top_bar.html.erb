@@ -2,17 +2,17 @@
   <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
     <% if @order.items[0].good_type == 'Trade::Advance' %>
       <%= link_to({ controller: 'wallet_templates', action: 'show', id: @order.items[0].good.wallet_template_id }, class: 'px-4') do %>
-        <i class="fa-solid fa-lg fa-angle-left"></i>
+        <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
       <% end %>
     <% elsif @order.items[0].good_type == 'Trade::Purchase' %>
       <%= link_to({ controller: 'card_templates', action: 'show', id: @order.items[0].good.card_template_id }, class: 'px-4') do %>
-        <i class="fa-solid fa-lg fa-angle-left"></i>
+        <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
       <% end %>
     <% end %>
     <div class="weui-title">
       <span><%= @maintain.remark %></span>
       <span class="pl-1"><%= t('.title') %></span>
     </div>
-    <i class="px-4" style="width: 48.75px"></i>
+    <i style="width: 3rem"></i>
   </div>
 </div>
