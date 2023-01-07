@@ -18,6 +18,7 @@ module Crm
       if current_corp_user
         @contact = current_corp_user.contacts.find_or_initialize_by(state: @source.name)
         @contact.save
+        logger.debug "\e[35m  Contact ID: #{@contact.id}  \e[0m"
       end
     end
 
