@@ -8,7 +8,7 @@ zh:
           title: 客户管理
       maintains:
         index:
-          title: 我的客户
+          title: 客户列表
           transfer: 移交
           detach: 释放
         public:
