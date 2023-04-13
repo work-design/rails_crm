@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 269db6e3a8e61d2e5dbf61024fd79556a6777582
+  revision: 388eed800f41bd749d24584b32c0fe0dc6edd9a2
   specs:
     rails_com (1.3.0)
       acme-client
@@ -17,14 +17,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 7c6630128b67616179664dc65c84b785d7415a89
+  revision: 8348970950f3648ac4903f832c3b92a54e710717
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: cc370d45e3dfaa9d76429304596b0d68f54f98cf
+  revision: 7646017d4a32223e8c819f699a6bd8ea685b4b85
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 2140e0ece8debea5dcf0f166242038255cc52f1a
+  revision: e31cbfb4507c1b6f20bbe4038ce2415283445e2e
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -148,7 +148,7 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.1)
     http-form_data (2.3.0)
-    httpx (0.22.4)
+    httpx (0.22.5)
       http-2-next (>= 0.4.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -256,7 +256,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (0.12.0)
+    uri (0.12.1)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
