@@ -2,7 +2,7 @@
   <i class="fa-solid fa-wallet"></i>
   <span class="pl-1"><%= t('crm.admin.wallets.index.title') %></span>
 <% end %>
-<%= button_to({ action: 'actions', id: @maintain.id }, class: 'button is-info') do %>
+<%= button_to({ action: 'actions', id: @maintain.id }, state: 'enter', class: 'button is-info') do %>
   <i class="fa-solid fa-lg fa-ellipsis-h"></i>
   <span>更多</span>
 <% end %>
