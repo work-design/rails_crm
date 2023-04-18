@@ -8,7 +8,10 @@ module Crm
     before_action :set_new_order, only: [:new, :add, :create]
 
     def index
-      @orders = @client.orders.includes(:payment_strategy).order(id: :desc).page(params[:page])
+      q_params = {}
+      q_params.merge! default_params
+
+      @orders = @client.orders.default_where(q_params).includes(:payment_strategy).order(id: :desc).page(params[:page])
     end
 
     def new
