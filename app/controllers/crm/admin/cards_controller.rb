@@ -18,10 +18,6 @@ module Crm
       @card_templates = Trade::CardTemplate.default_where(default_params).where.not(id: @cards.pluck(:card_template_id)).order(id: :asc)
     end
 
-    def show
-      @card = @client.cards.find_by(card_template_id: @card_template.id)
-    end
-
     private
     def set_card_templates
       @card_templates = Trade::CardTemplate.default_where(default_params)
@@ -32,12 +28,20 @@ module Crm
       @order.items.build
     end
 
+    def set_card
+      @card = @client.cards.find params[:id]
+    end
+
     def set_new_card
       @card = @maintain.cards.build(card_params)
     end
 
     def set_card_template_ids
       @card_template_ids = @client.cards.pluck(:card_template_id)
+    end
+
+    def set_card_template
+      @card_template = @card.card_template
     end
 
     def card_params
