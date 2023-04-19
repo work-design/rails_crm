@@ -13,10 +13,6 @@ module Crm
       @wallet_templates = Trade::WalletTemplate.default_where(default_params).where.not(id: @wallets.pluck(:wallet_template_id)).order(id: :asc)
     end
 
-    def xx
-
-    end
-
     private
     def set_wallet
       @wallet = @client.wallets.find(params[:id])
