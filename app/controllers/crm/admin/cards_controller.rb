@@ -2,7 +2,7 @@ module Crm
   class Admin::CardsController < Trade::Admin::CardsController
     include Controller::Admin
     before_action :set_common_maintain
-    before_action :set_card_template, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_card, :set_card_template, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_card_template_ids, only: [:index]
     before_action :set_card_templates
     before_action :set_new_order, only: [:show]
