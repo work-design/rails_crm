@@ -6,6 +6,8 @@ module Crm
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
 
+      has_one :lawful_wallet, class_name: 'Trade::LawfulWallet', foreign_key: :client_id
+
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
       has_many :orders, class_name: 'Trade::Order', foreign_key: :client_id, dependent: :nullify
       has_many :addresses, class_name: 'Profiled::Address', foreign_key: :client_id, dependent: :nullify
@@ -13,6 +15,10 @@ module Crm
       has_many :cards, class_name: 'Trade::Card', foreign_key: :client_id, dependent: :nullify
 
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
+    end
+
+    def lawful_wallet
+      super || create_lawful_wallet
     end
 
     def sync_user_later
