@@ -9,7 +9,13 @@
 </div>
 
 <div class="weui-panel">
-  <div class="weui-panel__hd"><%= t('crm.admin.maintain_logs.index.title') %></div>
+  <div class="weui-panel__hd has-block-space-between">
+    <span><%= t('crm.admin.maintain_logs.index.title') %></span>
+    <%= link_to({ controller: 'maintain_logs', maintain_id: @maintain.id }) do %>
+      <i class="fa-solid fa-cards-blank"></i>
+      <span class="pl-1"><%= t('crm.admin.maintain_logs.index.title') %></span>
+    <% end %>
+  </div>
   <div class="weui-panel__bd">
     <%= render partial: 'maintain_log', layout: 'maintain_log_tr', collection: @maintain.maintain_logs.order(id: :desc).limit(3), as: :model %>
   </div>
