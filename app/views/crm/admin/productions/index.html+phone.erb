@@ -13,7 +13,7 @@
     style="height: 100%"
   >
     <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%">
-      <%= render partial: 'production', collection: @productions, as: :model %>
+      <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'items' } %>
       <% if @productions.blank? %>
         <%= render 'blank' %>
       <% elsif @productions.total_pages <= @productions.current_page %>
