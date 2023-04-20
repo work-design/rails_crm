@@ -8,7 +8,7 @@ module Crm
 
     def set_common_maintain
       @maintain = current_member.maintains.find params[:maintain_id]
-      @client = @maintain.client.account&.user || @maintain.client.user[0] || @maintain.client
+      @client = @maintain.client.account&.user || @maintain.client.users[0] || @maintain.client
     end
 
     class_methods do
