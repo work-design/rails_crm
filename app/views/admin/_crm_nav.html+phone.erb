@@ -1,21 +1,21 @@
 <div data-controller="empty" class="weui-panel is-box is-borderless">
   <div class="weui-panel__hd">
-    <i class="fa-solid fa-fw fa-chart-line"></i>
+    <i class="fa-solid fa-fw fa-chart-line has-text-primary"></i>
     <span><%= t('crm.admin.title') %></span>
   </div>
   <div class="weui-panel__bd">
     <div class="columns is-4-mobile is-flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
       <%= link_to({ controller: 'crm/admin/maintains' }, class: 'column has-block-centered') do %>
-        <div class="has-text-grey-dark">
+        <div class="has-text-primary">
           <i class="fa-solid fa-fw fa-xl fa-users"></i>
         </div>
-        <div class="has-text-dark"><%= t('crm.admin.maintains.index.title') %></div>
+        <div class="has-text-grey is-size-7 mt-1"><%= t('crm.admin.maintains.index.title') %></div>
       <% end %>
       <%= link_to({ controller: 'crm/admin/maintain_sources' }, class: 'column has-block-centered') do %>
-        <div class="has-text-grey-dark">
+        <div class="has-text-primary">
           <i class="fa-solid fa-fw fa-xl fa-tags"></i>
         </div>
-        <div class="has-text-dark"><%= t('crm.admin.maintain_sources.index.title') %></div>
+        <div class="has-text-grey is-size-7 mt-1"><%= t('crm.admin.maintain_sources.index.title') %></div>
       <% end %>
     </div>
   </div>
