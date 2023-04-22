@@ -1,6 +1,7 @@
 module Crm
   module Controller::Me
     extend ActiveSupport::Concern
+    include Controller::Application
 
     included do
       layout 'me'
