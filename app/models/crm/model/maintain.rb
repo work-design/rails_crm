@@ -46,17 +46,18 @@ module Crm
         ordered: 'ordered'
       }, _default: 'init'
 
-      before_validation :init_stream, if: :new_record?
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
       before_validation :sync_user_from_client, if: -> { client.new_record? }
       before_save :sync_user_from_client, if: -> { client_id_changed? }
       after_save :sync_user_to_orders, if: -> { saved_change_to_client_user_id? }
       after_save :sync_member_to_orders, if: -> { saved_change_to_client_member_id? }
+      after_create_commit :init_stream!
     end
 
-    def init_stream
+    def init_stream!
       self.upstream ||= self
       self.original ||= self
+      self.save
     end
 
     def sync_user_from_client
