@@ -10,8 +10,11 @@ Rails.application.routes.draw do
           end
           member do
             post :package
+            post :micro
             get :payment_types
             get :print_data
+            get :adjust_edit
+            patch :adjust_update
           end
         end
         resources :items do
