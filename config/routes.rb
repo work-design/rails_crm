@@ -18,6 +18,9 @@ Rails.application.routes.draw do
           end
         end
         resources :items do
+          collection do
+            post :trial
+          end
           member do
             patch :toggle
           end
