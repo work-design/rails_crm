@@ -1,0 +1,18 @@
+<div class="media" data-controller="empty">
+  <figure class="media-left">
+    <%# image_tag meta[0].logo, class: 'image is-64x64' if meta[0].logo.present? %>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <strong><%= t('crm.admin.title') %></strong>
+    </div>
+    <div data-empty-target="content">
+      <%= link_to({ controller: 'crm/admin/maintains' }, class: 'tag') do %>
+        <span><%= t('crm.admin.maintains.index.title') %></span>
+      <% end %>
+      <%= link_to({ controller: 'crm/admin/maintain_tags' }, class: 'tag') do %>
+        <span><%= t('crm.admin.maintain_tags.index.title') %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
