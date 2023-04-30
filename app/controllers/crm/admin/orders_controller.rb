@@ -20,19 +20,6 @@ module Crm
 
     def add
       @order.valid?
-      @order.sum_amount
-    end
-
-    def create
-      @order.compute_promote
-      @order.valid?
-
-      if params[:commit].present? && @order.save
-        render 'create'
-      else
-        @order.items.build
-        render 'new'
-      end
     end
 
     private
