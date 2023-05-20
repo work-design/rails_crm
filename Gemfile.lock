@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: beb056eec77693deb06f0cbccbf1260e08859421
+  revision: 92f450bf105397fe0125c51d8b70e9266c3dd096
   specs:
     rails_com (1.3.0)
       acme-client
@@ -17,14 +17,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 69219fb19b8d21748325013c28023238040333dc
+  revision: b41bb475363605627109e4eadc4243acc3b2492c
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 27c47a1684e38675ba39d8482b2828876ee73aa9
+  revision: c013aef0b7e769e37010464b0d6c2db8e83601d8
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: d3c5220465b5ec32e5bacfaaba73c6ada2d77f28
+  revision: d2e861d535e31b67d2e6a59a37fa6c4a531ab321
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -150,7 +150,7 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.1)
     http-form_data (2.3.0)
-    httpx (0.22.5)
+    httpx (0.23.2)
       http-2-next (>= 0.4.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
