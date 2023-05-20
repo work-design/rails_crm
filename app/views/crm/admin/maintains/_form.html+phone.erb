@@ -2,10 +2,10 @@
   <div class="weui-cells__group weui-cells__group_form">
     <div class="weui-cells__title">线索信息</div>
     <div class="weui-cells">
-      <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name %>
-      <%= f.collection_select :pipeline_id, @task_templates, :id, :name, include_blank: true %>
+      <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name if @maintain_sources.present? %>
+      <%= f.collection_select :pipeline_id, @task_templates, :id, :name, include_blank: true if @task_templates.present? %>
       <%= f.number_field :deposit_ratio %>
-      <%= f.collection_select :payment_strategy_id, @payment_strategies, :id, :name %>
+      <%= f.collection_select :payment_strategy_id, @payment_strategies, :id, :name if @payment_strategies.present? %>
       <%= f.text_area :remark %>
     </div>
   </div>
