@@ -1,28 +1,30 @@
 <%= render 'top_bar' %>
 
-<%= render 'station' if params[:station_id].present? || params[:desk_id].present? %>
+<% if params[:station_id].present? %>
+  <%= render 'space_station' %>
+<% elsif params[:desk_id].present? %>
+  <%= render 'space_desk' %>
+<% end %>
 
 <%= render 'filter_form' %>
-<div class="weui-flex is-align-items-flex-start is-flex-grow-1">
+
+<div class="weui-menu">
   <%= render 'menu' unless @produce_plan %>
   <div
     data-controller="page"
     data-page-debug-value="true"
     data-action="touchmove->page#move:passive"
-    class="weui-panel is-borderless weui-panel_access mt-0 weui-flex__item"
-    style="height: 100%"
+    class="weui-menu-content"
   >
-    <div class="weui-panel__bd is-flex is-flex-direction-column is-flex-grow-1" style="height: 100%">
-      <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'items' } %>
-      <% if @productions.blank? %>
-        <%= render 'blank' %>
-      <% elsif @productions.total_pages <= @productions.current_page %>
-        <%= render 'no_more' %>
-      <% elsif @productions.total_pages > @productions.current_page %>
-        <%= render 'loading' %>
-        <%= render 'tip' %>
-      <% end %>
-    </div>
+    <%= render partial: 'production', collection: @productions, as: :model, locals: { item_con: 'items' } %>
+    <% if @productions.blank? %>
+      <%= render 'blank' %>
+    <% elsif @productions.total_pages <= @productions.current_page %>
+      <%= render 'no_more' %>
+    <% elsif @productions.total_pages > @productions.current_page %>
+      <%= render 'loading' %>
+      <%= render 'tip' %>
+    <% end %>
     <%= render 'paginator' %>
   </div>
 </div>
