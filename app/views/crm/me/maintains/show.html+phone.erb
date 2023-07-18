@@ -1,6 +1,6 @@
 <%= render 'top_bar' %>
 
-<div class="weui-panel">
+<div class="weui-panel is-box">
   <div class="weui-form-preview">
     <div class="weui-form-preview__bd">
       <%= render 'client' %>
@@ -8,10 +8,10 @@
   </div>
 </div>
 
-<div class="weui-panel">
+<div class="weui-panel is-box">
   <div class="weui-panel__hd has-block-space-between">
     <span><%= t('crm.admin.maintain_logs.index.title') %></span>
-    <%= link_to({ controller: 'maintain_logs', maintain_id: @maintain.id }) do %>
+    <%= link_to({ controller: 'maintain_logs', maintain_id: @maintain.id }, state: 'enter') do %>
       <span>更多</span>
       <i class="fa-solid fa-angles-right"></i>
   <% end %>
