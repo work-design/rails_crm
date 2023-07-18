@@ -27,7 +27,7 @@ module Crm
         end if res.error.nil?
 
         file.rewind
-        qy_media || build_qy_media(corp_id: contact.corp_id, suite_id: contact.suite_id)
+        qy_media || build_qy_media(corpid: contact.corpid, suite_id: contact.suite_id)
         r = qy_media.corp.api.uploadimg(file)
         qy_media.url = r['url']
         qy_media.save
