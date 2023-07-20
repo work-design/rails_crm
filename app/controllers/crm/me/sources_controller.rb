@@ -7,7 +7,7 @@ module Crm
       q_params = {}
       q_params.merge! default_params
 
-      @sources = Source.default_where(q_params)
+      @sources = Source.default_where(q_params).roots
     end
 
     def list
