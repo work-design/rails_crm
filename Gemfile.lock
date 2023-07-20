@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: dbf9e77bf7a8eedf26524cc47321febe83e9ffd0
+  revision: 966e15cdcfa036eb9ac7e70b1bba29c1ec4b1001
   specs:
     rails_com (1.3.0)
       acme-client
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 2e0d9d7c25270114cb8c19e1b2cbec7e2ea41a48
+  revision: d5532d04449d5bc98b22d307ace8d5b9996e3990
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)

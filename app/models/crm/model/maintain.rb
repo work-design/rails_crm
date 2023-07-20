@@ -60,7 +60,7 @@ module Crm
     end
 
     def sync_user_from_client
-      self.client_user_id = client.account&.user_id
+      self.client_user_id = client&.user_id
     end
 
     def sync_member_to_orders
