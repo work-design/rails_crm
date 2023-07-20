@@ -11,7 +11,7 @@
         </div>
         <div class="has-text-grey is-size-7 mt-1"><%= t('crm.me.maintains.index.title') %></div>
       <% end %>
-      <%= link_to({ controller: 'crm/me/sources' }, class: 'column has-block-centered') do %>
+      <%= link_to({ controller: 'crm/me/sources' }, state: 'enter', class: 'column has-block-centered') do %>
         <div class="has-text-primary">
           <i class="fa-solid fa-fw fa-xl fa-tags"></i>
         </div>
