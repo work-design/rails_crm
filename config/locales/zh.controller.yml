@@ -122,3 +122,6 @@ zh:
       agencies:
         index:
           title: 我的客户
+      carts:
+        index:
+          title: 购物车
