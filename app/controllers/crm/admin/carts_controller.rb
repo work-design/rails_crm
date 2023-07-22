@@ -3,6 +3,10 @@ module Crm
     include Controller::Admin
     before_action :set_common_maintain
 
+    def index
+      @carts = @maintain.carts.page(params[:page])
+    end
+
     def show
       q_params = {}
 
