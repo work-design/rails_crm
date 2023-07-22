@@ -23,6 +23,9 @@ zh:
           title: 批量派单
         create_detect:
           title: 新增
+      carts:
+        index:
+          title: 购物车设置
       orders:
         index:
           title: 订单
