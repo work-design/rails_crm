@@ -12,6 +12,7 @@ module Crm
 
     def sync_user
       profiles.each do |profile|
+        profile.user_id ||= user_id
         profile.client_maintains.each do |maintain|
           maintain.client_user_id ||= user_id
           maintain.client_member ||= members[0]
