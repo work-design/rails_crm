@@ -67,9 +67,9 @@ module Crm
     def sync_user_to_orders
       client_user.name ||= remark
       client_user.save
-      orders.update_all user_id: client_user_id, member_id: client_member_id
-      wallets.update_all user_id: client_user_id, member_id: client_member_id
-      cards.update_all user_id: client_user_id, member_id: client_member_id
+      orders.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      wallets.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      cards.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
     end
 
     def sync_pipeline_member
