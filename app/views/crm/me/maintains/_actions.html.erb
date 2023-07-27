@@ -26,7 +26,10 @@
   <i class="fa-solid fa-user-ninja"></i>
   <span><%= t('crm.admin.facilitates.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'productions', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
-  <i class="fa-solid fa-store"></i>
-  <span><%= t('crm.admin.productions.index.title') %></span>
+<% current_organ.self_and_descendants.each do |i| %>
+  <%= link_to({ controller: 'productions', maintain_id: model.id, host: i.host, auth_token: current_authorized_token.id }, class: 'weui-actionsheet__cell') do %>
+    <i class="fa-solid fa-store"></i>
+    <span><%= i.name %></span>
+    <span><%= t('crm.admin.productions.index.title') %></span>
+  <% end %>
 <% end %>
