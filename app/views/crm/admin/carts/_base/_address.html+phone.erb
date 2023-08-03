@@ -1,0 +1,23 @@
+<div class="weui-panel">
+  <%= link_to({ controller: 'addresses' }, state: 'enter', class: 'weui-cell weui-cell_access') do %>
+    <div class="weui-cell__hd">
+      <i class="fa-solid fa-fw fa-location-dot has-text-danger pr-2"></i>
+    </div>
+    <div class="weui-cell__bd">
+    <% if @cart.address %>
+      <p>
+        <span><%= @cart.address.contact %></span>
+        <span><%= @cart.address.tel %></span>
+      </p>
+      <p class="is-size-7">
+        <span><%= @cart.address.area.full_name %></span>
+        <span><%= @cart.address.station&.name %></span>
+        <span><%= @cart.address.detail %></span>
+      </p>
+    <% else %>
+      <p>选择地址</p>
+    <% end %>
+    </div>
+    <div class="weui-cell__ft"></div>
+  <% end %>
+</div>
