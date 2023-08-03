@@ -1,5 +1,5 @@
 <div class="weui-panel">
-  <%= link_to({ controller: 'addresses' }, state: 'enter', class: 'weui-cell weui-cell_access') do %>
+  <%= link_to({ controller: 'crm/me/cart/addresses', cart_id: @cart.id }, state: 'enter', class: 'weui-cell weui-cell_access') do %>
     <div class="weui-cell__hd">
       <i class="fa-solid fa-fw fa-location-dot has-text-danger pr-2"></i>
     </div>

@@ -71,6 +71,13 @@ Rails.application.routes.draw do
           patch :detach
         end
       end
+      namespace :cart do
+        resources :maintains, only: [] do
+          resources :carts, only: [] do
+            resources :addresses
+          end
+        end
+      end
     end
     namespace :crm, defaults: { business: 'crm' } do
       namespace :admin, defaults: { namespace: 'admin' } do
