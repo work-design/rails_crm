@@ -14,19 +14,10 @@
   <i class="fa-solid fa-location-dot"></i>
   <span><%= t('crm.admin.addresses.index.title') %></span>
 <% end %>
-<div class="weui-actionsheet__cell has-block-space-between">
-  <div>
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span><%= t('crm.admin.carts.index.title') %></span>
-  </div>
-  <div>
-  <% current_organ.self_and_descendants.each do |i| %>
-    <%= link_to({ controller: 'carts', maintain_id: model.id, host: i.host, auth_token: current_authorized_token.id }, class: 'button') do %>
-      <span class="has-text-info"><%= i.name %></span>
-    <% end %>
-  <% end %>
-  </div>
-</div>
+<%= link_to({ controller: 'carts', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-cart-shopping"></i>
+  <span><%= t('crm.admin.carts.index.title') %></span>
+<% end %>
 <%= link_to({ controller: 'orders', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-list-check"></i>
   <span><%= t('crm.admin.orders.index.title') %></span>
@@ -35,16 +26,7 @@
   <i class="fa-solid fa-user-ninja"></i>
   <span><%= t('crm.admin.facilitates.index.title') %></span>
 <% end %>
-<div class="weui-actionsheet__cell has-block-space-between">
-  <div>
-    <i class="fa-solid fa-store"></i>
-    <span><%= t('crm.admin.productions.index.title') %></span>
-  </div>
-  <div>
-  <% current_organ.self_and_descendants.each do |i| %>
-    <%= link_to({ controller: 'productions', maintain_id: model.id, host: i.host, auth_token: current_authorized_token.id }, class: 'button') do %>
-      <span class="has-text-info"><%= i.name %></span>
-    <% end %>
-  <% end %>
-  </div>
-</div>
+<%= link_to({ controller: 'productions', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-store"></i>
+  <span><%= t('crm.admin.productions.index.title') %></span>
+<% end %>
