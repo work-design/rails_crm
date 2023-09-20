@@ -14,7 +14,6 @@ module Crm
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
-      belongs_to :payment_strategy, class_name: 'Trade::PaymentStrategy', optional: true
 
       belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :client_member, class_name: 'Org::Member', optional: true

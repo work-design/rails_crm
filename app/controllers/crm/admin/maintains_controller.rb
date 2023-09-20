@@ -199,7 +199,6 @@ module Crm
         :remark,
         :pipeline_member_id,
         :maintain_source_id,
-        :payment_strategy_id,
         :agent_type,
         client_attributes: {},
         agent_attributes: {},
