@@ -3,7 +3,6 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
-      attribute :deposit_ratio, :integer, default: 100, comment: '最小预付比例'
       attribute :position, :integer
       attribute :wallets_count, :integer, default: 0
       attribute :cards_count, :integer, default: 0
