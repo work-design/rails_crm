@@ -10,12 +10,11 @@ module Crm
 
     def index
       q_params = {}
-      q_params.merge! default_params
+      q_params.merge! default_ancestors_params
       q_params.merge! params.permit(:tel)
 
       @cards = @client.cards.includes(:card_template).default_where(q_params).order(card_template_id: :desc)
-
-      @card_templates = Trade::CardTemplate.default_where(default_params).where.not(id: @cards.pluck(:card_template_id)).order(id: :asc)
+      @card_templates = Trade::CardTemplate.default_where(default_ancestors_params).where.not(id: @cards.pluck(:card_template_id)).order(id: :asc)
     end
 
     private
