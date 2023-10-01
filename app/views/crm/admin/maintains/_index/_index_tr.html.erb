@@ -3,33 +3,33 @@
   <td>
     <div data-show-target="item" style="visibility: hidden">
       <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-clock"></i>
+        <i class="fa-solid fa-clock has-text-primary"></i>
       <% end %>
       <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('crm.admin.maintains.index.detach') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
-        <i class="fa-solid fa-hand-holding"></i>
+        <i class="fa-solid fa-hand-holding has-text-success"></i>
       <% end %>
       <%= link_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-random"></i>
+        <i class="fa-solid fa-random has-text-warning"></i>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-circle-info"></i>
+        <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
       <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-pencil"></i>
+        <i class="fa-solid fa-pencil has-text-link"></i>
       <% end %>
       <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
-        <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash has-text-danger"></i>
       <% end %>
     </div>
     <div data-show-target="item" style="visibility: hidden" class="mt-2">
       <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('crm.admin.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-shopping-cart"></i>
+        <i class="fa-solid fa-shopping-cart has-text-primary"></i>
       <% end %>
       <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('crm.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-location-dot"></i>
       <% end %>
       <%= link_to({ controller: 'cards', maintain_id: model.id }, aria: { label: t('crm.admin.cards.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-cards-blank"></i>
+        <i class="fa-solid fa-credit-card"></i>
       <% end %>
     </div>
   </td>
