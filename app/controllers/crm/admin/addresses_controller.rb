@@ -1,6 +1,7 @@
 module Crm
   class Admin::AddressesController < Profiled::Admin::AddressesController
-    before_action :set_maintain
+    include Controller::Admin
+    before_action :set_common_maintain
     before_action :set_address, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_address, only: [:new, :create, :order_new, :order_create, :from_new, :from_create]
     before_action :set_addresses, only: [:order, :order_from, :order_create, :from_create]
@@ -26,11 +27,6 @@ module Crm
     end
 
     private
-    def set_maintain
-      @maintain = Maintain.find params[:maintain_id]
-      @client = @maintain.client
-    end
-
     def set_address
       @address = @client.addresses.find(params[:id])
     end
