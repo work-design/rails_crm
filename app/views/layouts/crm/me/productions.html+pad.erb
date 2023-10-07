@@ -1,0 +1,10 @@
+<%= render layout: 'layouts/application_head' do %>
+  <%= render 'nav_bar' %>
+  <div id="alert"></div>
+  <main class="columns container">
+    <div class="column is-full">
+      <%= render 'breadcrumb' %>
+    </div>
+    <%= yield %>
+  </main>
+<% end %>
