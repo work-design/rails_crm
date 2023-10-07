@@ -3,7 +3,7 @@
 </div>
 <%= f.fields :client do |ef| %>
   <%= ef.text_field :identity, readonly: true %>
-  <%= ef.text_field :real_name %>
+  <%= ef.text_field :real_name, autofocus: true %>
   <%= ef.text_field :nick_name %>
   <%= ef.select :birthday_type, options_for_select(Profiled::Profile.options_i18n(:birthday_type)) %>
   <%= ef.date_field :birthday %>
