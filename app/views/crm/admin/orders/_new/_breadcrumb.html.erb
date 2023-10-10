@@ -1,6 +1,7 @@
 <div class="breadcrumb has-succeeds-separator">
   <ul>
     <li><%= link_to t('crm.admin.maintains.index.title'), { controller: 'maintains', action: 'index' } %></li>
+    <li><span class="px-3"><%= @maintain.remark %></span></li>
     <li><%= link_to t('crm.admin.orders.index.title'), { controller: 'orders', action: 'index' } %></li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
