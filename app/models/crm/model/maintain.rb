@@ -24,7 +24,7 @@ module Crm
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', dependent: :nullify
-      has_many :carts, class_name: 'Trade::Cart', dependent: :nullify
+      has_many :carts, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Cart', primary_key: :member_id, foreign_key: :agent_id, dependent: :nullify
 
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains, optional: true
       accepts_nested_attributes_for :client, reject_if: :all_blank
