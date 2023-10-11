@@ -15,7 +15,6 @@ module Crm
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true
 
-      belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :client_member, class_name: 'Org::Member', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
       accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
@@ -47,9 +46,7 @@ module Crm
       }, _default: 'init'
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
-      before_validation :sync_user_from_client, if: -> { client.new_record? }
-      before_save :sync_user_from_client, if: -> { client_id_changed? }
-      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_user_id', 'client_member_id']).present? }
+      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }
       after_create_commit :init_stream!
     end
 
@@ -59,16 +56,15 @@ module Crm
       self.save
     end
 
-    def sync_user_from_client
-      self.client_user_id = client&.user_id
-    end
-
     def sync_user_to_orders
-      client_user.name ||= remark
-      client_user.save
-      orders.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
-      wallets.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
-      cards.update_all user_id: client_user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      client_user = client.user
+      if client_user
+        client_user.name ||= remark
+        client_user.save
+      end
+      orders.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      wallets.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      cards.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
     end
 
     def sync_pipeline_member
