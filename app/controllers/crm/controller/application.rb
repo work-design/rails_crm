@@ -11,14 +11,10 @@ module Crm
     end
 
     def set_client_user
-      if @maintain.client_user
-        return @client = @maintain.client_user
-      else
-        user = @maintain.users[0] || @maintain.pending_users[0]
-        if user
-          @maintain.update client_user_id: user.id
-          return @client = user
-        end
+      if @maintain.client.user
+        return @client = @maintain.client.user
+      elsif @maintain.users[0]
+        @client = @maintain.users[0] || @maintain.pending_users[0]
       end
       @client = @maintain.client
     end
