@@ -21,8 +21,8 @@ module Crm
       accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
 
       has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
-      has_many :wallets, class_name: 'Trade::Wallet', dependent: :nullify
-      has_many :cards, class_name: 'Trade::Card', dependent: :nullify
+      has_many :wallets, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Wallet', primary_key: :member_id, foreign_key: :agent_id
+      has_many :cards, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Card', primary_key: :member_id, foreign_key: :agent_id
       has_many :carts, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Cart', primary_key: :member_id, foreign_key: :agent_id
       has_many :orders, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id
 
