@@ -12,11 +12,5 @@ module Crm
       set_client_user
     end
 
-    class_methods do
-      def local_prefixes
-        [controller_path, 'crm/me/base', 'me']
-      end
-    end
-
   end
 end

@@ -1,5 +1,5 @@
 module Crm
-  class Admin::AddressesController < Profiled::Admin::AddressesController
+  class Admin::AddressesController < Profiled::My::AddressesController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_address, only: [:show, :edit, :update, :destroy, :actions]
@@ -38,16 +38,6 @@ module Crm
     def set_new_address
       @address = @maintain.addresses.build(address_params)
       @address.area ||= Profiled::Area.new
-    end
-
-    def _prefixes
-      super do |pres|
-        if ['order', 'order_from', 'order_new', 'order_create', 'from_new', 'from_create'].include?(params[:action])
-          pres + ['profiled/my/addresses/_base', 'profiled/my/addresses']
-        else
-          pres
-        end
-      end
     end
 
   end
