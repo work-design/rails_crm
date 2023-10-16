@@ -9,7 +9,7 @@
     </td>
   </tr>
   <tr>
-    <th><%= link_to Crm::Maintain.human_attribute_name(:maintain_source_id), { controller: 'maintain_sources' }, text: true %></th>
+    <th><%= Crm::Maintain.human_attribute_name(:maintain_source_id) %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:maintain_source_id]), class: active_helper(maintain_source_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @maintain_sources.each do |maintain_source| %>
@@ -18,7 +18,7 @@
     </td>
   </tr>
   <tr>
-    <th><%= link_to Crm::Maintain.human_attribute_name(:maintain_tag_id), { controller: 'maintain_tags' }, text: true %></th>
+    <th><%= Crm::Maintain.human_attribute_name(:maintain_tag_id) %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:'maintain_logs.maintain_tag_id']), class: active_helper('maintain_logs.maintain_tag_id': nil, active: 'button is-info', item: 'button is-light') %>
       <% @maintain_tags.each do |maintain_tag| %>
