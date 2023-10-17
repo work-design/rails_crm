@@ -1,0 +1,20 @@
+<div class="level is-flex box is-radiusless">
+  <div class="level-left">
+    <div class="level-item">
+    <% if @cart.address %>
+      <div>
+        <span><%= @cart.address.contact %></span>
+        <span class="pl-2"><%= @cart.address.tel %></span>
+      </div>
+      <p><%= @cart.address.detail %></p>
+    <% else %>
+      <p>选择地址</p>
+    <% end %>
+    </div>
+  </div>
+  <div class="level-right mt-0">
+    <%= link_to({ controller: 'crm/me/cart/addresses', cart_id: @cart.id }, data: { turbo_frame: 'modal' }, class: 'level-item') do %>
+      <i class="fa-solid fa-angle-right"></i>
+    <% end %>
+  </div>
+</div>
