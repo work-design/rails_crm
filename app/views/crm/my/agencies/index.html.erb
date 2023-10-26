@@ -9,7 +9,7 @@
       <th><%= Agency.human_attribute_name('client.name') %></th>
       <th>
         <%= link_to new_my_agency_path, remote: true, class: 'ui mini teal button' do %>
-          <i class="fa-solid fa-plus"></i><%= t('.new') %>
+          <i class="fa-solid fa-plus"></i><%= t('.new.title') %>
         <% end %>
       </th>
     </tr>
@@ -24,13 +24,13 @@
         <%= link_to agency.client.name %>
       </td>
       <td>
-        <%= link_to my_agency_path(agency), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+        <%= link_to my_agency_path(agency), aria: { label: t('.show.title') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fa-solid fa-circle-info"></i>
         <% end %>
-        <%= link_to edit_my_agency_path(agency), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+        <%= link_to edit_my_agency_path(agency), aria: { label: t('.edit.title') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fa-solid fa-pencil"></i>
         <% end %>
-        <%= link_to my_agency_path(agency), method: :delete, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+        <%= link_to my_agency_path(agency), method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
       </td>
