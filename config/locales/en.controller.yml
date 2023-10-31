@@ -87,46 +87,43 @@ en:
         index:
           title: 续费明细
     panel:
-      title: 市场管理
+      title: CRM
       sources:
         index:
-          title: 客户来源
+          title: Sources
       tags:
         index:
-          title: 客户标签
+          title: Tags
       qrcodes:
         index:
-          title: 二维码
+          title: qrcodes
       texts:
         index:
-          title: 文字
+          title: texts
     me:
-      title: 客户管理
+      title: CRM
       home:
         index:
           title: 我的
       sources:
         index:
-          title: 客户来源
+          title: Sources
       maintains:
         index:
-          title: 我的客户
-          transfer: 移交
-          detach: 释放
-          orders: 订单
+          title: Clients
         public:
-          title: 待分配客户
+          title: Pending
           assume: 接收
           assign: 派单
         show:
           title: 详情
         orders:
-          title: 订单列表
+          title: Orders
         new_batch_assign:
-          title: 批量派单
+          title: Batch Assign
       agencies:
         index:
-          title: 我的客户
+          title: Clients
       carts:
         index:
-          title: 购物车
+          title: Carts
