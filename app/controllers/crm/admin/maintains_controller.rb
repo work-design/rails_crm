@@ -19,7 +19,6 @@ module Crm
         q_params.merge! state: 'init'
       end
 
-      @pipelines = Bench::TaskTemplate.default_where(default_params.merge(tasking_type: 'Crm::Maintain'))
       @maintains = Maintain.default_where(q_params).includes(:client, :agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
     end
 
@@ -167,6 +166,10 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find(params[:id])
+    end
+
+    def set_pipelines
+      @pipelines = Bench::TaskTemplate.default_where(default_params.merge(tasking_type: 'Crm::Maintain'))
     end
 
     def set_task_templates
