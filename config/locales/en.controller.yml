@@ -1,0 +1,132 @@
+en:
+  crm:
+    title: CRM
+    admin:
+      title: CRM
+      home:
+        index:
+          title: 客户管理
+      maintains:
+        index:
+          title: Clients
+        transfer:
+          title: Transfer
+        detach:
+          title: Release
+        public:
+          title: 待分配客户
+          assume: 接收
+          assign: 派单
+        new_detect:
+          title: 添加客户
+        show:
+          title: Details
+        new_batch_assign:
+          title: 批量派单
+        create_detect:
+          title: 新增
+      carts:
+        index:
+          title: 购物车设置
+      orders:
+        index:
+          title: Orders
+        new:
+          title: 为客户下单
+        create:
+          title: 为客户下单
+        add:
+          title: 生成订单
+      maintain_logs:
+        index:
+          title: Logs
+      maintain_sources:
+        index:
+          title: Sources
+      maintain_tags:
+        index:
+          title: Tags
+      agencies:
+        index:
+          title: 会员列表
+      addresses:
+        index:
+          title: Addresses
+        order_from:
+          title: 发货地址
+        from_new:
+          title: 创建发货地址
+        order:
+          title: 收货地址
+        order_new:
+          title: 创建收货地址
+        new:
+          title: 新增地址
+      wallets:
+        index:
+          title: Wallets
+      facilitates:
+        index:
+          title: 服务
+      productions:
+        index:
+          title: 下单
+      wallet_advances:
+        index:
+          title: 充值
+      wallet_logs:
+        index:
+          title: 使用日志
+      wallet_payments:
+        index:
+          title: 使用
+      cards:
+        index:
+          title: 会员卡
+      card_purchases:
+        index:
+          title: 续费明细
+    panel:
+      title: 市场管理
+      sources:
+        index:
+          title: 客户来源
+      tags:
+        index:
+          title: 客户标签
+      qrcodes:
+        index:
+          title: 二维码
+      texts:
+        index:
+          title: 文字
+    me:
+      title: 客户管理
+      home:
+        index:
+          title: 我的
+      sources:
+        index:
+          title: 客户来源
+      maintains:
+        index:
+          title: 我的客户
+          transfer: 移交
+          detach: 释放
+          orders: 订单
+        public:
+          title: 待分配客户
+          assume: 接收
+          assign: 派单
+        show:
+          title: 详情
+        orders:
+          title: 订单列表
+        new_batch_assign:
+          title: 批量派单
+      agencies:
+        index:
+          title: 我的客户
+      carts:
+        index:
+          title: 购物车
