@@ -1,0 +1,7 @@
+<div class="level">
+  <h4 class="level-item has-text-centered">线索信息</h4>
+</div>
+<%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, all: { select: nil } %>
+<%= f.number_field :deposit_ratio %>
+<%= f.collection_select :payment_strategy_id, @payment_strategies, :id, :name %>
+<%= f.text_area :remark %>

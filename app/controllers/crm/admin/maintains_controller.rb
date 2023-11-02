@@ -7,7 +7,8 @@ module Crm
       :edit_assign, :update_assign,
       :detach, :assume, :destroy
     ]
-    before_action :set_task_templates, :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsBench
+    before_action :set_task_templates, only: [:new, :create_detect, :edit, :update] if defined? RailsBench
+    before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
 
