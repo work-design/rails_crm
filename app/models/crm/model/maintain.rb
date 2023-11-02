@@ -3,6 +3,7 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
+      attribute :remark, :string
       attribute :position, :integer
       attribute :wallets_count, :integer, default: 0
       attribute :cards_count, :integer, default: 0
