@@ -20,11 +20,11 @@ module Crm
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
       accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
 
-      has_many :addresses, class_name: 'Profiled::Address', dependent: :nullify
-      has_many :wallets, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Wallet', primary_key: :member_id, foreign_key: :agent_id
-      has_many :cards, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Card', primary_key: :member_id, foreign_key: :agent_id
-      has_many :carts, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Cart', primary_key: :member_id, foreign_key: :agent_id
-      has_many :orders, ->(o) { where(client_id: o.client_id) }, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id
+      has_many :addresses, ->(o) { where(o.filter_hash) }, class_name: 'Profiled::Address', primary_key: :member_id, foreign_key: :agent_id
+      has_many :wallets, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Wallet', primary_key: :member_id, foreign_key: :agent_id
+      has_many :cards, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Card', primary_key: :member_id, foreign_key: :agent_id
+      has_many :carts, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Cart', primary_key: :member_id, foreign_key: :agent_id
+      has_many :orders, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id
 
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains, optional: true
       accepts_nested_attributes_for :client, reject_if: :all_blank
@@ -49,6 +49,10 @@ module Crm
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }
       after_create_commit :init_stream!
+    end
+
+    def filter_hash
+      { client_id: client_id }
     end
 
     def init_stream!
