@@ -1,9 +1,5 @@
-<div class="breadcrumb has-succeeds-separator">
-  <ul>
-    <li><%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' } %></li>
-    <li><span class="px-3"><%= @maintain.client.name %></span></li>
-    <li><%= link_to t('crm.admin.wallets.index.title'), { controller: 'wallets', anchor: "tr_#{@wallet.id}" } %></li>
-    <li><span class="px-3"><%= @wallet.wallet_template.name %></span>
-    <li class="is-active"><%= t('.title') %></li>
-  </ul>
-</div>
+<li><%= link_to t('.maintains.index.title'), { controller: 'maintains' } %></li>
+<li><span class="px-3"><%= @maintain.client.name %></span></li>
+<li><%= link_to t('.wallets.index.title'), { controller: 'wallets', anchor: "tr_#{@wallet.id}" } %></li>
+<li><span class="px-3"><%= @wallet.wallet_template.name %></span>
+<li class="is-active"><%= t('.title') %></li>

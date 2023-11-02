@@ -4,7 +4,7 @@ module Crm
 
     def common_maintain_params
       {
-        maintain_id: @maintain.id,
+        #maintain_id: @maintain.id,
         client_id: @maintain.client_id,
         user_id: @maintain.client_user_id
       }
