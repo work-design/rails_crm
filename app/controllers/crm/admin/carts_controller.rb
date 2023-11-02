@@ -1,5 +1,5 @@
 module Crm
-  class Admin::CartsController < Trade::My::CartsController
+  class Admin::CartsController < Trade::Admin::CartsController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_cart, only: [:show, :edit, :update]

@@ -1,5 +1,5 @@
 module Crm
-  class Admin::OrdersController < Trade::My::OrdersController
+  class Admin::OrdersController < Trade::Admin::OrdersController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_addresses, :set_new_order, only: [:new, :create]
