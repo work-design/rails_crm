@@ -2,23 +2,23 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= button_to({ action: 'assume', id: model.id }, method: :patch, aria: { label: t('.assume') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-vote-yea"></i>
+      <%= button_to({ action: 'assume', id: model.id }, method: :patch, aria: { label: t('.assume.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-vote-yea has-text-warning"></i>
       <% end %>
-      <%= link_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.assign') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-hand-holding-usd"></i>
+      <%= link_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.assign.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-hand-holding-usd has-text-success"></i>
       <% end %>
-      <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.log') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-clock"></i>
+      <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-clock has-text-primary"></i>
       <% end %>
       <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-circle-info"></i>
+        <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
       <%= link_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-pencil"></i>
+        <i class="fa-solid fa-pencil has-text-link"></i>
       <% end %>
       <%= link_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash has-text-danger"></i>
       <% end %>
   </div>
 </td>
