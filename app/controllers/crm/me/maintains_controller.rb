@@ -1,7 +1,6 @@
 module Crm
   class Me::MaintainsController < Admin::MaintainsController
     include Controller::Me
-    before_action :set_maintain, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_client, only: [:client, :create_client]
 
     def index

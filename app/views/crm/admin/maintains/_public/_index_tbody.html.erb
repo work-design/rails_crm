@@ -14,12 +14,14 @@
 </td>
 <td>
   <p><%= model.maintain_source&.name %></p>
+  <% if model.respond_to?(:task_template) %>
   <p>
     <span><%= model.task_template&.name %></span>
     <% if model.member %>
       <span>(<%= model.member.name %>)</span>
     <% end %>
   </p>
+  <% end %>
 </td>
 <td><%= model.remark %></td>
 <td>

@@ -1,11 +1,11 @@
 module Crm
   class Admin::MaintainsController < Admin::BaseController
     before_action :set_maintain, only: [
-      :show, :edit, :update, :orders,
+      :show, :edit, :update, :destroy, :actions, :orders,
       :edit_order, :update_order,
       :edit_transfer, :update_transfer,
       :edit_assign, :update_assign,
-      :detach, :assume, :destroy
+      :detach, :assume
     ]
     before_action :set_task_templates, only: [:new, :create_detect, :edit, :update] if defined? RailsBench
     before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
