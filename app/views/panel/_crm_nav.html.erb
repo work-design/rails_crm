@@ -2,7 +2,7 @@
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-chart-line fa-fw"></i>
     <span><%= t('crm.panel.title') %></span>
-    <i class="fa-solid dropdown"></i>
+    <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list" data-empty-target="content">
     <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, class: active_helper(controllers: ['sources', 'qrcodes', 'texts'], active: 'is-active') %>

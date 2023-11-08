@@ -2,7 +2,7 @@
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-chart-line fa-fw"></i>
     <span><%= t('crm.admin.title') %></span>
-    <i class="fa-solid dropdown"></i>
+    <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list">
     <%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
