@@ -1,0 +1,9 @@
+<% if url_for(action: 'index', only_path: false) == request.referer %>
+  <%= turbo_stream.append 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: @maintain_tag } %>
+  <%= turbo_stream.remove 'modal' %>
+<% elsif url_for(controller: 'maintains', action: 'index', only_path: false) == request.referer %>
+  <%= turbo_stream.before 'tag_add', partial: 'tag', locals: { model: @maintain_tag } %>
+  <%= turbo_stream.remove 'modal' %>
+<% else %>
+  <%= turbo_stream.append 'body', partial: 'visit', locals: { url: url_for(action: 'index') } %>
+<% end %>
