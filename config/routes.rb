@@ -57,8 +57,8 @@ Rails.application.routes.draw do
         collection do
           get :public
           post :batch
-          get 'detect' => :new_detect
-          post 'detect' => :create_detect
+          match 'detect' => :new_detect, via: [:get, :post]
+          post 'create_detect' => :create_detect
           get 'assign' => :new_batch_assign
           post 'assign' => :create_batch_assign
         end

@@ -1,7 +1,0 @@
-<%= turbo_frame_tagged 'modal' do %>
-<% if defined? model %>
-  <%= render partial: 'new_detect', locals: { model: model } %>
-<% else %>
-  <%= render partial: 'new_detect', locals: { model: instance_variable_get("@#{model_name}") } %>
-<% end %>
-<% end %>
