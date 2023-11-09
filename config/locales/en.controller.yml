@@ -45,6 +45,8 @@ en:
       maintain_sources:
         index:
           title: Sources
+        new:
+          title: Add Sources
       maintain_tags:
         index:
           title: Tags
