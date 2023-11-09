@@ -10,7 +10,7 @@
   </tr>
   <tr>
     <th><%= link_to Crm::Maintain.human_attribute_name(:maintain_source_id), { controller: 'maintain_sources' }, text: true %></th>
-    <td>
+    <td id="sources_list">
       <%= link_to t('.all'), filter_params(except: [:maintain_source_id]), class: 'button is-light' %>
       <% @maintain_sources.each do |maintain_source| %>
         <%= link_to maintain_source.name, filter_params(maintain_source_id: maintain_source.id), class: active_helper(maintain_source_id: maintain_source.id, active: 'button is-info', item: 'button is-light') %>
