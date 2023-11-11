@@ -12,14 +12,6 @@ zh:
         remark: 备注
         age-gte: 年龄大于
         age-lte: 年龄小于
-      crm/maintain/client:
-        real_name: 客户
-        nick_name: 客户昵称
-        age: 年龄
-        identity: 联系方式
-      crm/maintain/agent:
-        real_name: 代理人
-        identity: 联系方式
       crm/maintain_log:
         maintain_tag_id: 标签
         logged_type: 日志类型
