@@ -1,0 +1,43 @@
+en:
+  activerecord:
+    attributes:
+      crm/maintain:
+        state: 状态
+        maintain_source_id: 客户来源
+        maintain_tag_id: 标签
+        pipeline_id: 流水线
+        member_id: 负责人
+        payment_strategy_id: 付款形式
+        deposit_ratio: 首付款比例
+        remark: 备注
+        age-gte: 年龄大于
+        age-lte: 年龄小于
+      crm/maintain/client:
+        real_name: 客户
+        nick_name: 客户昵称
+        age: 年龄
+        identity: Email Or Mobile
+      crm/maintain/agent:
+        real_name: 代理人
+        identity: 联系方式
+      crm/maintain_log:
+        maintain_tag_id: 标签
+        logged_type: 日志类型
+        extra: 详细信息
+      crm/maintain_tag:
+        color: 标签颜色
+        maintain_logs_count: 跟踪记录数
+        sequence: 优先级
+        logged_type: 日志类型
+      crm/tag:
+        color: 标签颜色
+        maintain_logs_count: 跟踪记录数
+        sequence: 优先级
+        logged_type: 日志类型
+      crm/maintain_source:
+        maintains_count: 线索数
+      crm/agency:
+        relation: 关系
+        note: 备注
+        commission_ratio: 抽成比例
+        client_id: 客户
