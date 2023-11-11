@@ -1,7 +1,7 @@
-<% if url_for(action: 'index', only_path: false) == request.referer %>
+<% if referer_controller == 'crm/admin/maintain_sources' %>
   <%= turbo_stream.append 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: @maintain_source } %>
   <%= turbo_stream.remove 'modal' %>
-<% elsif url_for(controller: 'maintains', action: 'index', only_path: false) == request.referer %>
+<% elsif referer_controller == 'crm/admin/maintains' %>
   <%= turbo_stream.before 'source_add', partial: 'source', locals: { model: @maintain_source } %>
   <%= turbo_stream.remove 'modal' %>
 <% else %>
