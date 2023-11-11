@@ -16,7 +16,7 @@ en:
         real_name: 客户
         nick_name: 客户昵称
         age: 年龄
-        identity: Email Or Mobile
+        identity: Email Or Mobiles
       crm/maintain/agent:
         real_name: 代理人
         identity: 联系方式
