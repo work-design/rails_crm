@@ -1,17 +1,4 @@
-<%= form_with model: model, url: { action: 'create' }, class: 'modal-card' do |f| %>
-  <header class="modal-card-head">
-    <p class="modal-card-title"><%= t('.title') %></p>
-    <button class="delete" data-action="modal#close"></button>
-  </header>
-  <div class="modal-card-body">
-    <%= render 'error_messages', target: f.object if f.object.errors.present? %>
-    <%= render partial: 'client_form', locals: { f: f } %>
-  </div>
-  <div class="modal-card-foot is-block">
-    <%= button_to({ action: 'new_detect' }, params: { identity: params[:identity] }, class: 'button is-small is-link') do %>
-      <i class="fa-solid fa-plus"></i>
-      <span class="pl-1"><%= t('.new_detect.title') %></span>
-    <% end %>
-    <%= f.submit %>
-  </div>
+<%= form_with model: model, url: { action: 'create' }, id: 'client_form' do |f| %>
+  <%= render 'error_messages', target: f.object if f.object.errors.present? %>
+  <%= render partial: 'client_form', locals: { f: f } %>
 <% end %>
