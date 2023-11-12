@@ -3,12 +3,14 @@
   <p>
     <span><%= model.client.real_name %></span>
     <span class="has-text-grey">（<%= model.client.nick_name %>）</span>
-    <span class="tag">
-      <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
-      <span class="pl-1"><%= model.client.gender_i18n %></span>
-    </span>
+    <% if model.client.gender %>
+      <span class="tag">
+        <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
+        <span class="pl-1"><%= model.client.gender_i18n %></span>
+      </span>
+    <% end %>
     <% if model.client.birthday %>
-    <span class="tag"><%= model.client.age_str %></span>
+      <span class="tag"><%= model.client.age_str %></span>
     <% end %>
   </p>
   <p><%= model.remark %></p>
