@@ -17,11 +17,11 @@ en:
           title: Unassigned
         new_detect:
           title: Add & Detect
+        create_detect:
+          title: Add
         show:
           title: Details
         new_batch_assign:
-          title: Batch Assign
-        create_detect:
           title: Batch Assign
         assign:
           title: Assign
