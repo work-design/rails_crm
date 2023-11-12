@@ -2,21 +2,21 @@ en:
   activerecord:
     attributes:
       crm/maintain:
-        state: 状态
-        maintain_source_id: 客户来源
-        maintain_tag_id: 标签
-        pipeline_id: 流水线
-        member_id: 负责人
-        payment_strategy_id: 付款形式
-        deposit_ratio: 首付款比例
-        remark: 备注
+        state: State
+        maintain_source_id: Source
+        maintain_tag_id: Tag
+        pipeline_id: Pipeline
+        member_id: principal
+        payment_strategy_id: Payment Strategy
+        deposit_ratio: Deposit Ratio
+        remark: Remark
         age-gte: 年龄大于
         age-lte: 年龄小于
       crm/maintain/client:
-        real_name: 客户
-        nick_name: 客户昵称
+        real_name: Real Name
+        nick_name: Nick Name
         age: 年龄
-        identity: Email Or Mobiles
+        identity: Email Or Mobile
       crm/maintain/agent:
         real_name: 代理人
         identity: 联系方式
