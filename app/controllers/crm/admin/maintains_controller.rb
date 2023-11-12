@@ -7,6 +7,7 @@ module Crm
       :edit_assign, :update_assign,
       :detach, :assume
     ]
+    before_action :set_new_maintain, only: [:new, :create]
     before_action :set_task_templates, only: [:new, :create_detect, :edit, :update] if defined? RailsBench
     before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
@@ -54,8 +55,6 @@ module Crm
     end
 
     def new
-      @maintain = current_member.maintains.build
-
       if params[:agent_id]
         @maintain.agent = Profiled::Profile.find params[:agent_id]
       else
@@ -71,13 +70,7 @@ module Crm
     end
 
     def create
-      @maintain = Maintain.new(maintain_params)
-      @maintain.member_id ||= current_member.id
-      @maintain.client.organ = @maintain.organ
-
-      unless @maintain.save
-        render :new, locals: { model: @maintain }, status: :unprocessable_entity
-      end
+      super
     end
 
     def batch
@@ -167,6 +160,10 @@ module Crm
     private
     def set_maintain
       @maintain = Maintain.find(params[:id])
+    end
+
+    def set_new_maintain
+      @maintain = Maintain.new(maintain_params)
     end
 
     def set_pipelines
