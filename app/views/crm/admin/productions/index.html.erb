@@ -1,0 +1,8 @@
+<div class="column">
+  <div class="cards is-4">
+    <%= render partial: 'card', collection: @productions, as: :model, locals: { item_con: 'trade/agent/items' } %>
+  </div>
+</div>
+<div class="column is-narrow">
+  <%= render partial: 'cart_nav', locals: { cart_con: 'trade/agent/carts', cart: @cart } if @cart %>
+</div>

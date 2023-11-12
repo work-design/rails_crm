@@ -9,7 +9,7 @@ module Crm
       @cart = @maintain.carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use', organ_id: current_organ.id)
     end
 
-    def _xprefixes
+    def _prefixes
       super do |pres|
         if ['show'].include?(params[:action])
           pres + ['trade/my/wallet_templates', 'trade/my/base']
