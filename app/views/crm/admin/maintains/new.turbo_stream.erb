@@ -1,1 +1,1 @@
-<%= turbo_stream.replace 'new_detect_form', partial: 'new_form', locals: { model: @maintain } %>
+<%= turbo_stream.append 'body', partial: 'new_form', layout: 'modal_form', locals: { model: @maintain } %>
