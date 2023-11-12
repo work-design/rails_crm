@@ -1,6 +1,14 @@
-<%= form_with model: model, scope: model_name, url: { action: 'update' } do |f| %>
-  <%= render 'error_messages', target: f.object %>
-  <%= render partial: 'client_form', locals: { f: f } %>
-  <%= render partial: 'form', locals: { f: f } %>
-  <%= f.submit %>
+<%= form_with model: model, scope: model_name, url: { action: 'update' }, class: 'modal-card' do |f| %>
+  <header class="modal-card-head">
+    <p class="modal-card-title"><%= t('.title') %></p>
+    <button class="delete" data-action="modal#close"></button>
+  </header>
+  <section class="modal-card-body">
+    <%= render 'error_messages', target: f.object if f.object.errors.present? %>
+    <%= render partial: 'client_form', locals: { f: f } %>
+    <%= render partial: 'form', locals: { f: f } %>
+  </section>
+  <footer class="modal-card-foot is-block">
+    <%= f.submit %>
+  </footer>
 <% end %>
