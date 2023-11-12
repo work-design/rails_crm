@@ -69,10 +69,6 @@ module Crm
       end
     end
 
-    def create
-      super
-    end
-
     def batch
       maintains_params = params.fetch(:maintains, {})
       maintains_params.each do |maintain_params|
