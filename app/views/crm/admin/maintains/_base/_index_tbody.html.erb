@@ -2,7 +2,9 @@
   <p><%= model.client.identity %></p>
   <p>
     <span><%= model.client.real_name %></span>
-    <span class="has-text-grey">（<%= model.client.nick_name %>）</span>
+    <% if model.client.nick_name.present? %>
+      <span class="has-text-grey">（<%= model.client.nick_name %>）</span>
+    <% end %>
     <% if model.client.gender %>
       <span class="tag">
         <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
