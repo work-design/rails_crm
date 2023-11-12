@@ -1,6 +1,3 @@
-<div class="level">
-  <h4 class="level-item has-text-centered">客户信息</h4>
-</div>
 <%= f.fields :client do |ef| %>
   <%= ef.text_field :identity, readonly: true %>
   <%= ef.text_field :real_name, autofocus: true, autocomplete: 'off' %>
