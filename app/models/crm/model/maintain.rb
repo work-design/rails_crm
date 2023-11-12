@@ -5,12 +5,6 @@ module Crm
     included do
       attribute :remark, :string
       attribute :position, :integer
-      attribute :wallets_count, :integer, default: 0
-      attribute :cards_count, :integer, default: 0
-      attribute :orders_count, :integer, default: 0
-      attribute :addresses_count, :integer, default: 0
-      attribute :items_count, :integer, default: 0
-      attribute :carts_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
