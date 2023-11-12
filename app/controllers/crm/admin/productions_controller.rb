@@ -6,7 +6,10 @@ module Crm
 
     private
     def set_cart
-      @cart = @maintain.carts.find_or_create_by(good_type: 'Factory::Production', aim: 'use', organ_id: current_organ.id)
+      options = { agent_id: current_member.id, client_id: nil }
+      options.merge! default_params
+      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
+      @cart.compute_amount! unless @cart.fresh
     end
 
     def _prefixes
