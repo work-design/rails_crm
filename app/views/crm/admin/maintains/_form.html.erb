@@ -1,6 +1,3 @@
-<div class="level">
-  <h4 class="level-item has-text-centered">线索信息</h4>
-</div>
 <div class="field is-horizontal">
   <%= f.collection_select :maintain_source_id, @maintain_sources, :id, :name, all: { select: nil } %>
   <%= link_to({ controller: 'maintain_sources' }, aria: { label: '来源设置' }, target: '_blank') do %>

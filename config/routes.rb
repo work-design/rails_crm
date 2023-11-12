@@ -65,8 +65,8 @@ Rails.application.routes.draw do
         member do
           get 'transfer' => :edit_transfer
           patch 'transfer' => :update_transfer
-          get 'assign' => :edit_assign
-          patch 'assign' => :update_assign
+          match :edit_assign, via: [:get, :post]
+          patch :update_assign
           patch :assume
           patch :detach
         end
