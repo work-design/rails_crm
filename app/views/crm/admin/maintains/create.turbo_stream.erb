@@ -1,1 +1,2 @@
+<%= turbo_stream.append 'tbody', partial: 'index_tbody', layout: 'index_tr', locals: { model: @maintain } %>
 <%= turbo_stream.append 'body', partial: 'new_form', layout: 'modal' %>
