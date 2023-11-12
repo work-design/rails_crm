@@ -1,0 +1,4 @@
+<%= form_with model: @maintain, url: { action: 'update_transfer', id: @maintain.id }, method: :patch do |f| %>
+  <%= f.collection_select :member_id, @members, :id, :name, can: { wrap_input_id: true } %>
+  <%= f.submit %>
+<% end %>

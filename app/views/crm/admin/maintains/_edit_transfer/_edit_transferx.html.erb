@@ -1,4 +1,4 @@
-<%= form_with scope: :maintain, url: transfer_admin_maintain_path(@maintain), method: :patch do |f| %>
+<%= form_with scope: :maintain, url: @maintain, method: :patch do |f| %>
   <div class="inline fields">
     <%= f.collection_select :pipeline_id, @pipelines, :id, :name, include_blank: true, can: { wrap_all: false } %>
     <%= link_to new_admin_pipeline_path, aria: { label: '来源设置' }, target: '_blank' do %>

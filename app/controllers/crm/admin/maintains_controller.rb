@@ -12,7 +12,7 @@ module Crm
     before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
-    before_action :set_members, only: [:edit_assign]
+    before_action :set_members, only: [:edit_assign, :edit_transfer]
 
     def index
       q_params = {}
@@ -109,15 +109,11 @@ module Crm
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.job_title_ids if current_member
       pipeline_params.merge! default_params
 
-      if @maintain.pipeline_member
-        @members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
-      else
-        @members = Org::Member.none
-      end
+      #@members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
     end
 
     def update_transfer
-      @maintain.assign_attributes maintain_params.slice(:pipeline_id)
+      @maintain.assign_attributes maintain_params
       @maintain.transfer!
     end
 
@@ -194,6 +190,7 @@ module Crm
         :maintain_source_id,
         :agent_type,
         :member_id,
+        :pipeline_id,
         client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}

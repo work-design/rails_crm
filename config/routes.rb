@@ -58,13 +58,13 @@ Rails.application.routes.draw do
           get :public
           post :batch
           match 'detect' => :new_detect, via: [:get, :post]
-          post 'create_detect' => :create_detect
+          post :create_detect
           get 'assign' => :new_batch_assign
           post 'assign' => :create_batch_assign
         end
         member do
-          get 'transfer' => :edit_transfer
-          patch 'transfer' => :update_transfer
+          match :edit_transfer, via: [:get, :post]
+          patch :update_transfer
           match :edit_assign, via: [:get, :post]
           patch :update_assign
           patch :assume
