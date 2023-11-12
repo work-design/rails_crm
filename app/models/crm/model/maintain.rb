@@ -6,6 +6,12 @@ module Crm
       attribute :remark, :string
       attribute :position, :integer
 
+      enum state: {
+        init: 'init',
+        carted: 'carted',
+        ordered: 'ordered'
+      }, _default: 'init'
+
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
@@ -20,7 +26,7 @@ module Crm
       has_many :carts, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Cart', primary_key: :member_id, foreign_key: :agent_id
       has_many :orders, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id
 
-      belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains, optional: true
+      belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
       accepts_nested_attributes_for :client, reject_if: :all_blank
 
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
@@ -33,12 +39,6 @@ module Crm
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 
       accepts_nested_attributes_for :agency, reject_if: :all_blank
-
-      enum state: {
-        init: 'init',
-        carted: 'carted',
-        ordered: 'ordered'
-      }, _default: 'init'
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }

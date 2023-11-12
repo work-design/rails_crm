@@ -1,11 +1,10 @@
-<%= form_with url: { action: 'new' } do |f| %>
+<%= form_with model: @maintain, url: { action: 'create' }, id: 'client_form' do |f| %>
   <div class="field is-horizontal">
     <div class="field-label is-normal">
       <label>选择现有</label>
     </div>
     <div class="field-body">
       <%= f.collection_select :client_id, @profiles, :id, :name, include_blank: true, all: { normal: nil }, wrap: { select: 'field is-narrow > control > select is-fullwidth' } %>
-      <%= f.submit '下一步', all: { submit: nil }, wrap: { submit: 'field' }, offset: { submit: nil } %>
     </div>
   </div>
 <% end %>
