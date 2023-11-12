@@ -8,10 +8,11 @@ module Crm
       :detach, :assume
     ]
     before_action :set_new_maintain, only: [:new, :create]
-    before_action :set_task_templates, only: [:new, :create_detect, :edit, :update] if defined? RailsBench
+    before_action :set_task_templates, only: [:new, :create_detect, :edit, :update, :edit_assign, :edit_transfer] if defined? RailsBench
     before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
+    before_action :set_members, only: [:edit_assign]
 
     def index
       q_params = {}
@@ -107,7 +108,7 @@ module Crm
       }
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.job_title_ids if current_member
       pipeline_params.merge! default_params
-      @pipelines = Bench::TaskTemplate.default_where(pipeline_params)
+
       if @maintain.pipeline_member
         @members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
       else
@@ -118,8 +119,6 @@ module Crm
     def update_transfer
       @maintain.assign_attributes maintain_params.slice(:pipeline_id)
       @maintain.transfer!
-
-      redirect_back fallback_location: admin_maintains_url, notice: '移交成功'
     end
 
     def edit_assign
@@ -130,19 +129,13 @@ module Crm
       }
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
-      @pipelines = Bench::TaskTemplate.default_where(pipeline_params)
-      if @maintain.pipeline_member
-        @members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
-      else
-        @members = Org::Member.none
-      end
+
+      #@members = Org::Member.default_where('member_departments.job_title_id': @maintain.pipeline_member.job_title_id)
     end
 
     def update_assign
-      @maintain.assign_attributes maintain_params.slice(:pipeline_id, :member_id)
+      @maintain.assign_attributes maintain_params
       @maintain.save
-
-      redirect_back fallback_location: admin_maintains_url(id: params[:id]), notice: '移交成功'
     end
 
     def detach
@@ -164,6 +157,10 @@ module Crm
 
     def set_pipelines
       @pipelines = Bench::TaskTemplate.default_where(default_params.merge(tasking_type: 'Crm::Maintain'))
+    end
+
+    def set_members
+      @members = Org::Member.default_where(default_params)
     end
 
     def set_task_templates
@@ -196,6 +193,7 @@ module Crm
         :pipeline_member_id,
         :maintain_source_id,
         :agent_type,
+        :member_id,
         client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}

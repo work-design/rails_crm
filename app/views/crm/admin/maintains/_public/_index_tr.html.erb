@@ -5,7 +5,7 @@
       <%= button_to({ action: 'assume', id: model.id }, method: :patch, aria: { label: t('.assume.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-vote-yea has-text-warning"></i>
       <% end %>
-      <%= link_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.assign.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.assign.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-hand-holding-usd has-text-success"></i>
       <% end %>
       <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
