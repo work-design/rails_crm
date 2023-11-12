@@ -7,7 +7,7 @@ module Crm
       :edit_assign, :update_assign,
       :detach, :assume
     ]
-    before_action :set_new_maintain, only: [:new, :create]
+    before_action :set_new_maintain, only: [:new, :create, :create_detect]
     before_action :set_task_templates, only: [:new, :create_detect, :edit, :update, :edit_assign, :edit_transfer] if defined? RailsBench
     before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
@@ -47,7 +47,6 @@ module Crm
       if @profiles.present?
         render 'create_detect'
       else
-        @maintain = current_member.maintains.build
         @maintain.profile_agent = Profiled::Profile.new(identity: params[:identity])
         @maintain.client = Profiled::Profile.new(identity: params[:identity])
         @maintain.build_agency

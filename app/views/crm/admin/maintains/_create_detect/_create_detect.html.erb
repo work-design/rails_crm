@@ -4,7 +4,7 @@
       <label>选择现有</label>
     </div>
     <div class="field-body">
-      <%= f.collection_select :client_id, @profiles, :id, :name, include_blank: true, all: { normal: nil }, wrap: { select: 'field is-narrow > control > select is-fullwidth' } %>
+      <%= f.collection_select :client_id, @profiles, :id, :name, { include_blank: true, label: nil, all: { select: nil }, wrap: { select: 'field is-narrow > control > select is-fullwidth' } } %>
     </div>
   </div>
 <% end %>
