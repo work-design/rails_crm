@@ -15,29 +15,29 @@ en:
       crm/maintain/client:
         real_name: Real Name
         nick_name: Nick Name
-        age: 年龄
+        age: Age
         identity: Email Or Mobile
       crm/maintain/agent:
-        real_name: 代理人
-        identity: 联系方式
+        real_name: Real Name
+        identity: Email Or Mobile
       crm/maintain_log:
-        maintain_tag_id: 标签
-        logged_type: 日志类型
-        extra: 详细信息
+        maintain_tag_id: Tag
+        logged_type: Logged Type
+        extra: Info
       crm/maintain_tag:
-        color: 标签颜色
-        maintain_logs_count: 跟踪记录数
+        color: Color
+        maintain_logs_count: Logs Count
         sequence: 优先级
         logged_type: 日志类型
       crm/tag:
-        color: 标签颜色
+        color: Color
         maintain_logs_count: 跟踪记录数
         sequence: 优先级
         logged_type: 日志类型
       crm/maintain_source:
         maintains_count: 线索数
       crm/agency:
-        relation: 关系
-        note: 备注
+        relation: Relation
+        note: Note
         commission_ratio: 抽成比例
-        client_id: 客户
+        client_id: Client
