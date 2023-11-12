@@ -86,13 +86,12 @@ module Crm
       MaintainTag.cached.slice(*ids).values
     end
 
-    def transfer!
-      next_member = pipeline_member&.next_member
+    def transfer!(next_member: pipeline_member&.next_member)
       if next_member
         m = Maintain.new
         m.upstream = self
         m.original = self.original
-        m.pipeline_member = next_member
+        m.member = next_member
         m.assign_attributes self.attributes.slice('organ_id', 'client_type', 'client_id', 'agent_type', 'agent_id', 'agency_id', 'maintain_source_id', 'pipeline_id')
 
         self.class.transaction do
