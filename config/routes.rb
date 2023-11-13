@@ -67,6 +67,7 @@ Rails.application.routes.draw do
           patch :update_transfer
           match :edit_assign, via: [:get, :post]
           patch :update_assign
+          match :edit_member, via: [:get, :post]
           patch :assume
           patch :detach
         end
