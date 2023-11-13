@@ -40,8 +40,3 @@
   <p class="has-text-grey"><%= model.member&.name %></p>
   <p class="has-text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
 </td>
-<td>
-  <%= link_to({ controller: 'wallets', maintain_id: model.id }, aria: { label: t('crm.admin.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-solid fa-wallet"></i>
-  <% end %>
-</td>

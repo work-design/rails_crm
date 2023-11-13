@@ -28,6 +28,9 @@
       <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('crm.admin.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-location-dot"></i>
       <% end %>
+      <%= link_to({ controller: 'wallets', maintain_id: model.id }, aria: { label: t('crm.admin.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-wallet"></i>
+      <% end %>
       <%= link_to({ controller: 'cards', maintain_id: model.id }, aria: { label: t('crm.admin.cards.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-credit-card"></i>
       <% end %>
