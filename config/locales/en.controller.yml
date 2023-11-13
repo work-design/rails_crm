@@ -27,6 +27,8 @@ en:
           title: Assign
         assume:
           title: Assume
+        edit_member:
+          title: Assign Member With Organ
       carts:
         index:
           title: 购物车设置

@@ -5,6 +5,7 @@ module Crm
       :edit_order, :update_order,
       :edit_transfer, :update_transfer,
       :edit_assign, :update_assign,
+      :edit_member,
       :detach, :assume
     ]
     before_action :set_new_maintain, only: [:new, :create, :create_detect]

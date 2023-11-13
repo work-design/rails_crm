@@ -1,0 +1,5 @@
+<%= form_with model: @maintain, url: { action: 'update', id: @maintain.id }, id: 'member_form' do |f| %>
+  <%= render 'error_messages', target: f.object if f.object.errors.present? %>
+
+
+<% end %>
