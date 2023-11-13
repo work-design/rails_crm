@@ -134,6 +134,10 @@ module Crm
       @maintain.save
     end
 
+    def edit_member
+      @members = @maintain.client.pending_members
+    end
+
     def detach
       @maintain.update member_id: nil
     end
