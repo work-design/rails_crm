@@ -33,6 +33,7 @@ module Crm
       member = pending_members.build
       member.build_organ(name: name)
       member.save!
+      member
     end
 
     def sync_user_later

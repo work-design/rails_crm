@@ -55,6 +55,12 @@ module Crm
       self.save
     end
 
+    def xx!
+      member = client.init_member_organ!
+      self.client_member = member
+      self.save
+    end
+
     def sync_user_to_orders
       client_user = client.user
       if client_user
