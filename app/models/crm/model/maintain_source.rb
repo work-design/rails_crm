@@ -10,11 +10,13 @@ module Crm
 
       belongs_to :source, optional: true
 
-      validates :name, presence: true
+      validates :name, presence: true, uniqueness: { scope: :organ_id }
 
-      before_validation do
-        self.name ||= source.name if source
-      end
+      before_validation :init_from_source, if: -> { source_id.present? }
+    end
+
+    def init_from_source
+      self.name ||= source.name
     end
 
   end
