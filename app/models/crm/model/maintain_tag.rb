@@ -17,16 +17,16 @@ module Crm
       belongs_to :tag, optional: true
 
       validates :logged_type, uniqueness: { scope: [:organ_id, :sequence] }, allow_blank: true
-      validates :name, presence: true
+      validates :name, presence: true, uniqueness: { scope: :organ_id }
 
-      before_validation do
-        if tag
-          self.name = tag.name
-          self.color = tag.color
-          self.manual = false
-        end
-      end
+      before_validation :init_from_tag, if: -> { tag_id.present? }
       after_update_commit :delete_default_cache
+    end
+
+    def init_from_tag
+      self.name = tag.name
+      self.color = tag.color
+      self.manual = false
     end
 
     def delete_default_cache
