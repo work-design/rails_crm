@@ -5,9 +5,9 @@
     <i class="fa-solid fa-fw dropdown"></i>
   </a>
   <div class="menu-list">
-    <%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
-    <%= link_to t('crm.admin.maintains.public.title'), { controller: 'crm/admin/maintains', action: 'public' }, class: active_helper('maintains': 'public', active: 'is-active') %>
-    <%= link_to t('crm.admin.maintain_sources.index.title'), { controller: 'crm/admin/maintain_sources' }, class: active_helper(controllers: 'maintain_sources', active: 'is-active') %>
-    <%= link_to t('crm.admin.maintain_tags.index.title'), { controller: 'crm/admin/maintain_tags' }, class: active_helper(controllers: 'maintain_tags', active: 'is-active') %>
+    <%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' }, data: { turbo_frame: 'body' }, class: active_helper(controllers: ['maintain_logs'], 'maintains': ['index', 'show'], active: 'is-active') %>
+    <%= link_to t('crm.admin.maintains.public.title'), { controller: 'crm/admin/maintains', action: 'public' }, data: { turbo_frame: 'body' }, class: active_helper('maintains': 'public', active: 'is-active') %>
+    <%= link_to t('crm.admin.maintain_sources.index.title'), { controller: 'crm/admin/maintain_sources' }, data: { turbo_frame: 'body' }, class: active_helper(controllers: 'maintain_sources', active: 'is-active') %>
+    <%= link_to t('crm.admin.maintain_tags.index.title'), { controller: 'crm/admin/maintain_tags' }, data: { turbo_frame: 'body' }, class: active_helper(controllers: 'maintain_tags', active: 'is-active') %>
   </div>
 </div>
