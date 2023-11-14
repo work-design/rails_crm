@@ -197,6 +197,7 @@ module Crm
         :pipeline_id,
         :client_id,
         :client_member_id,
+        :vendor,
         client_attributes: {},
         agent_attributes: {},
         agency_attributes: {}
