@@ -1,7 +1,7 @@
 <%= form_with model: model, scope: model_name, url: { action: 'update' }, class: 'modal-card' do |f| %>
   <header class="modal-card-head">
     <p class="modal-card-title"><%= t('.title') %></p>
-    <button class="delete" data-action="modal#close"></button>
+    <button type="button" data-action="modal#close" class="delete"></button>
   </header>
   <section class="modal-card-body">
     <%= render 'error_messages', target: f.object if f.object.errors.present? %>
