@@ -19,5 +19,8 @@
     <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
       <%= link_to t('.addresses.index.title'), { controller: 'addresses', maintain_id: @maintain.id } %>
     </li>
+    <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
+      <%= link_to t('.productions.index.title'), { controller: 'productions', maintain_id: @maintain.id } %>
+    </li>
   </ul>
 </div>

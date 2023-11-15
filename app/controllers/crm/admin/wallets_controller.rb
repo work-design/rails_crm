@@ -36,9 +36,5 @@ module Crm
       )
     end
 
-    def self.local_prefixes
-      [controller_path, 'crm/admin/base']
-    end
-
   end
 end
