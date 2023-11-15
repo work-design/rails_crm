@@ -1,4 +1,4 @@
 <%= render partial: 'com/nodes/siblings_select', locals: { f: f } %>
-<%= f.text_field :name, required: true, autocomplete: 'off' %>
+<%= f.text_field :name, required: true, autocomplete: 'off', data: { action: 'form#tip' } %>
 <%= f.number_field :price, step: 0.01 %>
 <%= f.file_field :picture %>
