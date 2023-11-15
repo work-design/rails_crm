@@ -9,12 +9,18 @@ zh:
       maintains:
         index:
           title: 客户列表
-          transfer: 移交
-          detach: 释放
+        transfer:
+          title: 移交
+        detach:
+          title: 释放
         public:
           title: 待分配客户
-          assume: 接收
-          assign: 派单
+        assume:
+          title: 接收
+        assign:
+          title: 派单
+        new_batch:
+          title: 批量增加
         new_detect:
           title: 添加客户
         show:
