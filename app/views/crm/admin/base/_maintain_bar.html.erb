@@ -1,0 +1,23 @@
+<h2 class="title has-text-centered">
+  <%= @maintain.name %>
+</h2>
+
+<div class="tabs">
+  <ul>
+    <li class="<%= active_helper(maintains: ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('.maintains.show.title'), { controller: 'maintains', action: 'show', id: @maintain.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'maintain_logs', active: 'is-active') %>">
+      <%= link_to t('.maintain_logs.index.title'), { controller: 'maintain_logs', maintain_id: @maintain.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
+      <%= link_to t('.orders.index.title'), { controller: 'orders', maintain_id: @maintain.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'wallets', active: 'is-active') %>">
+      <%= link_to t('.wallets.index.title'), { controller: 'wallets', maintain_id: @maintain.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
+      <%= link_to t('.addresses.index.title'), { controller: 'addresses', maintain_id: @maintain.id } %>
+    </li>
+  </ul>
+</div>
