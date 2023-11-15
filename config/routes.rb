@@ -56,8 +56,9 @@ Rails.application.routes.draw do
         end
         collection do
           get :public
+          match :new_batch, via: [:get, :post]
           post :batch
-          match 'detect' => :new_detect, via: [:get, :post]
+          match :new_detect, via: [:get, :post]
           post :create_detect
           get 'assign' => :new_batch_assign
           post 'assign' => :create_batch_assign
