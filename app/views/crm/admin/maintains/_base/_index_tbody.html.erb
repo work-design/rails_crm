@@ -1,5 +1,5 @@
 <td>
-  <p><%= model.client.identity %></p>
+  <p><%= link_to model.client.identity, { action: 'show', id: model.id } %></p>
   <p>
     <span><%= model.client.real_name %></span>
     <% if model.client.nick_name.present? %>
