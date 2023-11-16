@@ -1,5 +1,5 @@
-<%= f.text_field :name %>
-<%= f.text_field :logged_type %>
+<%= f.text_field :name, autocomplete: 'off', data: { action: 'form#tip' } %>
+<%= f.text_field :logged_type, autocomplete: 'off' %>
 <%= f.text_field :entity_column %>
 <%= f.text_field :entity_value %>
 <%= f.text_field :sequence %>
