@@ -1,10 +1,12 @@
-<%# render 'maintain_bar' %>
+<%= render 'maintain_bar' %>
 
-<div class="column">
-  <div class="cards is-4">
-    <%= render partial: 'card', collection: @productions, as: :model, locals: { item_con: 'trade/agent/items' } %>
+<div class="columns">
+  <div class="column">
+    <div class="cards is-4">
+      <%= render partial: 'card', collection: @productions, as: :model, locals: { item_con: 'trade/agent/items' } %>
+    </div>
   </div>
-</div>
-<div class="column is-narrow">
-  <%= render partial: 'cart_nav', locals: { cart_con: 'crm/me/carts', cart: @cart } %>
+  <div class="column is-narrow">
+    <%= render partial: 'cart_nav', locals: { cart_con: 'crm/me/carts', cart: @cart } %>
+  </div>
 </div>

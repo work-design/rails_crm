@@ -10,7 +10,9 @@
   <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:state) %></td>
   <td><%= @maintain.state %></td>
 </tr>
+<% if defined? RailsWechat %>
 <tr>
   <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:add_way) %></td>
   <td><%= @maintain.add_way_i18n %></td>
 </tr>
+<% end %>
