@@ -10,9 +10,6 @@ module Crm
       attribute :items_count, :integer, default: 0
       attribute :carts_count, :integer, default: 0
 
-      belongs_to :client_member, class_name: 'Org::Member', optional: true
-
-
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
 
@@ -58,7 +55,6 @@ module Crm
     end
 
     def sync_user_to_orders
-
       orders.update_all user_id: client.user_id
       wallets.update_all user_id: client.user_id
       cards.update_all user_id: client.user_id
