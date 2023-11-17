@@ -1,4 +1,8 @@
 <%= form_with model: @maintain, url: { action: 'update', id: @maintain.id }, id: 'member_form' do |f| %>
   <%= render 'error_messages', target: f.object if f.object.errors.present? %>
-  <%= f.collection_select :client_member_id, @members, :id, :identity %>
+  <%= f.collection_select :client_member_id, @members, :id, :identity if @members.present? %>
+<% end %>
+
+<%= button_to({ action: 'init_member', id: @maintain.id }) do %>
+  <i class="fa-solid fa-plus"></i>
 <% end %>

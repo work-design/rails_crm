@@ -20,12 +20,6 @@
 <td><%= model.state_i18n %></td>
 <td>
   <p><%= model.client_member_id %></p>
-  <p>
-    <%= button_to({ action: 'edit_member', id: model.id }, class: 'button is-small is-link mb-1') do %>
-      <i class="fa-solid fa-plus"></i>
-      <span class="pl-1"><%= t('.edit_member.title') %></span>
-    <% end %>
-  </p>
 </td>
 <td>
   <p><%= model.maintain_source&.name %></p>
