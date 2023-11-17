@@ -2,15 +2,6 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-clock has-text-primary"></i>
-      <% end %>
-      <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('.detach.title') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
-        <i class="fa-solid fa-hand-holding has-text-success"></i>
-      <% end %>
-      <%= button_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-random has-text-warning"></i>
-      <% end %>
       <%= button_to({ action: 'show', id: model.id }, data: { turbo_scroll: true }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
