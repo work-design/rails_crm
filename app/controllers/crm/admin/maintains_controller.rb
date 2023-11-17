@@ -205,7 +205,7 @@ module Crm
         agency_attributes: {}
       )
       _p.merge! default_form_params
-      _p[:client_attributes].merge! default_form_params
+      _p[:client_attributes].merge! default_form_params if _p[:client_attributes].present?
       _p[:agency_attributes].merge! default_form_params if _p[:agency_attributes].present?
       _p
     end
