@@ -7,5 +7,10 @@
 简单 CRM 架构
 
 
+## 模型及架构
+
+client_id, client.member_id(organ) 构成 1 个 maintain
+
+
 ## 开源协议
 遵循 [MIT](LICENSE) 协议
