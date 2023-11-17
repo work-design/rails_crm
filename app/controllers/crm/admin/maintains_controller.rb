@@ -10,7 +10,6 @@ module Crm
     ]
     before_action :set_new_maintain, only: [:new, :create, :create_detect]
     before_action :set_task_templates, only: [:new, :create_detect, :edit, :update, :edit_assign, :edit_transfer] if defined? RailsBench
-    before_action :set_payment_strategies, only: [:new, :create_detect, :edit, :update] if defined? RailsTrade
     before_action :set_maintain_sources, only: [:index, :public, :create_detect, :new, :create, :edit, :update]
     before_action :set_maintain_tags, only: [:index, :public]
     before_action :set_members, only: [:edit_assign, :edit_transfer]
@@ -174,10 +173,6 @@ module Crm
       pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
       pipeline_params.merge! default_params
       @task_templates = Bench::TaskTemplate.default_where(pipeline_params)
-    end
-
-    def set_payment_strategies
-      @payment_strategies = Trade::PaymentStrategy.default_where(default_params)
     end
 
     def set_maintain_sources
