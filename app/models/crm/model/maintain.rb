@@ -38,6 +38,8 @@ module Crm
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }
+
       after_create_commit :init_stream!
     end
 
@@ -63,6 +65,12 @@ module Crm
     def tags
       ids = maintain_logs.pluck(:maintain_tag_id).uniq
       MaintainTag.cached.slice(*ids).values
+    end
+
+    def sync_user_to_orders
+      orders.update_all member_id: client_member_id, member_organ_id: client_member&.organ_id
+      wallets.update_all member_id: client_member_id, member_organ_id: client_member&.organ_id
+      cards.update_all member_id: client_member_id, member_organ_id: client_member&.organ_id
     end
 
     def transfer!(next_member: pipeline_member&.next_member)
