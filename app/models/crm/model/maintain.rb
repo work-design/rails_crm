@@ -26,17 +26,15 @@ module Crm
       has_many :orders, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Order', primary_key: :member_id, foreign_key: :agent_id
 
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
-      accepts_nested_attributes_for :client, reject_if: :all_blank
-
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name, optional: true
       belongs_to :original, class_name: self.name, optional: true
-
       has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 
+      accepts_nested_attributes_for :client, reject_if: :all_blank
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
