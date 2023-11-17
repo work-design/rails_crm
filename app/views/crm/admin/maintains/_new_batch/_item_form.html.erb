@@ -1,0 +1,15 @@
+<div class="field is-horizontal" data-controller="field" data-field-index-value="<%= ef.index %>">
+  <% if ef.index == 0 %>
+    <%= ef.options[:parent_builder].label :expense_items %>
+  <% else %>
+    <label class="field-label is-normal"></label>
+  <% end %>
+  <div class="field-body">
+    <%= ef.text_field 'maintains[][identity]', id: nil %>
+    <%= ef.text_field 'maintains[][real_name]', id: nil %>
+    <div class="field has-addons is-flex">
+      <i class="fa-solid fa-plus" style="cursor: pointer" data-action="click->field#add"></i>
+      <i class="fa-solid fa-minus pl-1" style="cursor: pointer" data-action="click->field#remove"></i>
+    </div>
+  </div>
+</div>

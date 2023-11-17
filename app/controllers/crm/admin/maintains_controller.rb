@@ -70,7 +70,7 @@ module Crm
       end
     end
 
-    def batch
+    def create_batch
       maintains_params = params.fetch(:maintains, {})
       maintains_params.each do |maintain_params|
         p = maintain_params.permit!
