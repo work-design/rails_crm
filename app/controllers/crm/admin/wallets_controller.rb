@@ -19,11 +19,11 @@ module Crm
     end
 
     def set_new_wallet
-      @wallet = @maintain.wallets.build(wallet_params)
+      @wallet = @client.wallets.build(wallet_params)
     end
 
     def set_new_order
-      @order = @maintain.orders.build
+      @order = @client.orders.build
       @order.items.build
     end
 

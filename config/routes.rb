@@ -1,59 +1,62 @@
 Rails.application.routes.draw do
   scope RailsCom.default_routes_scope do
+    concern :maintainable do
+      resources :orders do
+        collection do
+          get 'cart/:current_cart_id' => :cart
+          post :add
+        end
+        member do
+          post :package
+          post :micro
+          get :payment_types
+          get :print_data
+          get :adjust_edit
+          patch :adjust_update
+        end
+      end
+      resources :items do
+        collection do
+          post :trial
+        end
+        member do
+          patch :toggle
+        end
+      end
+      resources :carts
+      resources :payments do
+        collection do
+          get 'order/:order_id' => :order_new
+          post 'order/:order_id' => :order_create
+        end
+      end
+      resources :wallet_templates
+      resources :wallets, except: [:new] do
+        resources :wallet_payments
+        resources :wallet_advances
+        resources :wallet_logs
+      end
+      resources :card_templates
+      resources :cards do
+        resources :card_purchases
+      end
+      resources :facilitates
+      resources :productions
+      resources :addresses do
+        collection do
+          post :order
+          post :order_from
+          post :order_new
+          post :order_create
+          post :from_new
+          post :from_create
+        end
+      end
+    end
     concern :maintaining do
       resources :maintains do
+        concerns :maintainable
         resources :maintain_logs
-        resources :orders do
-          collection do
-            get 'cart/:current_cart_id' => :cart
-            post :add
-          end
-          member do
-            post :package
-            post :micro
-            get :payment_types
-            get :print_data
-            get :adjust_edit
-            patch :adjust_update
-          end
-        end
-        resources :items do
-          collection do
-            post :trial
-          end
-          member do
-            patch :toggle
-          end
-        end
-        resources :carts
-        resources :payments do
-          collection do
-            get 'order/:order_id' => :order_new
-            post 'order/:order_id' => :order_create
-          end
-        end
-        resources :wallet_templates
-        resources :wallets, except: [:new] do
-          resources :wallet_payments
-          resources :wallet_advances
-          resources :wallet_logs
-        end
-        resources :card_templates
-        resources :cards do
-          resources :card_purchases
-        end
-        resources :facilitates
-        resources :productions
-        resources :addresses do
-          collection do
-            post :order
-            post :order_from
-            post :order_new
-            post :order_create
-            post :from_new
-            post :from_create
-          end
-        end
         collection do
           get :public
           match :new_batch, via: [:get, :post]
@@ -86,6 +89,9 @@ Rails.application.routes.draw do
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
         concerns :maintaining
+        resources :clients do
+          concerns :maintainable
+        end
         resources :maintain_sources do
           collection do
             post :sync

@@ -15,9 +15,9 @@ module Crm
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
-
+      belongs_to :client_member, class_name: 'Org::Member', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
-      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
+
 
       has_many :addresses, ->(o) { where(o.filter_hash) }, class_name: 'Profiled::Address', primary_key: :member_id, foreign_key: :agent_id
       has_many :wallets, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Wallet', primary_key: :member_id, foreign_key: :agent_id
@@ -35,6 +35,7 @@ module Crm
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
+      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
