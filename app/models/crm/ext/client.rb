@@ -10,6 +10,9 @@ module Crm
       attribute :items_count, :integer, default: 0
       attribute :carts_count, :integer, default: 0
 
+      belongs_to :client_member, class_name: 'Org::Member', optional: true
+
+
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
 
@@ -23,6 +26,7 @@ module Crm
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :client_id, dependent: :nullify
 
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
+      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }
     end
 
     def lawful_wallet
@@ -36,6 +40,12 @@ module Crm
       member
     end
 
+    def xx!
+      member = client.init_member_organ!
+      self.client_member = member
+      self.save
+    end
+
     def sync_user_later
       ClientSyncUserJob.perform_later(self)
     end
@@ -47,10 +57,15 @@ module Crm
       end
     end
 
-    def sync_client_to_orders
-      user.orders.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
-      user.wallets.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
-      user.cards.where(organ_id: organ_id, client_id: nil).update_all client_id: self.id
+    def sync_user_to_orders
+      client_user = client.user
+      if client_user
+        client_user.name ||= remark
+        client_user.save
+      end
+      orders.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      wallets.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
+      cards.update_all user_id: client.user_id, member_id: client_member_id, member_organ_id: client_member&.organ_id
     end
 
   end
