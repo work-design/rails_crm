@@ -214,6 +214,7 @@ module Crm
     def search_params
       params.permit(
         :state,
+        :member_id,
         :maintain_source_id,
         'client.nick_name-like',
         'client.real_name-like',
