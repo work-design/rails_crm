@@ -26,14 +26,11 @@ module Crm
     end
 
     def public
-      q_params = {
-        member_id: nil,
-        allow: { member_id: nil }
-      }
+      q_params = {}
       q_params.merge! search_params
       q_params.merge! 'pipeline_member.job_title_id': current_member.lower_job_title_ids + [nil] if current_member
       q_params.merge! default_params
-      @maintains = Maintain.default_where(q_params).page(params[:page])
+      @maintains = Maintainw.where(member_id: nil).default_where(q_params).page(params[:page])
     end
 
     def new_detect
