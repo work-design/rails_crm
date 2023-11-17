@@ -75,7 +75,9 @@ module Crm
       maintains_params.each do |maintain_params|
         p = maintain_params.permit!
         p.merge! default_form_params
-        @maintain = Maintain.create(p)
+        maintain = Maintain.new
+        maintain.build_client(p)
+        maintain.save
       end
     end
 
