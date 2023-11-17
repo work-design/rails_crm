@@ -187,7 +187,7 @@ module Crm
     end
 
     def maintain_params
-      p = params.fetch(:maintain, {}).permit(
+      _p = params.fetch(:maintain, {}).permit(
         :note,
         :remark,
         :pipeline_member_id,
@@ -202,25 +202,10 @@ module Crm
         agent_attributes: {},
         agency_attributes: {}
       )
-      p.merge! default_form_params
-    end
-
-    def update_params
-      maintain_params.merge! params.fetch(:maintain, {}).permit(client_attributes: {}, agent_attributes: {}, agency_attributes: {})
-    end
-
-    def client_params
-      p = params.fetch(:maintain, {}).fetch(:client_attributes, {}).permit!
-      p.merge! default_form_params
-    end
-
-    def agent_params
-      p = params.fetch(:maintain, {}).fetch(:agent_attributes, {}).permit!
-      p.merge! default_form_params
-    end
-
-    def agency_params
-      params.fetch(:maintain, {}).fetch(:agency_attributes, {}).permit!
+      _p.merge! default_form_params
+      _p[:client_attributes].merge! default_form_params
+      _p[:agency_attributes].merge! default_form_params if _p[:agency_attributes].present?
+      _p
     end
 
     def search_params
