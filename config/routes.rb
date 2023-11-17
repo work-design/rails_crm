@@ -92,6 +92,9 @@ Rails.application.routes.draw do
         resources :clients do
           concerns :maintainable
         end
+        resources :organs do
+
+        end
         resources :maintain_sources do
           collection do
             post :sync

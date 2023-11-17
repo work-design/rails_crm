@@ -16,8 +16,9 @@ module Crm
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
       belongs_to :client_member, class_name: 'Org::Member', optional: true
+      belongs_to :client_organ, class_name: 'Org::Organ', optional: true
+      belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
-
 
       has_many :addresses, ->(o) { where(o.filter_hash) }, class_name: 'Profiled::Address', primary_key: :member_id, foreign_key: :agent_id
       has_many :wallets, ->(o) { where(o.filter_hash) }, class_name: 'Trade::Wallet', primary_key: :member_id, foreign_key: :agent_id
@@ -39,8 +40,8 @@ module Crm
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      before_save :sync_organ_from_member, if: -> { client_member_id_changed? }
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_id', 'client_member_id']).present? }
-
       after_create_commit :init_stream!
     end
 
@@ -110,6 +111,10 @@ module Crm
 
     def option_maintain_tags
       MaintainTag.where(organ_id: self.organ_id)
+    end
+
+    def sync_organ_from_member
+      self.client_organ_id = client_member.organ_id
     end
 
   end
