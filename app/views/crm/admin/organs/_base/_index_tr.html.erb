@@ -1,0 +1,42 @@
+<tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+  <%= yield %>
+  <td>
+    <div data-show-target="item" style="visibility: hidden">
+      <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-clock has-text-primary"></i>
+      <% end %>
+      <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('.detach.title') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+        <i class="fa-solid fa-hand-holding has-text-success"></i>
+      <% end %>
+      <%= button_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-random has-text-warning"></i>
+      <% end %>
+      <%= button_to({ action: 'show', id: model.id }, data: { turbo_scroll: true }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-circle-info has-text-info"></i>
+      <% end %>
+      <%= button_to({ action: 'edit', id: model.id }, data: { turbo_scroll: true }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-pencil has-text-link"></i>
+      <% end %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+        <i class="fa-solid fa-trash has-text-danger"></i>
+      <% end %>
+    </div>
+    <div data-show-target="item" style="visibility: hidden" class="mt-2">
+      <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-shopping-cart has-text-primary"></i>
+      <% end %>
+      <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-location-dot"></i>
+      <% end %>
+      <%= link_to({ controller: 'wallets', maintain_id: model.id }, aria: { label: t('.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-wallet"></i>
+      <% end %>
+      <%= link_to({ controller: 'cards', maintain_id: model.id }, aria: { label: t('.cards.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-credit-card"></i>
+      <% end %>
+      <%= link_to({ controller: 'productions', maintain_id: model.id }, aria: { label: t('.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-store"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

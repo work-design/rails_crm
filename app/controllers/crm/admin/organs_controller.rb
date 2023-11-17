@@ -2,7 +2,7 @@ module Crm
   class Admin::OrgansController < Admin::BaseController
 
     def index
-      @organs = Maintain.includes(:client_organ).page(params[:page])
+      @maintains = Maintain.includes(:client_organ).where.not(client_organ_id: nil).page(params[:page])
     end
 
     private
