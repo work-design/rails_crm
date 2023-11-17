@@ -69,6 +69,7 @@ Rails.application.routes.draw do
           match :edit_assign, via: [:get, :post]
           patch :update_assign
           match :edit_member, via: [:get, :post]
+          post :init_member
           patch :assume
           patch :detach
         end

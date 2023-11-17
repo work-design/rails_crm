@@ -5,7 +5,7 @@ module Crm
       :edit_order, :update_order,
       :edit_transfer, :update_transfer,
       :edit_assign, :update_assign,
-      :edit_member,
+      :edit_member, :init_member,
       :detach, :assume
     ]
     before_action :set_new_maintain, only: [:new, :create, :create_detect]
@@ -137,6 +137,12 @@ module Crm
 
     def edit_member
       @members = @maintain.client.pending_members
+    end
+
+    def init_member
+      member = @maintain.client.init_member_organ!
+      @maintain.client_member = member
+      @maintain.save
     end
 
     def detach
