@@ -92,8 +92,8 @@ Rails.application.routes.draw do
         resources :clients do
           concerns :maintainable
         end
-        resources :organs do
-
+        resources :client_members do
+          concerns :maintainable
         end
         resources :maintain_sources do
           collection do

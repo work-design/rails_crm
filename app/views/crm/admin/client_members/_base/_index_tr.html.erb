@@ -13,19 +13,19 @@
       <% end %>
     </div>
     <div data-show-target="item" style="visibility: hidden" class="mt-2">
-      <%= link_to({ controller: 'orders', maintain_id: model.id }, aria: { label: t('.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'orders', client_member_id: model.client_member_id }, aria: { label: t('.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-shopping-cart has-text-primary"></i>
       <% end %>
-      <%= link_to({ controller: 'addresses', maintain_id: model.id }, aria: { label: t('.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'addresses', client_member_id: model.client_member_id }, aria: { label: t('.addresses.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-location-dot"></i>
       <% end %>
-      <%= link_to({ controller: 'wallets', maintain_id: model.id }, aria: { label: t('.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'wallets', client_member_id: model.client_member_id }, aria: { label: t('.wallets.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-wallet"></i>
       <% end %>
-      <%= link_to({ controller: 'cards', maintain_id: model.id }, aria: { label: t('.cards.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'cards', client_member_id: model.client_member_id }, aria: { label: t('.cards.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-credit-card"></i>
       <% end %>
-      <%= link_to({ controller: 'productions', maintain_id: model.id }, aria: { label: t('.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= link_to({ controller: 'productions', client_member_id: model.client_member_id }, aria: { label: t('.productions.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-store"></i>
       <% end %>
     </div>

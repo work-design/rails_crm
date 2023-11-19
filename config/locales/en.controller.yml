@@ -43,6 +43,9 @@ en:
           title: 为客户下单
         add:
           title: 生成订单
+      client_members:
+        index:
+          title: Clients
       maintain_logs:
         index:
           title: Logs
