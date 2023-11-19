@@ -8,7 +8,11 @@ module Crm
     def set_cart
       options = { agent_id: current_member.id }
       options.merge! default_params
-      options.merge! client_id: @client.id
+      if params[:client_member_id]
+        options.merge! member_id: @client.id
+      else
+        options.merge! client_id: @client.id
+      end
       @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       @cart.compute_amount! unless @cart.fresh
     end
