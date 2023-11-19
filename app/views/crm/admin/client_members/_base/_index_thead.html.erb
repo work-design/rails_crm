@@ -1,4 +1,4 @@
-<th></th>
+<th><%= Crm::Maintain.human_attribute_name(:client_organ_id) %></th>
 <th>
   <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
   <p>
@@ -8,9 +8,6 @@
   <p><%= Profiled::Profile.human_attribute_name(:remark) %></p>
 </th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
-<th>
-  <p><%= Crm::Maintain.human_attribute_name(:client_member_id) %></p>
-</th>
 <th>
   <div>
     <%= Crm::Maintain.human_attribute_name(:maintain_source_id) %>
