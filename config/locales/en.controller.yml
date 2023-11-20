@@ -8,7 +8,7 @@ en:
           title: CRM
       maintains:
         index:
-          title: Clients
+          title: Maintains
         transfer:
           title: Transfer
         detach:
@@ -46,6 +46,9 @@ en:
       client_members:
         index:
           title: Clients
+      client_organs:
+        index:
+          title: Client Organs
       maintain_logs:
         index:
           title: Logs

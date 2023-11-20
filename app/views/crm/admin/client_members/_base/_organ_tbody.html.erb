@@ -1,5 +1,5 @@
 <tr>
   <td rowspan="<%= size %>">
-    <span><%= organ&.name %></span>
+    <span><%= link_to organ.name, { controller: 'client_organs', action: 'show', id: organ.id } if organ %></span>
   </td>
 </tr>

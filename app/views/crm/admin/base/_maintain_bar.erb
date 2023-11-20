@@ -2,6 +2,8 @@
   <%= render 'client_bar' %>
 <% elsif params[:client_member_id] %>
   <%= render 'client_member_bar' %>
+<% elsif params[:client_organ_id] %>
+  <%= render 'client_organ_bar' %>
 <% else %>
   <%= render 'maintain_x_bar' %>
 <% end %>
