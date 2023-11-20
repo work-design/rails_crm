@@ -6,7 +6,7 @@ module Crm
 
     private
     def set_new_item
-      options = {}
+      options = { agent_id: current_member.id }
       options.merge! common_maintain_params
       options.merge! params.permit(:good_type, :good_id, :aim, :number, :produce_on, :scene_id, :current_cart_id)
 
