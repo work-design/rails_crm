@@ -1,0 +1,12 @@
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+<%= render 'button' %>
+
+<%= render layout: 'index_table' do %>
+  <% @maintains.group_by(&:client_organ).each do |client_organ, maintains| %>
+    <%= render partial: 'organ_tbody', locals: { organ: client_organ, size: maintains.size + 1 } %>
+    <%= render partial: 'index_tbody', layout: 'index_tr', collection: maintains, as: :model %>
+  <% end %>
+<% end %>
+
+<%= paginate @maintains %>

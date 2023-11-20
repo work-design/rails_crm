@@ -1,0 +1,22 @@
+<%= render 'client_organ_bar' %>
+
+<div class="cards is-4">
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <strong><%= @client.orders.count %></strong>
+      <p>Orders Count</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <strong><%= @client.members.count %></strong>
+      <p>Contacts Count</p>
+    </div>
+  </div>
+</div>
+
+<table class="table is-fullwidth is-hoverable as-show">
+  <tbody>
+    <%= render 'show_table' %>
+  </tbody>
+</table>

@@ -16,6 +16,9 @@
     <li class="<%= active_helper(controllers: 'wallets', active: 'is-active') %>">
       <%= link_to t('.wallets.index.title'), { controller: 'wallets', maintain_id: @maintain.id } %>
     </li>
+    <li class="<%= active_helper(controllers: 'cards', active: 'is-active') %>">
+      <%= link_to t('.cards.index.title'), { controller: 'cards', maintain_id: @maintain.id } %>
+    </li>
     <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
       <%= link_to t('.addresses.index.title'), { controller: 'addresses', maintain_id: @maintain.id } %>
     </li>
