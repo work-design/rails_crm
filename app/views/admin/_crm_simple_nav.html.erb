@@ -7,7 +7,7 @@
   <div class="menu-list">
     <%= link_to t('crm.admin.client_members.index.title'), { controller: 'crm/admin/client_members' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'client_members', active: 'is-active') %>
     <%= link_to t('crm.admin.maintains.index.title'), { controller: 'crm/admin/maintains' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'maintains', active: 'is-active') %>
-    <%= link_to t('profiled.admin.profiles.index.title'), { controller: 'profiled/admin/profiles' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'profiles', active: 'is-active') %>
+    <%= link_to t('crm.admin.clients.index.title'), { controller: 'crm/admin/clients' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'clients', active: 'is-active') %>
     <%= link_to t('crm.admin.maintain_sources.index.title'), { controller: 'crm/admin/maintain_sources' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'maintain_sources', active: 'is-active') %>
     <%= link_to t('crm.admin.maintain_tags.index.title'), { controller: 'crm/admin/maintain_tags' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'maintain_tags', active: 'is-active') %>
   </div>
