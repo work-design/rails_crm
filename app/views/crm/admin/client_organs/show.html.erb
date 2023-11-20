@@ -1,14 +1,21 @@
 <%= render 'client_organ_bar' %>
 
+<div class="cards is-4">
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <strong><%= @client.orders.count %></strong>
+      <p>Orders Count</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content has-text-centered">
+      <strong><%= @client.members.count %></strong>
+      <p>Contacts Count</p>
+    </div>
+  </div>
+</div>
+
 <table class="table is-fullwidth is-hoverable as-show">
-  <thead>
-  <tr>
-    <th></th>
-    <th>
-      <%= link_to t('.edit.title'), { action: 'edit' }, class: 'button is-small is-link' %>
-    </th>
-  </tr>
-  </thead>
   <tbody>
   <%= render 'show_table' %>
   </tbody>
