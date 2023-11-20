@@ -81,7 +81,7 @@ en:
         order_new:
           title: 创建收货地址
         new:
-          title: 新增地址
+          title: Create Address
       wallets:
         index:
           title: Wallets
