@@ -49,6 +49,9 @@ en:
       client_organs:
         index:
           title: Client Organs
+      members:
+        index:
+          title: Contacts
       maintain_logs:
         index:
           title: Logs
