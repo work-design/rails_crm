@@ -1,10 +1,6 @@
 <th>
   <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
-  <p>
-    <span><%= Crm::Maintain.human_attribute_name('client.real_name') %></span>
-    <span class="has-text-grey">（<%= Crm::Maintain.human_attribute_name('client.nick_name') %>）</span>
-  </p>
-  <p><%= Profiled::Profile.human_attribute_name(:remark) %></p>
+  <p><%= Crm::Maintain.human_attribute_name(:name) %></p>
 </th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
 <th>
