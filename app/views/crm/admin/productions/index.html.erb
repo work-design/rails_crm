@@ -1,12 +1,21 @@
 <%= render 'maintain_bar' %>
 
-<div class="columns">
-  <div class="column">
-    <div class="cards is-3">
-      <%= render partial: 'card', collection: @productions, as: :model, locals: { item_con: 'trade/agent/items' } %>
-    </div>
+<%= render 'filter_form' %>
+
+<%= render layout: 'index_raw_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @productions, as: :model %>
+<% end %>
+
+<%= paginate @productions %>
+
+<div class="is-fixed-bottom level p-3 has-background-light" style="margin-left: -0.75rem">
+  <div class="level-left">
+    <%= @cart.amount.to_money.format.html_safe %>
   </div>
-  <div class="column is-narrow">
-    <%= render partial: 'cart_nav', locals: { cart_con: 'trade/agent/carts', cart: @cart } if @cart %>
+  <div class="level-right">
+    <%= link_to({ controller: 'orders', action: 'cart', current_cart_id: @cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
+      <i class="fa-solid fa-credit-card"></i>
+      <span class="pl-1"><%= t('factory.in.orders.new.title') %></span>
+    <% end %>
   </div>
 </div>

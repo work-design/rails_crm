@@ -1,0 +1,25 @@
+<td>
+  <%= link_to({ action: 'show', id: model.id }, class: 'is-several') do %>
+    <%= image_tag model.product.logo, class: 'image is-24x24' if model.product.logo.attached? %>
+    <span><%= model.name %></span>
+  <% end %>
+</td>
+<td>
+  <table class="table is-borderless">
+  <% model.parts.each do |part| %>
+    <tr>
+      <td><span class="tag"><%= link_to part.name, { controller: 'products', action: 'show', id: part.id } %></span></td>
+      <td><%# part.price %></td>
+    </tr>
+  <% end %>
+  </table>
+</td>
+<td><%= model.price.to_money.format.html_safe %></td>
+<td class="has-text-centered">
+<% if item = @cart.organ_item(good_id: model.id, produce_on: params[:produce_on], scene_id: params[:scene_id]) %>
+  <%= render partial: 'cart', locals: { model: model, item_con: 'items', item: item, cart: @cart } %>
+<% else %>
+  <%= render partial: 'add_cart', locals: { model: model, item_con: 'items', cart: @cart } %>
+<% end %>
+</td>
+<td></td>
