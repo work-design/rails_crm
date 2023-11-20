@@ -32,7 +32,7 @@ module Crm
 
     private
     def set_new_order
-      @order = @maintain.orders.build(order_params)
+      @order = @client.orders.build(order_params)
     end
 
     def set_order

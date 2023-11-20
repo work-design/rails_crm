@@ -33,7 +33,7 @@ module Crm
     end
 
     def set_new_address
-      @address = @maintain.addresses.build(address_params)
+      @address = @client.addresses.build(address_params)
       @address.area ||= Profiled::Area.new
     end
 
