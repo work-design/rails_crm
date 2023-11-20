@@ -2,7 +2,8 @@ module Crm
   class Admin::ItemsController < Trade::Admin::ItemsController
     include Controller::Admin
     before_action :set_common_maintain
-    before_action :set_cart, only: [:create]
+    before_action :set_cart, only: [:create, :update, :destroy]
+    before_action :set_cart_item, only: [:update, :destroy]
     before_action :set_new_item, only: [:create]
 
     private
@@ -17,6 +18,10 @@ module Crm
         options.merge! common_maintain_params
         @cart = Trade::Cart.where(options).find_or_create_by(good_type: params[:good_type], aim: params[:aim].presence || 'use')
       end
+    end
+
+    def set_cart_item
+      @item = @cart.items.load.find params[:id]
     end
 
     def set_new_item
