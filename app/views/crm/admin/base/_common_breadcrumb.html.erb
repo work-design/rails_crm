@@ -1,0 +1,9 @@
+<% if params[:client_id] %>
+  <li><%= link_to t('.maintains.index.title'), { controller: 'maintains' } %></li>
+<% elsif params[:client_member_id] %>
+  <li><%= link_to t('.client_members.index.title'), { controller: 'client_members' } %></li>
+<% elsif params[:client_organ_id] %>
+  <li><%= link_to t('.client_members.index.title'), { controller: 'client_members' } %></li>
+<% else %>
+  <li><%= link_to t('.maintains.index.title'), { controller: 'maintains' } %></li>
+<% end %>
