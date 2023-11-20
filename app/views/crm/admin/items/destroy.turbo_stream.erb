@@ -1,0 +1,2 @@
+<%= turbo_stream.replace 'cart_nav', partial: 'cart_nav', locals: { cart: @item.current_cart, cart_con: controller_path.sub('items', 'carts') } %>
+<%= turbo_stream.replace "cart_#{@item.purchase_id}_#{@item.good_id}", partial: 'add_purchase_cart', locals: { cart: @item.current_cart, model: @item.good, item_con: controller_path } %>
