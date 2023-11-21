@@ -4,7 +4,7 @@ module Crm
     before_action :set_new_client, only: [:new, :create]
 
     def index
-      @maintains = Maintain.includes(:client, :client_member, :client_organ).where.not(client_member_id: nil).page(params[:page])
+      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).page(params[:page])
     end
 
     def show
