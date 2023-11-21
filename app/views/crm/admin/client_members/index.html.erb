@@ -1,6 +1,5 @@
 <%= render 'filter_form' %>
 <%= render 'filter_table' %>
-<%= render 'button' %>
 
 <%= render layout: 'index_table' do %>
   <% @maintains.group_by(&:client_organ).each do |client_organ, maintains| %>
