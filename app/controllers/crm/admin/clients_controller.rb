@@ -1,13 +1,30 @@
 module Crm
   class Admin::ClientsController < Admin::BaseController
-    before_action :set_client, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_client, only: [
+      :show, :edit, :update, :destroy, :actions,
+      :edit_assign, :update_assign
+    ]
     before_action :set_new_client, only: [:new, :create]
 
     def index
       @clients = Profiled::Profile.includes(:client_maintains, :pending_members).order(id: :desc).page(params[:page])
     end
 
-    def show
+    def edit_assign
+      pipeline_params = {
+        piping_type: 'Maintain',
+        piping_id: nil,
+        'pipeline_members.position': 1
+      }
+      pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
+      pipeline_params.merge! default_params
+
+      @members = Org::Member.default_where(default_params)
+    end
+
+    def update_assign
+      @maintain = @client.client_maintains.build(maintain_params)
+      @maintain.save
     end
 
     private
@@ -29,6 +46,12 @@ module Crm
         :nick_name
       )
       _p.merge! default_form_params
+    end
+
+    def maintain_params
+      params.fetch(:maintain, {}).permit(
+        :member_id
+      )
     end
 
   end
