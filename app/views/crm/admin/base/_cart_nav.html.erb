@@ -5,7 +5,7 @@
   <div class="level-right">
     <%= link_to({ controller: 'orders', action: 'cart', current_cart_id: cart.id, **params.permit!.slice('factory_taxon_id') }, class: 'button is-success') do %>
       <i class="fa-solid fa-credit-card"></i>
-      <span class="pl-1"><%= t('factory.in.orders.new.title') %></span>
+      <span class="pl-1"><%= t('.orders.cart.title') %></span>
     <% end %>
   </div>
 </div>

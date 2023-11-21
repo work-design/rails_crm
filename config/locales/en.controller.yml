@@ -43,6 +43,8 @@ en:
           title: 为客户下单
         add:
           title: 生成订单
+        cart:
+          title: Confirm Order
       clients:
         index:
           title: Contacts
