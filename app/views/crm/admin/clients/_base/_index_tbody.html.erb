@@ -1,4 +1,4 @@
-<td>
+<td rowspan="<%= model.client_maintains.size + 1 %>">
   <p><%= link_to model.identity, { action: 'show', id: model.id } %></p>
   <p>
     <span><%= model.real_name %></span>
@@ -7,13 +7,8 @@
     <% end %>
   </p>
 </td>
-<td><%=  %></td>
-<td>
-  <p><%=  %></p>
-</td>
-<td>
-</td>
-<td>
+<td rowspan="<%= model.client_maintains.size + 1 %>">
   <p class="has-text-grey"><%= model.name %></p>
   <p class="has-text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
 </td>
+<td colspan="7" class="<%= model.client_maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>

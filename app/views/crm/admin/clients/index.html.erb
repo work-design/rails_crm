@@ -2,7 +2,7 @@
 <%= render 'filter_table' %>
 <%= render 'button' %>
 
-<%= render layout: 'index_table' do %>
+<%= render layout: 'index_raw_table' do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @clients, as: :model %>
 <% end %>
 
