@@ -38,9 +38,9 @@ en:
         index:
           title: Orders
         new:
-          title: 为客户下单
+          title: Create Order
         create:
-          title: 为客户下单
+          title: Submit Order
         add:
           title: 生成订单
         cart:
