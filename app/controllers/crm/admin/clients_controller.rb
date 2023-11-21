@@ -4,7 +4,7 @@ module Crm
     before_action :set_new_client, only: [:new, :create]
 
     def index
-      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).page(params[:page])
+      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).order(id: :desc).page(params[:page])
     end
 
     def show
@@ -20,7 +20,7 @@ module Crm
     end
 
     def set_client
-      @client = Org::Member.where.associated(:client_maintains).where(client_maintains: { organ_id: current_organ.id }).find params[:id]
+      @client = Profiled::Profile.default_where(default_params).find params[:id]
     end
 
     def client_params

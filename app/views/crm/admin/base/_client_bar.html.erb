@@ -4,7 +4,7 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(maintains: ['show', 'edit'], active: 'is-active') %>">
+    <li class="<%= active_helper(clients: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.clients.show.title'), { controller: 'clients', action: 'show', id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">

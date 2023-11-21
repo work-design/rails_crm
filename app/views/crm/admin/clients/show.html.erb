@@ -1,4 +1,4 @@
-<%= render 'client_organ_bar' %>
+<%= render 'client_bar' %>
 
 <div class="cards is-4">
   <div class="card">
@@ -9,7 +9,7 @@
   </div>
   <div class="card">
     <div class="card-content has-text-centered">
-      <strong><%= @client.members.count %></strong>
+      <strong><%= @client.pending_members.count %></strong>
       <p>Contacts Count</p>
     </div>
   </div>
