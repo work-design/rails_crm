@@ -52,6 +52,9 @@ en:
       client_organs:
         index:
           title: Client Organs
+      items:
+        create:
+          title: Add To Cart
       members:
         index:
           title: Contacts
