@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: c1354d9d4b8d16c0305d30cf37f3de26eaeff801
+  revision: 34a69f7d2c1eaab7f4b76e5cb5ba81e1e1b2eae3
   specs:
     rails_com (1.3.0)
       acme-client
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: d288582be83dfb212335670384933376d2b523b5
+  revision: 6d5404a98e679b9ce8251e0b134feb4b2305c9b8
   specs:
     rails_design (0.0.1)
       rails
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: a173d19a5f8fcb658a51772c3c4fc38a215b552f
+  revision: 8ce6a9bc78f8ec7c40c3a39d6cbe7fafb52897e2
   specs:
     rails_trade (0.0.3)
       money-rails (~> 1.14)
@@ -178,7 +178,7 @@ GEM
       thor (>= 0.14.1)
     http-2-next (1.0.1)
     http-form_data (2.3.0)
-    httpx (1.1.2)
+    httpx (1.1.4)
       http-2-next (>= 1.0.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -364,7 +364,7 @@ CHECKSUMS
   good_job (3.21.1)
   http-2-next (1.0.1) sha256=255a0c0f0d35e8b5352d3bc5b2bdb3643a27a65e0da7f10a7f2f75e1c23ae640
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
-  httpx (1.1.2)
+  httpx (1.1.4)
   i18n (1.14.1) sha256=9d03698903547c060928e70a9bc8b6b87fda674453cda918fc7ab80235ae4a61
   io-console (0.6.0) sha256=ce9d9a3455be48c56cac65b8ef7ec59b07526343905f9fda138791005b563336
   irb (1.9.0) sha256=bb7c14302574c8c03c81ba6630878dfea7aa7238e666a67ccfa445c34a624214
