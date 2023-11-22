@@ -1,1 +1,4 @@
 <%= f.text_field :name, autocomplete: 'off' %>
+<%= f.fields :settings do |ef| %>
+  <%= ef.text_field :xx %>
+<% end %>
