@@ -10,7 +10,7 @@ module Crm
       q_params = {}
       q_params.merge! default_params
 
-      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
+      @contacts = Contact.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def edit_assign
@@ -36,11 +36,11 @@ module Crm
     end
 
     def set_new_client
-      @client = Profiled::Profile.new(client_params)
+      @client = Contact.new(client_params)
     end
 
     def set_client
-      @client = Profiled::Profile.default_where(default_params).find params[:id]
+      @client = Contact.default_where(default_params).find params[:id]
     end
 
     def client_params
