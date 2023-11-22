@@ -31,10 +31,6 @@ module Crm
     end
 
     private
-    def modal_name
-      'client'
-    end
-
     def set_new_client
       @client = Client.new(client_params)
     end

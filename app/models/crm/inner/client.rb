@@ -21,9 +21,6 @@ module Crm
       has_many :cards, class_name: 'Trade::Card', foreign_key: :client_id, dependent: :nullify
       has_many :orders, class_name: 'Trade::Order', foreign_key: :client_id, dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :client_id, dependent: :nullify
-
-      after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
-      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['user_id']).present? }
     end
 
     def lawful_wallet

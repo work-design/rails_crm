@@ -14,6 +14,9 @@ module Crm
       belongs_to :client
 
       has_one_attached :avatar
+
+      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['user_id']).present? }
+      after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
     end
 
   end
