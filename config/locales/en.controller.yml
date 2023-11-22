@@ -47,18 +47,21 @@ en:
           title: Confirm Order
       clients:
         index:
-          title: Contacts
+          title: Clients
         edit_assign:
           title: Assign
       client_members:
         index:
-          title: Clients
+          title: Client Members
       client_organs:
         index:
           title: Client Organs
       client_maintains:
         index:
           title: Maintains
+      contacts:
+        index:
+          title: Contacts
       items:
         create:
           title: Add To Cart
