@@ -28,7 +28,7 @@ module Crm
       belongs_to :upstream, class_name: self.name, optional: true
       belongs_to :original, class_name: self.name, optional: true
 
-      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
       has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]

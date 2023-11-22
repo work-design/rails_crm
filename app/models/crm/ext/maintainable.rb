@@ -4,7 +4,8 @@ module Crm
 
     included do
       #belongs_to :maintain, class_name: 'Crm::Maintain', counter_cache: true, optional: true
-      belongs_to :client, class_name: 'Profiled::Profile', optional: true
+      belongs_to :client, class_name: 'Crm::Client', optional: true
+      belongs_to :contact, class_name: 'Crm::Contact', optional: true
       belongs_to :agent, class_name: 'Org::Member', optional: true
       accepts_nested_attributes_for :client
 
