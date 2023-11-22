@@ -13,6 +13,7 @@ module Crm
 
       belongs_to :client, optional: true
 
+      has_many :pending_members, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :contact_id, inverse_of: :contact
       has_many :addresses, class_name: 'Profiled::Address', foreign_key: :contact_id, dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', foreign_key: :contact_id, dependent: :nullify

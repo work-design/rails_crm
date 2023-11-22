@@ -13,7 +13,6 @@ module Crm
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
 
-      has_many :pending_members, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
 
       has_one :lawful_wallet, class_name: 'Trade::LawfulWallet', foreign_key: :client_id
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
