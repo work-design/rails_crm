@@ -7,6 +7,9 @@
     <li class="<%= active_helper(clients: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.clients.show.title'), { controller: 'clients', action: 'show', id: @client.id } %>
     </li>
+    <li class="<%= active_helper(controllers: 'client_maintains', active: 'is-active') %>">
+      <%= link_to t('.client_maintains.index.title'), { controller: 'client_maintains', client_id: @client.id } %>
+    </li>
     <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
       <%= link_to t('.orders.index.title'), { controller: 'orders', client_id: @client.id } %>
     </li>

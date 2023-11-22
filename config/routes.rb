@@ -95,6 +95,7 @@ Rails.application.routes.draw do
             match :edit_assign, via: [:get, :post]
             patch :update_assign
           end
+          resources :client_maintains
         end
         resources :client_members do
           concerns :maintainable
