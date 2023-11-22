@@ -46,7 +46,8 @@ module Crm
     def client_params
       _p = params.fetch(:client, {}).permit(
         :identity,
-        :nick_name
+        :nick_name,
+        :real_name
       )
       _p.merge! default_form_params
     end
