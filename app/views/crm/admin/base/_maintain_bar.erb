@@ -1,5 +1,7 @@
 <% if params[:client_id] %>
   <%= render 'client_bar' %>
+<% elsif params[:contact_id] %>
+  <%= render 'contact_bar' %>
 <% elsif params[:client_member_id] %>
   <%= render 'client_member_bar' %>
 <% elsif params[:client_organ_id] %>

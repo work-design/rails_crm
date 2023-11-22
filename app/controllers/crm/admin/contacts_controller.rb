@@ -36,7 +36,7 @@ module Crm
     end
 
     def set_contact
-      @contact = Contact.default_where(default_params).find params[:id]
+      @client = Contact.default_where(default_params).find params[:id]
     end
 
     def contact_params

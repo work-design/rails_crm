@@ -62,6 +62,8 @@ en:
       contacts:
         index:
           title: Contacts
+        show:
+          title: Contact
       items:
         create:
           title: Add To Cart
