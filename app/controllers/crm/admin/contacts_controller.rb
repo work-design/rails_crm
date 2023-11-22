@@ -1,10 +1,10 @@
 module Crm
   class Admin::ContactsController < Admin::BaseController
-    before_action :set_client, only: [
+    before_action :set_contact, only: [
       :show, :edit, :update, :destroy, :actions,
       :edit_assign, :update_assign
     ]
-    before_action :set_new_client, only: [:new, :create]
+    before_action :set_new_contact, only: [:new, :create]
 
     def index
       q_params = {}
@@ -31,23 +31,18 @@ module Crm
     end
 
     private
-    def modal_name
-      'client'
+    def set_new_contact
+      @contact = Contact.new(contact_params)
     end
 
-    def set_new_client
-      @client = Contact.new(client_params)
+    def set_contact
+      @contact = Contact.default_where(default_params).find params[:id]
     end
 
-    def set_client
-      @client = Contact.default_where(default_params).find params[:id]
-    end
-
-    def client_params
-      _p = params.fetch(:client, {}).permit(
+    def contact_params
+      _p = params.fetch(:contact, {}).permit(
         :identity,
-        :nick_name,
-        :real_name
+        :name
       )
       _p.merge! default_form_params
     end

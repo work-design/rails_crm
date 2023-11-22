@@ -10,6 +10,8 @@ module Crm
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :client_organ, class_name: 'Org::Organ', optional: true
+
+      has_many :contacts
     end
 
   end
