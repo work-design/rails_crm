@@ -5,6 +5,7 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
+      attribute :name, :string
       attribute :settings, :json, default: {}
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
