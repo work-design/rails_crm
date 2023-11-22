@@ -7,7 +7,10 @@ module Crm
     before_action :set_new_client, only: [:new, :create]
 
     def index
-      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).order(id: :desc).page(params[:page])
+      q_params = {}
+      q_params.merge! default_params
+
+      @clients = Profiled::Profile.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def edit_assign
