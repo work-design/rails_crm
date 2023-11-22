@@ -97,6 +97,7 @@ Rails.application.routes.draw do
           end
           resources :client_maintains
         end
+        resources :contacts
         resources :client_members do
           concerns :maintainable
         end

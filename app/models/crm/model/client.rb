@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Crm
-  module Model::ContactOrgan
+  module Model::Client
     extend ActiveSupport::Concern
 
     included do

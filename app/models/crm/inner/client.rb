@@ -1,5 +1,5 @@
 module Crm
-  module Ext::Client
+  module Inner::Client
     extend ActiveSupport::Concern
 
     included do
