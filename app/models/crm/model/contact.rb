@@ -11,7 +11,7 @@ module Crm
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :account, -> { where(confirmed: true) }, class_name: 'Auth::Account', foreign_key: :identity, primary_key: :identity, optional: true
 
-      belongs_to :client
+      belongs_to :client, optional: true
 
       has_one_attached :avatar
 
