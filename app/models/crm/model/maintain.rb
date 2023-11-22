@@ -45,10 +45,6 @@ module Crm
       after_create_commit :init_stream!
     end
 
-    def filter_hash
-      { client_id: client_id }
-    end
-
     def init_stream!
       self.upstream ||= self
       self.original ||= self
