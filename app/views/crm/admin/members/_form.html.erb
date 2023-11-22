@@ -1,2 +1,4 @@
-<%= f.text_field :name, autocomplete: 'off' %>
-<%= f.text_field :identity, autocomplete: 'off' %>
+<%= f.fields :client do |ef| %>
+  <%= ef.text_field :nick_name, autocomplete: 'off' %>
+  <%= ef.text_field :identity, autocomplete: 'off' %>
+<% end %>

@@ -12,6 +12,7 @@
         <i class="fa-solid fa-trash has-text-danger"></i>
       <% end %>
     </div>
+    <% if model.client_member_id %>
     <div data-show-target="item" style="visibility: hidden" class="mt-2">
       <%= link_to({ controller: 'orders', client_member_id: model.client_member_id }, aria: { label: t('.orders.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-shopping-cart has-text-primary"></i>
@@ -29,5 +30,6 @@
         <i class="fa-solid fa-store"></i>
       <% end %>
     </div>
+    <% end %>
   </td>
 </tr>

@@ -20,18 +20,19 @@ module Crm
       belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
 
-      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-
       belongs_to :client, class_name: 'Profiled::Profile', inverse_of: :client_maintains
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name, optional: true
       belongs_to :original, class_name: self.name, optional: true
+
+      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+
       has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 

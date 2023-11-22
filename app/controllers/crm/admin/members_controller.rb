@@ -12,8 +12,8 @@ module Crm
     end
 
     private
-    def modal_name
-      'member'
+    def model_name
+      'maintain'
     end
 
     def set_client_organ
@@ -21,14 +21,17 @@ module Crm
     end
 
     def set_new_member
-      @member = @client.members.build(member_params)
+      @maintain = @client.client_maintains.build(maintain_params)
+      @maintain.build_client
     end
 
-    def member_params
-      params.fetch(:member, {}).permit(
-        :identity,
-        :name
+    def maintain_params
+      _p = params.fetch(:maintain, {}).permit(
+        :remark,
+        client_attributes: [:identity, :nick_name]
       )
+      _p.merge! default_form_params
+      _p.merge! member_id: current_member.id
     end
 
   end
