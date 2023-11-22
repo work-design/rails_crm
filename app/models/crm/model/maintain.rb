@@ -20,7 +20,7 @@ module Crm
       belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
 
-      belongs_to :client, inverse_of: :client_maintains
+      belongs_to :client, inverse_of: :client_maintains, optional: true
       belongs_to :contact, optional: true
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
