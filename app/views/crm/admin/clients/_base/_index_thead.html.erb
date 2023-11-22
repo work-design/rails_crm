@@ -1,10 +1,6 @@
 <th>
   <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
-  <p>
-    <span><%= Crm::Maintain.human_attribute_name('client.real_name') %></span>
-    <span class="has-text-grey">（<%= Crm::Maintain.human_attribute_name('client.nick_name') %>）</span>
-  </p>
-  <p><%= Profiled::Profile.human_attribute_name(:remark) %></p>
+  <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
 </th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
 <th>
@@ -27,7 +23,7 @@
 <th>
   <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name(:member_id) %></p>
 </th>
-<th></th>
-<th></th>
+<th>  <p><%= Crm::Maintain.human_attribute_name(:remark) %></p>
+</th>
 <th></th>
 <th></th>
