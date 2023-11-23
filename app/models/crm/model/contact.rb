@@ -7,6 +7,12 @@ module Crm
       attribute :name, :string
       attribute :identity, :string
       attribute :extra, :json, default: {}
+      attribute :wallets_count, :integer, default: 0
+      attribute :cards_count, :integer, default: 0
+      attribute :orders_count, :integer, default: 0
+      attribute :addresses_count, :integer, default: 0
+      attribute :items_count, :integer, default: 0
+      attribute :carts_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :account, -> { where(confirmed: true) }, class_name: 'Auth::Account', foreign_key: :identity, primary_key: :identity, optional: true
