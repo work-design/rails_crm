@@ -10,7 +10,7 @@ module Crm
       attribute :sequence, :integer, default: 1
       attribute :manual, :boolean, default: true
       attribute :color, :string, default: '#2A92CA'
-      attribute :maintain_logs_count, :integer, default: 0
+      attribute :notes_count, :integer, default: 0
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
 

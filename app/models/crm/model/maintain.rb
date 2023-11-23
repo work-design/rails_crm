@@ -33,9 +33,9 @@ module Crm
       has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :notes, primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+      has_many :notes, primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:member_id, :client_id, :contact_id]
 
-      has_many :maintain_tags, -> { distinct }, through: :maintain_logs
+      has_many :maintain_tags, -> { distinct }, through: :notes
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
       accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
@@ -63,7 +63,7 @@ module Crm
     end
 
     def tags
-      ids = maintain_logs.pluck(:maintain_tag_id).uniq
+      ids = notes.pluck(:maintain_tag_id).uniq
       MaintainTag.cached.slice(*ids).values
     end
 
