@@ -1,14 +1,14 @@
 <th>
-  <%= Crm::MaintainLog.human_attribute_name(:maintain_tag_id) %>
+  <%= Crm::Note.human_attribute_name(:maintain_tag_id) %>
   <%= link_to({ controller: 'maintain_tags' }, aria: { label: '标签设置' }, target: '_blank') do %>
     <i class="fa-solid fa-cog"></i>
   <% end %>
 </th>
-<th><%= Crm::MaintainLog.human_attribute_name(:note) %></th>
+<th><%= Crm::Note.human_attribute_name(:content) %></th>
 <th>
-  <p><%= Crm::MaintainLog.human_attribute_name(:logged_type) %></p>
-  <p><%= Crm::MaintainLog.human_attribute_name(:logged_id) %></p>
+  <p><%= Crm::Note.human_attribute_name(:logged_type) %></p>
+  <p><%= Crm::Note.human_attribute_name(:logged_id) %></p>
 </th>
-<th><%= Crm::MaintainLog.human_attribute_name(:extra) %></th>
-<th><%= Crm::MaintainLog.human_attribute_name(:created_at) %></th>
-<th><%= Crm::MaintainLog.human_attribute_name(:member_id) %></th>
+<th><%= Crm::Note.human_attribute_name(:extra) %></th>
+<th><%= Crm::Note.human_attribute_name(:created_at) %></th>
+<th><%= Crm::Note.human_attribute_name(:member_id) %></th>

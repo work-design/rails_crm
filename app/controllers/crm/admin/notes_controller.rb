@@ -1,12 +1,13 @@
 module Crm
   class Admin::NotesController < Admin::BaseController
-    before_action :set_maintain
+    include Controller::Admin
+    before_action :set_common_maintain
     before_action :set_note, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_note, only: [:new, :create]
     before_action :set_maintain_tags, only: [:new, :edit]
 
     def index
-      @notes = @maintain.notes.order(id: :desc).page(params[:page]).per(params[:per])
+      @notes = @client.notes.order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     private
@@ -19,18 +20,18 @@ module Crm
     end
 
     def set_note
-      @note = @maintain.notes.find(params[:id])
+      @note = @client.notes.find(params[:id])
     end
 
     def set_new_note
-      @note = @maintain.notes.build(note_params)
+      @note = @client.notes.build(note_params)
       @note.member = current_member
     end
 
     def note_params
       params.fetch(:note, {}).permit(
         :maintain_tag_id,
-        :note,
+        :content,
         :file,
         :logged_type,
         :logged_id

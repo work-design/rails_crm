@@ -21,7 +21,7 @@ module Crm
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :client_id, dependent: :nullify
       has_many :payment_methods, class_name: 'Trade::PaymentMethod', foreign_key: :client_id
 
-
+      has_many :notes, foreign_key: :client_id
     end
 
   end

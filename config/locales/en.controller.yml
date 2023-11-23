@@ -70,9 +70,9 @@ en:
       members:
         index:
           title: Contacts
-      maintain_logs:
+      notes:
         index:
-          title: Logs
+          title: Notes
       maintain_sources:
         index:
           title: Sources
