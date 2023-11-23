@@ -16,6 +16,14 @@
 </div>
 
 <table class="table is-fullwidth is-hoverable as-show">
+  <thead>
+  <tr>
+    <th></th>
+    <th>
+      <%= link_to t('.edit.title'), { action: 'edit' }, class: 'button is-small is-link' %>
+    </th>
+  </tr>
+  </thead>
   <tbody>
     <%= render 'show_table' %>
   </tbody>
