@@ -7,6 +7,7 @@ module Crm
     included do
       attribute :name, :string
       attribute :settings, :json, default: {}
+      attribute :vendor, :boolean
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true # warehouse
       belongs_to :client_organ, class_name: 'Org::Organ', optional: true # shop join in
