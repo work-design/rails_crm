@@ -96,6 +96,12 @@ Rails.application.routes.draw do
             patch :update_assign
           end
           resources :client_maintains
+          resources :contacts, controller: 'client/contacts' do
+            member do
+              match :edit_assign, via: [:get, :post]
+              patch :update_assign
+            end
+          end
         end
         resources :contacts do
           concerns :maintainable
@@ -128,6 +134,11 @@ Rails.application.routes.draw do
             patch 'crowd' => :update_crowd
             delete 'crowd' => :destroy_crowd
             delete 'card' => :destroy_card
+          end
+        end
+        namespace :client, default: { namespace: 'client' } do
+          resources :clients, only: [] do
+            resources :contacts
           end
         end
       end
