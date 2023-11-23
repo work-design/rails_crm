@@ -20,6 +20,7 @@ module Crm
       has_many :orders, class_name: 'Trade::Order', foreign_key: :contact_id, dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :contact_id, dependent: :nullify
       has_many :payment_methods, class_name: 'Trade::PaymentMethod'
+      has_many :notes, foreign_key: :contact_id
 
       has_one_attached :avatar
 
