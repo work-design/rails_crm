@@ -22,7 +22,7 @@ module Crm
         q_params.merge! state: 'init'
       end
 
-      @maintains = Maintain.default_where(q_params).includes(:client, :agency, :maintain_source, :member, :maintain_logs).order(id: :desc).page(params[:page]).per(params[:per])
+      @maintains = Maintain.default_where(q_params).includes(:client, :agency, :maintain_source, :member, :notes).order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     def public

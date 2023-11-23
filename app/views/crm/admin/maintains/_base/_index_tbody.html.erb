@@ -1,6 +1,8 @@
 <td>
-  <p><%= link_to model.contact.identity, { action: 'show', id: model.id } %></p>
-  <p><span><%= model.contact.name %></span></p>
+  <% if model.contact %>
+    <p><%= link_to model.contact.identity, { action: 'show', id: model.id } %></p>
+    <p><%= model.contact.name %></p>
+  <% end %>
   <p><%= model.remark %></p>
 </td>
 <td><%= model.state_i18n %></td>

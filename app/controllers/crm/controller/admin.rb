@@ -18,12 +18,7 @@ module Crm
       elsif params[:client_organ_id]
         @client = Org::Organ.where.associated(:client_maintains).where(client_maintains: { organ_id: current_organ.id }).find params[:client_organ_id]
       elsif params[:maintain_id]
-        @maintain = Maintain.default_where(default_ancestors_params).find params[:maintain_id]
-        if @maintain.client.user
-          @client = @maintain.client.user
-        else
-          @client = @maintain.client
-        end
+        @client = Maintain.default_where(default_ancestors_params).find params[:maintain_id]
       else
       end
     end

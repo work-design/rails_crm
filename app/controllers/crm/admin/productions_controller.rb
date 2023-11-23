@@ -23,6 +23,8 @@ module Crm
         options.merge! client_id: @client.id
       elsif params[:contact_id]
         options.merge! client_id: @client.client_id, contact_id: @client.id
+      elsif params[:maintain_id]
+        options.merge! client_id: @client.client_id, contact_id: @client.contact_id, agent_id: @client.member_id
       end
       @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
       @cart.compute_amount! unless @cart.fresh
