@@ -1,19 +1,24 @@
+#  Rename to Note
 module Crm
-  module Model::MaintainLog
+  module Model::Note
     extend ActiveSupport::Concern
 
     included do
-      attribute :note, :string
+      attribute :content, :string
       attribute :tag_str, :string
       attribute :tag_sequence, :integer
       attribute :extra, :json
 
       belongs_to :member, class_name: 'Org::Member'
-      belongs_to :client, class_name: 'Profiled::Profile'
+      belongs_to :client, optional: true
+      belongs_to :contact, optional: true
 
-      belongs_to :maintain, optional: true
+      belongs_to :maintain, foreign_key: [:member_id, :client_id, :contanct_id], query_constraints: [:member_id, :agent_id, :client_id]
+
       belongs_to :logged, polymorphic: true, optional: true
       belongs_to :maintain_tag, counter_cache: true, optional: true
+
+      has_one_attached :file
     end
 
   end

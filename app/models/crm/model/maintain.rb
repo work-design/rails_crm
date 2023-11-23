@@ -12,15 +12,15 @@ module Crm
         ordered: 'ordered'
       }, _default: 'init'
 
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
-      belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true # w
+      belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true # staff
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
       belongs_to :client_member, class_name: 'Org::Member', optional: true
-      belongs_to :client_organ, class_name: 'Org::Organ', optional: true
+      belongs_to :client_organ, class_name: 'Org::Organ', optional: true # shop level
       belongs_to :client_user, class_name: 'Auth::User', optional: true
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
 
-      belongs_to :client, inverse_of: :client_maintains, optional: true
+      belongs_to :client, inverse_of: :client_maintains, optional: true # shop level
       belongs_to :contact, optional: true
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
@@ -33,8 +33,8 @@ module Crm
       has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
+      has_many :notes, primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
 
-      has_many :maintain_logs, dependent: :delete_all
       has_many :maintain_tags, -> { distinct }, through: :maintain_logs
 
       accepts_nested_attributes_for :client, reject_if: :all_blank

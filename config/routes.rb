@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope RailsCom.default_routes_scope do
     concern :maintainable do
+      resources :notes
       resources :orders do
         collection do
           get 'cart/:current_cart_id' => :cart
@@ -56,7 +57,6 @@ Rails.application.routes.draw do
     concern :maintaining do
       resources :maintains do
         concerns :maintainable
-        resources :maintain_logs
         collection do
           get :public
           match :new_batch, via: [:get, :post]

@@ -15,11 +15,7 @@ module Crm
 
 
       has_one :lawful_wallet, class_name: 'Trade::LawfulWallet', foreign_key: :client_id
-      has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
-      has_many :addresses, class_name: 'Profiled::Address', foreign_key: :client_id, dependent: :nullify
-      has_many :cards, class_name: 'Trade::Card', foreign_key: :client_id, dependent: :nullify
-      has_many :orders, class_name: 'Trade::Order', foreign_key: :client_id, dependent: :nullify
-      has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :client_id, dependent: :nullify
+
     end
 
     def lawful_wallet
