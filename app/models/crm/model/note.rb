@@ -19,6 +19,12 @@ module Crm
       belongs_to :maintain_tag, counter_cache: true, optional: true
 
       has_one_attached :file
+
+      before_validation :sync_client_from_contact, if: -> { contact_id_changed? }
+    end
+
+    def sync_client_from_contact
+      self.client_id = contact&.client_id
     end
 
   end
