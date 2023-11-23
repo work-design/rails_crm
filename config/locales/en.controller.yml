@@ -121,6 +121,10 @@ en:
       card_purchases:
         index:
           title: Card Purchases
+      client:
+        contacts:
+          index:
+            title: Contacts
     panel:
       title: CRM
       sources:
