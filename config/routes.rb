@@ -71,8 +71,6 @@ Rails.application.routes.draw do
           patch :update_transfer
           match :edit_assign, via: [:get, :post]
           patch :update_assign
-          match :edit_member, via: [:get, :post]
-          post :init_member
           patch :assume
           patch :detach
         end
@@ -94,6 +92,8 @@ Rails.application.routes.draw do
           member do
             match :edit_assign, via: [:get, :post]
             patch :update_assign
+            match :edit_member, via: [:get, :post]
+            post :init_member
           end
           resources :client_maintains
         end
@@ -103,6 +103,8 @@ Rails.application.routes.draw do
           member do
             match :edit_assign, via: [:get, :post]
             patch :update_assign
+            match :edit_organ, via: [:get, :post]
+            post :init_organ
           end
           resources :client_maintains
           resources :contacts, controller: 'client/contacts' do
