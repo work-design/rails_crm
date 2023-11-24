@@ -52,6 +52,8 @@ en:
           title: Detail
         edit_assign:
           title: Assign
+        edit_organ:
+          title: Connect Organizations
       client_members:
         index:
           title: Client Members

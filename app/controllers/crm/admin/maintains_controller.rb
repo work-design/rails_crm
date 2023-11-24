@@ -132,16 +132,6 @@ module Crm
       @maintain.save
     end
 
-    def edit_member
-      @members = @maintain.client.pending_members
-    end
-
-    def init_member
-      member = @maintain.client.init_member_organ!
-      @maintain.client_member = member
-      @maintain.save
-    end
-
     def detach
       @maintain.update member_id: nil
     end

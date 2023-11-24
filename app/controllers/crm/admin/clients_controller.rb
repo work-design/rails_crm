@@ -2,7 +2,7 @@ module Crm
   class Admin::ClientsController < Admin::BaseController
     before_action :set_client, only: [
       :show, :edit, :update, :destroy, :actions,
-      :edit_assign, :update_assign
+      :edit_assign, :update_assign, :edit_organ, :init_organ
     ]
     before_action :set_new_client, only: [:new, :create]
 
@@ -30,6 +30,14 @@ module Crm
       @maintain.save
     end
 
+    def edit_organ
+    end
+
+    def init_organ
+      @client.init_client_organ
+      @client.save
+    end
+
     private
     def set_new_client
       @client = Client.new(client_params)
@@ -43,6 +51,7 @@ module Crm
       _p = params.fetch(:client, {}).permit(
         :name,
         :vendor,
+        :client_organ_id,
         settings: {}
       )
       _p.merge! default_form_params

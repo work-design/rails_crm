@@ -26,5 +26,9 @@ module Crm
       has_many :notes, foreign_key: :client_id
     end
 
+    def init_client_organ
+      self.build_client_organ(name: name)
+    end
+
   end
 end
