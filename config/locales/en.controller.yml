@@ -48,6 +48,8 @@ en:
       clients:
         index:
           title: Clients
+        show:
+          title: Detail
         edit_assign:
           title: Assign
       client_members:
