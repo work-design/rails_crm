@@ -30,5 +30,9 @@ module Crm
       self.build_client_organ(name: name)
     end
 
+    def form_settings
+      RailsCom::Setting.new(settings)
+    end
+
   end
 end
