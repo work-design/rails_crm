@@ -14,23 +14,6 @@ module Crm
       @contacts = @client.contacts.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
-    def edit_assign
-      pipeline_params = {
-        piping_type: 'Maintain',
-        piping_id: nil,
-        'pipeline_members.position': 1
-      }
-      pipeline_params.merge! 'pipeline_members.job_title_id': current_member.lower_job_title_ids if current_member
-      pipeline_params.merge! default_params
-
-      @members = Org::Member.default_where(default_params)
-    end
-
-    def update_assign
-      @maintain = @client.client_maintains.build(maintain_params)
-      @maintain.save
-    end
-
     private
     def set_client
       @client = Client.find params[:client_id]

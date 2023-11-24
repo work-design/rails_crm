@@ -13,6 +13,7 @@ module Crm
       belongs_to :client_organ, class_name: 'Org::Organ', optional: true # shop join in
 
       has_many :contacts
+      has_many :members, class_name: 'Contact', foreign_key: :client_id
       #has_many :children, class_name: self.name
 
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client

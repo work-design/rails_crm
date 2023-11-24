@@ -1,0 +1,33 @@
+<td>
+  <%= link_to({ action: 'show', id: model.id }, class: 'is-several') do %>
+    <%= image_tag model.product.logo, class: 'image is-24x24' if model.product.logo.attached? %>
+    <span><%= model.name %></span>
+  <% end %>
+</td>
+<td>
+  <table class="table is-borderless">
+  <% model.parts.each do |part| %>
+    <tr>
+      <td><span class="tag"><%= link_to part.name, { controller: 'products', action: 'show', id: part.id } %></span></td>
+      <td><%# part.price %></td>
+    </tr>
+  <% end %>
+  </table>
+</td>
+<td><%= model.price.to_money.format.html_safe %></td>
+<td class="">
+  <% @client.contacts.each do |contact| %>
+    <% if item = @cart.find_item(good_id: model.id, contact_id: contact.id) %>
+      <div class="is-flex">
+        <%= render partial: 'cart', locals: { model: model, item_con: 'crm/admin/items', item: item, cart: @cart } %>
+        <span><%= contact.name %></span>
+      </div>
+    <% end %>
+  <% end %>
+  <% if item = @cart.find_item(good_id: model.id, contact_id: nil) %>
+    <%= render partial: 'cart', locals: { model: model, item_con: 'crm/admin/items', item: item, cart: @cart } %>
+  <% else %>
+    <%= render partial: 'add_cart', locals: { model: model, item_con: 'crm/admin/items', cart: @cart } %>
+  <% end %>
+</td>
+<td></td>
