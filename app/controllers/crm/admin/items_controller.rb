@@ -10,8 +10,8 @@ module Crm
     def set_cart
       if params[:current_cart_id].present?
         @cart = Trade::Cart.find params[:current_cart_id]
-      elsif item_params[:current_cart_id].present?
-        @cart = Trade::Cart.find item_params[:current_cart_id]
+      elsif params.dig(:item, :current_cart_id).present?
+        @cart = Trade::Cart.find params.dig(:item, :current_cart_id)
       else
         options = { agent_id: current_member.id }
         options.merge! default_form_params
@@ -22,6 +22,7 @@ module Crm
 
     def set_cart_item
       @item = @cart.items.load.find params[:id]
+      @item.current_cart = @cart
     end
 
     def set_new_item
