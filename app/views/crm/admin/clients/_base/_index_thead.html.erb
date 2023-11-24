@@ -1,7 +1,4 @@
-<th>
-  <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
-  <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
-</th>
+<th><%= Crm::Client.human_attribute_name(:name) %></th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
 <th>
   <div>

@@ -89,6 +89,14 @@ Rails.application.routes.draw do
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
         concerns :maintaining
+        resources :contacts do
+          concerns :maintainable
+          member do
+            match :edit_assign, via: [:get, :post]
+            patch :update_assign
+          end
+          resources :client_maintains
+        end
         resources :clients do
           concerns :maintainable
           member do
@@ -102,14 +110,6 @@ Rails.application.routes.draw do
               patch :update_assign
             end
           end
-        end
-        resources :contacts do
-          concerns :maintainable
-          member do
-            match :edit_assign, via: [:get, :post]
-            patch :update_assign
-          end
-          resources :client_maintains
         end
         resources :client_members do
           concerns :maintainable

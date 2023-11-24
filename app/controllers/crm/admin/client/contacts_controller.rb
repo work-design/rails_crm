@@ -11,7 +11,7 @@ module Crm
       q_params = {}
       q_params.merge! default_params
 
-      @contacts = Contact.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
+      @contacts = @client.contacts.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     def edit_assign

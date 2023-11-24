@@ -20,7 +20,7 @@ module Crm
       if params[:client_member_id]
         options.merge! member_id: @client.id
       elsif params[:client_id]
-        options.merge! client_id: @client.id
+        options.merge! client_id: @client.id, contact_id: nil
       elsif params[:contact_id]
         options.merge! client_id: @client.client_id, contact_id: @client.id
       elsif params[:maintain_id]
