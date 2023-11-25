@@ -20,13 +20,6 @@ module Crm
       super || create_lawful_wallet
     end
 
-    def init_member_organ!
-      member = pending_members.build
-      member.build_organ(name: name)
-      member.save!
-      member
-    end
-
     def xx!
       member = client.init_member_organ!
       self.client_member = member

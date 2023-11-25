@@ -42,11 +42,17 @@ module Crm
     end
 
     def filter_hash
-      if client
+      if client&.client_organ_id
         { organ_id: client.client_organ_id }
       else
         {}
       end
+    end
+
+    def init_member_organ!
+      member = pending_members.build
+      member.save!
+      member
     end
 
   end
