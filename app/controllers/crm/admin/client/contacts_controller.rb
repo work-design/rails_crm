@@ -15,10 +15,11 @@ module Crm
     end
 
     def edit_member
+      @members = @maintain.client.pending_members
     end
 
     def init_member
-      @client.init_client_organ
+      @client.init_member_organ!
       @client.save
     end
 
