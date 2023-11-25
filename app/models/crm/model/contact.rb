@@ -19,6 +19,7 @@ module Crm
 
       belongs_to :client, optional: true
       belongs_to :client_member, class_name: 'Org::Member', optional: true
+      belongs_to :client_user, class_name: 'Auth::User', optional: true
 
       has_many :pending_members, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :contact_id, inverse_of: :contact
