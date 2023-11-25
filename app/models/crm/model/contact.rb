@@ -21,7 +21,7 @@ module Crm
       belongs_to :client_member, class_name: 'Org::Member', optional: true
       belongs_to :client_user, class_name: 'Auth::User', optional: true
 
-      has_many :pending_members, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
+      has_many :pending_members, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
       has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :contact_id, inverse_of: :contact
       has_many :addresses, class_name: 'Profiled::Address', foreign_key: :contact_id, dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', foreign_key: :contact_id, dependent: :nullify
@@ -39,6 +39,14 @@ module Crm
 
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['user_id']).present? }
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
+    end
+
+    def filter_hash
+      if client
+        { organ_id: client.client_organ_id }
+      else
+        {}
+      end
     end
 
   end
