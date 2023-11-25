@@ -1,7 +1,0 @@
-<footer class="modal-card-foot is-justify-content-space-between">
-  <%= button_to({ action: 'new_detect' }, params: { identity: params[:identity] }, class: 'button is-small is-link') do %>
-    <i class="fa-solid fa-plus"></i>
-    <span class="pl-1"><%= t('.new_detect.title') %></span>
-  <% end %>
-  <%= submit_tag nil, form: 'member_form', class: 'button is-small is-primary' %>
-</footer>

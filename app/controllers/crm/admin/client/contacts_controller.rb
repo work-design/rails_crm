@@ -3,7 +3,7 @@ module Crm
     before_action :set_client
     before_action :set_contact, only: [
       :show, :edit, :update, :destroy, :actions,
-      :edit_assign, :update_assign
+      :edit_assign, :update_assign, :edit_member, :init_member
     ]
     before_action :set_new_contact, only: [:new, :create]
 
@@ -12,6 +12,14 @@ module Crm
       q_params.merge! default_params
 
       @contacts = @client.contacts.includes(:client_maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
+    end
+
+    def edit_member
+    end
+
+    def init_member
+      @client.init_client_organ
+      @client.save
     end
 
     private

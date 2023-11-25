@@ -1,5 +1,11 @@
-<td rowspan="<%= model.client_maintains.size + 1 %>">
+<td>
   <p><%= link_to model.identity, { controller: 'crm/admin/contacts', action: 'show', id: model.id } %></p>
   <p><span><%= model.name %></span></p>
 </td>
-<td colspan="7" class="<%= model.client_maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>
+<td>
+  <%= button_to({ action: 'edit_member', id: model.id }, class: 'button is-small is-link mb-1') do %>
+    <i class="fa-solid fa-plus"></i>
+    <span class="pl-1"><%= t('.edit_member.title') %></span>
+  <% end %>
+</td>
+<td colspan="2" class="<%= model.client_maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>
