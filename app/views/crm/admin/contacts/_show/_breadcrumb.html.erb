@@ -1,3 +1,9 @@
-<li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>
+<% if @contact.client %>
+  <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
+  <li><span class="px-3"><%= @contact.client.name %></span></li>
+  <li><%= link_to t('crm.admin.client.contacts.index.title'), { controller: 'crm/admin/client/contacts', client_id: @contact.client_id } %></li>
+<% else %>
+  <li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>
+<% end %>
 <li><span class="px-3"><%= @contact.name %></span></li>
 <li class="is-active"><%= t('.title') %></li>

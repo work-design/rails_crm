@@ -3,7 +3,7 @@
 <% elsif params[:contact_id] %>
   <% if @client.client %>
     <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
-    <li><span class="px-3"><%= @client.name %></span></li>
+    <li><span class="px-3"><%= @client.client.name %></span></li>
     <li><%= link_to t('crm.admin.client.contacts.index.title'), { controller: 'crm/admin/client/contacts', client_id: @client.client_id } %></li>
   <% else %>
     <li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>

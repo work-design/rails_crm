@@ -23,11 +23,12 @@ module Crm
       pipeline_params.merge! default_params
 
       @members = Org::Member.default_where(default_params)
+      @client.client_maintains.build
     end
 
     def update_assign
-      @maintain = @client.client_maintains.build(maintain_params)
-      @maintain.save
+      @client.assign_attributes(contact_params)
+      @client.save
     end
 
     private
@@ -42,15 +43,10 @@ module Crm
     def contact_params
       _p = params.fetch(:contact, {}).permit(
         :identity,
-        :name
+        :name,
+        client_maintains_attributes: [:id, :member_id]
       )
       _p.merge! default_form_params
-    end
-
-    def maintain_params
-      params.fetch(:maintain, {}).permit(
-        :member_id
-      )
     end
 
   end

@@ -27,14 +27,6 @@ module Crm
       @client = @client.contacts.default_where(default_params).find params[:id]
     end
 
-    def contact_params
-      _p = params.fetch(:contact, {}).permit(
-        :identity,
-        :name
-      )
-      _p.merge! default_form_params
-    end
-
     def maintain_params
       params.fetch(:maintain, {}).permit(
         :member_id

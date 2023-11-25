@@ -30,6 +30,8 @@ module Crm
       has_many :payment_methods, class_name: 'Trade::PaymentMethod'
       has_many :notes, foreign_key: :contact_id
 
+      accepts_nested_attributes_for :client_maintains
+
       has_one_attached :avatar
 
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['user_id']).present? }

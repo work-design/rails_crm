@@ -1,4 +1,6 @@
 <%= form_with model: @client, url: { action: 'update_assign', id: @client.id }, method: :patch do |f| %>
-  <%= f.collection_select :member_id, @members, :id, :name %>
+  <%= f.fields :client_maintains do |ef| %>
+    <%= ef.collection_select :member_id, @members, :id, :name %>
+  <% end %>
   <%= f.submit %>
 <% end %>
