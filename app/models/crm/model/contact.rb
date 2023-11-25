@@ -18,7 +18,7 @@ module Crm
       belongs_to :account, -> { where(confirmed: true) }, class_name: 'Auth::Account', foreign_key: :identity, primary_key: :identity, optional: true
 
       belongs_to :client, optional: true
-      belongs_to :client_member, class_name: 'Org::Member', optional: true
+      belongs_to :client_member, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', optional: true
       belongs_to :client_user, class_name: 'Auth::User', optional: true
 
       has_many :pending_members, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
@@ -50,7 +50,7 @@ module Crm
     end
 
     def init_member_organ!
-      member = pending_members.build
+      member = build_client_member(identity: identity)
       member.save!
       member
     end

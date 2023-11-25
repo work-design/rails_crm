@@ -3,9 +3,13 @@
   <p><span><%= model.name %></span></p>
 </td>
 <td>
+<% if model.client_member_id %>
+  <span class="tag is-success"><%= 'linked' %></span>
+<% else %>
   <%= button_to({ action: 'edit_member', id: model.id }, class: 'button is-small is-link mb-1') do %>
     <i class="fa-solid fa-plus"></i>
     <span class="pl-1"><%= t('.edit_member.title') %></span>
   <% end %>
+<% end %>
 </td>
 <td colspan="2" class="<%= model.client_maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>

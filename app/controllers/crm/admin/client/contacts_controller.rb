@@ -19,7 +19,7 @@ module Crm
     end
 
     def init_member
-      @client.init_member_organ!
+      @client.build_client_member(identity: @client.identity)
       @client.save
     end
 
