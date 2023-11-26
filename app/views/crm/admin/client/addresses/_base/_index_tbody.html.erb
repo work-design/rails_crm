@@ -1,0 +1,16 @@
+<td>
+  <p><%= model.contact_person %></p>
+  <p><%= model.tel %></p>
+</td>
+<td>
+  <p><%= model.area&.full_name %></p>
+  <p><%= model.detail %></p>
+</td>
+<td><%# model.kind %></td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :principal, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>
+<td><%= model.contact_id %></td>

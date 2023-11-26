@@ -1,3 +1,11 @@
-<%= render 'common_breadcrumb' %>
+<% if params[:contact_id] && @client.client %>
+  <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
+  <li><%= link_to @client.client.name, { controller: 'orders', client_id: @client.client_id, contact_id: nil } %></li>
+  <li><%= link_to t('crm.admin.client.contacts.index.title'), { controller: 'crm/admin/client/contacts', client_id: @client.client_id } %></li>
+<% elsif params[:contact_id] %>
+  <li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>
+<% else %>
+  <li><%= link_to t('.clients.index.title'), { controller: 'crm/admin/clients' } %></li>
+<% end %>
 <li><span class="px-3"><%= @client.name %></span></li>
 <li class="is-active"><%= t('.title') %></li>
