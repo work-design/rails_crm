@@ -97,6 +97,7 @@ Rails.application.routes.draw do
         end
         resources :clients do
           resources :productions, controller: 'client/productions'
+          resources :orders, controller: 'client/orders'
           concerns :maintainable
           member do
             match :edit_assign, via: [:get, :post]

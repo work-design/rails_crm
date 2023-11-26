@@ -1,0 +1,19 @@
+<th>
+  <p><%= Trade::Order.human_attribute_name(:uuid) %></p>
+  <p><%= Trade::Order.human_attribute_name(:serial_number) %></p>
+  <p class="has-text-grey"><%= Trade::Order.human_attribute_name(:created_at) %></p>
+</th>
+<th>
+  <p><%= Trade::Order.human_attribute_name(:payment_status) %></p>
+  <p><%= Trade::Order.human_attribute_name(:payment_strategy_id) %></p>
+</th>
+<th>
+  <p><%= Trade::Order.human_attribute_name(:amount) %></p>
+  <p class="has-text-danger"><%= Trade::Order.human_attribute_name(:unreceived_amount) %></p>
+</th>
+<th>
+  <p><%= Trade::Order.human_attribute_name(:received_amount) %></p>
+  <p class="has-text-success"><%= Trade::Order.human_attribute_name(:paid_at) %></p>
+</th>
+<th><%= Trade::Order.human_attribute_name(:contact_id) %></th>
+<th><%= Trade::Order.human_attribute_name(:extra) %></th>

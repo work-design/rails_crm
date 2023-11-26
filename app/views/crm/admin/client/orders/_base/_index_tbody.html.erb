@@ -1,0 +1,40 @@
+<td>
+  <p>
+    <%= link_to model.uuid, { action: 'show', id: model.id }, text: true %>
+    <span class="tag"><%= model.state_i18n %></span>
+    <% if ['rent', 'invest'].include?(model.aim) %>
+      <span class="tag is-info"><%= model.aim_i18n %></span>
+    <% end %>
+  </p>
+  <p><%= model.serial_number %></p>
+  <p class="has-text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+</td>
+<td>
+  <p><%= model.payment_status_i18n %></p>
+  <% if model.payment_strategy %>
+  <div class="tags has-addons mt-1">
+    <span class="tag is-danger"><%= model.payment_strategy.name %></span>
+    <span class="tag"><%= model.payment_strategy.from_pay_i18n %></span>
+  </div>
+  <% end %>
+</td>
+<td>
+  <p><%= model.amount.to_money.format.html_safe %></p>
+  <% if model.unreceived_amount.to_d > 0 %><p class="has-text-danger"><%= model.unreceived_amount.to_money.format.html_safe %></p><% end %>
+</td>
+<td>
+  <div class="tags has-addons mb-0">
+    <span class="tag <%= model.received_amount.to_d > 0 ? 'is-success' : 'is-light' %>"><%= model.received_amount.to_money.format.html_safe %></span>
+  </div>
+  <p class="has-text-success"><time data-controller="time"><%= model.paid_at&.to_fs(:iso8601) %></time></p>
+</td>
+<td>
+  <p><%= link_to model.contact_id, { controller: 'crm/admin/orders', contact_id: model.contact_id } if model.contact_id %></p>
+  <p>
+  <% if model&.member %>
+    <span><%= model.member.name %></span>
+    <span class="has-text-grey">（<%= model.member_organ.name %>）</span>
+  <% end %>
+  </p>
+</td>
+<td><%= simple_format(model.extra_i18n) %></td>
