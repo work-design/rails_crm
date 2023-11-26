@@ -3,7 +3,7 @@ module Crm
     before_action :set_client
     before_action :set_contact, only: [
       :show, :edit, :update, :destroy, :actions,
-      :edit_assign, :update_assign, :edit_member, :init_member
+      :edit_assign, :update_assign, :edit_member, :init_member, :update_default
     ]
     before_action :set_new_contact, only: [:new, :create]
 
@@ -19,8 +19,13 @@ module Crm
     end
 
     def init_member
-      @client.build_client_member(identity: @client.identity)
-      @client.save
+      @contact.build_client_member(identity: @contact.identity)
+      @contact.save
+    end
+
+    def update_default
+      @contact.assign_attributes contact_default_params
+      @contact.save
     end
 
     private
@@ -33,12 +38,12 @@ module Crm
     end
 
     def set_contact
-      @client = @client.contacts.default_where(default_params).find params[:id]
+      @contact = @client.contacts.default_where(default_params).find params[:id]
     end
 
-    def maintain_params
-      params.fetch(:maintain, {}).permit(
-        :member_id
+    def contact_default_params
+      params.fetch(:contact, {}).permit(
+        :default
       )
     end
 

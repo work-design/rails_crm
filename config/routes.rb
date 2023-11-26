@@ -112,6 +112,7 @@ Rails.application.routes.draw do
               patch :update_assign
               match :edit_member, via: [:get, :post]
               post :init_member
+              patch :update_default
             end
           end
         end
