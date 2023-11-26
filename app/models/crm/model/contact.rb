@@ -37,7 +37,7 @@ module Crm
 
       validates :identity, uniqueness: { scope: [:client_id] }
 
-      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['user_id']).present? }
+      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_member_id']).present? }
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
     end
 
@@ -53,6 +53,12 @@ module Crm
       member = build_client_member(identity: identity)
       member.save!
       member
+    end
+
+    def sync_user_to_orders
+      orders.update_all member_id: client_member_id, member_organ_id: client&.organ_id
+      wallets.update_all member_id: client_member_id, member_organ_id: client&.organ_id
+      cards.update_all member_id: client_member_id, member_organ_id: client&.organ_id
     end
 
   end
