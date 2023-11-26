@@ -12,4 +12,9 @@
   <% end %>
 <% end %>
 </td>
-<td colspan="2" class="<%= model.client_maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>
+<td>
+  <%= form_with theme: nil, model: model, url: { action: 'update', id: model.id }, data: { controller: 'input' } do |f| %>
+    <%= f.check_box :default, data: { input_target: 'checkbox' }, id: nil, class: 'switch is-rounded' %>
+    <label data-action="click->input#check"></label>
+  <% end %>
+</td>

@@ -7,6 +7,7 @@ module Crm
       attribute :name, :string
       attribute :identity, :string
       attribute :extra, :json, default: {}
+      attribute :default, :boolean
       attribute :wallets_count, :integer, default: 0
       attribute :cards_count, :integer, default: 0
       attribute :orders_count, :integer, default: 0
@@ -38,7 +39,12 @@ module Crm
       validates :identity, uniqueness: { scope: [:client_id] }
 
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_member_id']).present? }
+      after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
+    end
+
+    def set_default
+      self.class.where.not(id: self.id).where(organ_id: self.organ_id, client_id: self.client_id).update_all(default: false)
     end
 
     def filter_hash

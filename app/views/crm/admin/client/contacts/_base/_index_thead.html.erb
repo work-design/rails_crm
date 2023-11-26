@@ -3,7 +3,4 @@
   <p><%= Crm::Contact.human_attribute_name(:name) %></p>
 </th>
 <th><%= Crm::Contact.human_attribute_name(:client_member_id) %></th>
-<th></th>
-<th>
-  <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name(:member_id) %></p>
-</th>
+<th><%= Crm::Contact.human_attribute_name(:default) %></th>
