@@ -1,16 +1,16 @@
 <tr>
-  <td class="has-text-right"><%= Crm::Note.human_attribute_name(:note) %></td>
-  <td><%= @maintain_log.note %></td>
+  <td class="has-text-right"><%= Crm::Note.human_attribute_name(:content) %></td>
+  <td><%= @note.content %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Crm::Note.human_attribute_name(:logged_type) %></td>
-  <td><%= @maintain_log.logged_type %></td>
+  <td><%= @note.logged_type %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Crm::Note.human_attribute_name(:logged_id) %></td>
-  <td><%= @maintain_log.logged_id %></td>
+  <td><%= @note.logged_id %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Crm::Note.human_attribute_name(:created_at) %></td>
-  <td><time data-controller="time"><%= @maintain_log.created_at&.to_fs(:iso8601) %></time></td>
+  <td><time data-controller="time"><%= @note.created_at&.to_fs(:iso8601) %></time></td>
 </tr>
