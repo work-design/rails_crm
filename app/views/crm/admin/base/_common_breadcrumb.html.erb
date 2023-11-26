@@ -1,5 +1,5 @@
 <% if params[:client_id] %>
-  <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
+  <li><%= link_to t('.clients.index.title'), { controller: 'crm/admin/clients' } %></li>
 <% elsif params[:contact_id] %>
   <% if @client.client %>
     <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
