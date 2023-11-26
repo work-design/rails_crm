@@ -1,19 +1,9 @@
 <th>
-  <p><%= Crm::Maintain.human_attribute_name('client.identity') %></p>
-  <p><%= Crm::Maintain.human_attribute_name('client.real_name') %></p>
+  <p><%= Crm::Contact.human_attribute_name(:identity) %></p>
+  <p><%= Crm::Contact.human_attribute_name(:name) %></p>
 </th>
-<th><%= Crm::Maintain.human_attribute_name(:state) %></th>
-<th>
-  <div>
-    <%= Crm::Maintain.human_attribute_name(:maintain_source_id) %>
-  </div>
-  <div>
-    <%= Crm::Maintain.human_attribute_name(:pipeline_id) %>
-  </div>
-</th>
-<th>
-  <%= Crm::Note.human_attribute_name(:maintain_tag_id) %>
-</th>
+<th><%= Crm::Contact.human_attribute_name(:client_member_id) %></th>
+<th></th>
 <th>
   <p class="has-text-grey"><%= Crm::Maintain.human_attribute_name(:member_id) %></p>
 </th>
