@@ -28,6 +28,7 @@ module Crm
       has_many :cards, class_name: 'Trade::Card', foreign_key: :contact_id, dependent: :nullify
       has_many :orders, class_name: 'Trade::Order', foreign_key: :contact_id, dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :contact_id, dependent: :nullify
+      has_many :carts, class_name: 'Trade::Cart', primary_key: [:contact_id, :client_id], query_constraints: [:contact_id, :client_id]
       has_many :items, class_name: 'Trade::Item', foreign_key: :contact_id
       has_many :payment_methods, class_name: 'Trade::PaymentMethod'
       has_many :notes, foreign_key: :contact_id
