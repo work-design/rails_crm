@@ -44,6 +44,7 @@ module Crm
       _p = params.fetch(:contact, {}).permit(
         :identity,
         :name,
+        :client_member_id,
         client_maintains_attributes: [:id, :member_id]
       )
       _p.merge! default_form_params

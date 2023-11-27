@@ -1,8 +1,8 @@
-<%= form_with model: @client, url: { action: 'update', id: @client.id }, id: 'member_form' do |f| %>
+<%= form_with model: @contact, url: { action: 'update', id: @contact.id }, id: 'member_form' do |f| %>
   <%= render 'error_messages', target: f.object if f.object.errors.present? %>
   <%= f.collection_select :client_member_id, @members, :id, :identity if @members.present? %>
 <% end %>
 
-<%= button_to({ action: 'init_member', id: @client.id }) do %>
+<%= button_to({ action: 'init_member', id: @contact.id }) do %>
   <i class="fa-solid fa-plus"></i>
 <% end %>

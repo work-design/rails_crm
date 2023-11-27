@@ -15,7 +15,7 @@ module Crm
     end
 
     def edit_member
-      @members = @client.pending_members
+      @members = @contact.pending_members
     end
 
     def init_member
