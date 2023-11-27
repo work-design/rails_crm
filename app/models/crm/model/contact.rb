@@ -64,10 +64,10 @@ module Crm
     end
 
     def sync_member_to_orders
-      orders.update_all member_id: client_member_id, member_organ_id: client&.organ_id
-      wallets.update_all member_id: client_member_id, member_organ_id: client&.organ_id
-      cards.update_all member_id: client_member_id, member_organ_id: client&.organ_id
-      carts.update_all member_id: client_member_id, member_organ_id: client&.organ_id
+      orders.update_all member_id: client_member_id, member_organ_id: client&.client_organ_id
+      wallets.update_all member_id: client_member_id, member_organ_id: client&.client_organ_id
+      cards.update_all member_id: client_member_id, member_organ_id: client&.client_organ_id
+      carts.update_all member_id: client_member_id, member_organ_id: client&.client_organ_id
     end
 
     def sync_user_to_orders
