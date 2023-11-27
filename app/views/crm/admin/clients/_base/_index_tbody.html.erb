@@ -2,7 +2,8 @@
   <p><%= link_to model.name, { action: 'show', id: model.id } %></p>
 </td>
 <td>
-<% if model.client_organ_id %>
+<% if model.client_organ %>
+  <span><%= model.client_organ.name %></span>
   <span class="tag is-success">Linked</span>
 <% else %>
   <%= button_to({ action: 'edit_organ', id: model.id }, class: 'button is-small is-link mb-1') do %>
