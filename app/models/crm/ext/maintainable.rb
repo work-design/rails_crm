@@ -25,13 +25,13 @@ module Crm
     def sync_from_contact
       return unless contact
       self.client_id = contact.client_id
-      self.member_id = contact.client_member_id
       self.user_id = contact.client_user_id
+      self.member_id = contact.client_member_id
     end
 
     def sync_from_client
       return unless client
-      self.organ_id = client.client_organ_id
+      self.member_organ_id = client.client_organ_id
     end
 
     def change_maintain_state
