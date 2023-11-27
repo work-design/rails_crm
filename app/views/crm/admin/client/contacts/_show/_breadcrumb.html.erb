@@ -1,3 +1,5 @@
+<li><%= link_to t('.clients.index.title'), { controller: 'crm/admin/clients' } %></li>
+<li><%= link_to @contact.client.name, { controller: 'crm/admin/clients', action: 'show', id: @contact.client_id } %></li>
 <li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>
 <li><span class="px-3"><%= @contact.name %></span></li>
 <li class="is-active"><%= t('.title') %></li>

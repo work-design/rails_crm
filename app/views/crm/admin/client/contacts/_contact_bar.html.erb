@@ -1,0 +1,33 @@
+<h2 class="title has-text-centered">
+  <i class="fa-solid fa-sm fa-user-tie has-text-danger"></i>
+  <span><%= @contact.name %></span>
+</h2>
+
+<div class="tabs">
+  <ul>
+    <li class="<%= active_helper(contacts: ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('.contacts.show.title'), { controller: 'contacts', action: 'show', id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'crm/admin/client_maintains', active: 'is-active') %>">
+      <%= link_to t('.client_maintains.index.title'), { controller: 'crm/admin/client_maintains', contact_id: @contact.id, client_id: nil } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'notes', active: 'is-active') %>">
+      <%= link_to t('.notes.index.title'), { controller: 'crm/admin/notes', contact_id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
+      <%= link_to t('.orders.index.title'), { controller: 'crm/admin/orders', contact_id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'wallets', active: 'is-active') %>">
+      <%= link_to t('.wallets.index.title'), { controller: 'crm/admin/wallets', contact_id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'cards', active: 'is-active') %>">
+      <%= link_to t('.cards.index.title'), { controller: 'crm/admin/cards', contact_id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
+      <%= link_to t('.addresses.index.title'), { controller: 'crm/admin/addresses', contact_id: @contact.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
+      <%= link_to t('.productions.index.title'), { controller: 'crm/admin/productions', contact_id: @contact.id } %>
+    </li>
+  </ul>
+</div>
