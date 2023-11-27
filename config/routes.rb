@@ -99,6 +99,7 @@ Rails.application.routes.draw do
           resources :productions, controller: 'client/productions'
           resources :orders, controller: 'client/orders'
           resources :addresses, controller: 'client/addresses'
+          resources :notes, controller: 'client/notes'
           concerns :maintainable
           member do
             match :edit_assign, via: [:get, :post]

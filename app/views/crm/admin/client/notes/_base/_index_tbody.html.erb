@@ -1,0 +1,10 @@
+<td><%= model.maintain_tag&.name %></td>
+<td><%= model.content %></td>
+<td>
+  <p><%= model.logged_type %></p>
+  <p><%= model.logged_id %></p>
+</td>
+<td><%= simple_format model.extra %></td>
+<td><time data-controller="time"><%= model.created_at.to_formatted_s(:iso8601) %></time></td>
+<td><%= model.member.name %></td>
+<td><%= link_to model.contact_id, { controller: 'crm/admin/notes', contact_id: model.contact_id } if model.contact_id %></td>
