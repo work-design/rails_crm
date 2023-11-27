@@ -15,8 +15,8 @@ module Crm
       attribute :items_count, :integer, default: 0
       attribute :carts_count, :integer, default: 0
 
-      belongs_to :organ, class_name: 'Org::Organ', optional: true # warehouse
-      belongs_to :client_organ, class_name: 'Org::Organ', optional: true # shop join in
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :client_organ, class_name: 'Org::Organ', optional: true
 
       has_many :contacts
       has_many :members, class_name: 'Contact', foreign_key: :client_id
@@ -34,6 +34,8 @@ module Crm
 
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
+
+      after_save :sync_organ_to_orders, if: -> { (saved_changes.keys & ['client_organ_id']).present? }
     end
 
     def lawful_wallet
@@ -55,6 +57,13 @@ module Crm
 
     def init_client_organ
       self.build_client_organ(name: name)
+    end
+
+    def sync_organ_to_orders
+      orders.update_all member_organ_id: client_organ_id
+      wallets.update_all member_organ_id: client_organ_id
+      cards.update_all member_organ_id: client_organ_id
+      carts.update_all member_organ_id: client_organ_id
     end
 
     def form_settings
