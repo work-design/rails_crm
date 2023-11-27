@@ -67,6 +67,7 @@ module Crm
       orders.update_all member_id: client_member_id, member_organ_id: client&.organ_id
       wallets.update_all member_id: client_member_id, member_organ_id: client&.organ_id
       cards.update_all member_id: client_member_id, member_organ_id: client&.organ_id
+      carts.update_all member_id: client_member_id, member_organ_id: client&.organ_id
     end
 
     def sync_user_to_orders
