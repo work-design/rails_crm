@@ -10,7 +10,7 @@ module Crm
       q_params = {}
       q_params.merge! default_params
 
-      @clients = Client.includes(:client_maintains).default_where(q_params).order(id: :desc).page(params[:page])
+      @clients = Client.includes(:client_maintains).default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     def edit_assign
