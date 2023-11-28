@@ -1,4 +1,4 @@
-<th><%= Crm::Client.human_attribute_name(:name) %></th>
+<th><%= link_to Crm::Client.human_attribute_name(:name), filter_params('name-asc': 1) %></th>
 <th><%= Crm::Maintain.human_attribute_name(:state) %></th>
 <% if defined? RailsFactory %>
   <th><%= Crm::Maintain.human_attribute_name(:vendor) %></th>
