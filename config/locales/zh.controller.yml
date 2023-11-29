@@ -47,7 +47,7 @@ zh:
           title: 为客户下单
         add:
           title: 生成订单
-      maintain_logs:
+      notes:
         index:
           title: 跟踪日志
       maintain_sources:
