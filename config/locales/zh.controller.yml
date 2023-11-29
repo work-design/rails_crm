@@ -9,6 +9,8 @@ zh:
       clients:
         index:
           title: 客户
+        edit_organ:
+          title: 邀请入驻
       contacts:
         index:
           title: 联系人
