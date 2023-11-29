@@ -54,7 +54,7 @@ module Crm
     end
 
     def name
-      remark.presence || client.name
+      remark.presence || contact&.name
     end
 
     def tags
