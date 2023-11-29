@@ -6,6 +6,12 @@ zh:
       home:
         index:
           title: 客户管理
+      clients:
+        index:
+          title: 客户
+      contacts:
+        index:
+          title: 联系人
       maintains:
         index:
           title: 客户列表
