@@ -1,7 +1,7 @@
 <%= render 'client_bar' %>
 <%= render 'filter_form' %>
 <%= render 'filter_table' %>
-<%= render 'button' %>
+<%= render 'index_bar' %>
 
 <%= render layout: 'index_raw_table' do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @contacts, as: :model %>
