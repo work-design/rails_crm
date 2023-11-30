@@ -15,7 +15,7 @@
       <%= link_to t('.contacts.index.title'), { controller: 'crm/admin/client/contacts', client_id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'crm/admin/client/clients', active: 'is-active') %>">
-      <%= link_to t('.client.clients.index.title'), { controller: 'crm/admin/client/clients', client_id: @client.id } %>
+      <%= link_to t('crm.admin.client.clients.index.title'), { controller: 'crm/admin/client/clients', client_id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'notes', active: 'is-active') %>">
       <%= link_to t('.notes.index.title'), { controller: 'crm/admin/client/notes', client_id: @client.id } %>

@@ -11,7 +11,7 @@ module Crm
       q_params.merge! default_params
       q_params.merge! params.permit('name-asc')
 
-      @clients = Client.includes(:client_maintains).default_where(q_params).order(id: :desc).page(params[:page]).per(params[:per])
+      @clients = Client.includes(:client_maintains).roots.default_where(q_params).page(params[:page]).per(params[:per])
     end
 
     def edit_assign
