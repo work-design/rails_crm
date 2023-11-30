@@ -15,6 +15,10 @@ module Crm
       'maintain'
     end
 
+    def pluralize_model_name
+      'maintains'
+    end
+
     def set_maintain
       @maintain = Maintain.find params[:id]
     end
