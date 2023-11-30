@@ -1,9 +1,6 @@
-<%= form_with url: { action: 'new' }, class: 'button_to ml-2 is-hidden' do |f| %>
-  <%= f.hidden_field :ids, data: { check_target: 'ids' } %>
-  <%= button_tag data: { action: 'check#doSubmit' }, aria: { label: t('.assign') }, class: 'button is-small is-dark' do %>
+<%= form_with url: { action: 'new' }, id: 'xxxx', data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to ml-2 ' do |f| %>
+  <%= f.hidden_field 'xxx', data: { check_commit_target: 'ids' } %>
+  <%= button_tag data: { action: 'check-commit#doSubmit' }, aria: { label: t('.assign') }, class: 'button is-small is-dark' do %>
     <i class="fa-solid fa-hand-holding-usd"></i>
   <% end %>
 <% end %>
-<div data-controller="check" class="is-flex is-align-items-center">
-
-</div>
