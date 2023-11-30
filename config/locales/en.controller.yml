@@ -129,6 +129,9 @@ en:
         contacts:
           index:
             title: Contacts
+        clients:
+          index:
+            title: Sub Clients
     panel:
       title: CRM
       sources:

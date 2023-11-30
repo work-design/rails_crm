@@ -96,17 +96,25 @@ Rails.application.routes.draw do
           resources :client_maintains
         end
         resources :clients do
-          resources :productions, controller: 'client/productions'
-          resources :orders, controller: 'client/orders'
-          resources :addresses, controller: 'client/addresses'
-          resources :notes, controller: 'client/notes'
-          concerns :maintainable
           member do
             match :edit_assign, via: [:get, :post]
             patch :update_assign
             match :edit_organ, via: [:get, :post]
             post :init_organ
           end
+          resources :productions, controller: 'client/productions'
+          resources :orders, controller: 'client/orders'
+          resources :addresses, controller: 'client/addresses'
+          resources :notes, controller: 'client/notes'
+          resources :children, controller: 'client/clients' do
+            member do
+              match :edit_assign, via: [:get, :post]
+              patch :update_assign
+              match :edit_organ, via: [:get, :post]
+              post :init_organ
+            end
+          end
+          concerns :maintainable
           resources :client_maintains
           resources :contacts, controller: 'client/contacts' do
             member do
