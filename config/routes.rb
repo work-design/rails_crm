@@ -55,6 +55,22 @@ Rails.application.routes.draw do
       end
     end
     concern :maintaining do
+      resources :contacts do
+        concerns :maintainable
+        member do
+          match :edit_assign, via: [:get, :post]
+          patch :update_assign
+        end
+      end
+      resources :clients do
+        concerns :maintainable
+        member do
+          match :edit_assign, via: [:get, :post]
+          patch :update_assign
+          match :edit_organ, via: [:get, :post]
+          post :init_organ
+        end
+      end
       resources :maintains do
         concerns :maintainable
         collection do
@@ -88,20 +104,9 @@ Rails.application.routes.draw do
         root 'home#index'
         concerns :maintaining
         resources :contacts do
-          concerns :maintainable
-          member do
-            match :edit_assign, via: [:get, :post]
-            patch :update_assign
-          end
           resources :client_maintains
         end
         resources :clients do
-          member do
-            match :edit_assign, via: [:get, :post]
-            patch :update_assign
-            match :edit_organ, via: [:get, :post]
-            post :init_organ
-          end
           resources :productions, controller: 'client/productions'
           resources :orders, controller: 'client/orders'
           resources :addresses, controller: 'client/addresses'
@@ -114,7 +119,6 @@ Rails.application.routes.draw do
               post :init_organ
             end
           end
-          concerns :maintainable
           resources :client_maintains
           resources :contacts, controller: 'client/contacts' do
             member do
