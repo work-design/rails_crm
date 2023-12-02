@@ -151,6 +151,12 @@ en:
       home:
         index:
           title: 我的
+      clients:
+        index:
+          title: Clients
+      contacts:
+        index:
+          title: Contacts
       sources:
         index:
           title: Sources
