@@ -117,6 +117,12 @@ zh:
       home:
         index:
           title: 我的
+      clients:
+        index:
+          title: 客户
+      contacts:
+        index:
+          title: 联系人
       sources:
         index:
           title: 客户来源
