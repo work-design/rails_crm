@@ -15,10 +15,6 @@ module Crm
       @maintain_tags = MaintainTag.default_where(default_params)
     end
 
-    def set_maintain
-      @maintain = Maintain.find params[:maintain_id]
-    end
-
     def set_note
       @note = @client.notes.find(params[:id])
     end

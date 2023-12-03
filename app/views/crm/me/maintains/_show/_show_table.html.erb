@@ -1,10 +1,6 @@
 <tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:name) %></td>
-  <td><%= @maintain.client.name %></td>
-</tr>
-<tr>
-  <td class="has-text-right"><%= Profiled::Profile.human_attribute_name(:gender) %></td>
-  <td><%= @maintain.client.gender_i18n %></td>
+  <td class="has-text-right"><%= Crm::Contact.human_attribute_name(:name) %></td>
+  <td><%= @maintain.contact&.name %></td>
 </tr>
 <tr>
   <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:state) %></td>
