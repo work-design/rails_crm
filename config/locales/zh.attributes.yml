@@ -1,6 +1,8 @@
 zh:
   activerecord:
     attributes:
+      crm/contact:
+        identity: 联系方式
       crm/maintain:
         state: 状态
         maintain_source_id: 客户来源
