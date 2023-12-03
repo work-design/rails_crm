@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope RailsCom.default_routes_scope do
     concern :maintainable do
+      resources :client_maintains
       resources :notes
       resources :orders do
         collection do
@@ -63,6 +64,27 @@ Rails.application.routes.draw do
         end
       end
       resources :clients do
+        resources :productions, controller: 'client/productions'
+        resources :orders, controller: 'client/orders'
+        resources :addresses, controller: 'client/addresses'
+        resources :notes, controller: 'client/notes'
+        resources :children, controller: 'client/clients' do
+          member do
+            match :edit_assign, via: [:get, :post]
+            patch :update_assign
+            match :edit_organ, via: [:get, :post]
+            post :init_organ
+          end
+        end
+        resources :contacts, controller: 'client/contacts' do
+          member do
+            match :edit_assign, via: [:get, :post]
+            patch :update_assign
+            match :edit_member, via: [:get, :post]
+            post :init_member
+            patch :update_default
+          end
+        end
         concerns :maintainable
         member do
           match :edit_assign, via: [:get, :post]
@@ -103,33 +125,6 @@ Rails.application.routes.draw do
       namespace :admin, defaults: { namespace: 'admin' } do
         root 'home#index'
         concerns :maintaining
-        resources :contacts do
-          resources :client_maintains
-        end
-        resources :clients do
-          resources :productions, controller: 'client/productions'
-          resources :orders, controller: 'client/orders'
-          resources :addresses, controller: 'client/addresses'
-          resources :notes, controller: 'client/notes'
-          resources :children, controller: 'client/clients' do
-            member do
-              match :edit_assign, via: [:get, :post]
-              patch :update_assign
-              match :edit_organ, via: [:get, :post]
-              post :init_organ
-            end
-          end
-          resources :client_maintains
-          resources :contacts, controller: 'client/contacts' do
-            member do
-              match :edit_assign, via: [:get, :post]
-              patch :update_assign
-              match :edit_member, via: [:get, :post]
-              post :init_member
-              patch :update_default
-            end
-          end
-        end
         resources :maintain_sources do
           collection do
             post :sync

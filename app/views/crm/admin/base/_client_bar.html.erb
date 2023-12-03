@@ -5,17 +5,17 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper('crm/admin/clients': ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('.clients.show.title'), { controller: 'crm/admin/clients', action: 'show', id: @client.id } %>
+    <li class="<%= active_helper('clients': ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('.clients.show.title'), { controller: 'clients', action: 'show', id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'client_maintains', active: 'is-active') %>">
-      <%= link_to t('.client_maintains.index.title'), { controller: 'crm/admin/client_maintains', client_id: @client.id } %>
+      <%= link_to t('.client_maintains.index.title'), { controller: 'client_maintains', client_id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'crm/admin/client/contacts', active: 'is-active') %>">
-      <%= link_to t('.contacts.index.title'), { controller: 'crm/admin/client/contacts', client_id: @client.id } %>
+      <%= link_to t('.contacts.index.title'), { controller: 'client/contacts', client_id: @client.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'crm/admin/client/clients', active: 'is-active') %>">
-      <%= link_to t('crm.admin.client.clients.index.title'), { controller: 'crm/admin/client/clients', client_id: @client.id } %>
+    <li class="<%= active_helper(controllers: ['crm/admin/client/clients'], active: 'is-active') %>">
+      <%= link_to t('crm.admin.client.clients.index.title'), { controller: 'client/clients', client_id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'notes', active: 'is-active') %>">
       <%= link_to t('.notes.index.title'), { controller: 'client/notes', client_id: @client.id } %>
