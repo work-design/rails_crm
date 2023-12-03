@@ -10,13 +10,5 @@ module Crm
       }.compact_blank
     end
 
-    def set_client_user
-      if @maintain.client.user
-        @client = @maintain.client.user
-      else
-        @client = @maintain.client
-      end
-    end
-
   end
 end

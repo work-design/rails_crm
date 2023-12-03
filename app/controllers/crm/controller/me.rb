@@ -8,8 +8,13 @@ module Crm
     end
 
     def set_common_maintain
-      @maintain = current_member.maintains.find params[:maintain_id]
-      set_client_user
+      if params[:client_id]
+        @client = current_member.agent_clients.find params[:client_id]
+      elsif params[:contact_id]
+        @client = current_member.agent_contacts.find params[:contact_id]
+      elsif params[:maintain_id]
+        @client = current_member.maintains.find params[:maintain_id]
+      end
     end
 
   end
