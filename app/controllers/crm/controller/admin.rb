@@ -23,11 +23,5 @@ module Crm
       end
     end
 
-    class_methods do
-      def local_prefixes
-        [controller_path, 'crm/admin/base']
-      end
-    end
-
   end
 end
