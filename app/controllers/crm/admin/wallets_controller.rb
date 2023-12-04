@@ -1,5 +1,5 @@
 module Crm
-  class Admin::WalletsController < Trade::Admin::WalletsController
+  class Admin::WalletsController < Trade::Admin::CustomWalletsController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_wallet, only: [:show, :edit, :update, :destroy, :actions]
