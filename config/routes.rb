@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         collection do
           get 'cart/:current_cart_id' => :cart
           post :add
+          post :batch_paid
         end
         member do
           post :package
@@ -65,7 +66,12 @@ Rails.application.routes.draw do
       end
       resources :clients do
         resources :productions, controller: 'client/productions'
-        resources :orders, controller: 'client/orders'
+        resources :orders, controller: 'client/orders' do
+          collection do
+            post :batch_paid
+            delete :batch_destroy
+          end
+        end
         resources :addresses, controller: 'client/addresses'
         resources :notes, controller: 'client/notes'
         resources :children, controller: 'client/clients' do
