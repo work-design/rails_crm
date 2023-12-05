@@ -1,5 +1,5 @@
 module Crm
-  class MaintainImport < ApplicationImport
+  class ContactImport < ApplicationImport
     extend RailsData::Import
 
     config do
