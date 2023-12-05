@@ -1,11 +1,11 @@
 module Crm
-  class MaintainImport
+  class MaintainImport < ApplicationImport
     extend RailsData::Import
 
     config do
-      model Maintain
-      column :amount, header: 'My name', field: -> {}
-      column :email, header: 'Email', field: -> {}
+      model Contact
+      column :name, header: 'My name', field: -> {}
+      column :identity, header: 'Email', field: -> {}
     end
   end
 end
