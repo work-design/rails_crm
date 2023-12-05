@@ -4,8 +4,8 @@ module Crm
 
     config do
       model Contact
-      column :name, header: 'My name', field: -> {}
-      column :identity, header: 'Email', field: -> {}
+      column :name, header: 'My name', field: ->(i) { i}
+      column :identity, header: 'Email', field: ->(i) { i }
     end
   end
 end
