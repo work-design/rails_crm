@@ -8,6 +8,7 @@ module Crm
       belongs_to :contact, class_name: 'Crm::Contact', optional: true
       belongs_to :agent, class_name: 'Org::Member', optional: true
       accepts_nested_attributes_for :client
+      accepts_nested_attributes_for :contact
 
       #before_save :sync_from_maintain, if: -> { client_id.present? && maintain_id_changed? }
       before_validation :sync_from_contact, if: -> { (changes.keys & ['contact_id']).present? }
