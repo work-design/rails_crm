@@ -1,12 +1,10 @@
 Gem::Specification.new do |s|
   s.name = 'rails_crm'
   s.version = '0.0.2'
-  s.authors = ['qinmingyuan']
+  s.authors = ['Mingyuan Qin']
   s.email = ['mingyuan0715@foxmail.com']
-  s.homepage = 'https://github.com/work-design/rails_crm'
-  s.summary = 'Summary of RailsCrm.'
-  s.description = 'Description of RailsCrm.'
-  s.license = 'MIT'
+  s.summary = 'Summary of RailsCrm'
+  s.description = 'Description of RailsCrm'
 
   s.files = Dir[
     '{app,config,db,lib}/**/*',
