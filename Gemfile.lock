@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: a62873ef2e9aae6484d03f6a82bb3745bfdde8d1
+  revision: 530a3ba47571d17e7b153a97df9b41af92adef5e
   specs:
     rails_com (1.3.0)
       acme-client
@@ -19,28 +19,28 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 5ebf504aa6f95b69b812a33a2d7f3b37e47aa896
+  revision: d0443b0738a401d2cd02d76c26429d787e561e29
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 3095455b2fd29f194c0c583d8e99f63324cccaaa
+  revision: 9d7bade3a1f3b3f9dc04c0e26f37578756b20371
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 6bb863f005eed06d430021395edf5e3c8537f347
+  revision: c3abc836df8845e232e27a2adf2342db768b79ce
   specs:
     rails_notice (1.0.3)
       rails_extend
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 117cc887629c55eac2351fcc7d7891623c022197
+  revision: 366eeb23b0cc826942a9a23cea54a3beebbe80e3
   specs:
     rails_trade (0.0.3)
       rails_extend
@@ -361,7 +361,7 @@ CHECKSUMS
   faraday-retry (2.2.0) sha256=80824a5454dd0ce7d8074013454d163569b909001a64bdb3499c9968df4f41c5
   fugit (1.9.0) sha256=e92ae18828a094afdd753e42ded0b83ad3449d79adddc5d1ab88e28dbfedd221
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
-  good_job (3.21.3)
+  good_job (3.21.3) sha256=43931fe4df964f3de83cba67b595266b180be43714d2bec0efe8bafd498f5d51
   http-2-next (1.0.1) sha256=255a0c0f0d35e8b5352d3bc5b2bdb3643a27a65e0da7f10a7f2f75e1c23ae640
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
   httpx (1.1.5) sha256=1f7ecff6989f0f757f0d264735c035d68727c0a8de6d23ffe942925a5f7a421c
