@@ -11,7 +11,7 @@
 <% if model.remark_mobiles.present? %>
   <%= model.remark_mobiles.join(',') %>
 <% else %>
-  <%= model.client.identity %>
+  <%= model.contact&.identity %>
 <% end %>
 </p>
 <% end %>
