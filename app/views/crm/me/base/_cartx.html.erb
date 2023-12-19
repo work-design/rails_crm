@@ -15,7 +15,7 @@
 
 <%= form_with theme: nil, url: { controller: 'items' }, state: 'redirect_return', data: { turbo_scroll: true }, class: 'button_to' do |f| %>
   <%= f.hidden_field :current_cart_id, value: cart.id %>
-  <%= f.hidden_field :good_type, value: model.class_name %>
+  <%= f.hidden_field :good_type, value: model.base_class_name %>
   <%= f.hidden_field :good_id, value: model.id %>
   <%= button_tag do %>
     <i class="fa-solid fa-circle-plus fa-xl has-text-dark-grey"></i>
