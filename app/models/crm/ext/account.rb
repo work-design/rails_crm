@@ -3,7 +3,8 @@ module Crm
     extend ActiveSupport::Concern
 
     included do
-      after_save_commit :sync_user_later, if: -> { saved_change_to_user_id? }
+      has_many :contacts, class_name: 'Crm::Contact', primary_key: :identity, foreign_key: :identity
+      #after_save_commit :sync_user_later, if: -> { saved_change_to_user_id? }
     end
 
     def sync_user_later
@@ -11,13 +12,8 @@ module Crm
     end
 
     def sync_user
-      profiles.each do |profile|
-        profile.user_id ||= user_id
-        profile.client_maintains.each do |maintain|
-          maintain.client_user_id ||= user_id
-          maintain.client_member ||= members[0]
-          maintain.save
-        end
+      contacts.each do |contact|
+        contact.client_user_id ||= user_id
       end
     end
 
