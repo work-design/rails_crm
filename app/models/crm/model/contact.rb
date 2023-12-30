@@ -17,13 +17,10 @@ module Crm
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :account, -> { where(confirmed: true) }, class_name: 'Auth::Account', foreign_key: :identity, primary_key: :identity, optional: true
-
-      belongs_to :client, optional: true
       belongs_to :client_member, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', optional: true
       belongs_to :client_user, class_name: 'Auth::User', optional: true
 
       has_many :pending_members, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
-      has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :contact_id, inverse_of: :contact
       has_many :addresses, class_name: 'Profiled::Address', foreign_key: :contact_id, dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', foreign_key: :contact_id, dependent: :nullify
       has_many :orders, class_name: 'Trade::Order', foreign_key: :contact_id, dependent: :nullify
@@ -31,9 +28,12 @@ module Crm
       has_many :carts, class_name: 'Trade::Cart', primary_key: [:id, :client_id], query_constraints: [:contact_id, :client_id]
       has_many :items, class_name: 'Trade::Item', foreign_key: :contact_id
       has_many :payment_methods, class_name: 'Trade::PaymentMethod'
-      has_many :notes, foreign_key: :contact_id
 
-      accepts_nested_attributes_for :client_maintains
+      belongs_to :client, optional: true
+      has_many :maintains
+      has_many :notes
+
+      accepts_nested_attributes_for :maintains
 
       has_one_attached :avatar
 

@@ -17,13 +17,10 @@ module Crm
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :client_organ, class_name: 'Org::Organ', optional: true
-
-      has_many :contacts
       has_many :members, class_name: 'Contact', foreign_key: :client_id
       #has_many :children, class_name: self.name
 
       has_one :lawful_wallet, class_name: 'Trade::LawfulWallet', foreign_key: :client_id
-      has_many :client_maintains, class_name: 'Crm::Maintain', foreign_key: :client_id, inverse_of: :client
       has_many :addresses, class_name: 'Profiled::Address', foreign_key: :client_id, dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', foreign_key: :client_id, dependent: :nullify
       has_many :orders, class_name: 'Trade::Order', foreign_key: :client_id, dependent: :nullify
@@ -31,7 +28,9 @@ module Crm
       has_many :carts, class_name: 'Trade::Cart', foreign_key: :client_id, dependent: :nullify
       has_many :payment_methods, class_name: 'Trade::PaymentMethod', foreign_key: :client_id, dependent: :nullify
 
-      has_many :notes, foreign_key: :client_id
+      has_many :contacts
+      has_many :notes
+      has_many :maintains
 
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
