@@ -6,7 +6,7 @@ module Crm
     before_action :set_purchase, only: [:show]
 
     def index
-      @carts = @maintain.carts.page(params[:page])
+      @carts = @client.carts.page(params[:page])
     end
 
     def show
@@ -18,7 +18,7 @@ module Crm
 
     private
     def set_cart
-      @cart = @maintain.carts.find params[:id]
+      @cart = @client.carts.find params[:id]
     end
 
   end
