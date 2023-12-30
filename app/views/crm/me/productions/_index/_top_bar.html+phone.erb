@@ -1,0 +1,20 @@
+<div class="weui-panel is-borderless">
+  <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
+    <%= link_to({ controller: 'trade/agent/payments', action: 'uncheck' }, state: 'return', class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
+    <div class="weui-title is-flex-direction-column">
+    <% if params[:produce_on] %>
+      <div>
+        <span class="has-text-weight-semibold"><%= params[:produce_on] %></span>
+        <span><%= params[:produce_on].to_date.to_fs(:week) if params[:produce_on].present? %></span>
+      </div>
+    <% end %>
+      <div>
+        <span class="has-text-weight-semibold"><%= @scene&.title %></span>
+        <span><%= @client.name %></span>
+      </div>
+    </div>
+    <i style="width: 3rem"></i>
+  </div>
+</div>

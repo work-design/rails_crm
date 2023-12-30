@@ -1,5 +1,5 @@
 module Crm
-  class Admin::ProductionsController < Factory::In::ProductionsController
+  class Admin::ProductionsController < Factory::Agent::ProductionsController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_cart
