@@ -17,6 +17,12 @@ module Crm
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
       belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
 
+      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+      has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+      has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+      has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+      has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
+
       belongs_to :client, optional: true
       belongs_to :contact, optional: true
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
@@ -24,14 +30,7 @@ module Crm
       belongs_to :maintain_source, optional: true
       belongs_to :upstream, class_name: self.name, optional: true
       belongs_to :original, class_name: self.name, optional: true
-
-      has_many :addresses, class_name: 'Profiled::Address', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
-      has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :cards, class_name: 'Trade::Card', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
-      has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id], query_constraints: [:agent_id, :client_id]
       has_many :notes, primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:member_id, :client_id, :contact_id]
-
       has_many :maintain_tags, -> { distinct }, through: :notes
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
