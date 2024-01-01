@@ -148,3 +148,6 @@ zh:
       carts:
         index:
           title: 购物车
+      productions:
+        index:
+          title: 下单
