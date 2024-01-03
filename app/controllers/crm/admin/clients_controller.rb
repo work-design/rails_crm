@@ -11,7 +11,7 @@ module Crm
       q_params.merge! default_params
       q_params.merge! params.permit('name-asc')
 
-      @clients = Client.includes(:client_maintains).roots.default_where(q_params).page(params[:page]).per(params[:per])
+      @clients = Client.includes(:maintains).roots.default_where(q_params).page(params[:page]).per(params[:per])
     end
 
     def edit_assign
@@ -27,7 +27,7 @@ module Crm
     end
 
     def update_assign
-      @maintain = @client.client_maintains.build(maintain_params)
+      @maintain = @client.maintains.build(maintain_params)
       @maintain.save
     end
 

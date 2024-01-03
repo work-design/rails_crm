@@ -1,6 +1,6 @@
 <tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <%= yield %>
-  <td rowspan="<%= model.client_maintains.size + 1 %>">
+  <td rowspan="<%= model.maintains.size + 1 %>">
     <div data-show-target="item" style="visibility: hidden">
       <%= button_to({ action: 'edit_assign', id: model.id }, aria: { label: t('.edit_assign.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-hand-holding-usd has-text-success"></i>
@@ -34,4 +34,4 @@
     </div>
   </td>
 </tr>
-<%= render partial: 'maintain_tbody', layout: 'maintain_tr', collection: model.client_maintains, as: :model %>
+<%= render partial: 'maintain_tbody', layout: 'maintain_tr', collection: model.maintains, as: :model %>

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
           get 'cart/:current_cart_id' => :cart
           post :add
           post :batch_paid
+          delete :batch_destroy
         end
         member do
           post :package
