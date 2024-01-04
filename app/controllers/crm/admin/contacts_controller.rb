@@ -13,6 +13,13 @@ module Crm
       @contacts = Contact.includes(:maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def maintain
+      q_params = {}
+      q_params.merge! default_params
+
+      @contacts = Contact.includes(:maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
+    end
+
     def edit_assign
       pipeline_params = {
         piping_type: 'Maintain',

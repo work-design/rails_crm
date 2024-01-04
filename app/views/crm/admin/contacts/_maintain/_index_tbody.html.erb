@@ -1,0 +1,5 @@
+<td rowspan="<%= model.maintains.size + 1 %>">
+  <p><%= link_to model.identity, { action: 'show', id: model.id } %></p>
+  <p><span><%= model.name %></span></p>
+</td>
+<td colspan="7" class="<%= model.maintains.size > 0 ? 'is-borderless is-empty' : '' %>"></td>
