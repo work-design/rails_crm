@@ -39,7 +39,7 @@ module Crm
 
       validates :identity, uniqueness: { scope: [:client_id] }
 
-      before_save :sync_from_user, if: -> { client_user_id_changed? && client_user }
+      before_save :sync_from_client_user, if: -> { client_user_id_changed? && client_user }
       after_save :sync_member_to_orders, if: -> { (saved_changes.keys & ['client_member_id']).present? }
       after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_user_id']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
