@@ -2,8 +2,8 @@
   <%= yield %>
   <td>
     <div data-show-target="item" style="visibility: hidden">
-      <%= link_to({ controller: 'card_templates', action: 'show', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-circle-info"></i>
+      <%= button_to({ controller: 'card_templates', action: 'show', id: model.id }, aria: { label: t('.card_templates.show.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-circle-info has-text-info"></i>
       <% end %>
     </div>
   </td>

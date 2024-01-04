@@ -23,7 +23,7 @@ module Crm
     end
 
     def set_new_order
-      @order = @maintain.orders.build
+      @order = @client.orders.build
       @order.items.build
     end
 
@@ -32,7 +32,7 @@ module Crm
     end
 
     def set_new_card
-      @card = @maintain.cards.build(card_params)
+      @card = @client.cards.build(card_params)
     end
 
     def set_card_template_ids
