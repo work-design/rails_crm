@@ -9,7 +9,7 @@
       <%= link_to t('.contacts.show.title'), { controller: 'contacts', action: 'show', id: @contact.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'crm/admin/client_maintains', active: 'is-active') %>">
-      <%= link_to t('.client_maintains.index.title'), { controller: 'crm/admin/client_maintains', contact_id: @contact.id, client_id: nil } %>
+      <%# link_to t('.client_maintains.index.title'), { controller: 'crm/admin/client_maintains', contact_id: @contact.id, client_id: nil } %>
     </li>
     <li class="<%= active_helper(controllers: 'notes', active: 'is-active') %>">
       <%= link_to t('.notes.index.title'), { controller: 'crm/admin/notes', contact_id: @contact.id } %>

@@ -49,6 +49,11 @@ zh:
           title: 为客户下单
         add:
           title: 生成订单
+        cart:
+          title: 确认订单
+      items:
+        create:
+          title: 加入购物清单
       notes:
         index:
           title: 跟踪日志

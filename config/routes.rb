@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   scope RailsCom.default_routes_scope do
     concern :maintainable do
-      resources :client_maintains
       resources :notes
       resources :orders do
         collection do
@@ -64,6 +63,7 @@ Rails.application.routes.draw do
           match :edit_assign, via: [:get, :post]
           patch :update_assign
         end
+        resources :maintains, controller: 'contact/maintains'
       end
       resources :clients do
         resources :productions, controller: 'client/productions'
@@ -75,6 +75,7 @@ Rails.application.routes.draw do
         end
         resources :addresses, controller: 'client/addresses'
         resources :notes, controller: 'client/notes'
+        resources :maintains, controller: 'client/maintains'
         resources :children, controller: 'client/clients' do
           member do
             match :edit_assign, via: [:get, :post]

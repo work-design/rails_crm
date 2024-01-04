@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 module Crm
-  class Admin::ClientMaintainsController < Admin::BaseController
+  class Admin::Contact::MaintainsController < Admin::MaintainsController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_maintain, only: [:show, :edit, :update, :destroy, :actions]
     before_action :set_new_maintain, only: [:new, :create]
 
     def index
-      @maintains = @client.client_maintains.page(params[:page])
+      @maintains = @client.maintains.page(params[:page])
     end
 
     private
@@ -24,7 +24,7 @@ module Crm
     end
 
     def set_new_maintain
-      @maintain = @client.client_maintains.build(maintain_params)
+      @maintain = @client.maintains.build(maintain_params)
     end
 
     def maintain_params
