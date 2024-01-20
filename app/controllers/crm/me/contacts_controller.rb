@@ -3,7 +3,7 @@ module Crm
     include Controller::Me
 
     def index
-      @contacts = current_member.agent_contacts.page(params[:page])
+      @contacts = current_member.agent_contacts.order(id: :desc).page(params[:page])
     end
 
     private

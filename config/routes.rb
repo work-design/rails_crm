@@ -59,6 +59,10 @@ Rails.application.routes.draw do
     concern :maintaining do
       resources :contacts do
         concerns :maintainable
+        collection do
+          match :new_detect, via: [:get, :post]
+          post :create_detect
+        end
         member do
           match :edit_assign, via: [:get, :post]
           patch :update_assign
@@ -107,8 +111,6 @@ Rails.application.routes.draw do
           get :public
           match :new_batch, via: [:get, :post]
           post :create_batch
-          match :new_detect, via: [:get, :post]
-          post :create_detect
           get 'assign' => :new_batch_assign
           post 'assign' => :create_batch_assign
         end

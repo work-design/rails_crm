@@ -23,8 +23,8 @@ module Crm
       has_many :carts, class_name: 'Trade::Cart', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
       has_many :orders, class_name: 'Trade::Order', primary_key: [:member_id, :client_id, :contact_id], query_constraints: [:agent_id, :client_id, :contact_id]
 
-      belongs_to :client, optional: true
-      belongs_to :contact, optional: true
+      belongs_to :client, optional: true, inverse_of: :maintains
+      belongs_to :contact, optional: true, inverse_of: :maintains
       belongs_to :agent, polymorphic: true, inverse_of: :agent_maintains, optional: true
       belongs_to :agency, optional: true
       belongs_to :maintain_source, optional: true
