@@ -19,6 +19,10 @@ module Crm
         @contact = current_corp_user.contacts.find_or_initialize_by(state: @source.name)
         @contact.save
         logger.debug "\e[35m  Contact ID: #{@contact.id}  \e[0m"
+      else
+        @scene = current_member.invite_scene!(current_wechat_app)
+        @requests = @scene.requests.includes(:wechat_user).order(id: :desc).page(params[:page])
+        render 'invite_qrcode'
       end
     end
 
