@@ -5,8 +5,8 @@
       <span><%= current_user.name %></span>
     </div>
   </div>
-  <figure class="image">
-    <%= image_tag @scene.qrcode_data_url if @scene %>
+  <figure id="scene_<%= @scene.id %>" class="image">
+    <%= image_tag @scene.qrcode_data_url %>
   </figure>
 </div>
 
