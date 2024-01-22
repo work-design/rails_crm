@@ -6,7 +6,7 @@
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
-<%= link_to({ controller: 'maintains', action: 'show', id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ action: 'show', id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-circle-info"></i>
   <span><%= t('.show.title') %></span>
 <% end %>
