@@ -10,6 +10,7 @@ module Crm
     def index
       q_params = {}
       q_params.merge! default_params
+      q_params.merge! params.permit(:payment_status, :state)
 
       @orders = @client.orders.default_where(q_params).includes(:payment_strategy).order(id: :desc).page(params[:page])
     end
