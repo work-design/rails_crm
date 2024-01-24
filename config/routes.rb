@@ -55,6 +55,7 @@ Rails.application.routes.draw do
           post :from_create
         end
       end
+      resources :provides
     end
     concern :maintaining do
       resources :contacts do

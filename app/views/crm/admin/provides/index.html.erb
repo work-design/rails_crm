@@ -1,0 +1,7 @@
+<%= render 'maintain_bar' %>
+<%= render 'index_bar' %>
+<%= render 'index_actions' %>
+
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @provides, as: :model %>
+<% end %>

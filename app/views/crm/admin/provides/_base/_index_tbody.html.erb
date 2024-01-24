@@ -1,0 +1,12 @@
+<td>
+<% if model.provider %>
+  <div class="is-several">
+    <%= image_tag model.provider.logo, class: 'image is-24x24' if model.provider.logo.attached? %>
+    <span><%= model.provider.name %></span>
+  </div>
+<% end %>
+</td>
+<td>
+<% %>
+  <span class="tag">未入驻</span>
+</td>
