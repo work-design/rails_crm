@@ -88,6 +88,9 @@ zh:
       productions:
         index:
           title: 下单
+      provides:
+        index:
+          title: 供应商
       wallet_advances:
         index:
           title: 充值
