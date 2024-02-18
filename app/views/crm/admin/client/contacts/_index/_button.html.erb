@@ -1,0 +1,10 @@
+<div class="buttons are-small mb-0">
+  <%= button_to({ action: 'new' }, class: 'button is-link') do %>
+    <i class="fa-solid fa-plus"></i>
+    <span class="pl-1"><%= t('.new.title') %></span>
+  <% end %>
+  <%= button_to({ controller: 'datum/admin/table_lists', action: 'new_import', data_list_id: 'Crm::ContactImport' }, class: 'button is-light') do %>
+    <i class="fa-solid fa-file-excel"></i>
+    <span class="pl-1"><%= t('datum.admin.table_lists.new_import.title') %></span>
+  <% end if defined? RailsData %>
+</div>
