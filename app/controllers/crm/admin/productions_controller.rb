@@ -10,7 +10,7 @@ module Crm
       q_params.merge! production_plans: { produce_on: params[:produce_on], scene_id: params[:scene_id] } if params[:produce_on] && params[:scene_id]
       q_params.merge! params.permit(:organ_id, :factory_taxon_id, 'name-like')
 
-      @productions = Factory::Production.includes(:production_plans, production_parts: :part, product: [:brand, { logo_attachment: :blob }]).default_where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
+      @productions = Factory::Production.includes(:production_plans, :parts, product: [:brand, { logo_attachment: :blob }]).default_where(q_params).default.order(id: :desc).page(params[:page]).per(params[:per])
     end
 
     private
