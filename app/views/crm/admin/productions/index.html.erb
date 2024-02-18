@@ -1,7 +1,7 @@
 <%= render 'maintain_bar' %>
 
 <%= render layout: 'index_raw_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @productions, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @productions, as: :model, cached: true %>
 <% end %>
 
 <%= paginate @productions %>
