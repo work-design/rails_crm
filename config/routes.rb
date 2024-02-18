@@ -68,7 +68,13 @@ Rails.application.routes.draw do
           match :edit_assign, via: [:get, :post]
           patch :update_assign
         end
-        resources :maintains, controller: 'contact/maintains'
+        resources :maintains, controller: 'contact/maintains' do
+          member do
+            patch :detach
+            match :edit_transfer, via: [:get, :post]
+            patch :update_transfer
+          end
+        end
       end
       resources :clients do
         resources :productions, controller: 'client/productions'
