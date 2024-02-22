@@ -1,14 +1,14 @@
 <tr>
-  <td class="has-text-right"><%= Crm::Contact.human_attribute_name(:name) %></td>
+  <td><%= Crm::Contact.human_attribute_name(:name) %></td>
   <td><%= @maintain.contact&.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:state) %></td>
+  <td><%= Crm::Maintain.human_attribute_name(:state) %></td>
   <td><%= @maintain.state %></td>
 </tr>
 <% if defined? RailsWechat %>
 <tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name(:add_way) %></td>
+  <td><%= Crm::Maintain.human_attribute_name(:add_way) %></td>
   <td><%= @maintain.add_way_i18n %></td>
 </tr>
 <% end %>
