@@ -3,7 +3,10 @@ module Crm
     include Controller::Me
 
     def index
-      @contacts = current_member.agent_contacts.order(id: :desc).page(params[:page])
+      q_params = {}
+      q_params.merge! default_params
+
+      @contacts = current_member.agent_contacts.default_where(q_params).order(id: :desc).page(params[:page])
     end
 
     private
