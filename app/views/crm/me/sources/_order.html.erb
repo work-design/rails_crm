@@ -3,7 +3,7 @@
   <%= f.hidden_field :good_id, value: source.id %>
   <%= f.hidden_field :member_id, value: current_member&.id %>
   <%= f.hidden_field :contact_id, value: @contact&.id %>
-  <%= button_tag data: { action: 'turbo:submit-start@window->common#submit' }, class: 'weui-cell__bd button is-borderless p-0 is-justify-content-flex-start' do %>
+  <%= button_tag data: { action: 'turbo:submit-start@window->common#submit' }, class: 'weui-cell__bd button is-borderless p-0 justify-content-flex-start' do %>
     <div>购买物料</div>
     <span class="has-text-danger"><%= source.price.to_money.format.html_safe %></span>
   <% end %>

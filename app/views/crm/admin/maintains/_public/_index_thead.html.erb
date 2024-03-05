@@ -1,5 +1,5 @@
 <th>
-  <div data-controller="check" data-check-name-value="xx" class="is-flex is-align-items-center">
+  <div data-controller="check" data-check-name-value="xx" class="is-flex align-items-center">
     <%= check_box_tag 'xxd', 'xx', false, id: nil, data: { action: 'check#toggleAll' } %>
     <%= form_with url: { action: 'new_batch_assign' }, method: :get, class: 'button_to ml-2' do |f| %>
       <%= f.hidden_field :ids, data: { check_target: 'ids' } %>

@@ -3,7 +3,7 @@
     <%= link_to({ controller: 'trade/agent/payments', action: 'uncheck' }, state: 'return', class: 'px-4') do %>
       <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
     <% end %>
-    <div class="weui-title is-flex-direction-column">
+    <div class="weui-title flex-direction-column">
     <% if params[:produce_on] %>
       <div>
         <span class="has-text-weight-semibold"><%= params[:produce_on] %></span>
