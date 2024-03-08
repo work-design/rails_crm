@@ -1,1 +1,1 @@
-<%= turbo_stream.replace "tr_#{@card_template.id}", partial: 'index_tbody', layout: 'index_tr', locals: { model: @card } %>
+<%= turbo_stream.replace "tr_#{@card.card_template_id}", partial: 'index_tbody', layout: 'index_tr', locals: { model: @card } %>
