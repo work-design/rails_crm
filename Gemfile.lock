@@ -18,14 +18,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: dcf39a68ccd5899f34ca55d51228cd83d0737191
+  revision: 7a242b726a9fbdf7fcf3074617553737a6b45851
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 4ef698021ff5603f47b3d0b87d3b9513df591af6
+  revision: 063f67134799ad388a89ef254f6bb212ec420a68
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 331e4b42636a348a2fed4dc20f18874871a591a7
+  revision: c3d553517b64e98a5f06347bd0abe54f39cbcbbb
   specs:
     rails_trade (0.0.3)
       rails_extend
