@@ -3,7 +3,7 @@
   <span><%= @client.name %></span>
 </h2>
 
-<div class="tabs">
+<div class="tabs mb-4">
   <ul>
     <li class="<%= active_helper(contacts: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.contacts.show.title'), { controller: 'contacts', action: 'show', id: @client.id } %>

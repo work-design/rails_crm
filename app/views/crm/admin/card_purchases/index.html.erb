@@ -1,0 +1,8 @@
+<%= render 'maintain_bar' %>
+
+<%= render 'index_actions' %>
+<%= render layout: 'index_table' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @card_purchases, as: :model %>
+<% end %>
+
+<%= paginate @card_purchases %>

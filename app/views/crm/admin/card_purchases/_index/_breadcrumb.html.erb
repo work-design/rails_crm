@@ -1,5 +1,5 @@
 <li><%= link_to t('.maintains.index.title'), { controller: 'maintains' } %></li>
-<li><span class="px-3"><%= @maintain.client.name %></span></li>
+<li><span class="px-3"><%= @client.name %></span></li>
 <li><%= link_to t('.cards.index.title'), { controller: 'cards', anchor: "tr_#{@card.id}" } %></li>
 <li><span class="px-3"><%= @card.card_template.name %></span>
 <li class="is-active"><%= t('.title') %></li>
