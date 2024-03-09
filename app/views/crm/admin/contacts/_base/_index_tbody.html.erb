@@ -1,5 +1,13 @@
 <td><%= link_to model.name, { action: 'show', id: model.id } %></td>
-<td><%= link_to model.identity, { action: 'show', id: model.id } %></td>
+<td>
+<% if model.identity.present? %>
+  <%= link_to model.identity, { action: 'show', id: model.id } %>
+<% else %>
+  <%= button_to({ action: 'edit', id: model.id }) do %>
+    <i class="fa-solid fa-pencil has-text-grey"></i>
+  <% end %>
+<% end %>
+</td>
 <td>
   <%= model.client_user_id %>
 </td>
