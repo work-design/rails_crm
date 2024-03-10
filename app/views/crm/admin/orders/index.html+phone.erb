@@ -1,7 +1,7 @@
 <%= render 'top_bar' %>
 
-<%= render layout: 'index_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @orders, as: :model %>
+<%= render layout: 'index_list' do %>
+  <%= render partial: 'index_item', layout: 'index_item_actions', collection: @orders, as: :model %>
 <% end %>
 
 <%= paginate @orders %>
