@@ -49,15 +49,5 @@ module Crm
       )
     end
 
-    def _prefixes
-      super do |pres|
-        if ['show'].include?(params[:action])
-          pres + ['trade/my/card_templates/_show', 'trade/my/card_templates', 'trade/my/base']
-        else
-          pres
-        end
-      end
-    end
-
   end
 end
