@@ -4,18 +4,18 @@
     <span><%= t('crm.panel.title') %></span>
   </div>
   <div class="weui-panel__bd">
-    <div class="columns is-4-mobile is-flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
+    <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
       <%= link_to({ controller: 'crm/panel/sources' }, class: 'column has-column-centered') do %>
         <div class="has-text-primary">
           <i class="fa-solid fa-fw fa-xl fa-users"></i>
         </div>
-        <div class="has-text-grey is-size-7 mt-1"><%= t('crm.panel.sources.index.title') %></div>
+        <div class="has-text-grey size-7 mt-1"><%= t('crm.panel.sources.index.title') %></div>
       <% end %>
       <%= link_to({ controller: 'crm/panel/tags' }, class: 'column has-column-centered') do %>
         <div class="has-text-primary">
           <i class="fa-solid fa-fw fa-xl fa-tags"></i>
         </div>
-        <div class="has-text-grey is-size-7 mt-1"><%= t('crm.panel.tags.index.title') %></div>
+        <div class="has-text-grey size-7 mt-1"><%= t('crm.panel.tags.index.title') %></div>
       <% end %>
     </div>
   </div>

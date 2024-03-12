@@ -1,22 +1,22 @@
 <%= render 'top_bar' %>
 
-<div class="columns is-4-mobile is-flex is-vcentered is-centered m-3 is-shadow" data-empty-target="content">
+<div class="columns is-4-mobile flex is-vcentered is-centered m-3 is-shadow" data-empty-target="content">
   <%= link_to({ controller: 'crm/admin/contacts' }, state: 'enter', class: 'column has-column-centered') do %>
     <div class="has-text-primary">
       <i class="fa-solid fa-fw fa-xl fa-users"></i>
     </div>
-    <div class="has-text-grey is-size-7 mt-1"><%= t('crm.admin.contacts.index.title') %></div>
+    <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.contacts.index.title') %></div>
   <% end %>
   <%= link_to({ controller: 'crm/admin/clients' }, state: 'enter', class: 'column has-column-centered') do %>
     <div class="has-text-primary">
       <i class="fa-solid fa-fw fa-xl fa-tags"></i>
     </div>
-    <div class="has-text-grey is-size-7 mt-1"><%= t('crm.admin.clients.index.title') %></div>
+    <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.clients.index.title') %></div>
   <% end %>
   <%= link_to({ controller: 'crm/admin/home' }, state: 'enter', class: 'column has-column-centered') do %>
     <div class="has-text-primary">
       <i class="fa-solid fa-fw fa-xl fa-cogs"></i>
     </div>
-    <div class="has-text-grey is-size-7 mt-1"><%= t('crm.admin.home.index.title') %></div>
+    <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.home.index.title') %></div>
   <% end %>
 </div>

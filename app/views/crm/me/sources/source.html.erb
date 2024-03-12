@@ -2,11 +2,11 @@
 
 <div class="weui-panel is-box">
   <div class="weui-panel__bd">
-    <div class="is-flex flex-direction-column">
+    <div class="flex flex-direction-column">
       <% if @source.picture.attached? %>
         <div class="has-text-centered has-text-grey"><%= @source.width %>px</div>
       <% end %>
-      <div class="is-flex pl-5 pb-5">
+      <div class="flex pl-5 pb-5">
         <% if @source.picture.attached? %>
           <%= image_tag @source.url_with_watermark(@contact&.file), class: 'image' %>
           <div class="has-text-centered has-text-grey" style="writing-mode: tb-rl"><%= @source.height %>px</div>

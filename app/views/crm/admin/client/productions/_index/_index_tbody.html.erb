@@ -18,7 +18,7 @@
 <td>
   <% @client.contacts.each do |contact| %>
     <% if item = @cart.find_item(good_id: model.id, contact_id: contact.id) %>
-      <div class="is-flex">
+      <div class="flex">
         <%= render partial: 'cart', locals: { model: model, item_con: 'crm/admin/items', item: item, cart: @cart } %>
         <span><%= contact.name %></span>
       </div>
