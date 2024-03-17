@@ -26,6 +26,10 @@
   <i class="fa-solid fa-list-check"></i>
   <span><%= t('.orders.index.title') %></span>
 <% end %>
+<%= link_to({ controller: 'productions', contact_id: model.id }, class: 'weui-actionsheet__cell') do %>
+  <i class="fa-solid fa-store"></i>
+  <span><%= t('.productions.index.title') %></span>
+<% end %>
 <%= link_to({ controller: 'facilitates', contact_id: model.id }, class: 'weui-actionsheet__cell') do %>
   <i class="fa-solid fa-user-ninja"></i>
   <span><%= t('.facilitates.index.title') %></span>
