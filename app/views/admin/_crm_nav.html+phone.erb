@@ -1,9 +1,9 @@
-<div data-controller="empty" class="weui-panel is-box is-borderless">
-  <div class="weui-panel__hd">
+<div data-controller="empty" class="box">
+  <div class="box-header">
     <i class="fa-solid fa-fw fa-chart-line has-text-primary"></i>
     <span><%= t('crm.admin.title') %></span>
   </div>
-  <div class="weui-panel__bd">
+  <div class="box-body">
     <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
       <%= link_to({ controller: 'crm/admin/contacts' }, class: 'column has-column-centered') do %>
         <div class="has-text-primary">
