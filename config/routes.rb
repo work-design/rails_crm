@@ -12,6 +12,8 @@ Rails.application.routes.draw do
         member do
           post :package
           post :micro
+          get :print_data
+          post :print
           get :payment_types
           get :print_data
           get :adjust_edit
