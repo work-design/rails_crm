@@ -3,26 +3,24 @@
     <i class="fa-solid fa-fw fa-chart-line has-text-primary"></i>
     <span class="has-text-grey"><%= t('crm.me.title') %></span>
   </div>
-  <div class="box-body">
-    <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
-      <%= link_to({ controller: 'crm/me/contacts' }, state: 'enter', class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
-          <i class="fa-solid fa-fw fa-xl fa-users"></i>
-        </div>
-        <div class="has-text-grey size-7 mt-1"><%= t('crm.me.contacts.index.title') %></div>
-      <% end %>
-      <%= link_to({ controller: 'crm/me/sources' }, state: 'enter', class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
-          <i class="fa-solid fa-fw fa-xl fa-tags"></i>
-        </div>
-        <div class="has-text-grey size-7 mt-1"><%= t('crm.me.sources.index.title') %></div>
-      <% end %>
-      <%= link_to({ controller: 'crm/admin/home' }, state: 'enter', class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
-          <i class="fa-solid fa-fw fa-xl fa-cogs"></i>
-        </div>
-        <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.home.index.title') %></div>
-      <% end %>
-    </div>
+  <div class="box-body columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
+    <%= link_to({ controller: 'crm/me/contacts' }, state: 'enter', class: 'column has-column-centered') do %>
+      <div class="has-text-primary">
+        <i class="fa-solid fa-fw fa-xl fa-users"></i>
+      </div>
+      <div class="has-text-grey size-7 mt-1"><%= t('crm.me.contacts.index.title') %></div>
+    <% end %>
+    <%= link_to({ controller: 'crm/me/sources' }, state: 'enter', class: 'column has-column-centered') do %>
+      <div class="has-text-primary">
+        <i class="fa-solid fa-fw fa-xl fa-tags"></i>
+      </div>
+      <div class="has-text-grey size-7 mt-1"><%= t('crm.me.sources.index.title') %></div>
+    <% end %>
+    <%= link_to({ controller: 'crm/admin/home' }, state: 'enter', class: 'column has-column-centered') do %>
+      <div class="has-text-primary">
+        <i class="fa-solid fa-fw fa-xl fa-cogs"></i>
+      </div>
+      <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.home.index.title') %></div>
+    <% end %>
   </div>
 </div>

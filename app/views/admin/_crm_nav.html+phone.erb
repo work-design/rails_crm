@@ -3,20 +3,18 @@
     <i class="fa-solid fa-fw fa-chart-line has-text-primary"></i>
     <span><%= t('crm.admin.title') %></span>
   </div>
-  <div class="box-body">
-    <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
-      <%= link_to({ controller: 'crm/admin/contacts' }, class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
-          <i class="fa-solid fa-fw fa-xl fa-users"></i>
-        </div>
-        <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.contacts.index.title') %></div>
-      <% end %>
-      <%= link_to({ controller: 'crm/admin/maintain_sources' }, class: 'column has-column-centered') do %>
-        <div class="has-text-primary">
-          <i class="fa-solid fa-fw fa-xl fa-tags"></i>
-        </div>
-        <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.maintain_sources.index.title') %></div>
-      <% end %>
-    </div>
+  <div class="box-body columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
+    <%= link_to({ controller: 'crm/admin/contacts' }, class: 'column has-column-centered') do %>
+      <div class="has-text-primary">
+        <i class="fa-solid fa-fw fa-xl fa-users"></i>
+      </div>
+      <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.contacts.index.title') %></div>
+    <% end %>
+    <%= link_to({ controller: 'crm/admin/maintain_sources' }, class: 'column has-column-centered') do %>
+      <div class="has-text-primary">
+        <i class="fa-solid fa-fw fa-xl fa-tags"></i>
+      </div>
+      <div class="has-text-grey size-7 mt-1"><%= t('crm.admin.maintain_sources.index.title') %></div>
+    <% end %>
   </div>
 </div>
