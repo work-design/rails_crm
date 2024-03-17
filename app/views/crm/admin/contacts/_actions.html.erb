@@ -1,38 +1,40 @@
-<div class="columns is-mobile flex is-vcentered is-centered">
-  <%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'has-text-danger', form: { data: { turbo_confirm: t('.confirm') }, class: 'column is-4 has-column-centered' }) do %>
+<div class="fixed-grid has-4-cols">
+<div class="grid p-3" style="place-items: center">
+  <%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'has-text-danger has-column-centered', form: { data: { turbo_confirm: t('.confirm') }, class: 'cell' }) do %>
     <i class="fa-solid fa-trash"></i>
     <span><%= t('.destroy.title') %></span>
   <% end %>
-  <%= link_to({ action: 'edit', id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ action: 'edit', id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-pencil"></i>
     <span><%= t('.edit.title') %></span>
   <% end %>
-  <%= link_to({ action: 'show', id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ action: 'show', id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-circle-info"></i>
     <span><%= t('.show.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'cards', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'cards', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-cards-blank"></i>
     <span><%= t('.cards.index.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'wallets', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'wallets', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-wallet"></i>
     <span><%= t('.wallets.index.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'addresses', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'addresses', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-location-dot"></i>
     <span><%= t('.addresses.index.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'orders', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'orders', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-list-check"></i>
     <span><%= t('.orders.index.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'productions', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'productions', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-store"></i>
     <span><%= t('.productions.index.title') %></span>
   <% end %>
-  <%= link_to({ controller: 'facilitates', contact_id: model.id }, class: 'column is-4 has-column-centered') do %>
+  <%= link_to({ controller: 'facilitates', contact_id: model.id }, class: 'cell has-column-centered') do %>
     <i class="fa-solid fa-user-ninja"></i>
     <span><%= t('.facilitates.index.title') %></span>
   <% end %>
+</div>
 </div>
