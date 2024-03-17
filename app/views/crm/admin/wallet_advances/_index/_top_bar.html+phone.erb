@@ -1,16 +1,14 @@
-<div class="weui-panel is-borderless">
-  <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
-    <%= link_to({ controller: 'wallets' }, class: 'px-4') do %>
-      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+<div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="box as-bar">
+  <%= link_to({ controller: 'wallets' }, class: 'px-4') do %>
+    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% end %>
+  <div class="weui-title">
+    <span><%= @maintain.remark %></span>
+    <% if @wallet.wallet_template_id %>
+      <span class="pl-1"><%= @wallet.wallet_template.name %></span>
+    <% else %>
+      <span class="pl-1">人民币钱包</span>
     <% end %>
-    <div class="weui-title">
-      <span><%= @maintain.remark %></span>
-      <% if @wallet.wallet_template_id %>
-        <span class="pl-1"><%= @wallet.wallet_template.name %></span>
-      <% else %>
-        <span class="pl-1">人民币钱包</span>
-      <% end %>
-    </div>
-    <i style="width: 3rem"></i>
   </div>
+  <i class="px-4"></i>
 </div>
