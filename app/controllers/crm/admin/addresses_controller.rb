@@ -1,5 +1,5 @@
 module Crm
-  class Admin::AddressesController < Profiled::Admin::AddressesController
+  class Admin::AddressesController < Profiled::My::AddressesController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_address, only: [:show, :edit, :update, :destroy, :actions]
@@ -13,10 +13,12 @@ module Crm
       @addresses = @client.addresses.includes(:area, :station).default_where(q_params).page(params[:page])
     end
 
-    def order
+    def order_from
+      @addresses = @client.addresses.includes(:area, :station).order(id: :desc).page(params[:page])
     end
 
-    def order_from
+    def order
+      @addresses = @client.addresses.includes(:area, :station).order(id: :desc).page(params[:page])
     end
 
     def from_create

@@ -49,8 +49,8 @@ Rails.application.routes.draw do
       resources :productions
       resources :addresses do
         collection do
-          post :order
-          post :order_from
+          match :order, via: [:get, :post]
+          match :order_from, via: [:get, :post]
           post :order_new
           post :order_create
           post :from_new
