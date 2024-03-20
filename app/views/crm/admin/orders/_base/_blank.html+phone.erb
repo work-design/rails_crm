@@ -1,0 +1,17 @@
+<%= render 'top_bar' %>
+
+<%= render 'blank_order' %>
+
+<%= render partial: 'blank_item', collection: @order.items, as: :item, locals: { form: form_object(@order, theme: 'weui') } %>
+
+<% if @order.items.size > 1 %>
+  <%= render partial: 'collectable', locals: { form: form_object(@order, theme: 'weui') } %>
+<% end %>
+
+<%= render partial: 'payment_strategy', locals: { form: form_object(@order, theme: 'weui') } %>
+
+<%= render 'show_order' %>
+
+<div class="box is-radiusless">
+  <%= submit_tag '提交', class: 'weui-btn weui-btn_primary', form: 'new_order' %>
+</div>
