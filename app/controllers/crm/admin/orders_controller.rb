@@ -15,10 +15,6 @@ module Crm
       @orders = @client.orders.default_where(q_params).includes(:payment_strategy).order(id: :desc).page(params[:page])
     end
 
-    def new
-      @order.items.build
-    end
-
     def add
       @order.valid?
     end
