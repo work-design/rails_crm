@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :orders do
         collection do
           get 'cart/:current_cart_id' => :cart
+          get :unpaid
           post :add
           post :batch_paid
           delete :batch_destroy
@@ -34,6 +35,16 @@ Rails.application.routes.draw do
         collection do
           get 'order/:order_id' => :order_new
           post 'order/:order_id' => :order_create
+        end
+        resources :payment_orders do
+          collection do
+            post :confirmable
+          end
+          member do
+            post :confirm
+            post :cancel
+            post :refund
+          end
         end
       end
       resources :wallet_templates
