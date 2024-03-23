@@ -1,11 +1,7 @@
-<div class="weui-panel is-borderless">
-  <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="weui-panel__hd as-bar">
-    <%= link_to({ controller: 'maintains' }, state: 'return', class: 'px-4') do %>
-      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
-    <% end %>
-    <span class="weui-title">
-      <span class="mr-1"><%= @client.remark %></span>
-    </span>
-    <i style="width: 3rem"></i>
-  </div>
+<div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="box as-bar">
+  <%= link_to({ controller: 'orders' }, class: 'px-4') do %>
+    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% end %>
+  <span class="weui-title"><%= @client.name %></span>
+  <i class="mx-5"></i>
 </div>
