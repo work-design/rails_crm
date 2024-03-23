@@ -1,5 +1,0 @@
-<% if params[:return_state].present? %>
-  <%= turbo_stream.append 'body', partial: 'visit', locals: { url: url_for(**StateUtil.decode(params[:return_state])) } %>
-<% else %>
-  <%= turbo_stream.append 'body', partial: 'visit', locals: { url: url_for(action: 'show', id: @order.id) } %>
-<% end %>

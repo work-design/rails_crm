@@ -1,32 +1,32 @@
-<%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'has-text-danger', form: { data: { turbo_confirm: t('.confirm') }, class: 'weui-actionsheet__cell weui-actionsheet__cell_warn' }) do %>
+<%= button_to({ action: 'destroy', id: model.id }, method: :delete, class: 'has-text-danger', form: { data: { turbo_confirm: t('.confirm') }, class: 'cell weui-actionsheet__cell_warn' }) do %>
   <i class="fa-solid fa-trash"></i>
   <span><%= t('.destroy.title') %></span>
 <% end %>
-<%= link_to({ action: 'edit', id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ action: 'edit', id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-pencil"></i>
   <span><%= t('.edit.title') %></span>
 <% end %>
-<%= link_to({ controller: 'maintains', action: 'show', id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'maintains', action: 'show', id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-circle-info"></i>
   <span><%= t('.show.title') %></span>
 <% end %>
-<%= link_to({ controller: 'cards', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'cards', maintain_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-cards-blank"></i>
   <span><%= t('crm.admin.cards.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'wallets', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'wallets', maintain_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-wallet"></i>
   <span><%= t('crm.admin.wallets.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'addresses', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'addresses', maintain_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-location-dot"></i>
   <span><%= t('crm.admin.addresses.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'orders', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'orders', maintain_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-list-check"></i>
   <span><%= t('crm.admin.orders.index.title') %></span>
 <% end %>
-<%= link_to({ controller: 'services', maintain_id: model.id }, class: 'weui-actionsheet__cell') do %>
+<%= link_to({ controller: 'services', maintain_id: model.id }, class: 'cell') do %>
   <i class="fa-solid fa-user-ninja"></i>
   <span><%= t('crm.admin.services.index.title') %></span>
 <% end %>

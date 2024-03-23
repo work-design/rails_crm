@@ -5,10 +5,6 @@
 <%= render partial: 'new_item', collection: @order.items, as: :item, locals: { form: form } %>
 <%= render partial: 'blank_item', locals: { item: @order.items.build, form: form } %>
 
-<% if @order.items.size > 1 %>
-  <%= render partial: 'collectable', locals: { form: form } %>
-<% end %>
-
 <%= render partial: 'payment_strategy', locals: { form: form } %>
 
 <%= render 'show_order' %>
