@@ -1,16 +1,18 @@
 <%= render 'top_bar' %>
 
-<div class="cards m-4 is-2">
-  <div class="card">
-    <div class="card-content has-text-centered">
-      <strong><%= @contact.orders.count %></strong>
-      <p>Orders Count</p>
+<div class="fixed-grid has-auto-count px-3">
+  <div class="grid">
+    <div class="box cell">
+      <div class="has-colomn-centered">
+        <strong><%= @contact.orders.count %></strong>
+        <p>Orders Count</p>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-content has-text-centered">
-      <strong><%= @contact.pending_members.count %></strong>
-      <p>Contacts Count</p>
+    <div class="box cell">
+      <div class="has-column-centered">
+        <strong><%= @contact.pending_members.count %></strong>
+        <p>Contacts Count</p>
+      </div>
     </div>
   </div>
 </div>
