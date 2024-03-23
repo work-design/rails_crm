@@ -2,22 +2,20 @@
 
 <div class="fixed-grid has-auto-count px-3">
   <div class="grid">
-    <div class="box cell">
-      <div class="has-colomn-centered">
-        <strong><%= @contact.orders.count %></strong>
-        <p>Orders Count</p>
-      </div>
-    </div>
-    <div class="box cell">
+    <%= link_to({ controller: 'orders', contact_id: model.id }, class: 'cell is-box has-column-centered') do %>
+      <strong><%= @contact.orders.count %></strong>
+      <p>订单</p>
+    <% end %>
+    <div class="cell is-box">
       <div class="has-column-centered">
         <strong><%= @contact.pending_members.count %></strong>
-        <p>Contacts Count</p>
+        <p>联系人</p>
       </div>
     </div>
   </div>
 </div>
 
-<table class="table is-fullwidth is-hoverable is-box as-show">
+<table class="table is-box as-show mx-3">
   <tbody>
     <%= render 'show_table' %>
   </tbody>

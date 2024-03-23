@@ -19,6 +19,7 @@ Rails.application.routes.draw do
           get :adjust_edit
           patch :adjust_update
         end
+        resources :order_payments
       end
       resources :items do
         collection do
