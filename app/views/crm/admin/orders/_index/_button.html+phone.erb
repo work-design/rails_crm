@@ -1,4 +1,6 @@
-<%= link_to({ action: 'new' }, class: 'button is-medium mx-3') do %>
-  <i class="fa-solid fa-truck-fast"></i>
-  <span class="pl-1"><%= t('.orders.new.title') %></span>
-<% end %>
+<div data-controller="sticky-bottom" class="sticky-bottom p-3 my-neg-3">
+  <%= link_to({ action: 'new' }, class: 'button is-medium is-fullwidth') do %>
+    <i class="fa-solid fa-truck-fast"></i>
+    <span class="pl-1"><%= t('.orders.new.title') %></span>
+  <% end %>
+</div>
