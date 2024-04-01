@@ -1,10 +1,6 @@
 <%= form_with theme: 'weui', url: { action: 'create_detect' }, data: { controller: 'common' } do |f| %>
-  <div class="weui-form__control-area">
-    <div class="weui-cells__group weui-cells__group_form">
-      <div class="weui-cells">
-        <%= f.text_field :identity, label: '联系方式', inputmode: 'tel' %>
-      </div>
-    </div>
+  <div class="form-fields">
+    <%= f.text_field :identity, label: '联系方式', inputmode: 'tel' %>
   </div>
   <%= f.submit '下一步', data: { action: 'turbo:submit-start@window->common#submit' } %>
 <% end %>

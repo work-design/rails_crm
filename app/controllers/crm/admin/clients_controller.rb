@@ -51,7 +51,6 @@ module Crm
     def client_params
       _p = params.fetch(:client, {}).permit(
         :name,
-        :vendor,
         :client_organ_id,
         settings: {}
       )

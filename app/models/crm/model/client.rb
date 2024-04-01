@@ -7,7 +7,6 @@ module Crm
     included do
       attribute :name, :string
       attribute :settings, :json, default: {}
-      attribute :vendor, :boolean
       attribute :wallets_count, :integer, default: 0
       attribute :cards_count, :integer, default: 0
       attribute :orders_count, :integer, default: 0
