@@ -11,6 +11,8 @@ zh:
           title: 客户
         edit_organ:
           title: 邀请入驻
+        edit_assign:
+          title: 分配
       contacts:
         index:
           title: 联系人
