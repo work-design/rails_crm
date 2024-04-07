@@ -1,36 +1,36 @@
 <table class="table is-hoverable is-fullwidth">
   <thead>
-    <tr>
+    <div>
       <th class="six wide">
         <%= link_to t('.edit.title'), edit_my_pupil_path(@pupil), class: 'ui mini blue right floated button', remote: true %>
       </th>
       <th class="ten wide"></th>
-    </tr>
+    </div>
   </thead>
   <tbody>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:name) %></td>
-      <td><%= @pupil.name %></td>
-    </tr>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:petname) %></td>
-      <td><%= @pupil.petname %></td>
-    </tr>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:birthday_type) %></td>
-      <td><%= @pupil.birthday_type %></td>
-    </tr>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:birthday) %></td>
-      <td><%= @pupil.birthday %></td>
-    </tr>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:gender) %></td>
-      <td><%= @pupil.gender %></td>
-    </tr>
-    <tr>
-      <td><%= Pupil.human_attribute_name(:note) %></td>
-      <td><%= @pupil.note %></td>
-    </tr>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:name) %></dt>
+      <dd><%= @pupil.name %></dd>
+    </div>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:petname) %></dt>
+      <dd><%= @pupil.petname %></dd>
+    </div>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:birthday_type) %></dt>
+      <dd><%= @pupil.birthday_type %></dd>
+    </div>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:birthday) %></dt>
+      <dd><%= @pupil.birthday %></dd>
+    </div>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:gender) %></dt>
+      <dd><%= @pupil.gender %></dd>
+    </div>
+    <div>
+      <dt><%= Pupil.human_attribute_name(:note) %></dt>
+      <dd><%= @pupil.note %></dd>
+    </div>
   </tbody>
 </table>

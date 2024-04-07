@@ -1,8 +1,8 @@
-<tr>
-  <td><%= Crm::Contact.human_attribute_name(:name) %></td>
-  <td><%= @contact.name %></td>
-</tr>
-<tr>
-  <td><%= Crm::Contact.human_attribute_name(:identity) %></td>
-  <td><%= @contact.identity %></td>
-</tr>
+<div>
+  <dt><%= Crm::Contact.human_attribute_name(:name) %></dt>
+  <dd><%= @contact.name %></dd>
+</div>
+<div>
+  <dt><%= Crm::Contact.human_attribute_name(:identity) %></dt>
+  <dd><%= @contact.identity %></dd>
+</div>

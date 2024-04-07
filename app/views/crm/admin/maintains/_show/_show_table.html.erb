@@ -1,32 +1,32 @@
-<tr>
-  <td><%= Crm::Maintain.human_attribute_name(:remark) %></td>
-  <td><%= @maintain.remark %></td>
-</tr>
-<tr>
-  <td><%= Profiled::Profile.human_attribute_name(:identity) %></td>
-  <td><%= @maintain.client.identity %></td>
-</tr>
-<tr>
-  <td><%= Crm::Maintain.human_attribute_name('client.real_name') %></td>
-  <td><%= @maintain.client.real_name %></td>
-</tr>
-<tr>
-  <td><%= Crm::Maintain.human_attribute_name('client.nick_name') %></td>
-  <td><%= @maintain.client.nick_name %></td>
-</tr>
-<tr>
-  <td><%= Profiled::Profile.human_attribute_name(:birthday_type) %></td>
-  <td><%= @maintain.client.birthday_type_i18n %></td>
-</tr>
-<tr>
-  <td><%= Profiled::Profile.human_attribute_name(:birthday) %></td>
-  <td><%= @maintain.client.birthday %></td>
-</tr>
-<tr>
-  <td><%= Profiled::Profile.human_attribute_name(:gender) %></td>
-  <td><%= @maintain.client.gender_i18n %></td>
-</tr>
-<tr>
-  <td><%= Profiled::Profile.human_attribute_name(:name) %></td>
-  <td><%= image_tag @maintain.client.avatar, class: 'image is-24x24' if @maintain.client.avatar.present? %></td>
-</tr>
+<div>
+  <dt><%= Crm::Maintain.human_attribute_name(:remark) %></dt>
+  <dd><%= @maintain.remark %></dd>
+</div>
+<div>
+  <dt><%= Profiled::Profile.human_attribute_name(:identity) %></dt>
+  <dd><%= @maintain.client.identity %></dd>
+</div>
+<div>
+  <dt><%= Crm::Maintain.human_attribute_name('client.real_name') %></dt>
+  <dd><%= @maintain.client.real_name %></dd>
+</div>
+<div>
+  <dt><%= Crm::Maintain.human_attribute_name('client.nick_name') %></dt>
+  <dd><%= @maintain.client.nick_name %></dd>
+</div>
+<div>
+  <dt><%= Profiled::Profile.human_attribute_name(:birthday_type) %></dt>
+  <dd><%= @maintain.client.birthday_type_i18n %></dd>
+</div>
+<div>
+  <dt><%= Profiled::Profile.human_attribute_name(:birthday) %></dt>
+  <dd><%= @maintain.client.birthday %></dd>
+</div>
+<div>
+  <dt><%= Profiled::Profile.human_attribute_name(:gender) %></dt>
+  <dd><%= @maintain.client.gender_i18n %></dd>
+</div>
+<div>
+  <dt><%= Profiled::Profile.human_attribute_name(:name) %></dt>
+  <dd><%= image_tag @maintain.client.avatar, class: 'image is-24x24' if @maintain.client.avatar.present? %></dd>
+</div>
