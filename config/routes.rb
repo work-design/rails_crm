@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           get :print_data
           get :adjust_edit
           patch :adjust_update
+          get :purchase
         end
         resources :order_payments
       end

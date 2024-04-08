@@ -4,7 +4,7 @@ module Crm
     before_action :set_common_maintain
     before_action :set_addresses, :set_new_order, only: [:new, :create]
     before_action :set_payment_strategies, only: [:new, :new_simple, :create, :edit, :update]
-    before_action :set_order, only: [:show, :payment_types, :print_data, :package, :edit, :update, :destroy, :actions, :micro]
+    before_action :set_order, only: [:show, :edit, :update, :destroy, :actions, :purchase, :payment_types, :print_data, :package, :micro]
     before_action :set_new_order, only: [:new, :new_simple, :add, :create]
 
     def index

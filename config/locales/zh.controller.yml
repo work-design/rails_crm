@@ -55,6 +55,8 @@ zh:
           title: 生成订单
         cart:
           title: 确认订单
+        purchase:
+          title: 采购
       items:
         create:
           title: 加入购物清单
