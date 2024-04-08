@@ -2,11 +2,11 @@
   <div class="weui-panel__hd">我的档案</div>
   <div class="weui-panel__bd">
     <% @agencies.each do |agency| %>
-    <div class="weui-media-box weui-media-box_appmsg">
-      <div class="weui-media-box__hd">
-        <%= image_tag agency.client.avatar, class: 'weui-media-box__thumb' if agency.client.avatar.attached? %>
+    <div class="media">
+      <div class="media-left">
+        <%= image_tag agency.client.avatar, class: 'image is-64x64' if agency.client.avatar.attached? %>
       </div>
-      <div class="weui-media-box__bd">
+      <div class="media-content">
         <h4 class="weui-media-box__title"><%= agency.relation_i18n %></h4>
         <p class="weui-media-box__desc">
           <%= agency.name %>

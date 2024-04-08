@@ -46,9 +46,11 @@ zh:
         index:
           title: 订单
         new:
-          title: 为客户下单
+          title: 下单
+        new_simple:
+          title: 下单（清单）
         create:
-          title: 为客户下单
+          title: 下单
         add:
           title: 生成订单
         cart:

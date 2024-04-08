@@ -9,6 +9,7 @@ Rails.application.routes.draw do
           post :add
           post :batch_paid
           delete :batch_destroy
+          get :new_simple
         end
         member do
           post :package
