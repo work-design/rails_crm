@@ -1,0 +1,17 @@
+<%= render 'top_bar' %>
+
+<div class="box mx-3 mt-3">
+<% @sources.each do |source| %>
+  <% if source.leaf? %>
+    <%= link_to({ action: 'source', source_id: source.id }, state: 'enter', class: 'box-cell') do %>
+      <span class="box-cell-body"><%= source.name %></span>
+      <span class="weui-cell__ft"></span>
+    <% end %>
+  <% else %>
+    <%= link_to({ action: 'list', source_id: source.id }, state: 'enter', class: 'box-cell') do %>
+      <span class="weui-cell__bd"><%= source.name %></span>
+      <span class="weui-cell__ft"></span>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
