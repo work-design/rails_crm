@@ -1,7 +1,17 @@
 <div data-controller="empty" class="box is-padding-less mx-3">
-  <div class="box-body">
-    <i class="fa-solid fa-fw fa-chart-line has-text-primary"></i>
-    <span class="has-text-grey"><%= t('crm.me.title') %></span>
+  <div class="box-header">
+    <div>
+      <i class="fa-solid fa-fw fa-chart-line has-text-primary-dark"></i>
+      <span class="has-text-grey"><%= t('crm.me.title') %></span>
+    </div>
+    <div class="dropdown">
+      <button class="button is-borderless p-0" aria-haspopup="true" aria-controls="dropdown-menu">
+        <span>我的</span>
+        <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+      </button>
+    </div>
   </div>
   <div class="columns is-4-mobile flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
     <%= link_to({ controller: 'crm/me/contacts' }, state: 'enter', class: 'column has-column-centered') do %>
