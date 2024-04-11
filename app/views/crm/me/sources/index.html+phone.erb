@@ -1,6 +1,6 @@
 <%= render 'top_bar' %>
 
-<div class="box mx-3 mt-3">
+<div class="box is-padding-less mx-3 mt-3">
 <% @sources.each do |source| %>
   <% if source.leaf? %>
     <%= link_to({ action: 'source', source_id: source.id }, state: 'enter', class: 'box-cell') do %>
