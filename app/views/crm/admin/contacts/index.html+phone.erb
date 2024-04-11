@@ -1,6 +1,4 @@
 <%= render 'top_bar' %>
-<%= render 'filter_form' %>
-<%= render 'filter_table' %>
 
 <%= render layout: 'index_list' do %>
   <%= render partial: 'index_item', layout: 'index_item_actions', collection: @contacts, as: :model %>
