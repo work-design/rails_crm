@@ -6,12 +6,10 @@
       <strong><%= @contact.orders.count %></strong>
       <p>订单</p>
     <% end %>
-    <div class="cell is-box">
-      <div class="has-column-centered">
-        <strong><%= @contact.pending_members.count %></strong>
-        <p>联系人</p>
-      </div>
-    </div>
+    <%= link_to({ controller: 'addresses', contact_id: model.id }, class: 'cell is-box has-column-centered') do %>
+      <strong><%= @contact.addresses.count %></strong>
+      <p>地址</p>
+    <% end %>
   </div>
 </div>
 
