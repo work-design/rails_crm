@@ -1,9 +1,9 @@
 <div class="weui-panel">
-  <%= link_to({ controller: 'crm/me/cart/addresses', cart_id: @cart.id }, state: 'enter', class: 'weui-cell weui-cell_access') do %>
-    <div class="weui-cell__hd">
+  <%= link_to({ controller: 'crm/me/cart/addresses', cart_id: @cart.id }, state: 'enter', class: 'media') do %>
+    <div class="media-left">
       <i class="fa-solid fa-fw fa-location-dot has-text-danger pr-2"></i>
     </div>
-    <div class="weui-cell__bd">
+    <div class="media-content">
     <% if @cart.address %>
       <p>
         <span><%= @cart.address.contact %></span>
@@ -18,6 +18,8 @@
       <p>选择地址</p>
     <% end %>
     </div>
-    <div class="weui-cell__ft"></div>
+    <div class="media-right">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
   <% end %>
 </div>

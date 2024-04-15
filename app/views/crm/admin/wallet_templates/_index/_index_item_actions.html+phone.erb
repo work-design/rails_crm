@@ -1,6 +1,8 @@
-<%= link_to({ action: 'show', id: model.id }, class: 'weui-cell weui-cell_active weui-cell_access') do %>
-  <div class="weui-cell__bd weui-cell_primary">
+<%= link_to({ action: 'show', id: model.id }, class: 'media') do %>
+  <div class="media-content">
     <%= yield %>
   </div>
-  <div class="weui-cell__ft"></div>
+  <div class="media-right">
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
 <% end %>

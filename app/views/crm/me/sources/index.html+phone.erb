@@ -5,14 +5,14 @@
   <% if source.leaf? %>
     <%= link_to({ action: 'source', source_id: source.id }, state: 'enter', class: 'media') do %>
       <div class="media-content"><%= source.name %></div>
-      <div class="weui-cell__ft">
+      <div class="media-right">
         <i class="fa-solid fa-chevron-right"></i>
       </div>
     <% end %>
   <% else %>
     <%= link_to({ action: 'list', source_id: source.id }, state: 'enter', class: 'media') do %>
-      <div class="weui-cell__bd"><%= source.name %></div>
-      <div class="weui-cell__ft">
+      <div class="media-content"><%= source.name %></div>
+      <div class="media-right">
         <i class="fa-solid fa-chevron-right"></i>
       </div>
     <% end %>

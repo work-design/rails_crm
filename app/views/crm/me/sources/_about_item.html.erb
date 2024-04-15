@@ -1,13 +1,15 @@
-<%= link_to({ controller: 'trade/me/items', action: 'show', id: @contact.source_contact.item_id }, class: 'weui-cell weui-cell_access') do %>
-  <div class="weui-cell__bd">
+<%= link_to({ controller: 'trade/me/items', action: 'show', id: @contact.source_contact.item_id }, class: 'media') do %>
+  <div class="media-content">
     <i class="fa-regular fa-bag-shopping fa-fw"></i>
     <span>查看订单</span>
   </div>
-  <div class="weui-cell__ft"></div>
+  <div class="media-right">
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
 <% end if @contact&.source_contact %>
 <% if request.variant.any?(:work_wechat) && @contact&.source_contact %>
 <div
-  class="weui-cell weui-cell_access"
+  class="media"
   data-controller="share-moment"
   data-share-moment-options-value="<%= (current_js_app&.agent_config(request.original_url) || {}).to_json %>"
   data-share-moment-apis-value="<%= ['shareToExternalMoments'].to_json %>"
@@ -16,18 +18,22 @@
   data-share-moment-text-value="<%= '请关注我们' %>"
   data-action="click->share-moment#shareImage"
 >
-  <div class="weui-cell__bd">
+  <div class="media-content">
     <i class="fa-brands fa-weixin fa-fw"></i>
     <span>分享到朋友圈</span>
   </div>
-  <div class="weui-cell__ft"></div>
+  <div class="media-right">
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
 </div>
 <% end %>
 <%= render partial: 'order', locals: { source: @source } unless @contact&.source_contact %>
-<%= link_to({ controller: 'wechat/me/follows', state: @source.name }, class: 'weui-cell weui-cell_access') do %>
-  <div class="weui-cell__bd">
+<%= link_to({ controller: 'wechat/me/follows', state: @source.name }, class: 'media') do %>
+  <div class="media-content">
     <i class="fa-solid fa-fw fa-users-line"></i>
     <span><%= t('wechat.me.follows.index.title') %></span>
   </div>
-  <div class="weui-cell__ft"></div>
+  <div class="media-right">
+    <i class="fa-solid fa-chevron-right"></i>
+  </div>
 <% end %>
