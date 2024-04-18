@@ -5,7 +5,7 @@
       <%= link_to({ controller: 'maintain_logs', maintain_id: model.id }, aria: { label: t('crm.admin.maintain_logs.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-clock has-text-primary"></i>
       <% end %>
-      <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('crm.admin.maintains.index.detach') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+      <%= button_to({ action: 'detach', id: model.id }, method: :patch, aria: { label: t('crm.admin.maintains.index.detach') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.destroy.confirm') } }) do %>
         <i class="fa-solid fa-hand-holding has-text-success"></i>
       <% end %>
       <%= link_to({ action: 'edit_transfer', id: model.id }, aria: { label: t('.transfer') }, class: 'button is-small is-rounded is-light') do %>
@@ -17,7 +17,7 @@
       <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal', turbo_scroll: true }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-pencil has-text-link"></i>
       <% end %>
-      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.confirm') } }) do %>
+      <%= button_to({ action: 'destroy', id: model.id }, method: :delete, aria: { label: t('.destroy.title') }, class: 'button is-small is-rounded is-light', form: { data: { turbo_confirm: t('.destroy.confirm') } }) do %>
         <i class="fa-solid fa-trash has-text-danger"></i>
       <% end %>
     </div>
