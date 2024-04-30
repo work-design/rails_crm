@@ -31,17 +31,17 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: dd5112574772fe04467fae6b4117ab61ff146923
+  revision: 1dce7c01356975fdea54de2694a23f94bb4cb5e1
   specs:
     rails_notice (1.0.3)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 8309affffe553940f826a37ec666e4c997005bad
+  revision: 08a5d171261cee943914fa6accaa0cab07365072
   specs:
     rails_trade (0.0.3)
-      rails_extend
+      rails_com
       rails_notice
 
 PATH

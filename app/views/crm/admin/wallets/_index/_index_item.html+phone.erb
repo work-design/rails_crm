@@ -3,9 +3,9 @@
     <%= image_tag model.wallet_template.logo, class: 'image is-24x24' if model.wallet_template.logo.attached? %>
     <span><%= model.wallet_template.name %></span>
   </div>
-  <span class="has-text-danger"><%= model.amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
-  <span class="has-text-grey"><%= model.wallet_template.unit %></span>
+  <span class="color-danger"><%= model.amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
+  <span class="color-grey"><%= model.wallet_template.unit %></span>
 <% else %>
   <span class="tag">人民币钱包</span>
-  <span class="has-text-danger"><%= model.amount.to_money.format.html_safe %></span>
+  <span class="color-danger"><%= model.amount.to_money.format.html_safe %></span>
 <% end %>

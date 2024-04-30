@@ -1,9 +1,9 @@
 <p><%= model.client.identity %></p>
 <p>
   <strong><%= model.client.real_name %></strong>
-  <span class="has-text-grey pl-1"><%= model.client.nick_name %></span>
+  <span class="color-grey pl-1"><%= model.client.nick_name %></span>
   <span class="tag">
-    <i class="fa-solid <%= model.client.male? ? 'fa-male has-text-info' : 'fa-female has-text-danger' %>"></i>
+    <i class="fa-solid <%= model.client.male? ? 'fa-male color-info' : 'fa-female color-danger' %>"></i>
     <span class="pl-1"><%= model.client.gender_i18n %></span>
   </span>
 </p>

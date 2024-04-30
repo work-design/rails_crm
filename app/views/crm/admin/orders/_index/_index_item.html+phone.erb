@@ -1,10 +1,10 @@
 <p><%= link_to model.uuid, { action: 'show', id: model.id }, text: true %></p>
 <p><%= model.serial_number %></p>
 <p>
-  <span class="has-text-danger"><%= model.amount.to_money.format.html_safe %></span>
+  <span class="color-danger"><%= model.amount.to_money.format.html_safe %></span>
   <span class="tag"><%= model.payment_status_i18n %></span>
   <% if model.payment_strategy.present? %>
   <span class="tag is-danger"><%= model.payment_strategy.name %></span>
   <% end %>
 </p>
-<p class="has-text-grey size-7"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+<p class="color-grey size-7"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>

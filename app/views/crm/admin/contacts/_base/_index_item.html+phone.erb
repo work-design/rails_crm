@@ -2,5 +2,5 @@
 <% if model.identity %>
   <p><%= model.identity %></p>
 <% else %>
-  <p class="has-text-grey"><time data-controller="time" data-format="human"><%= model.created_at.to_fs(:iso8601) %></time></p>
+  <p class="color-grey"><time data-controller="time" data-format="human"><%= model.created_at.to_fs(:iso8601) %></time></p>
 <% end %>

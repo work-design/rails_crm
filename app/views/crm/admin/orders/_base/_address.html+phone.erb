@@ -1,5 +1,5 @@
 <%= link_to({ controller: 'crm/admin/addresses', action: 'order', address_id: @order.address_id }, class: 'button mx-3') do %>
-  <i class="fa-solid fa-fw fa-location-dot has-text-danger pr-2"></i>
+  <i class="fa-solid fa-fw fa-location-dot color-danger pr-2"></i>
   <div class="flex-grow-1">
   <% if @order.address %>
     <p>
@@ -15,5 +15,5 @@
     <span>收货人信息</span>
   <% end %>
   </div>
-  <i class="fa-solid fa-fw fa-location-dot has-text-danger pr-2"></i>
+  <i class="fa-solid fa-fw fa-location-dot color-danger pr-2"></i>
 <% end %>
