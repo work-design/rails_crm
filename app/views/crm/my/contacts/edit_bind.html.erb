@@ -1,0 +1,10 @@
+<div>
+  <dt><%= Crm::Contact.human_attribute_name(:name) %></dt>
+  <dd><%= @contact.name %></dd>
+</div>
+<div>
+  <dt><%= Crm::Contact.human_attribute_name(:identity) %></dt>
+  <dd><%= @contact.identity %></dd>
+</div>
+
+<%= button_to({ action: 'update_bind', id: @contact.id }, class: 'button') %>

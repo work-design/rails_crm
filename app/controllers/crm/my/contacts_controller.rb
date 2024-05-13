@@ -1,6 +1,6 @@
 module Crm
   class My::ContactsController < My::BaseController
-    before_action :set_contact, only: [:show, :edit, :update, :destroy, :actions, :bind]
+    before_action :set_contact, only: [:show, :edit, :update, :destroy, :actions, :edit_bind, :update_bind]
 
     def edit_bind
     end
