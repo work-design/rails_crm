@@ -4,6 +4,7 @@ module Crm
       :show, :edit, :update, :destroy, :actions,
       :edit_assign, :update_assign
     ]
+    before_action :set_scene, only: [:show]
     before_action :set_new_contact, only: [:new, :create]
 
     def index
@@ -45,6 +46,10 @@ module Crm
 
     def set_contact
       @client = Contact.default_where(default_params).find params[:id]
+    end
+
+    def set_scene
+      @scene = current_organ.apps[0].scenes.find_or_create_by(match_value: @contact.bind_path)
     end
 
     def contact_params

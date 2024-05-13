@@ -217,6 +217,18 @@ Rails.application.routes.draw do
 
       namespace :my, defaults: { namespace: 'my' } do
         resources :agencies
+        resources :contacts do
+          member do
+            get :edit_bind
+            patch :update_bind
+          end
+        end
+      end
+
+      resources :contacts do
+        member do
+          get :qrcode
+        end
       end
     end
   end

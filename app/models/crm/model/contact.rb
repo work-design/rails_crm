@@ -58,6 +58,31 @@ module Crm
       end
     end
 
+    def enter_url
+      Rails.application.routes.url_for(
+        controller: 'crm/contacts',
+        action: 'qrcode',
+        id: id
+      )
+    end
+
+    def bind_path
+      Rails.application.routes.url_for(
+        controller: 'crm/my/contacts',
+        action: 'edit_bind',
+        id: id,
+        only_path: true
+      )
+    end
+
+    def qrcode_enter_png
+      QrcodeHelper.code_png(enter_url, border_modules: 0, fill: 'pink')
+    end
+
+    def qrcode_enter_url
+      QrcodeHelper.data_url(enter_url)
+    end
+
     def sync_from_client_user
       self.name = client_user.name
     end
