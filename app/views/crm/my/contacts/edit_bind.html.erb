@@ -1,10 +1,14 @@
-<div>
-  <dt><%= Crm::Contact.human_attribute_name(:name) %></dt>
-  <dd><%= @contact.name %></dd>
-</div>
-<div>
-  <dt><%= Crm::Contact.human_attribute_name(:identity) %></dt>
-  <dd><%= @contact.identity %></dd>
-</div>
+<dl class="as-show is-box m-3">
+  <div>
+    <dt><%= Crm::Contact.human_attribute_name(:name) %></dt>
+    <dd><%= @contact.name %></dd>
+  </div>
+  <div>
+    <dt><%= Crm::Contact.human_attribute_name(:identity) %></dt>
+    <dd><%= @contact.identity %></dd>
+  </div>
+</dl>
 
-<%= button_to({ action: 'update_bind', id: @contact.id }, class: 'button') %>
+<%= button_to({ action: 'update_bind', id: @contact.id }, class: 'button is-fullwidth is-primary') do %>
+  <span>确认</span>
+<% end %>
