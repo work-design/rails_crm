@@ -49,7 +49,9 @@ module Crm
     end
 
     def set_scene
-      @scene = current_organ.apps[0].scenes.find_or_create_by(match_value: @contact.bind_path)
+      if current_organ.apps[0]
+        @scene = current_organ.apps[0].scenes.find_or_create_by(match_value: @client.bind_path)
+      end
     end
 
     def contact_params
