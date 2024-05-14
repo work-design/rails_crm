@@ -219,8 +219,8 @@ Rails.application.routes.draw do
         resources :agencies
         resources :contacts do
           member do
-            get :edit_bind
-            patch :update_bind
+            get :bind
+            delete :destroy_bind
           end
         end
       end

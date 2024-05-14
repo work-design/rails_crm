@@ -1,12 +1,14 @@
 module Crm
   class My::ContactsController < My::BaseController
-    before_action :set_contact, only: [:show, :edit, :update, :destroy, :actions, :edit_bind, :update_bind]
+    before_action :set_contact, only: [:show, :edit, :update, :destroy, :actions, :bind, :destroy_bind]
 
-    def edit_bind
+    def bind
+      @contact.client_user = current_user
+      @contact.save
     end
 
-    def update_bind
-      @contact.client_user = current_user
+    def destroy_bind
+      @contact.client_user = nil
       @contact.save
     end
 

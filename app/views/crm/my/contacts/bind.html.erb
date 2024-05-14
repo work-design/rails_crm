@@ -9,6 +9,7 @@
   </div>
 </dl>
 
-<%= button_to({ action: 'update_bind', id: @contact.id }, class: 'button is-fullwidth is-primary') do %>
-  <span>确认</span>
+<p>这不是我的信息</p>
+<%= button_to({ action: 'destroy_bind', id: @contact.id }, method: :delete, class: 'button is-fullwidth is-danger') do %>
+  <span>解除绑定</span>
 <% end %>
