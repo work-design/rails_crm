@@ -94,7 +94,7 @@ module Crm
     end
 
     def sync_from_client_user
-      self.name = client_user.name
+      self.name = client_user.name if self.name.blank?
     end
 
     def init_member_organ!
