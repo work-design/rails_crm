@@ -37,7 +37,7 @@ module Crm
 
       has_one_attached :avatar
 
-      validates :identity, uniqueness: { scope: [:client_id] }, allow_nil: true
+      validates :identity, uniqueness: { scope: [:client_id, :organ_id] }, allow_nil: true
 
       before_save :sync_from_client_user, if: -> { client_user_id_changed? && client_user }
       after_save :sync_member_to_orders, if: -> { (saved_changes.keys & ['client_member_id']).present? }
