@@ -11,9 +11,11 @@
 
 <div class="box mx-3 has-text-centered">
   <p>绑定成功</p>
-  <p>如果这不是我的信息</p>
 </div>
 
-<%= button_to({ action: 'destroy_bind', id: @contact.id }, method: :delete, class: 'button is-fullwidth is-danger') do %>
-  <span>解除绑定</span>
-<% end %>
+<div class="box mx-3">
+  <p class="has-text-centered">如果这不是我的信息</p>
+  <%= button_to({ action: 'destroy_bind', id: @contact.id }, method: :delete, class: 'button is-fullwidth is-danger') do %>
+    <span>解除绑定</span>
+  <% end %>
+</div>
