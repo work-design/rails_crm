@@ -1,11 +1,10 @@
 <%= form_with theme: 'search', model: Crm::Contact.new, data: { switch_target: 'src' }, class: 'field' do |f| %>
   <div class="field-body">
-    <%= f.text_field 'client.real_name-like', autocomplete: 'off' %>
-    <%= f.text_field 'client.nick_name-like' %>
-    <%= f.text_field 'client.identity', autocomplete: 'off' %>
+    <%= f.text_field 'name-like', autocomplete: 'off' %>
+    <%= f.text_field 'identity', autocomplete: 'off' %>
     <div class="field is-narrow">
       <%= f.submit %>
-      <%= link_to t('.clear'), filter_params(except: ['client.real_name-like', 'client.nick_name-like', 'client.identity', 'age-gte', 'age-lte']), class: 'button is-light' %>
+      <%= link_to t('.clear'), filter_params(except: ['name-like', 'identity']), class: 'button is-light' %>
     </div>
   </div>
 <% end %>
