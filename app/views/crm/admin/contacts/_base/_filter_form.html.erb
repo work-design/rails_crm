@@ -1,4 +1,4 @@
-<%= form_with theme: 'search', model: Crm::Contact.new, data: { switch_target: 'src' }, class: 'field display-none' do |f| %>
+<%= form_with theme: 'search', model: Crm::Contact.new, data: { switch_target: 'src' }, class: 'field' do |f| %>
   <div class="field-body">
     <%= f.text_field 'client.real_name-like', autocomplete: 'off' %>
     <%= f.text_field 'client.nick_name-like' %>
