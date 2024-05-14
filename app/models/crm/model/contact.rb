@@ -111,9 +111,13 @@ module Crm
     end
 
     def sync_user_to_orders
-      orders.update_all user_id: client_user_id
-      wallets.update_all user_id: client_user_id
-      cards.update_all user_id: client_user_id
+      orders.where(user_id: nil).update_all user_id: client_user_id
+      wallets.where(user_id: nil).update_all user_id: client_user_id
+      cards.where(user_id: nil).update_all user_id: client_user_id
+
+      client_user.cards.where(organ_id: organ_id, contact_id: nil).update_all contact_id: id
+      client_user.orders.where(organ_id: organ_id, contact_id: nil).update_all contact_id: id
+      client_user.wallets.where(organ_id: organ_id, contact_id: nil).update_all contact_id: id
     end
 
     def sync_user_later
