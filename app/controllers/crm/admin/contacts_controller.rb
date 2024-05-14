@@ -49,8 +49,8 @@ module Crm
     end
 
     def set_scene
-      if current_organ.apps[0]
-        @scene = current_organ.apps[0].scenes.find_or_create_by(match_value: @client.bind_path)
+      if current_organ_app
+        @scene = current_organ_app.scenes.find_or_create_by(match_value: @client.bind_path)
       end
     end
 
