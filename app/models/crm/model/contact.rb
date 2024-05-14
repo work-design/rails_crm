@@ -41,7 +41,7 @@ module Crm
 
       before_save :sync_from_client_user, if: -> { client_user_id_changed? && client_user }
       after_save :sync_member_to_orders, if: -> { (saved_changes.keys & ['client_member_id']).present? }
-      after_save :sync_user_to_orders, if: -> { (saved_changes.keys & ['client_user_id']).present? }
+      after_save :sync_user_to_orders, if: -> { client_user_id && (saved_changes.keys & ['client_user_id']).present? }
       after_update :set_default, if: -> { default? && saved_change_to_default? }
       after_save_commit :sync_user_later, if: -> { account && saved_change_to_identity? }
     end

@@ -6,6 +6,8 @@ module Crm
     end
 
     def update_bind
+      @contact.client_user = current_user
+      @contact.save
     end
 
     private
