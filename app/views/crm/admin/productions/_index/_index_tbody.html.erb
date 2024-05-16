@@ -16,10 +16,6 @@
 </td>
 <td><%= model.price.to_money.format.html_safe %></td>
 <td class="has-text-centered">
-<% if item = @cart.init_cart_item(good_id: model.id) %>
-  <%= render partial: 'cart', locals: { model: model, item_con: 'items', item: item, cart: @cart } %>
-<% else %>
-  <%= render partial: 'add_cart', locals: { model: model, item_con: 'items', cart: @cart } %>
-<% end %>
+  <%= render partial: 'cart', locals: { item_con: 'items', item: @cart.init_cart_item(params, good_id: model.id), cart: @cart } %>
 </td>
 <td></td>

@@ -17,17 +17,11 @@
 <td><%= model.price.to_money.format.html_safe %></td>
 <td>
   <% @client.contacts.each do |contact| %>
-    <% if item = @cart.find_item(good_id: model.id, contact_id: contact.id) %>
-      <div class="flex">
-        <%= render partial: 'cart', locals: { model: model, item_con: 'crm/admin/items', item: item, cart: @cart } %>
-        <span><%= contact.name %></span>
-      </div>
-    <% end %>
+    <div class="flex">
+      <%= render partial: 'cart', locals: { item_con: 'crm/admin/items', item: @cart.init_cart_item(params, good_id: model.id, contact_id: contact.id), cart: @cart } %>
+      <span><%= contact.name %></span>
+    </div>
   <% end %>
-  <% if item = @cart.find_item(good_id: model.id, contact_id: nil) %>
-    <%= render partial: 'cart', locals: { model: model, item_con: 'crm/admin/items', item: item, cart: @cart } %>
-  <% else %>
-    <%= render partial: 'add_cart', locals: { model: model, item_con: 'crm/admin/items', cart: @cart } %>
-  <% end %>
+  <%= render partial: 'cart', locals: { item_con: 'crm/admin/items', item: @cart.init_cart_item(params, good_id: model.id, contact_id: nil), cart: @cart } %>
 </td>
 <td></td>
