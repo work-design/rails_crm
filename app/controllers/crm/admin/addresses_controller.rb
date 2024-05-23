@@ -1,5 +1,5 @@
 module Crm
-  class Admin::AddressesController < Profiled::My::AddressesController
+  class Admin::AddressesController < Profiled::Admin::AddressesController
     include Controller::Admin
     before_action :set_common_maintain
     before_action :set_address, only: [:show, :edit, :update, :destroy, :actions]
