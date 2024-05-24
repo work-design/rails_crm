@@ -1,0 +1,17 @@
+<tr id="tr_<%= model.id %>">
+  <%= yield %>
+  <td>
+    <%= link_to({ controller: 'productions', contact_id: model.id }, class: 'button is-small is-rounded is-danger') do %>
+      <i class="fa-solid fa-store"></i>
+      <span class="ml-1"><%= t('.productions.index.title') %></span>
+    <% end %>
+    <%= button_to({ action: 'show', id: model.id }, class: 'button is-small is-rounded is-info') do %>
+      <i class="fa-solid fa-circle-info"></i>
+      <span class="ml-1"><%= t('.show.title') %></span>
+    <% end %>
+    <%= button_to({ action: 'edit', id: model.id }, class: 'button is-small is-rounded is-link') do %>
+      <i class="fa-solid fa-pencil"></i>
+      <span class="ml-1"><%= t('.edit.title') %></span>
+    <% end %>
+  </td>
+</tr>

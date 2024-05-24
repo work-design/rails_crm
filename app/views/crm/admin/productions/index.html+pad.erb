@@ -1,0 +1,14 @@
+<%= render 'maintain_bar' %>
+
+<div class="columns is-gapless">
+  <div class="column">
+    <div class="cards is-4">
+      <%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/agent/items' } %>
+    </div>
+  </div>
+  <div class="column is-one-quarter">
+    <%= render partial: 'cart_nav', locals: { cart_con: 'trade/agent/carts', cart: @cart } %>
+  </div>
+</div>
+
+<%= paginate @productions %>
