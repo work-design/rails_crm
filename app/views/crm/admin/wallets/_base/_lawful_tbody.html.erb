@@ -1,0 +1,22 @@
+<td></td>
+<td>
+  <span><%= model.amount.to_money.format.html_safe %></span>
+</td>
+<td>
+  <%= link_to({ controller: 'wallet_advances', wallet_id: model.id }, aria: { label: t('crm.admin.wallet_advances.index.title') }) do %>
+    <i class="fa-solid fa-gem"></i>
+    <span class="pl-1"><%= model.income_amount.to_money.format.html_safe %></span>
+  <% end %>
+</td>
+<td>
+  <%= link_to({ controller: 'wallet_payments', wallet_id: model.id }, aria: { label: t('crm.admin.wallet_payments.index.title') }, class: 'button is-small is-rounded is-light') do %>
+    <i class="fa-solid fa-credit-card"></i>
+    <span class="pl-1"><%= model.expense_amount.to_money.format.html_safe %></span>
+  <% end %>
+  <%= link_to({ controller: 'payouts', wallet_id: model.id }) do %>
+    <i class="fa-solid fa-wallet"></i>
+  <% end %>
+</td>
+<td>
+  <p><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+</td>
