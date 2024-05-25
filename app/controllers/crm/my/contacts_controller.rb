@@ -4,6 +4,7 @@ module Crm
 
     def bind
       @contact.client_user = current_user
+      @contact.unionid = current_wechat_user.unionid
       @contact.save
     end
 
