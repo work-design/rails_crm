@@ -10,6 +10,7 @@ module Crm
 
     def destroy_bind
       @contact.client_user = nil
+      @contact.unionid = nil
       @contact.save
     end
 
