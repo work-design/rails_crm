@@ -13,7 +13,7 @@
     <i class="fa-solid fa-credit-card"></i>
     <span class="pl-1"><%= model.expense_amount.to_money.format.html_safe %></span>
   <% end %>
-  <%= link_to({ controller: 'payouts', wallet_id: model.id }) do %>
+  <%= link_to({ controller: 'trade/admin/payouts', wallet_id: model.id }) do %>
     <i class="fa-solid fa-wallet"></i>
   <% end %>
 </td>

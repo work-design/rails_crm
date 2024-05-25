@@ -16,7 +16,7 @@
     <span class="pl-1"><%= model.expense_amount.to_fs(:rounded, precision: model.wallet_template.digit) %></span>
     <span><%= model.wallet_template.unit %></span>
   <% end %>
-  <%= link_to({ controller: 'payouts', wallet_id: model.id }) do %>
+  <%= link_to({ controller: 'trade/admin/payouts', wallet_id: model.id }) do %>
     <i class="fa-solid fa-wallet"></i>
   <% end %>
 </td>
