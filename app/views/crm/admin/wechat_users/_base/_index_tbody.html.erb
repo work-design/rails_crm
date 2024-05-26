@@ -26,7 +26,7 @@
 <% if contact %>
   <p><%= contact.id %></p>
 <% else %>
-  <%= button_to({ action: 'contact', id: model.id }) do %>
+  <%= button_to({ action: 'contact', id: model.id }, class: 'button is-small is-primary') do %>
     <span>加入联系人</span>
   <% end %>
 <% end %>
