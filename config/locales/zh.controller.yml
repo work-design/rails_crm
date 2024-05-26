@@ -109,6 +109,8 @@ zh:
       wechat_users:
         index:
           title: 微信用户
+        online:
+          title: 在线用户
       cards:
         index:
           title: 会员卡
