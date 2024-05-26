@@ -17,7 +17,7 @@ module Crm
       q_params.merge! appid: current_organ.apps.pluck(:appid)
       q_params.merge! params.permit(:user_id, :uid, :appid, :name)
 
-      @wechat_users = Wechat::WechatUser.includes(:user, :app).default_where(q_params).order(id: :desc).page(params[:page])
+      @wechat_users = Wechat::WechatUser.includes(:user, :app).where.not(online_at: nil).where(offline_at: nil).default_where(q_params).order(id: :desc).page(params[:page])
       @contacts = Contact.where(default_params).where(unionid: @wechat_users.pluck(:unionid))
     end
 
