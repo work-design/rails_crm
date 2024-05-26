@@ -168,6 +168,11 @@ Rails.application.routes.draw do
             post :sync
           end
         end
+        resources :wechat_users do
+          member do
+            post :contact
+          end
+        end
         resources :agencies do
           member do
             get 'crowd' => :edit_crowd

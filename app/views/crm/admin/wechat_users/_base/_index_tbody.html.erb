@@ -1,0 +1,31 @@
+<td>
+  <p class="has-text-mono color-success"><%= model.uid %></p>
+  <p class="color-grey">
+    <span><%= model.app.name %></span>
+    <span class="tag"><%= model.app.type_i18n %></span>
+  </p>
+</td>
+<td>
+  <div class="is-several">
+    <%= image_tag model.avatar_url, class: 'image is-24x24' if model.avatar_url.present? %>
+    <span><%= model.name %></span>
+  </div>
+</td>
+<td>
+<% if model.user_id %>
+  <i class="fa-solid fa-check color-success"></i>
+<% end %>
+</td>
+<td>
+<% model.authorized_tokens.each do |at| %>
+  <p class="<%= at.online ? 'color-success' : 'color-grey' %>"><%= at.id %></p>
+<% end %>
+</td>
+<td>
+<% contact = @contacts.find(&->(i){ i.unionid == model.unionid }) %>
+<% if contact %>
+  <p><%= contact.id %></p>
+<% else %>
+  <%= button_to({ }) %>
+<% end %>
+</td>
