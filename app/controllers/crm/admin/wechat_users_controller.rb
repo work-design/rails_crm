@@ -13,7 +13,7 @@ module Crm
     end
 
     def set_contact
-
+      @contact = @wechat_user.contacts.create(organ_id: current_organ.id)
     end
 
     private
