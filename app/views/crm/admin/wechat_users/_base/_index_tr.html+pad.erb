@@ -1,0 +1,9 @@
+<tr id="tr_<%= model.id %>">
+  <%= yield %>
+  <td>
+    <%= button_to({ action: 'show', id: model.id }, class: 'button is-small is-rounded is-info') do %>
+      <i class="fa-solid fa-info"></i>
+      <span class="ml-1"><%= t('.show.title') %></span>
+    <% end %>
+  </td>
+</tr>
