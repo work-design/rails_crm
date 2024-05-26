@@ -106,6 +106,9 @@ zh:
       wallet_payments:
         index:
           title: 使用
+      wechat_users:
+        index:
+          title: 微信用户
       cards:
         index:
           title: 会员卡
