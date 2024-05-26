@@ -28,7 +28,7 @@
 <td>
 <% contact = @contacts.find(&->(i){ i.unionid.present? && i.unionid == model.unionid }) %>
 <% if contact %>
-  <%= link_to({ controller: 'crm/admin/contacts', id: contact.id }, class: 'button is-small is-success') do %>
+  <%= link_to({ controller: 'crm/admin/productions', contact_id: contact.id }, class: 'button is-small is-success') do %>
     <span><%= contact.name.presence || contact.id %></span>
     <span>下单</span>
   <% end %>

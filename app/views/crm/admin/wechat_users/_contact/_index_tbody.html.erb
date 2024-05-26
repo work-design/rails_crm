@@ -26,7 +26,7 @@
 <% end %>
 </td>
 <td>
-  <%= link_to({ controller: 'crm/admin/contacts', id: contact.id }, class: 'button is-small is-success') do %>
+  <%= link_to({ controller: 'crm/admin/productions', contact_id: contact.id }, class: 'button is-small is-success') do %>
     <span><%= contact.name.presence || contact.id %></span>
     <span>下单</span>
   <% end %>
