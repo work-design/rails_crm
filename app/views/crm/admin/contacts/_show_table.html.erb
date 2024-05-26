@@ -10,3 +10,9 @@
   <dt></dt>
   <dd><%= image_tag @contact.qrcode_bind_url, class: 'image is-128x128' %></dd>
 </div>
+<% if defined? RailsWechat %>
+  <div>
+    <dt><%= Crm::Contact.human_attribute_name(:unionid) %></dt>
+    <dd><%= @contact.unionid %></dd>
+  </div>
+<% end %>
