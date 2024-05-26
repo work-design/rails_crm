@@ -26,7 +26,7 @@
 <% end %>
 </td>
 <td>
-<% contact = @contacts.find(&->(i){ i.unionid == model.unionid }) %>
+<% contact = @contacts.find(&->(i){ i.unionid.present? && i.unionid == model.unionid }) %>
 <% if contact %>
   <p><%= contact.id %></p>
 <% else %>

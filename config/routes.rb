@@ -169,6 +169,9 @@ Rails.application.routes.draw do
           end
         end
         resources :wechat_users do
+          collection do
+            get :online
+          end
           member do
             post :contact
           end
