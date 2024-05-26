@@ -26,11 +26,6 @@
 <% end %>
 </td>
 <td>
-<% model.authorized_tokens.each do |at| %>
-  <p class="<%= at.online ? 'color-success' : 'color-grey' %>"><%= at.id %></p>
-<% end %>
-</td>
-<td>
 <% contact = @contacts.find(&->(i){ i.unionid == model.unionid }) %>
 <% if contact %>
   <p><%= contact.id %></p>
