@@ -11,7 +11,7 @@ module Crm
       @contacts = Contact.where(default_params).where(unionid: @wechat_users.pluck(:unionid))
     end
 
-    def set_contact
+    def contact
       @contact = @wechat_user.contacts.build(organ_id: current_organ.id)
       @contact.name = @wechat_user.name
       @contact.save
