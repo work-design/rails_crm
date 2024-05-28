@@ -17,6 +17,13 @@ module Crm
       #after_create :change_maintain_state, if: -> { maintain_id.present? && saved_change_to_maintain_id? }
     end
 
+    def crm_route_options
+      {
+        contact_id: contact_id,
+        client_id: client_id
+      }.compact
+    end
+
     def sync_from_maintain
       return unless maintain
       self.user_id = client.user_id
