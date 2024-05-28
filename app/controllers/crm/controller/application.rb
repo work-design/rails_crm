@@ -4,9 +4,8 @@ module Crm
 
     def common_maintain_params
       {
-        member_id: params[:client_member_id],
-        member_organ_id: params[:client_organ_id],
-        user_id: params[:client_user_id]
+        contact_id: params[:contact_id],
+        client_id: params[:client_id],
       }.compact_blank
     end
 
