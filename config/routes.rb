@@ -97,7 +97,11 @@ Rails.application.routes.draw do
         end
       end
       resources :clients do
-        resources :productions, controller: 'client/productions'
+        resources :productions, controller: 'client/productions' do
+          member do
+            patch :create_dialog
+          end
+        end
         resources :orders, controller: 'client/orders' do
           collection do
             post :batch_paid
