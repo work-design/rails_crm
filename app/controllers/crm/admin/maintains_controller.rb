@@ -33,24 +33,6 @@ module Crm
       @maintains = Maintain.where(member_id: nil).default_where(q_params).page(params[:page])
     end
 
-    def new_detect
-    end
-
-    def create_detect
-      q_params = { identity: params[:identity] }
-      q_params.merge! default_params
-      @profiles = Profiled::Profile.default_where(q_params)
-
-      if @profiles.present?
-        render 'create_detect'
-      else
-        @maintain.profile_agent = Profiled::Profile.new(identity: params[:identity])
-        @maintain.client = Profiled::Profile.new(identity: params[:identity])
-        @maintain.build_agency
-        render 'new', locals: { model: @maintain }
-      end
-    end
-
     def new
       if params[:agent_id]
         @maintain.agent = Profiled::Profile.find params[:agent_id]

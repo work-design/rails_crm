@@ -22,6 +22,22 @@ module Crm
       @contacts = Contact.includes(:maintains, :pending_members).default_where(q_params).order(id: :desc).page(params[:page])
     end
 
+    def new_detect
+    end
+
+    def create_detect
+      q_params = { identity: params[:identity] }
+      q_params.merge! default_params
+      @contacts = Contact.default_where(q_params)
+
+      if @contacts.present?
+        render 'create_detect'
+      else
+        @contact = Contact.new(identity: params[:identity])
+        render 'new', locals: { model: @contact }
+      end
+    end
+
     def edit_assign
       pipeline_params = {
         piping_type: 'Maintain',
