@@ -20,7 +20,7 @@ module Crm
         georgia: 'georgia',
         helvetica: 'helvetica',
         roman: 'roman'
-      }, _prefix: true, _default: 'simsun'
+      }, prefix: true, default: 'simsun'
 
       enum :align, {
         center: 'center',
@@ -32,7 +32,7 @@ module Crm
         northeast: 'northeast',
         southwest: 'southwest',
         southeast: 'southeast'
-      }, _prefix: true, _default: 'northwest'
+      }, prefix: true, default: 'northwest'
 
       belongs_to :source
     end

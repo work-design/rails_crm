@@ -17,7 +17,7 @@ module Crm
         northeast: 'northeast',
         southwest: 'southwest',
         southeast: 'southeast'
-      }, _prefix: true, _default: 'northwest'
+      }, prefix: true, default: 'northwest'
 
       belongs_to :source
       has_one_attached :picture

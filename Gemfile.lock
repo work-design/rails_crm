@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1c5dc8eb60a3d06923a94b37b3984afa2747fbb7
+  revision: 7a4080bbad75059a76add3a706f087126fb46186
   specs:
     rails_com (1.3.0)
       acme-client
@@ -11,6 +11,7 @@ GIT
       httpx
       kaminari
       money-rails (~> 1.15)
+      mutex_m
       net-http
       ostruct
       rails (~> 7.0)
@@ -18,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 6e02523ec7c2cfda86b52d02d4967613b63d0967
+  revision: a0d534c1adcdf227767c29f9b34100b318c6df71
   specs:
     rails_design (0.0.1)
       rails
@@ -32,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_trade.git
-  revision: 64c03bbccb2a19425f9b3ad187473e7c9734c769
+  revision: 6a6d477d8ef4b68dba61e723cc5f801c043c0894
   specs:
     rails_trade (0.0.3)
       rails_com

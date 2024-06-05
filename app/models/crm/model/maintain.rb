@@ -10,7 +10,7 @@ module Crm
         init: 'init',
         carted: 'carted',
         ordered: 'ordered'
-      }, _default: 'init'
+      }, default: 'init'
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
