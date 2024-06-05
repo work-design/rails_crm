@@ -12,7 +12,7 @@ module Crm
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
 
-      enum relation: options_i18n(:relation).values.map { |i| [i.to_sym, i.to_s] }.to_h
+      enum :relation, options_i18n(:relation).values.map { |i| [i.to_sym, i.to_s] }.to_h
     end
 
     def name

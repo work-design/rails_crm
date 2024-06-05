@@ -6,7 +6,7 @@ module Crm
       attribute :remark, :string
       attribute :position, :integer
 
-      enum state: {
+      enum :state, {
         init: 'init',
         carted: 'carted',
         ordered: 'ordered'

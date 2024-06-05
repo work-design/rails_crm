@@ -7,7 +7,7 @@ module Crm
       attribute :margin_x, :integer, default: 0
       attribute :margin_y, :integer, default: 0
 
-      enum font: {
+      enum :font, {
         simsun: 'simsun',
         simhei: 'simhei',
         simkai: 'simkai',
@@ -22,7 +22,7 @@ module Crm
         roman: 'roman'
       }, _prefix: true, _default: 'simsun'
 
-      enum align: {
+      enum :align, {
         center: 'center',
         north: 'north',
         south: 'south',

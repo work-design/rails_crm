@@ -7,7 +7,7 @@ module Crm
       attribute :margin_y, :integer, default: 0
       attribute :fixed_width, :integer, default: 0
 
-      enum align: {
+      enum :align, {
         center: 'center',
         north: 'north',
         south: 'south',
