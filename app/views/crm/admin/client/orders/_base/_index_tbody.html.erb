@@ -7,7 +7,7 @@
     <% end %>
   </p>
   <p><%= model.serial_number %></p>
-  <p class="color-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+  <p class="text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
 </td>
 <td>
   <p><%= model.payment_status_i18n %></p>
@@ -20,20 +20,20 @@
 </td>
 <td>
   <p><%= model.amount.to_money.format.html_safe %></p>
-  <% if model.unreceived_amount.to_d > 0 %><p class="color-danger"><%= model.unreceived_amount.to_money.format.html_safe %></p><% end %>
+  <% if model.unreceived_amount.to_d > 0 %><p class="text-danger"><%= model.unreceived_amount.to_money.format.html_safe %></p><% end %>
 </td>
 <td>
   <div class="tags has-addons mb-0">
     <span class="tag <%= model.received_amount.to_d > 0 ? 'is-success' : 'is-light' %>"><%= model.received_amount.to_money.format.html_safe %></span>
   </div>
-  <p class="color-success"><time data-controller="time"><%= model.paid_at&.to_fs(:iso8601) %></time></p>
+  <p class="text-success"><time data-controller="time"><%= model.paid_at&.to_fs(:iso8601) %></time></p>
 </td>
 <td>
   <p><%= link_to model.contact_id, { controller: 'crm/admin/orders', contact_id: model.contact_id } if model.contact_id %></p>
   <p>
   <% if model&.member %>
     <span><%= model.member.name %></span>
-    <span class="color-grey">（<%= model.member_organ.name %>）</span>
+    <span class="text-grey">（<%= model.member_organ.name %>）</span>
   <% end %>
   </p>
 </td>

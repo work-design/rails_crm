@@ -1,5 +1,5 @@
 <%= link_to({ controller: 'crm/admin/addresses', action: 'order_from', from_address_id: @order.from_address_id }, class: 'button mx-3 mb-3') do %>
-  <i class="fa-solid fa-fw fa-location-dot color-success pr-2"></i>
+  <i class="fa-solid fa-fw fa-location-dot text-success pr-2"></i>
   <div class="flex-grow-1">
   <% if @order.from_address %>
     <p>
@@ -15,5 +15,5 @@
     <span>发货人信息</span>
   <% end %>
   </div>
-  <i class="fa-solid fa-fw fa-location-dot color-success pr-2"></i>
+  <i class="fa-solid fa-fw fa-location-dot text-success pr-2"></i>
 <% end %>

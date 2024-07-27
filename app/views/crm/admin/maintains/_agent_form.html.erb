@@ -1,11 +1,11 @@
 <div class="level">
-  <h4 class="level-item has-text-centered">关系</h4>
+  <h4 class="level-item text-centered">关系</h4>
 </div>
 <%= f.fields :agency do |ef| %>
   <%= ef.select :relation, options_for_select(Crm::Agency.options_i18n(:relation)) %>
 <% end %>
 <div class="level">
-  <h4 class="level-item has-text-centered">家长信息</h4>
+  <h4 class="level-item text-centered">家长信息</h4>
 </div>
 <%= f.fields :agent do |ef| %>
   <%= ef.text_field :real_name %>

@@ -7,22 +7,22 @@
 </td>
 <td>
 <% if model.online? %>
-  <p class="color-success">
+  <p class="text-success">
     <i class="fa-solid fa-circle"></i>
     <time data-controller="time" data-format="human"><%= model.online_at.to_fs(:iso8601) %></time>
   </p>
 <% elsif model.offline_at.present? %>
-  <p class="color-grey">
+  <p class="text-grey">
     <i class="fa-solid fa-circle"></i>
     <time data-controller="time" data-format="human"><%= model.offline_at.to_fs(:iso8601) %></time>
   </p>
 <% else %>
-  <i class="fa-solid fa-circle color-grey"></i>
+  <i class="fa-solid fa-circle text-grey"></i>
 <% end %>
 </td>
 <td>
 <% if model.user_id %>
-  <i class="fa-solid fa-check color-success"></i>
+  <i class="fa-solid fa-check text-success"></i>
 <% end %>
 </td>
 <td>

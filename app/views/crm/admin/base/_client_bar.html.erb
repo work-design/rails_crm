@@ -1,5 +1,5 @@
-<h2 class="title has-text-centered">
-  <i class="fa-solid fa-sm fa-building has-text-primary"></i>
+<h2 class="title text-centered">
+  <i class="fa-solid fa-sm fa-building text-primary"></i>
   <span><%= @client.name %></span>
 </h2>
 
@@ -22,7 +22,7 @@
     </li>
     <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
       <%= link_to({ controller: 'orders', client_id: @client.id }) do %>
-        <i class="fa-solid fa-shopping-cart has-text-primary"></i>
+        <i class="fa-solid fa-shopping-cart text-primary"></i>
         <span class="pl-1"><%= t('.orders.index.title') %></span>
       <% end %>
     </li>

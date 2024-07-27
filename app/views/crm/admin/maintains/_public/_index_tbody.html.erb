@@ -3,9 +3,9 @@
 </td>
 <td>
   <p><%= model.client.real_name %></p>
-  <p class="color-grey"><%= model.client.nick_name %></p>
+  <p class="text-grey"><%= model.client.nick_name %></p>
 </td>
-<td class="has-text-centered">
+<td class="text-centered">
   <p><%= model.client.age %></p>
   <p class="tag">
     <i class="fa-solid <%= model.client.male? ? 'fa-male' : 'fa-female' %>"></i>
@@ -30,6 +30,6 @@
   <% end %>
 </td>
 <td>
-  <p class="color-grey"><%= model.member&.name %></p>
+  <p class="text-grey"><%= model.member&.name %></p>
   <p><%= model.state_i18n %></p>
 </td>

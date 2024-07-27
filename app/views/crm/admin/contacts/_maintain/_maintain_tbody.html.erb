@@ -17,8 +17,8 @@
   <% end %>
 </td>
 <td>
-  <p class="color-grey"><%= model.member&.name %></p>
-  <p class="color-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
+  <p class="text-grey"><%= model.member&.name %></p>
+  <p class="text-grey"><time data-controller="time"><%= model.created_at.to_fs(:iso8601) %></time></p>
 </td>
 <% if defined? RailsFactory %>
 <td>

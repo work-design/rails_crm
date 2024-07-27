@@ -3,19 +3,19 @@
 <div class="box mx-3">
   <div class="flex flex-direction-column">
     <% if @source.picture.attached? %>
-      <div class="has-text-centered color-grey"><%= @source.width %>px</div>
+      <div class="text-centered text-grey"><%= @source.width %>px</div>
     <% end %>
     <div class="flex pl-5 pb-5">
       <% if @source.picture.attached? %>
         <%= image_tag @source.url_with_watermark(@contact&.file), class: 'image' %>
-        <div class="has-text-centered color-grey" style="writing-mode: tb-rl"><%= @source.height %>px</div>
+        <div class="text-centered text-grey" style="writing-mode: tb-rl"><%= @source.height %>px</div>
       <% else %>
         <%= image_tag @contact.qr_code, class: 'image' if @contact.qr_code %>
       <% end %>
     </div>
   </div>
   <div class="weui-panel__ft">
-    <div class="has-text-centered">长按图片可保存到相册</div>
+    <div class="text-centered">长按图片可保存到相册</div>
   </div>
 </div>
 

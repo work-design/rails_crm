@@ -1,9 +1,9 @@
 <tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name('agent.real_name') %></td>
+  <td class="text-right"><%= Crm::Maintain.human_attribute_name('agent.real_name') %></td>
   <td><%= @maintain.tutelar.real_name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Crm::Maintain.human_attribute_name('tutelar.identity') %></td>
+  <td class="text-right"><%= Crm::Maintain.human_attribute_name('tutelar.identity') %></td>
   <td>
     <%= @maintain.tutelar.identity %>
     <% if @maintain.tutelar.user && @maintain.tutelar.account&.wechat_response %>
@@ -16,7 +16,7 @@
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Trade::Card.human_name %></td>
+  <td class="text-right"><%= Trade::Card.human_name %></td>
   <td>
     <% @maintain.tutelage.cards.each do |card| %>
       <div class="ui image label">
