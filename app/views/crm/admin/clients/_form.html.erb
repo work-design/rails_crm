@@ -4,7 +4,7 @@
   </div>
   <div class="field-body">
     <div class="panel" data-controller="search-input" data-search-input-url-value="<%= url_for(action: 'search') %>">
-        <%= f.text_field :name, autocomplete: 'off', autofocus: true, data: { typer_target: 'input' }, label: nil, wrap: { all: nil } %>
+        <%= f.text_field :name, autocomplete: 'off', autofocus: true, data: { search_input_target: 'input' }, label: nil, wrap: { all: nil } %>
       <div id="clients_content" class="panel"></div>
     </div>
   </div>

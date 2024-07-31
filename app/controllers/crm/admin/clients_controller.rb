@@ -15,7 +15,7 @@ module Crm
     end
 
     def search
-      @clients = Client.default_where('name-like': params['name'])
+      @clients = Client.default_where('name-like': params.dig('client', 'name'))
     end
 
     def edit_assign
