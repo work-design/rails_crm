@@ -97,6 +97,9 @@ Rails.application.routes.draw do
         end
       end
       resources :clients do
+        collection do
+          post :search
+        end
         resources :productions, controller: 'client/productions' do
           member do
             patch :create_dialog

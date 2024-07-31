@@ -1,4 +1,14 @@
-<%= f.text_field :name, autocomplete: 'off', autofocus: true %>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label text-grey"><%= Crm::Client.human_attribute_name(:name) %></label>
+  </div>
+  <div class="field-body">
+    <div class="panel" data-controller="typer" data-typer-url-value="<%= url_for(action: 'search') %>" data-typer-method-value="post">
+        <%= f.text_field :name, autocomplete: 'off', autofocus: true, data: { typer_target: 'input' }, label: nil, wrap: { all: nil } %>
+      <div id="clients_content" class="panel"></div>
+    </div>
+  </div>
+</div>
 <%= f.fields :settings, model: OpenStruct.new(f.object.settings) do |ef| %>
   <%= ef.text_field :xx %>
 <% end %>

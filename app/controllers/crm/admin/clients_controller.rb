@@ -14,6 +14,10 @@ module Crm
       @clients = Client.includes(:maintains).roots.default_where(q_params).page(params[:page]).per(params[:per])
     end
 
+    def search
+      @clients = Client.default_where('name-like': params['name'])
+    end
+
     def edit_assign
       pipeline_params = {
         piping_type: 'Maintain',
