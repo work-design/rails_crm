@@ -34,6 +34,8 @@ module Crm
       has_many :agencies, class_name: 'Crm::Agency', inverse_of: :client, dependent: :delete_all
       has_many :agents, through: :agencies
 
+      validates :name, uniqueness: { scope: :organ_id }
+
       after_save :sync_organ_to_orders, if: -> { (saved_changes.keys & ['client_organ_id']).present? }
     end
 
