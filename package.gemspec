@@ -13,6 +13,5 @@ Gem::Specification.new do |s|
     'README.md'
   ]
 
-  s.add_dependency 'rails_profile'
   s.add_dependency 'rails_trade'
 end
