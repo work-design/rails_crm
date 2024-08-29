@@ -13,7 +13,7 @@ module Crm
       belongs_to :client, optional: true
       belongs_to :contact, optional: true
 
-      belongs_to :maintain, primary_key: [:member_id, :client_id, :contanct_id], query_constraints: [:member_id, :client_id, :contact_id], optional: true
+      belongs_to :maintain, primary_key: [:member_id, :client_id, :contanct_id], foreign_key: [:member_id, :client_id, :contact_id], optional: true
 
       belongs_to :logged, polymorphic: true, optional: true
       belongs_to :maintain_tag, counter_cache: true, optional: true
