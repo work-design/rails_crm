@@ -6,6 +6,6 @@
   <% end %>
 </div>
 <div class="menu-list">
-  <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, state: 'clear', class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
-  <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, state: 'clear', class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
+  <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
+  <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
 </div>

@@ -1,6 +1,6 @@
 <div class="level is-mobile mb-0 py-2 has-border-top">
   <div class="level-left flex-direction-row pl-4">
-    <%= link_to({ controller: 'carts', action: 'show', id: @cart.id }, state: 'enter', class: 'level-item mb-0 fa-weui-badge') do %>
+    <%= link_to({ controller: 'carts', action: 'show', id: @cart.id }, class: 'level-item mb-0 fa-weui-badge') do %>
       <i class="fa-solid fa-bag-shopping fa-2x"></i>
       <span class="weui-badge"><%= @cart.items.count %></span>
     <% end %>
@@ -10,7 +10,7 @@
   </div>
   <div class="level-right mt-0 pr-4">
     <div class="level-item">
-      <%= link_to({ controller: 'carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+      <%= link_to({ controller: 'carts', action: 'show', id: @cart.id }, class: 'button is-small is-primary is-radius') do %>
         <span>去购物车</span>
         <i class="fa-solid fa-angle-right"></i>
       <% end %>

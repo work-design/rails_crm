@@ -1,19 +1,19 @@
 <% item = cart.find_item(good_id: model.id) %>
 
-<%= button_to({ controller: 'items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', params: { '[item]number': item.number - 1 }, class: 'mr-1') do %>
+<%= button_to({ controller: 'items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number - 1 }, class: 'mr-1') do %>
   <i class="fa-solid fa-circle-minus fa-xl text-dark-grey"></i>
 <% end if item && item.number > 1 %>
-<%= button_to({ controller: 'items', action: 'destroy', id: item.id }, method: :delete, state: 'redirect_return', class: 'mr-1') do %>
+<%= button_to({ controller: 'items', action: 'destroy', id: item.id }, method: :delete, class: 'mr-1') do %>
   <i class="fa-solid fa-circle-minus fa-xl text-dark-grey"></i>
 <% end if item && item.number <= 1 %>
-<%= form_with(theme: nil, scope: 'item', url: { controller: 'items', action: 'update', id: item.id }, method: :patch, state: 'redirect_return', data: { controller: 'input' }) do |f| %>
+<%= form_with(theme: nil, scope: 'item', url: { controller: 'items', action: 'update', id: item.id }, method: :patch, data: { controller: 'input' }) do |f| %>
   <%= f.number_field :number, value: item.number, data: { action: 'change->input#form' }, class: 'background-light text-centered', style: 'width: 30px' %>
 <% end if item %>
-<%= button_to({ controller: 'items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number + 1 }, state: 'redirect_return', class: 'ml-1') do %>
+<%= button_to({ controller: 'items', action: 'update', id: item.id }, method: :patch, params: { '[item]number': item.number + 1 }, class: 'ml-1') do %>
   <i class="fa-solid fa-circle-plus fa-xl text-dark-grey"></i>
 <% end if item %>
 
-<%= form_with theme: nil, url: { controller: 'items' }, state: 'redirect_return', class: 'button_to' do |f| %>
+<%= form_with theme: nil, url: { controller: 'items' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :current_cart_id, value: cart.id %>
   <%= f.hidden_field :good_type, value: model.base_class_name %>
   <%= f.hidden_field :good_id, value: model.id %>

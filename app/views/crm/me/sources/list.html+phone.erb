@@ -1,6 +1,6 @@
 <div class="box mx-3">
 <% @sources.each do |source| %>
-  <%= link_to({ action: 'source', source_id: source.id }, state: 'enter', class: 'media') do %>
+  <%= link_to({ action: 'source', source_id: source.id }, class: 'media') do %>
     <div class="media-content"><%= source.name %></div>
     <div class="media-right">
       <i class="fa-solid fa-chevron-right"></i>
