@@ -73,6 +73,7 @@ Rails.application.routes.draw do
           post :order_create
           post :from_new
           post :from_create
+          post :search
         end
       end
       resources :provides
