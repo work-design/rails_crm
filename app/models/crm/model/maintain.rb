@@ -34,7 +34,6 @@ module Crm
       has_many :maintain_tags, -> { distinct }, through: :notes
 
       accepts_nested_attributes_for :client, reject_if: :all_blank
-      accepts_nested_attributes_for :profile_agent, reject_if: :all_blank
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
       before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
