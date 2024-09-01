@@ -15,7 +15,6 @@ module Crm
       belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :member, class_name: 'Org::Member', counter_cache: true, inverse_of: :maintains, optional: true
       belongs_to :task_template, class_name: 'Bench::TaskTemplate', optional: true if defined? RailsBench
-      #belongs_to :profile_agent, class_name: 'Profiled::Profile', foreign_key: :agent_id, optional: true
 
       has_many :addresses, class_name: 'Ship::Address', primary_key: [:member_id, :client_id, :contact_id], foreign_key: [:agent_id, :client_id, :contact_id]
       has_many :wallets, class_name: 'Trade::Wallet', primary_key: [:member_id, :client_id, :contact_id], foreign_key: [:agent_id, :client_id, :contact_id]
