@@ -1,17 +1,17 @@
 <div class="fixed-grid has-auto-count px-3">
   <div class="grid">
-    <%= link_to({ controller: 'orders', contact_id: model.id }, class: 'cell is-box has-column-centered') do %>
+    <%= link_to({ controller: 'orders', contact_id: model.id }, class: 'cell is-boxed has-column-centered') do %>
       <strong><%= @contact.orders.count %></strong>
       <p>订单</p>
     <% end %>
-    <%= link_to({ controller: 'addresses', contact_id: model.id }, class: 'cell is-box has-column-centered') do %>
+    <%= link_to({ controller: 'addresses', contact_id: model.id }, class: 'cell is-boxed has-column-centered') do %>
       <strong><%= @contact.addresses.count %></strong>
       <p>地址</p>
     <% end %>
   </div>
 </div>
 
-<dl class="as-show is-box mx-3">
+<dl class="as-show is-boxed mx-3">
   <%= render 'show_table' %>
 </dl>
 
