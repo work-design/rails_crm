@@ -21,7 +21,7 @@ module Crm
       belongs_to :client_user, class_name: 'Auth::User', optional: true
 
       has_many :pending_members, ->(o){ where(o.filter_hash) }, class_name: 'Org::Member', primary_key: :identity, foreign_key: :identity
-      has_many :addresses, class_name: 'Profiled::Address', foreign_key: :contact_id, dependent: :nullify
+      has_many :addresses, class_name: 'Ship::Address', foreign_key: :contact_id, dependent: :nullify
       has_many :cards, class_name: 'Trade::Card', foreign_key: :contact_id, dependent: :nullify
       has_many :orders, class_name: 'Trade::Order', foreign_key: :contact_id, dependent: :nullify
       has_many :wallets, class_name: 'Trade::Wallet', foreign_key: :contact_id, dependent: :nullify
