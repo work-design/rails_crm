@@ -35,7 +35,7 @@ module Crm
       accepts_nested_attributes_for :client, reject_if: :all_blank
       accepts_nested_attributes_for :agency, reject_if: :all_blank
 
-      before_validation :sync_pipeline_member, if: -> { task_template_id_changed? }
+      before_validation :sync_pipeline_member, if: -> { task_template_id_changed? } if defined? RailsBench
       after_create_commit :init_stream!
     end
 

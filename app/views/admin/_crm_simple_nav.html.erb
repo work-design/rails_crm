@@ -1,4 +1,4 @@
-<div data-controller="menu empty" class="<%= active_helper(modules: ['crm/admin'], active: 'menu ex-accordion is-active', item: 'menu ex-accordion is-active') %>">
+<div data-controller="menu" class="<%= role_permit?(business: 'crm', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
   <div class="menu-label">
     <div>
       <i class="fa-solid fa-chart-line fa-fw"></i>
