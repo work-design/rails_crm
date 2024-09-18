@@ -1,11 +1,13 @@
-<div class="menu-label" data-controller="empty">
-  <i class="fa-solid fa-fw fa-chart-line"></i>
-  <span><%= t('crm.me.title') %></span>
-  <%= link_to({ controller: 'crm/admin/home' }, aria: { label: '管理' }) do %>
-    <i class="fa-solid fa-cog"></i>
-  <% end %>
-</div>
-<div class="menu-list">
-  <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
-  <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
-</div>
+<% if role_permit?(business: 'crm', namespace: 'me') %>
+  <div class="menu-label">
+    <i class="fa-solid fa-fw fa-chart-line"></i>
+    <span><%= t('crm.me.title') %></span>
+    <%= link_to({ controller: 'crm/admin/home' }, aria: { label: '管理' }) do %>
+      <i class="fa-solid fa-cog"></i>
+    <% end %>
+  </div>
+  <div class="menu-list">
+    <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
+    <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
+  </div>
+<% end %>
