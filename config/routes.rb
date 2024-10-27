@@ -165,6 +165,14 @@ Rails.application.routes.draw do
           end
         end
       end
+      resources :wechat_users do
+        collection do
+          get :online
+        end
+        member do
+          post :contact
+        end
+      end
     end
     namespace :crm, defaults: { business: 'crm' } do
       namespace :admin, defaults: { namespace: 'admin' } do
@@ -178,14 +186,6 @@ Rails.application.routes.draw do
         resources :maintain_tags do
           collection do
             post :sync
-          end
-        end
-        resources :wechat_users do
-          collection do
-            get :online
-          end
-          member do
-            post :contact
           end
         end
         resources :agencies do

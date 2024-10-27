@@ -1,6 +1,6 @@
 <div class="level is-mobile mb-0 py-2 has-border-top">
   <div class="level-left flex-direction-row pl-4">
-    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, class: 'level-item mb-0 fa-weui-badge') do %>
+    <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, class: 'level-item mb-0 right-badge') do %>
       <i class="fa-solid fa-bag-shopping fa-2x"></i>
       <span class="weui-badge"><%= @cart.items.count %></span>
     <% end %>
