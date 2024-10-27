@@ -173,3 +173,8 @@ zh:
       productions:
         index:
           title: 下单
+      wechat_users:
+        index:
+          title: 微信用户
+        online:
+          title: 在线用户
