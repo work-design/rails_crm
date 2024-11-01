@@ -1,0 +1,7 @@
+<li class="is-active">
+  <strong><%= t('.title') %></strong>
+  <span class="px-3">|</span>
+  <%= link_to({ controller: 'crm/admin/clients' }, class: 'tag is-success') do %>
+    <span><%= t('crm.admin.clients.index.title') %></span>
+  <% end %>
+</li>
