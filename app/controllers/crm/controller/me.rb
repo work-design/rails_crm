@@ -3,10 +3,6 @@ module Crm
     extend ActiveSupport::Concern
     include Controller::Application
 
-    included do
-      layout 'me'
-    end
-
     def set_common_maintain
       if params[:client_id]
         @client = current_member.agent_clients.find params[:client_id]
