@@ -1,13 +1,17 @@
 <% if role_permit?(business: 'crm', namespace: 'me') %>
+<div data-controller="menu" class="menu ex-accordion is-active">
   <div class="menu-label">
-    <i class="fa-solid fa-fw fa-chart-line"></i>
-    <span><%= t('crm.me.title') %></span>
-    <%= link_to({ controller: 'crm/admin/home' }, aria: { label: '管理' }) do %>
+    <div>
+      <i class="fa-solid fa-fw fa-chart-line"></i>
+      <span><%= t('crm.me.title') %></span>
+    </div>
+    <%= link_to({ controller: 'crm/me/home' }, aria: { label: '管理' }) do %>
       <i class="fa-solid fa-cog"></i>
     <% end %>
   </div>
   <div class="menu-list">
-    <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
-    <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
+    <%= link_to t('crm.me.clients.index.title'), { controller: 'crm/me/clients' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper('crm/me/clients': ['index', 'show'], active: 'is-active') %>
+    <%= link_to t('crm.me.contacts.index.title'), { controller: 'crm/me/contacts' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper('crm/me/contacts': ['index', 'show'], active: 'is-active') %>
   </div>
+</div>
 <% end %>
