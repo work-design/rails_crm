@@ -1,3 +1,20 @@
+<div data-controller="menu" class="<%= role_permit?(business: 'crm', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
+  <div class="menu-label">
+    <div>
+      <i class="fa-solid fa-chart-line fa-fw"></i>
+      <span><%= t('crm.admin.title') %></span>
+    </div>
+    <%= link_to({ controller: 'crm/admin/home' }, aria: { label: '设置' }) do %>
+      <i class="fa-solid fa-cog"></i>
+    <% end %>
+  </div>
+  <div class="menu-list">
+    <%= link_to t('crm.admin.contacts.index.title'), { controller: 'crm/admin/contacts' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'contacts', active: 'is-active') %>
+    <%= link_to t('crm.admin.clients.index.title'), { controller: 'crm/admin/clients' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: 'clients', active: 'is-active') %>
+  </div>
+</div>
+
+
 <div class="<%= active_helper(modules: ['crm/admin', 'trade/admin'], active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu empty">
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-chart-line fa-fw"></i>
