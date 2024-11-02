@@ -6,5 +6,15 @@
     <%= link_to({ controller: 'contacts' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.contacts.index.title') %></span>
     <% end %>
+    <%= link_to({ controller: 'maintains' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.maintains.index.title') %></span>
+    <% end %>
+    <%# link_to t('crm.admin.maintains.public.title'), { controller: 'crm/admin/maintains', action: 'public' }, class: active_helper('maintains': 'public', active: 'is-active') %>
+    <%= link_to({ controller: 'maintain_sources' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.maintain_sources.index.title') %></span>
+    <% end %>
+    <%= link_to({ controller: 'maintain_tags' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.maintain_tags.index.title') %></span>
+    <% end %>
   </div>
 </div>
