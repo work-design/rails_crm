@@ -17,4 +17,9 @@
       <span><%= t('.maintain_tags.index.title') %></span>
     <% end %>
   </div>
+  <div class="grid">
+    <%= link_to({ controller: 'wechat_users', action: 'online' }, class: 'cell button is-fullwidth') do %>
+      <span><%= t('.wechat_users.online.title') %></span>
+    <% end %>
+  </div>
 </div>
