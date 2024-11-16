@@ -1,6 +1,12 @@
 <div data-controller="mini-program" data-mini-program-pt-class="pt-0" class="box as-bar">
-  <%= link_to({ action: 'list', source_id: params[:source_id] }, class: 'px-4') do %>
-    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% if current_state %>
+    <%= link_to(current_state.referer, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
+  <% else %>
+    <%= link_to({ action: 'list', source_id: params[:source_id] }, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
   <% end %>
   <div class="weui-title">
     <span><%= @source.name %></span>
