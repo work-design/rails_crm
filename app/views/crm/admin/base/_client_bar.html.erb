@@ -23,31 +23,31 @@
     <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
       <%= link_to({ controller: 'orders', client_id: @client.id }) do %>
         <i class="fa-solid fa-shopping-cart text-primary"></i>
-        <span class="pl-1"><%= t('.orders.index.title') %></span>
+        <span class="ml-1"><%= t('.orders.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'wallets', active: 'is-active') %>">
       <%= link_to({ controller: 'wallets', client_id: @client.id }) do %>
         <i class="fa-solid fa-wallet"></i>
-        <span class="pl-1"><%= t('.wallets.index.title') %></span>
+        <span class="ml-1"><%= t('.wallets.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'cards', active: 'is-active') %>">
       <%= link_to({ controller: 'cards', client_id: @client.id }) do %>
         <i class="fa-solid fa-credit-card"></i>
-        <span class="pl-1"><%= t('.cards.index.title') %></span>
+        <span class="ml-1"><%= t('.cards.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'addresses', active: 'is-active') %>">
       <%= link_to({ controller: 'addresses', client_id: @client.id }) do %>
         <i class="fa-solid fa-location-dot"></i>
-        <span class="pl-1"><%= t('.addresses.index.title') %></span>
+        <span class="ml-1"><%= t('.addresses.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'productions', active: 'is-active') %>">
       <%= link_to({ controller: 'productions', client_id: @client.id }) do %>
         <i class="fa-solid fa-store"></i>
-        <span class="pl-1"><%= t('.productions.index.title') %></span>
+        <span class="ml-1"><%= t('.productions.index.title') %></span>
       <% end %>
     </li>
   </ul>
