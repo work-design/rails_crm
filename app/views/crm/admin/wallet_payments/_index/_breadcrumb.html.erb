@@ -1,5 +1,7 @@
 <li><%= link_to t('.maintains.index.title'), { controller: 'maintains' } %></li>
-<li><span class="px-3"><%= @maintain.client.name %></span></li>
+<li><span class="px-3"><%= @client.name %></span></li>
 <li><%= link_to t('.wallets.index.title'), { controller: 'wallets', anchor: "tr_#{@wallet.id}" } %></li>
-<li><span class="px-3"><%= @wallet.wallet_template.name %></span>
+<% if @wallet.wallet_template %>
+  <li><span class="px-3"><%= @wallet.wallet_template.name %></span>
+<% end %>
 <li class="is-active"><%= t('.title') %></li>
