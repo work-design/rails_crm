@@ -6,7 +6,7 @@ module Crm
     before_action :set_payment_strategies, only: [:new, :new_simple, :create, :edit, :update]
     before_action :set_order, only: [
       :show, :edit, :update, :destroy, :actions,
-      :purchase, :payment_types, :print_data, :package, :micro, :adjust_edit, :adjust_update
+      :purchase, :payment_types, :payment_pending, :payment_confirm, :print_data, :package, :micro, :adjust_edit, :adjust_update
     ]
     before_action :set_new_order, only: [:new, :new_simple, :add, :create]
 
