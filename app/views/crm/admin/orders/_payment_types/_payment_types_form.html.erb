@@ -4,7 +4,13 @@
       <td class="text-right"><%= Trade::Order.human_attribute_name(:unreceived_amount) %></td>
       <td class="text-danger"><%= @order.unreceived_amount.to_money.format.html_safe %></td>
     </tr>
-    <%= render partial: 'wallet_payment', collection: @order.payment_orders, as: :payment_order %>
+    <% @order.payment_orders.each do |payment_order| %>
+      <% if payment_order.payment.is_a?(Trade::WalletPayment) && payment_order.payment.wallet.wallet_template %>
+        <%= render partial: 'wallet_payment', locals: { payment_order: payment_order } %>
+      <% elsif payment_order.payment.is_a?(Trade::WalletPayment) %>
+        <%= render partial: 'lawful_wallet_payment', locals: { payment_order: payment_order } %>
+      <% end %>
+    <% end %>
     <tr>
       <td></td>
       <td>

@@ -31,13 +31,14 @@ module Crm
     end
 
     def wallet_params
-      params.fetch(:wallet, {}).permit(
+      _p = params.fetch(:wallet, {}).permit(
         :account_bank,
         :account_name,
         :account_num,
         :wallet_template_id,
         :type
       )
+      _p.merge! default_form_params
     end
 
   end
