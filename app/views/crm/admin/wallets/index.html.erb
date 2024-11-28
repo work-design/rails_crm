@@ -1,7 +1,11 @@
 <%= render 'maintain_bar' %>
 
 <%= render layout: 'index_table' do %>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @wallets, as: :model %>
-  <%= render partial: 'lawful_tbody', layout: 'index_tr', collection: @client.lawful_wallets, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: @custom_wallets, as: :model %>
   <%= render partial: 'template_tbody', layout: 'template_tr', collection: @wallet_templates, as: :model %>
+  <% if @client.lawful_wallets.present? %>
+    <%= render partial: 'lawful_tbody', layout: 'index_tr', collection: @client.lawful_wallets, as: :model %>
+  <% else %>
+    <%= render partial: 'new_lawful_tbody', layout: 'new_lawful_tr' %>
+  <% end %>
 <% end %>

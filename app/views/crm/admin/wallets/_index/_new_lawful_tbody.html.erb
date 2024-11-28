@@ -1,0 +1,11 @@
+<td>
+  <div class="is-several">
+    <span>法定钱包</span>
+  </div>
+</td>
+<td colspan="3"></td>
+<td>
+  <%= button_to({ action: 'create' }, params: { 'wallet[type]': 'Trade::LawfulWallet' }, class: 'button is-primary') do %>
+    <span>开通</span>
+  <% end %>
+</td>
