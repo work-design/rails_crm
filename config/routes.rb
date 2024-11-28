@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           get :print_data
           post :print
           match :payment_types, via: [:get, :post]
+          post :payment_pending
           get :print_data
           match :adjust_edit, via: [:get, :post]
           patch :adjust_update
