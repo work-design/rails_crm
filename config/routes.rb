@@ -8,6 +8,7 @@ Rails.application.routes.draw do
           get :unpaid
           post :add
           post :batch_paid
+          post :batch_pay
           delete :batch_destroy
           get :new_simple
         end
