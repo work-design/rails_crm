@@ -17,7 +17,7 @@ Rails.application.routes.draw do
           post :micro
           get :print_data
           post :print
-          get :payment_types
+          match :payment_types, via: [:get, :post]
           get :print_data
           match :adjust_edit, via: [:get, :post]
           patch :adjust_update

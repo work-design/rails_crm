@@ -12,5 +12,10 @@
         <i class="fa-solid fa-trash text-danger"></i>
       <% end %>
     </div>
+    <div>
+      <%= button_to({ action: 'payment_types', id: model.id }, class: 'button is-small is-rounded is-link') do %>
+        <span><%= t('.payment_types.title') %></span>
+      <% end %>
+    </div>
   </td>
 </tr>

@@ -35,7 +35,8 @@ module Crm
         :account_bank,
         :account_name,
         :account_num,
-        :wallet_template_id
+        :wallet_template_id,
+        :type
       )
     end
 
