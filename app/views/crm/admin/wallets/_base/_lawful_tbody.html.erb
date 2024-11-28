@@ -1,9 +1,9 @@
-<td></td>
+<td>法定钱包</td>
 <td>
   <span><%= model.amount.to_money.format.html_safe %></span>
 </td>
 <td>
-  <%= link_to({ controller: 'wallet_advances', wallet_id: model.id }, aria: { label: t('crm.admin.wallet_advances.index.title') }) do %>
+  <%= link_to({ controller: 'wallet_advances', wallet_id: model.id }, aria: { label: t('.wallet_advances.index.title') }) do %>
     <i class="fa-solid fa-gem"></i>
     <span class="ml-1"><%= model.income_amount.to_money.format.html_safe %></span>
   <% end %>
