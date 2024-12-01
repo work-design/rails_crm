@@ -1,5 +1,5 @@
 <% if @wallet.is_a?(Trade::LawfulWallet) %>
-
+  <%= turbo_stream.replace 'lawful_wallet', partial: 'lawful_tbody', layout: 'index_tr', locals: { model: @wallet } %>
 <% else %>
   <%= turbo_stream.replace "template_#{@wallet.wallet_template_id}", partial: 'index_tbody', layout: 'index_tr', locals: { model: @wallet } %>
 <% end %>
