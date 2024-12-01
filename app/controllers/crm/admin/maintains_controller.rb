@@ -35,16 +35,12 @@ module Crm
 
     def new
       if params[:agent_id]
-        @maintain.agent = Profiled::Profile.find params[:agent_id]
-      else
-        @maintain.agent = Profiled::Profile.new
+        @maintain.agent = Contact.find params[:agent_id]
       end
       if params[:agency_id]
         agency = Agency.find params[:agency_id]
         @maintain.agency = agency
         @maintain.client = agency.client
-      else
-        @maintain.client = Profiled::Profile.new
       end
     end
 

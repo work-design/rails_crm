@@ -119,7 +119,8 @@ zh:
           title: 续费明细
       contact:
         maintains:
-          index: 负责人
+          index:
+            title: 负责人
     panel:
       title: 市场管理
       sources:
