@@ -25,7 +25,11 @@ Rails.application.routes.draw do
           patch :adjust_update
           get :purchase
         end
-        resources :order_payments
+        resources :order_payments do
+          collection do
+            post :new_micro
+          end
+        end
       end
       resources :items do
         collection do
@@ -113,6 +117,13 @@ Rails.application.routes.draw do
           collection do
             post :batch_paid
             delete :batch_destroy
+          end
+          member do
+            match :payment_types, via: [:get, :post]
+            post :payment_pending
+            post :payment_confirm
+            get :print_data
+            post :print
           end
         end
         resources :addresses, controller: 'client/addresses'
