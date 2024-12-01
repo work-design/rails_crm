@@ -9,11 +9,11 @@
   </div>
 </dl>
 
-<div class="box mx-3 text-centered">
+<div class="box text-centered">
   <p>绑定成功</p>
 </div>
 
-<div class="box mx-3">
+<div class="box">
   <p class="text-centered">如果这不是你的信息</p>
   <%= button_to({ action: 'destroy_bind', id: @contact.id }, method: :delete, class: 'button is-fullwidth is-danger') do %>
     <span>解除绑定</span>

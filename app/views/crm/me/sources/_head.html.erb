@@ -1,11 +1,11 @@
-<div class="box mx-3">
+<div class="box">
   <figure id="scene_<%= @scene.id %>" class="image">
     <%= image_tag @scene.qrcode_data_url %>
   </figure>
 </div>
 
 <% if request.variant.include?(:wechat) && request.variant.exclude?(:mini_program) %>
-<div class="box mx-3">
+<div class="box">
   <div class="weui-panel__bd">
     <div class="weui-cells">
       <div

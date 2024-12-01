@@ -1,4 +1,4 @@
-<div class="box is-padding-less mx-3">
+<div class="box is-padding-less">
 <% @sources.each do |source| %>
   <%= link_to({ action: 'source', source_id: source.id }, class: 'media') do %>
     <div class="media-content"><%= source.name %></div>
