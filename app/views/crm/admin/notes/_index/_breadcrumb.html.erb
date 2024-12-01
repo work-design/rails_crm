@@ -5,7 +5,7 @@
 <% elsif params[:contact_id] %>
   <li><%= link_to t('.contacts.index.title'), { controller: 'contacts' } %></li>
 <% else %>
-  <li><%= link_to t('.clients.index.title'), { controller: 'crm/admin/clients' } %></li>
+  <li><%= link_to t('.clients.index.title'), { controller: 'clients' } %></li>
 <% end %>
 <li><span class="px-3"><%= @client.name %></span></li>
 <li class="is-active"><%= t('.title') %></li>
