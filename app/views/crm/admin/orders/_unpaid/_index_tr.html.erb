@@ -10,7 +10,7 @@
       <% end %>
     </div>
     <div data-show-target="item" class="visibility-hidden">
-      <%= link_to({ action: 'payment_types', id: model.id }, class: 'button is-small is-rounded is-link') do %>
+      <%= button_to({ action: 'payment_types', id: model.id }, class: 'button is-small is-rounded is-link') do %>
         <span><%= t('.payment_types.title') %></span>
       <% end %>
       <%= button_to({ action: 'desk_edit', id: model.id }, class: 'button is-small is-rounded is-light') do %>
