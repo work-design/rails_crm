@@ -46,6 +46,7 @@ Rails.application.routes.draw do
           post 'order/:order_id' => :order_create
           post :batch_hand
           post :batch_scan
+          post :batch_wallet
           post :confirm
         end
         resources :payment_orders do
