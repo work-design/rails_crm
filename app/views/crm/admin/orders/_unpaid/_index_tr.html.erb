@@ -1,0 +1,22 @@
+<tr id="tr_<%= model.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+  <%= yield %>
+  <td>
+    <div data-show-target="item" class="visibility-hidden">
+      <%= button_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-circle-info text-info"></i>
+      <% end %>
+      <%= button_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-pencil text-link"></i>
+      <% end %>
+    </div>
+    <div data-show-target="item" class="visibility-hidden">
+      <%= link_to({ action: 'payment_types', id: model.id }, class: 'button is-small is-rounded is-link') do %>
+        <span><%= t('.payment_types.title') %></span>
+      <% end %>
+      <%= button_to({ action: 'desk_edit', id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-pencil text-link"></i>
+        <span class="ml-1"><%= t('.desk_edit.title') %></span>
+      <% end %>
+    </div>
+  </td>
+</tr>

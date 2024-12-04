@@ -14,8 +14,11 @@
     <li class="<%= active_helper(controllers: 'notes', active: 'is-active') %>">
       <%= link_to t('.notes.index.title'), { controller: 'notes', contact_id: @client.id } %>
     </li>
-    <li class="<%= active_helper(controllers: 'orders', active: 'is-active') %>">
+    <li class="<%= active_helper(controller: 'orders', action: 'index', active: 'is-active') %>">
       <%= link_to t('.orders.index.title'), { controller: 'orders', contact_id: @client.id } %>
+    </li>
+    <li class="<%= active_helper(controller: 'orders', action: 'unpaid', active: 'is-active') %>">
+      <%= link_to t('.orders.unpaid.title'), { controller: 'orders', action: 'unpaid', contact_id: @client.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'wallets', active: 'is-active') %>">
       <%= link_to t('.wallets.index.title'), { controller: 'wallets', contact_id: @client.id } %>

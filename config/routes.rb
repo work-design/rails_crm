@@ -7,8 +7,6 @@ Rails.application.routes.draw do
           get 'cart/:current_cart_id' => :cart
           get :unpaid
           post :add
-          post :batch_paid
-          post :batch_pay
           delete :batch_destroy
           get :new_simple
         end
@@ -23,6 +21,8 @@ Rails.application.routes.draw do
           get :print_data
           match :adjust_edit, via: [:get, :post]
           patch :adjust_update
+          post :desk_edit
+          patch :desk_update
           get :purchase
         end
         resources :order_payments do
@@ -44,6 +44,8 @@ Rails.application.routes.draw do
         collection do
           get 'order/:order_id' => :order_new
           post 'order/:order_id' => :order_create
+          post :batch_hand
+          post :batch_scan
         end
         resources :payment_orders do
           collection do
