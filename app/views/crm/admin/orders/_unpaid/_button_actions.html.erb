@@ -1,30 +1,30 @@
-<%= form_with url: { controller: 'hand_payments', action: 'batch' }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
-  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button is-success' do %>
+<%= form_with url: { controller: 'hand_payments', action: 'batch' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-success' do %>
     <i class="fa-solid fa-cash-register"></i>
     <span class="ml-1"><%= t('.hand_payments.batch.title') %></span>
   <% end %>
 <% end %>
-<%= form_with url: { controller: 'scan_payments', action: 'batch' }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
-  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button is-warning' do %>
+<%= form_with url: { controller: 'scan_payments', action: 'batch' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-warning' do %>
     <i class="fa-brands fa-weixin"></i>
     <span class="ml-1"><%= t('.scan_payments.batch.title') %></span>
   <% end %>
 <% end %>
 <% @client.wallets.each do |wallet| %>
-  <%= form_with url: { controller: 'wallet_payments', action: 'batch', wallet_id: wallet.id }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
-    <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-    <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button is-warning' do %>
+  <%= form_with url: { controller: 'wallet_payments', action: 'batch', wallet_id: wallet.id }, class: 'button_to' do |f| %>
+    <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+    <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-warning' do %>
       <i class="fa-solid fa-wallet"></i>
       <span class="ml-1"><%= wallet.template_name %></span>
       <span class="ml-1"><%= wallet.amount %></span>
     <% end %>
   <% end %>
 <% end %>
-<%= form_with url: { action: 'batch_destroy' }, method: :delete, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
-  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button is-danger' do %>
+<%= form_with url: { action: 'batch_destroy' }, method: :delete, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-danger' do %>
     <i class="fa-solid fa-trash-can"></i>
     <span class="ml-1"><%= t('.batch_destroy.title') %></span>
   <% end %>

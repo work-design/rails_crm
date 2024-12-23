@@ -1,6 +1,6 @@
-<%= form_with url: { action: 'new' }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
-  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, aria: { label: t('.assign') }, disabled: true, class: 'button is-small is-dark' do %>
+<%= form_with url: { action: 'new' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
+  <%= button_tag data: { form_target: 'submit' }, aria: { label: t('.assign') }, disabled: true, class: 'button is-small is-dark' do %>
     <i class="fa-solid fa-hand-holding-usd"></i>
   <% end %>
 <% end %>

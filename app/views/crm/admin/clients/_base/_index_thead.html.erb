@@ -1,4 +1,4 @@
-<th id="xxd" data-controller="check" data-check-check-commit-outlet="form">
+<th id="xxd" data-controller="check" data-check-form-outlet="form.button_to">
   <%= check_box_tag 'xxd', 'xx', false, data: { check_target: 'all', action: 'check#toggleAll' }, id: nil %>
 </th>
 <th><%= link_to Crm::Client.human_attribute_name(:name), filter_params('name-asc': 1) %></th>
