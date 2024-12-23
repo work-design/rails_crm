@@ -1,24 +1,24 @@
 <div class="buttons are-small">
-  <%= form_with url: { controller: 'payments', action: 'batch_hand' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
+  <%= form_with url: { controller: 'hand_payments', action: 'batch' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
     <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
     <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-success' do %>
       <i class="fa-solid fa-cash-register"></i>
-      <span class="ml-1"><%= t('.payments.batch_hand.title') %></span>
+      <span class="ml-1"><%= t('.hand_payments.batch.title') %></span>
     <% end %>
   <% end %>
-  <%= form_with url: { controller: 'payments', action: 'batch_scan' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
+  <%= form_with url: { controller: 'scan_payments', action: 'batch' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
     <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
     <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-warning' do %>
       <i class="fa-brands fa-weixin"></i>
-      <span class="ml-1"><%= t('.payments.batch_scan.title') %></span>
+      <span class="ml-1"><%= t('.scan_payments.batch.title') %></span>
     <% end %>
   <% end %>
   <% @client.wallets.each do |wallet| %>
-    <%= form_with url: { controller: 'payments', action: 'batch_wallet', wallet_id: wallet.id }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
+    <%= form_with url: { controller: 'wallet_payments', action: 'batch', wallet_id: wallet.id }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
       <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
       <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-warning' do %>
         <i class="fa-solid fa-wallet"></i>
-        <span class="ml-1"><%= t('.payments.batch_wallet.title') %></span>
+        <span class="ml-1"><%= t('.wallet_payments.batch.title') %></span>
         <span class="ml-1"><%= wallet.amount %></span>
       <% end %>
     <% end %>
