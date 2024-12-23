@@ -1,33 +1,31 @@
-<div class="buttons are-small">
-  <%= form_with url: { controller: 'hand_payments', action: 'batch' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
+<%= form_with url: { controller: 'hand_payments', action: 'batch' }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
+  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button text-success' do %>
+    <i class="fa-solid fa-cash-register"></i>
+    <span class="ml-1"><%= t('.hand_payments.batch.title') %></span>
+  <% end %>
+<% end %>
+<%= form_with url: { controller: 'scan_payments', action: 'batch' }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
+  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button text-warning' do %>
+    <i class="fa-brands fa-weixin"></i>
+    <span class="ml-1"><%= t('.scan_payments.batch.title') %></span>
+  <% end %>
+<% end %>
+<% @client.wallets.each do |wallet| %>
+  <%= form_with url: { controller: 'wallet_payments', action: 'batch', wallet_id: wallet.id }, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
     <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-    <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-success' do %>
-      <i class="fa-solid fa-cash-register"></i>
-      <span class="ml-1"><%= t('.hand_payments.batch.title') %></span>
+    <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button text-warning' do %>
+      <i class="fa-solid fa-wallet"></i>
+      <span class="ml-1"><%= wallet.template_name %></span>
+      <span class="ml-1"><%= wallet.amount %></span>
     <% end %>
   <% end %>
-  <%= form_with url: { controller: 'scan_payments', action: 'batch' }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
-    <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-    <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-warning' do %>
-      <i class="fa-brands fa-weixin"></i>
-      <span class="ml-1"><%= t('.scan_payments.batch.title') %></span>
-    <% end %>
+<% end %>
+<%= form_with url: { action: 'batch_destroy' }, method: :delete, data: { controller: 'check-commit' }, class: 'button_to' do |f| %>
+  <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
+  <%= button_tag data: { check_commit_target: 'submit', action: 'check-commit#doSubmit' }, disabled: true, class: 'button text-danger' do %>
+    <i class="fa-solid fa-trash-can"></i>
+    <span class="ml-1"><%= t('.batch_destroy.title') %></span>
   <% end %>
-  <% @client.wallets.each do |wallet| %>
-    <%= form_with url: { controller: 'wallet_payments', action: 'batch', wallet_id: wallet.id }, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
-      <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-      <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-warning' do %>
-        <i class="fa-solid fa-wallet"></i>
-        <span class="ml-1"><%= wallet.template_name %></span>
-        <span class="ml-1"><%= wallet.amount %></span>
-      <% end %>
-    <% end %>
-  <% end %>
-  <%= form_with url: { action: 'batch_destroy' }, method: :delete, data: { controller: 'check-commit', check_commit_check_outlet: 'th' }, class: 'button_to display-none' do |f| %>
-    <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
-    <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-danger' do %>
-      <i class="fa-solid fa-trash-can"></i>
-      <span class="ml-1"><%= t('.batch_destroy.title') %></span>
-    <% end %>
-  <% end %>
-</div>
+<% end %>
