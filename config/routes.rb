@@ -44,9 +44,6 @@ Rails.application.routes.draw do
         collection do
           get 'order/:order_id' => :order_new
           post 'order/:order_id' => :order_create
-          post :batch_hand
-          post :batch_scan
-          post :batch_wallet
           post :confirm
         end
         resources :payment_orders do
@@ -60,9 +57,23 @@ Rails.application.routes.draw do
           end
         end
       end
+      resources :scan_payments do
+        collection do
+          post :batch
+        end
+      end
+      resources :hand_payments do
+        collection do
+          post :batch
+        end
+      end
       resources :wallet_templates
       resources :wallets, except: [:new] do
-        resources :wallet_payments
+        resources :wallet_payments do
+          collection do
+            post :batch
+          end
+        end
         resources :wallet_advances
         resources :wallet_logs
       end

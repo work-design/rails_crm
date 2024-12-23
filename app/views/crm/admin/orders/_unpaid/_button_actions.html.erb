@@ -18,7 +18,7 @@
       <%= f.hidden_field :ids, data: { check_commit_target: 'ids' } %>
       <%= button_tag data: { action: 'check-commit#doSubmit' }, class: 'button text-warning' do %>
         <i class="fa-solid fa-wallet"></i>
-        <span class="ml-1"><%= t('.wallet_payments.batch.title') %></span>
+        <span class="ml-1"><%= wallet.template_name %></span>
         <span class="ml-1"><%= wallet.amount %></span>
       <% end %>
     <% end %>
