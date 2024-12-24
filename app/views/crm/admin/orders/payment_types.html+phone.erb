@@ -1,7 +1,7 @@
 <div class="box">
   <div class="weui-media-box weui-media-box_small-appmsg">
     <div class="weui-cells weui-cells_checkbox">
-      <%= render partial: 'wallet_payment', collection: @order.payment_orders, as: :payment_order %>
+      <%= render partial: 'payment_wallet', collection: @order.payment_orders, as: :payment_order %>
     </div>
     <div class="weui-cells">
     <% unless @order.all_paid? %>
