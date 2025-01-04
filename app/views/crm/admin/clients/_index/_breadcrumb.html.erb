@@ -1,9 +1,0 @@
-<li class="is-active">
-  <%= link_to({ controller: 'crm/admin/clients' }, class: active_helper(controller: 'crm/admin/clients', item: 'tag is-dark', active: 'tag is-primary')) do %>
-    <span><%= t('crm.admin.clients.index.title') %></span>
-  <% end %>
-  <span class="px-3">|</span>
-  <%= link_to({ controller: 'crm/me/clients' }, class: active_helper(controller: 'crm/me/clients', item: 'tag is-dark', active: 'tag is-primary')) do %>
-    <span><%= t('crm.me.clients.index.title') %></span>
-  <% end %>
-</li>

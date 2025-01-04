@@ -1,0 +1,14 @@
+<div class="tabs is-boxed mb-3">
+  <ul>
+    <li class="is-active">
+      <%= link_to({ controller: 'crm/admin/clients' }, class: active_helper(controller: 'crm/admin/clients', active: 'is-active')) do %>
+        <span><%= t('crm.admin.clients.index.title') %></span>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to({ controller: 'crm/me/clients' }, class: active_helper(controller: 'crm/me/clients', active: 'is-active')) do %>
+        <span><%= t('crm.me.clients.index.title') %></span>
+      <% end %>
+    </li>
+  </ul>
+</div>
