@@ -1,6 +1,7 @@
 <%= render 'index_bar' %>
-<%= render 'index_actions' %>
 
+<%= render 'scope' %>
+<%= render 'index_actions' %>
 <%= render layout: 'index_raw_table' do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @contacts, as: :model %>
 <% end %>
