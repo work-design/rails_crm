@@ -1,6 +1,4 @@
-<div class="buttons are-small">
-  <%= button_to({ action: 'new_batch' }, class: 'button is-primary mb-1') do %>
-    <i class="fa-solid fa-user-plus"></i>
-    <span class="ml-1"><%= t('.new_batch.title') %></span>
-  <% end %>
-</div>
+<%= button_to({ action: 'new_batch' }, class: 'button is-primary') do %>
+  <i class="fa-solid fa-user-plus"></i>
+  <span class="ml-1"><%= t('.new_batch.title') %></span>
+<% end %>
