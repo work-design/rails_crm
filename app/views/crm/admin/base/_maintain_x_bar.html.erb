@@ -2,7 +2,7 @@
   <%= @client.name %>
 </h2>
 
-<div class="tabs">
+<div class="tabs is-centered">
   <ul>
     <li class="<%= active_helper(maintains: ['show', 'edit'], active: 'is-active') %>">
       <%= link_to t('.maintains.show.title'), { controller: 'maintains', action: 'show', id: @client.id } %>

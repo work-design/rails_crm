@@ -1,6 +1,6 @@
 <%= form_with url: { action: 'new' }, class: 'button_to' do |f| %>
   <%= f.hidden_field :ids, data: { form_target: 'ids' } %>
-  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-small is-dark' do %>
+  <%= button_tag data: { form_target: 'submit' }, disabled: true, class: 'button is-dark' do %>
     <i class="fa-solid fa-hand-holding-usd"></i>
     <span class="ml-1"><%= t('.edit_assign.title') %></span>
   <% end %>
