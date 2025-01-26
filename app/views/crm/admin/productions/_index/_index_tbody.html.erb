@@ -16,6 +16,6 @@
 </td>
 <td><%= model.price.to_money.format.html_safe %></td>
 <td class="text-centered">
-  <%= render partial: 'cart', locals: { item_con: 'items', item: @cart.init_cart_item(params, good_id: model.id), cart: @cart } %>
+  <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: model.id), cart: @cart, item_con: 'items' } %>
 </td>
 <td></td>

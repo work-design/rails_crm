@@ -2,6 +2,6 @@
   <%= render partial: 'product_summary', locals: { production: @production, cart: @cart, options: params.permit(:dispatch) } %>
   <div class="flex justify-content-space-between align-items-center is-fullwidth">
     <div class="text-danger"><%= @production.price.to_money.format.html_safe %></div>
-    <%= render partial: 'cart_new', locals: { item: @cart.init_cart_item(params, good_id: @production.id), cart: @cart, item_con: 'crm/admin/items' } %>
+    <%= render partial: 'cart_item_new', locals: { item: @cart.init_cart_item(params, good_id: @production.id), cart: @cart, item_con: 'crm/admin/items' } %>
   </div>
 </footer>
