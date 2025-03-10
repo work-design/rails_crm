@@ -16,12 +16,6 @@
 </td>
 <td><%= model.price.to_money.format.html_safe %></td>
 <td>
-  <% @client.contacts.each do |contact| %>
-    <div class="flex">
-      <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: model.id, contact_id: contact.id), cart: @cart, item_con: 'crm/admin/items' } %>
-      <span><%= contact.name %></span>
-    </div>
-  <% end %>
-  <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: model.id, contact_id: nil), cart: @cart, item_con: 'crm/admin/items' } %>
+  <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: model.id, client_id: @client.id), cart: @cart, item_con: 'crm/admin/items' } %>
 </td>
 <td></td>
