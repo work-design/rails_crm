@@ -1,4 +1,5 @@
 <div class="fixed-grid has-6-cols">
+  <p class="size-7 text-grey">客户与联系人</p>
   <div class="grid">
     <%= link_to({ controller: 'clients' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.clients.index.title') %></span>
@@ -9,6 +10,9 @@
     <%= link_to({ controller: 'maintains' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.maintains.index.title') %></span>
     <% end %>
+  </div>
+  <p class="size-7 text-grey">配置</p>
+  <div class="grid">
     <%# link_to t('crm.admin.maintains.public.title'), { controller: 'crm/admin/maintains', action: 'public' }, class: active_helper('maintains': 'public', active: 'is-active') %>
     <%= link_to({ controller: 'maintain_sources' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.maintain_sources.index.title') %></span>
@@ -17,6 +21,7 @@
       <span><%= t('.maintain_tags.index.title') %></span>
     <% end %>
   </div>
+  <p class="size-7 text-grey">微信用户</p>
   <div class="grid">
     <%= link_to({ controller: 'wechat_users', action: 'online' }, class: 'cell button is-fullwidth') do %>
       <span><%= t('.wechat_users.online.title') %></span>
