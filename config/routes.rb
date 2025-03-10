@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :orders do
         collection do
           get 'cart/:current_cart_id' => :cart
+          post 'cart/:current_cart_id' => :cart_create
           get :unpaid
           post :add
           delete :batch_destroy
