@@ -8,7 +8,7 @@
   <table class="table is-borderless">
   <% model.parts.each do |part| %>
     <tr>
-      <td><span class="tag"><%= button_to part.name, { controller: 'factory/admin/products', action: 'show', product_taxon_id: part.product_taxon_id, id: part.id } %></span></td>
+      <td><span class="tag"><%= button_to part.name, { controller: 'factory/admin/products', action: 'show', taxon_id: part.taxon_id, id: part.id } %></span></td>
       <td><%# part.price %></td>
     </tr>
   <% end %>
