@@ -4,7 +4,7 @@ module Crm
     include Controller::Application
 
     included do
-      layout -> { turbo_frame_body? ? "frame/#{proper_layout}" : 'admin' }
+      layout -> { turbo_frame_body? ? 'frame' : 'admin' }
     end
 
     private
