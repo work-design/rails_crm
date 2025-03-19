@@ -1,1 +1,1 @@
-<%= render partial: 'card', collection: @productions, as: :model, locals: { item_con: 'trade/agent/items' } %>
+<%= render partial: 'production_cart', layout: 'card', collection: @productions, as: :model, locals: { cart: @cart, item_con: 'trade/agent/items' } %>
