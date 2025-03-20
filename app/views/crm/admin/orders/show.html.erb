@@ -1,0 +1,12 @@
+<%= render 'maintain_bar' %>
+
+<div class="breadcrumb">
+  <ul>
+    <li><%= link_to t('.productions.index.title'), { controller: 'productions' } %></li>
+    <li class="is-active"><%= t('.title') %></li>
+  </ul>
+</div>
+
+<%= render 'index_actions' %>
+
+<%= render 'show_table' %>
