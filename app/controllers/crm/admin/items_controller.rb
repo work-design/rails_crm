@@ -8,14 +8,9 @@ module Crm
 
     private
     def set_cart
-      if current_cart
-        @cart = current_cart
-      else
-        options = { agent_id: current_member.id }
-        options.merge! default_form_params
-        options.merge! common_maintain_params
-        @cart = Trade::Cart.where(options).find_or_create_by(good_type: params[:good_type], aim: params[:aim].presence || 'use')
-      end
+      options = { agent_id: current_member.id }
+      options.merge! common_maintain_params
+      @cart = Trade::Cart.get_cart(params, good_type: params[:good_type], **options)
     end
 
     def set_cart_item

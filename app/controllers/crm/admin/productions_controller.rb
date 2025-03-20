@@ -15,19 +15,19 @@ module Crm
 
     private
     def set_cart
-      options = { agent_id: current_member.id }
-      options.merge! default_params
       if params[:client_member_id]
-        options.merge! member_id: @client.id
+        options = { member_id: @client.id }
       elsif params[:client_id]
-        options.merge! client_id: @client.id, contact_id: nil
+        options = { client_id: @client.id, contact_id: nil }
       elsif params[:contact_id]
-        options.merge! client_id: @client.client_id, contact_id: @client.id
+        options = { client_id: @client.client_id, contact_id: @client.id }
       elsif params[:maintain_id]
-        options.merge! client_id: @client.client_id, contact_id: @client.contact_id, agent_id: @client.member_id
+        options = { client_id: @client.client_id, contact_id: @client.contact_id, agent_id: @client.member_id }
+      else
+        options = {}
       end
-      @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Factory::Production', aim: 'use')
-      @cart.compute_amount! unless @cart.fresh
+
+      @cart = Trade::Cart.get_cart(params, agent_id: current_member.id, **options)
     end
 
     def _prefixes
