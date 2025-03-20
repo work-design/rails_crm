@@ -27,7 +27,7 @@ module Crm
         options = {}
       end
 
-      @cart = Trade::Cart.get_cart(params, agent_id: current_member.id, **options)
+      @cart = Trade::Cart.get_cart(params, agent_id: current_member.id, **default_params, **options)
     end
 
     def _prefixes

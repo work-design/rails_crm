@@ -10,7 +10,7 @@ module Crm
     def set_cart
       options = { agent_id: current_member.id }
       options.merge! common_maintain_params
-      @cart = Trade::Cart.get_cart(params, **options)
+      @cart = Trade::Cart.get_cart(params, **default_params, **options)
     end
 
     def set_cart_item
