@@ -15,7 +15,6 @@ module Crm
 
     private
     def set_cart
-      logger.debug '--------------------------in admin products'
       if params[:client_member_id]
         options = { member_id: @client.id }
       elsif params[:client_id]
