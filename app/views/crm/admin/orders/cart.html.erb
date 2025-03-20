@@ -1,0 +1,15 @@
+<%= render 'maintain_bar' %>
+
+<div class="breadcrumb">
+  <ul>
+    <li><%= link_to t('.productions.index.title'), { controller: 'productions' } %></li>
+    <li class="is-active"><%= t('.title') %></li>
+  </ul>
+</div>
+
+<%= form_with url: { action: 'cart_create' }, id: 'new_order' do |f| %>
+<% end %>
+
+<%= render layout: 'index_table_without_actions' do %>
+  <%= render partial: 'index_tbody', layout: 'index_tr_without_actions', collection: @cart.checked_all_items, as: :model %>
+<% end %>
