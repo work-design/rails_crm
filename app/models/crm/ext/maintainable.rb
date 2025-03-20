@@ -32,9 +32,7 @@ module Crm
 
     def sync_from_contact
       return unless contact
-      self.client_id = contact.client_id
-      self.user_id = contact.client_user_id
-      self.member_id = contact.client_member_id
+      self.assign_attributes contact.xx_options
     end
 
     def sync_from_client

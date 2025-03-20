@@ -122,6 +122,14 @@ module Crm
       client_user.wallets.where(organ_id: organ_id, contact_id: nil).update_all contact_id: id
     end
 
+    def xx_options
+      {
+        user_id: client_user_id,
+        member_id: client_member_id,
+        client_id: client_id
+      }
+    end
+
     def sync_user_later
       #ClientSyncUserJob.perform_later(self)
     end
