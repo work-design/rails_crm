@@ -1,4 +1,4 @@
-<%= f.text_field :name, autocomplete: 'off' %>
+<%= f.text_field :name, autofocus: true, autocomplete: 'off' %>
 <%= f.number_field :sequence %>
 <%= f.color_field :color %>
 <%= f.select :logged_type, options_for_select(Crm::MaintainTag.options_i18n(:logged_type), f.object.logged_type), include_blank: true %>
