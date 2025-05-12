@@ -1,12 +1,12 @@
-<div class="menu ex-accordion">
-  <div class="menu-label">
+<div class="menu-list">
+  <div class="menu-item">
     <div>
       <i class="fa-solid fa-fw fa-chart-line"></i>
       <span><%= t('crm.panel.title') %></span>
     </div>
   </div>
-  <div class="menu-list" data-empty-target="content">
-    <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['sources', 'qrcodes', 'texts'], active: 'is-active') %>
-    <%= link_to t('crm.panel.tags.index.title'), { controller: 'crm/panel/tags' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['tags'], active: 'is-active') %>
+  <div class="menu-list pl-3">
+    <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['sources', 'qrcodes', 'texts'], item: 'menu-item', active: 'menu-item is-active') %>
+    <%= link_to t('crm.panel.tags.index.title'), { controller: 'crm/panel/tags' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['tags'], item: 'menu-item', active: 'menu-item is-active') %>
   </div>
 </div>
