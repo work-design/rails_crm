@@ -1,5 +1,5 @@
 <% if role_permit?(business: 'crm', namespace: 'me') %>
-<div data-controller="menu" class="menu ex-accordion is-active">
+<div class="menu ex-accordion is-active">
   <%= link_to({ controller: 'crm/me/home' }, class: 'menu-label') do %>
     <div>
       <i class="fa-solid fa-fw fa-chart-line"></i>

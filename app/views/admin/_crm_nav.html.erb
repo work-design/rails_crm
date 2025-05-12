@@ -1,4 +1,4 @@
-<div data-controller="menu" class="<%= role_permit?(business: 'crm', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
+<div class="<%= role_permit?(business: 'crm', namespace: 'admin') ? 'menu ex-accordion is-active' : 'display-none' %>">
   <%= link_to({ controller: 'crm/admin/home' }, class: 'menu-label') do %>
     <div>
       <i class="fa-solid fa-fw fa-chart-line"></i>
