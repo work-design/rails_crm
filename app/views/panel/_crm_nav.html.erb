@@ -1,9 +1,7 @@
 <div class="menu-list">
-  <div class="menu-item">
-    <div>
-      <i class="fa-solid fa-fw fa-chart-line"></i>
-      <span><%= t('crm.panel.title') %></span>
-    </div>
+  <div class="px-3 py-2">
+    <i class="fa-solid fa-fw fa-chart-line"></i>
+    <strong><%= t('crm.panel.title') %></strong>
   </div>
   <div class="pl-4">
     <%= link_to t('crm.panel.sources.index.title'), { controller: 'crm/panel/sources' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['sources', 'qrcodes', 'texts'], item: 'menu-item', active: 'menu-item is-active') %>
