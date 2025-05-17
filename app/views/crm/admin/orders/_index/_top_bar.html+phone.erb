@@ -1,6 +1,12 @@
 <div class="box as-bar">
-  <%= link_to({ controller: 'contacts', action: 'show', id: @client.id }, class: 'px-4') do %>
-    <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+  <% if current_state %>
+    <%= link_to(current_state.referer, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
+  <% else %>
+    <%= link_to({ controller: 'contacts', action: 'show', id: @client.id }, class: 'px-4') do %>
+      <i class="fa-solid fa-lg fa-fw-1 fa-angle-left"></i>
+    <% end %>
   <% end %>
   <div class="weui-title">
     <span><%= @client.name %></span>
